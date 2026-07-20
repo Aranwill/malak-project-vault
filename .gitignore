@@ -51,3 +51,6 @@ venv/
 # Editor-specific files
 .vscode/
 .idea/
+
+# Obsidian local configuration
+.obsidian/
