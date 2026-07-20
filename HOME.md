@@ -61,7 +61,7 @@ Reglas que controlan el uso, actualización y autoridad documental del Vault.
 
 Contexto arquitectónico derivado y referencias hacia las fuentes oficiales correspondientes.
 
-* [[01-architecture|Arquitectura]]
+* [[01-architecture/ARCHITECTURE_INDEX|Arquitectura]]
 
 ### Baseline vigente
 

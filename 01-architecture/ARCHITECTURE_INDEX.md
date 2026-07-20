@@ -121,7 +121,13 @@ Antes de generar un mapa arquitectónico deberá verificarse:
 
 ## Mapas arquitectónicos derivados
 
-Actualmente no existen mapas arquitectónicos formales dentro del Vault.
+### Mapas disponibles
+
+- [[01-architecture/CURRENT_COMPONENTS_MAP|Mapa de componentes actuales]]
+
+### Mapas pendientes
+
+Los demás mapas arquitectónicos permanecen pendientes y deberán crearse únicamente ante una necesidad concreta.
 
 Los futuros mapas podrán incluir, cuando exista una necesidad concreta:
 

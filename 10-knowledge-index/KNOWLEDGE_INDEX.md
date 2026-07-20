@@ -143,7 +143,7 @@ No deben completarse directamente sobre el archivo original.
 
 Carpeta:
 
-[[01-architecture|Índice de arquitectura]]
+[[01-architecture/ARCHITECTURE_INDEX|Índice de arquitectura]]
 
 Estado:
 
