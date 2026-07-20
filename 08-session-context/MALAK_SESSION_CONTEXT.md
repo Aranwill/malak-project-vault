@@ -1,0 +1,560 @@
+---
+
+id: MALAK-SESSION-CONTEXT
+title: Malāk Session Context
+type: session-context
+status: active
+authority_level: technical_documentation
+authority_rank: 6
+version: 1.0
+created: 2026-07-20
+last_reviewed: 2026-07-20
+source_repository: Aranwill/jarvis
+source_branch: main
+derived: true
+operational_context: true
+retrieval_enabled: true
+retrieval_scope: active
+-----------------------
+
+# Malāk Session Context
+
+## 1. Instrucción de uso
+
+Este archivo es el punto de entrada para iniciar una sesión de trabajo sobre Malāk.
+
+Debe utilizarse para:
+
+* recuperar rápidamente el contexto vigente;
+* evitar depender de conversaciones anteriores;
+* distinguir baseline, roadmap y propuestas;
+* mantener alineación con la arquitectura y la gobernanza;
+* reducir contradicciones y reconstrucciones incorrectas.
+
+Este archivo no reemplaza las fuentes oficiales del repositorio.
+
+Ante cualquier contradicción, prevalecen:
+
+1. Constitución Cognitiva;
+2. Constitución de Gobernanza;
+3. Blueprint;
+4. especificaciones aprobadas;
+5. ADR aceptados;
+6. contratos públicos;
+7. baseline y documentación oficial vigente;
+8. evidencia directa del repositorio.
+
+---
+
+## 2. Identidad del proyecto
+
+**Nombre:** Malāk
+**Nombre histórico:** Jarvis
+**Repositorio:** `Aranwill/jarvis`
+**Ruta local:** `D:\Ollama\jarvis`
+**Rama oficial y permanente:** `main`
+**Versión nominal:** `v0.6.0-alpha`
+**Estado de desarrollo:** Foundation Implementation
+
+Malāk es una plataforma cognitiva personal ejecutada localmente, diseñada para ser:
+
+* modular;
+* gobernable;
+* extensible;
+* auditable;
+* agnóstica respecto de modelos y proveedores LLM;
+* controlada por el propietario;
+* evolucionada mediante sprints cortos y cambios reversibles.
+
+---
+
+## 3. Baseline operativo vigente
+
+**Último sprint cerrado:**
+
+```text
+Sprint 7.2 — Runtime Metric Sink Contract
+```
+
+**Sprints cerrados del bloque 7.x:**
+
+| Sprint | Resultado                                                  |
+| ------ | ---------------------------------------------------------- |
+| 7.0    | CLI mínima con `MockLLMRuntime`                            |
+| 7.1    | CLI con `OllamaRuntime` mediante configuración externa     |
+| 7.2    | Contrato estructural `RuntimeMetricSink` de solo escritura |
+
+**Suite validada al cierre del Sprint 7.2:**
+
+```text
+69 passed
+```
+
+**Último commit remoto verificado al crear este contexto:**
+
+```text
+fdb3ee922efc796e53ade1fc3abe4125f4072bd0
+```
+
+Descripción:
+
+```text
+Merge pull request #12 from Aranwill/docs/documentation-source-consolidation
+```
+
+Estos datos deben volver a verificarse si cambia `HEAD`.
+
+---
+
+## 4. Estado arquitectónico actual
+
+Malāk mantiene dos rutas todavía separadas.
+
+### 4.1 Pipeline Kernel–Planner–Capability
+
+Componentes principales:
+
+* Kernel MVP;
+* Planner MVP;
+* Capability Registry;
+* EchoCapability.
+
+### 4.2 Subsistema conversacional de CLI
+
+Composición actual:
+
+```text
+Variables de entorno
+        ↓
+CLIConfiguration
+        ↓
+build_runtime()
+        ↓
+LLMRuntime
+├── MockLLMRuntime
+└── OllamaRuntime
+        ↓
+MockConversationProvider
+        ↓
+ConversationProviderRegistry
+        ↓
+ConversationService
+        ↓
+run_cli()
+```
+
+No existe todavía una integración formal validada entre:
+
+```text
+Kernel.receive
+```
+
+y:
+
+```text
+ConversationService
+```
+
+La CLI técnica no representa todavía el pipeline cognitivo completo de Malāk.
+
+---
+
+## 5. Componentes implementados
+
+Estado conocido del baseline:
+
+* Kernel MVP;
+* Planner MVP;
+* Capability Registry;
+* EchoCapability;
+* `ConversationRequest`;
+* `ConversationResponse`;
+* `LLMRuntime`;
+* `MockLLMRuntime`;
+* `OllamaRuntime`;
+* `ConversationProvider`;
+* `MockConversationProvider`;
+* `ConversationProviderRegistry`;
+* `ConversationService`;
+* CLI técnica;
+* configuración externa del runtime;
+* `RuntimeMetricSample`;
+* `RuntimeMetricSink`;
+* `InMemoryRuntimeMetricStore`;
+* `JsonlRuntimeMetricStore`;
+* perfilado inicial de métricas;
+* AKS Engineering Knowledge Foundation;
+* Development Framework.
+
+La integración real con Ollama fue validada con:
+
+```text
+qwen3.5:9b
+```
+
+---
+
+## 6. Principios no negociables
+
+Toda propuesta debe respetar:
+
+* Kernel First;
+* Capability First;
+* Runtime Independence;
+* Human in Control;
+* Zero Trust interno;
+* Defense in Depth;
+* denegación por defecto para capacidades sensibles;
+* separación de responsabilidades;
+* configuración externa al Kernel;
+* trazabilidad;
+* reversibilidad;
+* cambios pequeños;
+* pruebas deterministas;
+* documentación sincronizada;
+* validación antes de incorporar al baseline.
+
+Principio de ejecución:
+
+> Primero se diseña la arquitectura correcta; después se implementa cada capacidad incrementalmente sin comprometer los principios del sistema.
+
+---
+
+## 7. Cuatro preguntas obligatorias
+
+Antes de aprobar cualquier cambio:
+
+1. ¿Respeta el Blueprint?
+2. ¿Respeta la Constitución Cognitiva?
+3. ¿Respeta la Gobernanza?
+4. ¿Simplifica o mantiene simple el Kernel?
+
+Si alguna respuesta es negativa o incierta, el cambio no debe implementarse sin revisión formal.
+
+---
+
+## 8. Restricciones activas
+
+### Kernel
+
+El Kernel no debe:
+
+* depender de Ollama;
+* depender de proveedores concretos;
+* depender de modelos concretos;
+* consumir Internet;
+* ejecutar herramientas externas;
+* almacenar métricas;
+* administrar configuración del runtime;
+* aplicar recomendaciones automáticamente;
+* absorber autorización;
+* absorber auditoría;
+* incorporar lógica de negocio;
+* convertirse en un contenedor de responsabilidades.
+
+### Capabilities
+
+No deben crearse Capabilities únicamente para:
+
+* demostrar routing;
+* aumentar cobertura;
+* ejercitar infraestructura;
+* completar una secuencia;
+* incorporar ejemplos sin utilidad funcional real.
+
+Toda Capability debe aportar una función necesaria, permanente y justificable.
+
+### Tooling
+
+Ruff no forma parte del baseline actual.
+
+Debe evaluarse dentro de una futura Development Tooling Foundation junto con:
+
+* mypy;
+* `pyproject.toml`;
+* dependencias de desarrollo;
+* integración local;
+* integración CI;
+* reglas reproducibles.
+
+No debe incorporarse de forma aislada o improvisada.
+
+### Seguridad
+
+Antes de agentes, navegación, herramientas externas, automatización, mensajería o memoria sensible deben aprobarse e implementarse los fundamentos de seguridad correspondientes.
+
+---
+
+## 9. Fuera de alcance actual
+
+Todavía no forman parte del baseline:
+
+* integración formal Kernel–ConversationService;
+* memoria conversacional;
+* historial persistente;
+* agentes;
+* herramientas externas;
+* navegación;
+* GraphRAG;
+* interfaz gráfica;
+* automatización del sistema operativo;
+* ejecución autónoma;
+* autoajuste;
+* modificación automática de modelo;
+* modificación automática de timeout;
+* modificación automática de `keep_alive`;
+* aplicación automática de recomendaciones;
+* Security Control Plane implementado;
+* Secure Context Manager implementado;
+* RAG externo;
+* auditor externo.
+
+---
+
+## 10. Estado del próximo sprint
+
+```text
+Próximo sprint: no aprobado.
+```
+
+El Sprint 7.3 histórico permanece como propuesta y requiere redefinición completa.
+
+No debe iniciarse un sprint por continuidad numérica.
+
+Antes de seleccionar el siguiente sprint se requiere:
+
+* relevamiento completo;
+* identificación de una necesidad real;
+* revisión de arquitectura;
+* revisión de código;
+* revisión de tests;
+* revisión documental;
+* definición de alcance;
+* definición de fuera de alcance;
+* riesgos;
+* rollback;
+* criterios de aceptación;
+* aprobación explícita del propietario.
+
+---
+
+## 11. Decisiones abiertas prioritarias
+
+### Alta prioridad
+
+* selección del próximo sprint;
+* momento de implementación del Security Control Plane;
+* modelo de versionado y respaldo del Project Vault.
+
+### Prioridad media
+
+* redefinición del Sprint 7.3;
+* separación o integración de logs, métricas y auditoría;
+* posible integración entre Kernel y ConversationService;
+* política de sincronización con Obsidian;
+* esquema de metadatos del Vault.
+
+### Diferidas
+
+* Session Context Generator;
+* tecnología del RAG externo;
+* alcance del auditor;
+* Ruff y mypy.
+
+Los detalles completos se encuentran en:
+
+```text
+05-decisions\PENDING_DECISIONS.md
+```
+
+---
+
+## 12. Project Context & Knowledge Governance Foundation
+
+**Estado conceptual:**
+
+```text
+aprobada
+```
+
+**Estado de ejecución:**
+
+```text
+iniciada
+```
+
+**Ubicación:**
+
+```text
+D:\Ollama\malak-project-vault
+```
+
+Secuencia aprobada:
+
+1. Project Context Foundation;
+2. Obsidian Knowledge Foundation;
+3. Session Context Generator;
+4. External Project RAG;
+5. Architecture & Security Auditor Foundation.
+
+El Vault:
+
+* permanece fuera del repositorio principal;
+* no forma parte del Kernel;
+* no forma parte del runtime;
+* no reemplaza Git;
+* no reemplaza documentos normativos;
+* no puede modificar Malāk automáticamente;
+* organiza información derivada y contexto operativo.
+
+---
+
+## 13. Estado actual del Vault
+
+Documentos creados:
+
+* `00-governance\VAULT_GOVERNANCE.md`;
+* `00-governance\DOCUMENT_AUTHORITY_MODEL.md`;
+* `00-governance\CONTENT_LIFECYCLE.md`;
+* `02-current-baseline\CURRENT_BASELINE.md`;
+* `03-roadmap\IMPLEMENTATION_ROADMAP.md`;
+* `05-decisions\PENDING_DECISIONS.md`;
+* `08-session-context\MALAK_SESSION_CONTEXT.md`.
+
+Pendiente:
+
+* completar plantillas;
+* completar README del Vault;
+* definir versionado;
+* inicializar Git;
+* configurar Obsidian;
+* definir metadatos mínimos;
+* crear proceso de actualización;
+* crear generador de contexto;
+* implementar RAG;
+* implementar auditor.
+
+---
+
+## 14. Iniciativas futuras aceptadas conceptualmente
+
+Sin sprint aprobado:
+
+* Security Control Plane Foundation;
+* Resource Governance Foundation;
+* Model Governance Foundation;
+* Controlled Engineering Improvement Loop Foundation;
+* Development Tooling Foundation;
+* Evidence Acquisition Foundation;
+* Secure Context Manager;
+* Architecture & Security Auditor Foundation;
+* AI Preservation System;
+* Model Archive;
+* Simulation & Sandbox;
+* SIAL;
+* Admin Identity & Access Control Layer.
+
+La aceptación conceptual no constituye autorización de implementación.
+
+---
+
+## 15. Verificación obligatoria antes de trabajar
+
+Ejecutar desde el repositorio local:
+
+```powershell
+cd D:\Ollama\jarvis
+
+git branch --show-current
+git status
+git fetch --prune
+git log -1 --oneline
+
+python -m pytest -q
+python -m compileall src tests
+git diff --check
+```
+
+Condiciones esperadas:
+
+* rama `main`;
+* working tree limpio;
+* remoto sincronizado;
+* suite en verde;
+* compilación sin errores;
+* diff sin errores.
+
+Registrar resultados en el contexto temporal de la sesión.
+
+No reemplazar evidencia directa por memoria.
+
+---
+
+## 16. Instrucciones para el asistente
+
+Al recibir este archivo, el asistente debe:
+
+* responder en español;
+* tratar `main` como única rama oficial;
+* reconocer Sprint 7.2 como último sprint cerrado;
+* utilizar 69 pruebas como último resultado documentado, no como resultado eterno;
+* diferenciar baseline, roadmap y propuestas;
+* no asumir que existe un próximo sprint aprobado;
+* no modificar el Kernel sin necesidad arquitectónica;
+* no incorporar Ruff improvisadamente;
+* no confundir el Vault con la fuente de verdad;
+* verificar el repositorio antes de afirmar datos variables;
+* señalar contradicciones;
+* evitar completar vacíos mediante suposiciones;
+* trabajar mediante pasos pequeños;
+* explicar cada paso antes de ejecutarlo;
+* solicitar aprobación antes de iniciar un nuevo sprint.
+
+---
+
+## 17. Objetivo de la sesión actual
+
+```text
+Continuar la construcción de Malāk Project Context & Knowledge Governance Foundation.
+```
+
+Alcance actual:
+
+* completar los documentos iniciales del Vault;
+* preparar la futura apertura en Obsidian;
+* no modificar el repositorio principal;
+* no implementar RAG todavía;
+* no seleccionar todavía el próximo sprint de Malāk.
+
+---
+
+## 18. Regla de cierre de sesión
+
+Al finalizar una sesión deberá registrarse:
+
+* fecha;
+* objetivo;
+* archivos creados;
+* archivos modificados;
+* decisiones tomadas;
+* decisiones pendientes;
+* estado del repositorio;
+* estado del Vault;
+* próximo paso recomendado;
+* riesgos o contradicciones detectadas.
+
+Luego deberá actualizarse este archivo si cambió algún dato operativo relevante.
+
+---
+
+## 19. Principios rectores
+
+> Este archivo permite continuar una sesión; no sustituye la verificación.
+
+> La memoria puede estar desactualizada. El repositorio conserva la evidencia.
+
+> El roadmap organiza posibilidades. La aprobación autoriza acciones.
+
+> Cuando exista incertidumbre, no asumir.
+
+> Malāk evoluciona mediante cambios pequeños, gobernados, trazables y reversibles.

@@ -1,0 +1,53 @@
+﻿# Obsidian local state
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/cache/
+.obsidian/plugins/
+.obsidian/themes/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temporary and backup files
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+
+# Secrets and local environment
+.env
+.env.*
+secrets/
+private/
+credentials/
+
+# RAG and generated artifacts
+.embeddings/
+.vectorstore/
+.chroma/
+.qdrant/
+cache/
+generated/
+artifacts/
+*.index
+*.bin
+
+# Python artifacts
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# Editor-specific files
+.vscode/
+.idea/
