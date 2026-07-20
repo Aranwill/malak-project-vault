@@ -45,7 +45,7 @@ La presencia de conceptos de seguridad en el roadmap, el Vault o documentos de d
 - [[02-current-baseline/CURRENT_BASELINE|Baseline vigente]]
 - [[03-roadmap/IMPLEMENTATION_ROADMAP|Roadmap]]
 - [[05-decisions/PENDING_DECISIONS|Decisiones pendientes]]
-- [[07-audits|Auditorías]]
+- [[07-audits/AUDIT_INDEX|Auditorías]]
 - [[10-knowledge-index/KNOWLEDGE_INDEX|Índice maestro]]
 
 ## Principios aplicables

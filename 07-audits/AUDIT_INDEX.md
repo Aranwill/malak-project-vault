@@ -43,7 +43,7 @@ La ausencia de una auditoría no debe interpretarse como ausencia de riesgos ni 
 ## Navegación relacionada
 
 - [[02-current-baseline/CURRENT_BASELINE|Baseline vigente]]
-- [[06-security|Seguridad]]
+- [[06-security/SECURITY_INDEX|Seguridad]]
 - [[05-decisions/PENDING_DECISIONS|Decisiones pendientes]]
 - [[09-repository-snapshots/2026-07-20_MAIN_FDB3EE9|Snapshot de referencia]]
 - [[10-knowledge-index/KNOWLEDGE_INDEX|Índice maestro]]
