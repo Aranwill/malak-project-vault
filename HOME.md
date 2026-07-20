@@ -81,7 +81,7 @@ Planificación consolidada y líneas futuras registradas.
 
 Registro documental de sprints propuestos, activos y cerrados.
 
-* [[04-sprints|Sprints]]
+* [[04-sprints/SPRINT_INDEX|Sprints]]
 
 ### Decisiones
 
@@ -93,13 +93,13 @@ Decisiones pendientes o sujetas a aprobación explícita.
 
 Contexto y documentación derivada relacionada con seguridad, autoridad y control.
 
-* [[06-security|Seguridad]]
+* [[06-security/SECURITY_INDEX|Seguridad]]
 
 ### Auditorías
 
 Hallazgos, revisiones y evaluaciones independientes.
 
-* [[07-audits|Auditorías]]
+* [[07-audits/AUDIT_INDEX|Auditorías]]
 
 ### Contexto de sesión
 
