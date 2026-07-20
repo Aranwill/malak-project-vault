@@ -25,6 +25,7 @@ tags:
 - [[00-governance/VAULT_GOVERNANCE|Gobernanza del Vault]]
 - [[00-governance/DOCUMENT_AUTHORITY_MODEL|Modelo de autoridad documental]]
 - [[00-governance/CONTENT_LIFECYCLE|Ciclo de vida del contenido]]
+- [[00-governance/METADATA_SCHEMA|Esquema de metadatos]]
 
 ## Principios permanentes
 
