@@ -377,11 +377,11 @@ Los detalles completos se encuentran en:
 aprobada
 ```
 
+```markdown
 **Estado de ejecución:**
 
 ```text
-iniciada
-```
+fundación documental inicial completada
 
 **Ubicación:**
 
@@ -397,6 +397,14 @@ Secuencia aprobada:
 4. External Project RAG;
 5. Architecture & Security Auditor Foundation.
 
+Estado actual de la secuencia:
+
+1. **Project Context Foundation:** completada en su alcance documental inicial;
+2. **Obsidian Knowledge Foundation:** navegación base, índices, metadatos y primer mapa arquitectónico completados;
+3. **Session Context Generator:** pendiente y no aprobado para implementación;
+4. **External Project RAG:** pendiente y no aprobado para implementación;
+5. **Architecture & Security Auditor Foundation:** pendiente y no aprobado para implementación.
+
 El Vault:
 
 * permanece fuera del repositorio principal;
@@ -411,28 +419,43 @@ El Vault:
 
 ## 13. Estado actual del Vault
 
-Documentos creados:
+**Repositorio local:** `D:\Ollama\malak-project-vault`
+**Repositorio remoto privado:** `Aranwill/malak-project-vault`
+**Rama:** `main`
 
-* `00-governance\VAULT_GOVERNANCE.md`;
-* `00-governance\DOCUMENT_AUTHORITY_MODEL.md`;
-* `00-governance\CONTENT_LIFECYCLE.md`;
-* `02-current-baseline\CURRENT_BASELINE.md`;
-* `03-roadmap\IMPLEMENTATION_ROADMAP.md`;
-* `05-decisions\PENDING_DECISIONS.md`;
-* `08-session-context\MALAK_SESSION_CONTEXT.md`.
+Estado verificado:
 
-Pendiente:
+- navegación principal consolidada mediante `HOME.md`;
+- índices creados para gobernanza, arquitectura, sprints, seguridad, auditorías, snapshots y plantillas;
+- `KNOWLEDGE_INDEX.md` actualizado con enlaces vigentes;
+- esquema de metadatos futuros definido en `00-governance/METADATA_SCHEMA.md`;
+- arquitectura reorganizada dentro de `01-architecture/`;
+- primer mapa arquitectónico creado en `01-architecture/CURRENT_COMPONENTS_MAP.md`;
+- diagrama Mermaid validado visualmente en Obsidian;
+- grafo documental operativo y sin nodos huérfanos evidentes;
+- Vault sincronizado con `origin/main`.
 
-* completar plantillas;
-* completar README del Vault;
-* definir versionado;
-* inicializar Git;
-* configurar Obsidian;
-* definir metadatos mínimos;
-* crear proceso de actualización;
-* crear generador de contexto;
-* implementar RAG;
-* implementar auditor.
+El repositorio oficial de Malāk no fue modificado durante esta fase.
+
+Se conserva como baseline oficial:
+
+- repositorio: `Aranwill/jarvis`;
+- rama: `main`;
+- commit: `fdb3ee922efc796e53ade1fc3abe4125f4072bd0`;
+- último sprint cerrado: Sprint 7.2 — Runtime Metric Sink Contract;
+- suite documentada: 69 pruebas aprobadas;
+- próximo sprint aprobado: ninguno.
+
+Continúan pendientes y sin aprobación automática:
+
+- Session Context Generator;
+- RAG externo;
+- auditor arquitectónico;
+- auditor de seguridad;
+- sincronización automática;
+- integración operativa entre el Vault y Malāk.
+
+El Vault permanece como una capa documental externa, derivada y sin autoridad operativa.
 
 ---
 
@@ -512,19 +535,59 @@ Al recibir este archivo, el asistente debe:
 
 ---
 
-## 17. Objetivo de la sesión actual
+## 17. Resultado de la sesión actual
 
-```text
-Continuar la construcción de Malāk Project Context & Knowledge Governance Foundation.
-```
+**Fecha:** `2026-07-20`
 
-Alcance actual:
+Objetivo completado:
 
-* completar los documentos iniciales del Vault;
-* preparar la futura apertura en Obsidian;
-* no modificar el repositorio principal;
-* no implementar RAG todavía;
-* no seleccionar todavía el próximo sprint de Malāk.
+> Consolidar la navegación y la fundación documental inicial del Malāk Project Vault mediante Obsidian.
+
+Trabajo realizado:
+
+- creación y validación de `HOME.md`;
+- creación de índices de gobernanza, arquitectura, sprints, seguridad, auditorías, snapshots y plantillas;
+- actualización controlada de `KNOWLEDGE_INDEX.md`;
+- creación de `00-governance/METADATA_SCHEMA.md`;
+- reorganización de Arquitectura dentro de `01-architecture/`;
+- creación de `01-architecture/CURRENT_COMPONENTS_MAP.md`;
+- validación del flujo Kernel–Planner–Capability contra el repositorio oficial;
+- incorporación y validación visual del diagrama Mermaid;
+- comprobación del grafo documental y de los enlaces internos;
+- commits pequeños y sincronización del Vault con `origin/main`.
+
+Decisiones preservadas:
+
+- el repositorio oficial continúa siendo la fuente de verdad;
+- el Vault permanece como capa derivada y no operativa;
+- Obsidian es únicamente una interfaz;
+- ningún artefacto del Vault puede modificar Malāk automáticamente;
+- no se aprobó un próximo sprint;
+- no se aprobó RAG, automatización documental ni auditores externos.
+
+El repositorio oficial de Malāk no fue modificado durante esta sesión.
+
+Baseline conservado:
+
+- repositorio: `Aranwill/jarvis`;
+- rama: `main`;
+- commit: `fdb3ee922efc796e53ade1fc3abe4125f4072bd0`;
+- último sprint cerrado: Sprint 7.2 — Runtime Metric Sink Contract;
+- pruebas documentadas: 69 aprobadas.
+
+Punto de continuidad:
+
+La próxima sesión debe comenzar desde el Vault ya consolidado, sin reconstruir su estructura.
+
+Posibles trabajos futuros, todavía no aprobados:
+
+- mapa del subsistema conversacional;
+- mapa de métricas y telemetría;
+- mapa de contratos actuales;
+- mapa de límites del Kernel;
+- mejora visual controlada de `HOME.md`.
+
+No debe iniciarse ninguno automáticamente.
 
 ---
 
