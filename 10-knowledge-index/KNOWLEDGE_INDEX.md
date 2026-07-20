@@ -143,11 +143,11 @@ No deben completarse directamente sobre el archivo original.
 
 Carpeta:
 
-`01-architecture`
+[[01-architecture|Índice de arquitectura]]
 
 Estado:
 
-`Pendiente de creación de mapas derivados basados en documentación oficial.`
+`Índice de navegación creado. Los mapas arquitectónicos derivados continúan pendientes.`
 
 Contenido futuro previsto:
 
@@ -177,11 +177,11 @@ No deben crearse diagramas o mapas sin una necesidad concreta.
 
 Carpeta:
 
-`04-sprints`
+[[04-sprints/SPRINT_INDEX|Índice de sprints]]
 
 Estado:
 
-`Pendiente de creación de registros derivados.`
+`Índice de navegación creado. La reconstrucción retrospectiva de registros continúa pendiente.`
 
 Podrá contener:
 
@@ -214,11 +214,11 @@ Sprints cerrados conocidos:
 
 Carpeta:
 
-`06-security`
+[[06-security/SECURITY_INDEX|Índice de seguridad]]
 
 Estado:
 
-`Pendiente de estructuración.`
+`Índice de navegación creado. El contenido especializado de seguridad continúa pendiente.`
 
 Contenido futuro previsto:
 
@@ -250,11 +250,11 @@ La existencia de esta carpeta no implica que el Security Control Plane esté imp
 
 Carpeta:
 
-`07-audits`
+[[07-audits/AUDIT_INDEX|Índice de auditorías]]
 
 Estado:
 
-`Pendiente de implementación.`
+`Índice de navegación creado. No existen auditorías formales registradas.`
 
 Contenido futuro previsto:
 
