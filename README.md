@@ -818,3 +818,13 @@ Todo asistente que utilice este Vault deberá:
 > Ninguna de estas capas obtiene autoridad para modificar Malāk automáticamente.
 
 > La evidencia puede originar una propuesta; solamente la gobernanza puede convertirla en una modificación.
+
+## Navegación principal
+
+- [[00-governance/VAULT_GOVERNANCE|Gobernanza del Vault]]
+- [[00-governance/DOCUMENT_AUTHORITY_MODEL|Modelo de autoridad documental]]
+- [[00-governance/CONTENT_LIFECYCLE|Ciclo de vida del contenido]]
+- [[02-current-baseline/CURRENT_BASELINE|Baseline actual]]
+- [[03-roadmap/IMPLEMENTATION_ROADMAP|Roadmap de implementación]]
+- [[05-decisions/PENDING_DECISIONS|Decisiones pendientes]]
+- [[08-session-context/MALAK_SESSION_CONTEXT|Contexto de sesión]]
