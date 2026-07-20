@@ -52,6 +52,7 @@ Abrir el estado completo:
 
 Reglas que controlan el uso, actualización y autoridad documental del Vault.
 
+* [[00-governance/GOVERNANCE_INDEX|Índice de gobernanza]]
 * [[00-governance/VAULT_GOVERNANCE|Gobernanza del Vault]]
 * [[00-governance/DOCUMENT_AUTHORITY_MODEL|Modelo de autoridad documental]]
 * [[00-governance/CONTENT_LIFECYCLE|Ciclo de vida del contenido]]
@@ -111,6 +112,7 @@ Punto de continuidad compacto para nuevas sesiones de trabajo.
 
 Capturas históricas, inmutables y derivadas del repositorio oficial.
 
+* [[09-repository-snapshots/SNAPSHOT_INDEX|Índice de snapshots]]
 * [[09-repository-snapshots/2026-07-20_MAIN_FDB3EE9|Snapshot 2026-07-20 — main — fdb3ee9]]
 
 ### Índice maestro
@@ -125,6 +127,7 @@ Estructuras controladas para documentar sesiones y cierres de sprint.
 
 * [[templates/SESSION_CLOSE_TEMPLATE|Plantilla de cierre de sesión]]
 * [[templates/SPRINT_CLOSE_TEMPLATE|Plantilla de cierre de sprint]]
+* [[templates/TEMPLATE_INDEX|Índice de plantillas]]
 
 ---
 
