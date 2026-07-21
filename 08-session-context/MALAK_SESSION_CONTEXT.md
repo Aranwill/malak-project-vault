@@ -426,7 +426,7 @@ El Vault:
 ## 13. Estado actual del Vault
 
 **Repositorio local:** `D:\Ollama\malak-project-vault`
-**Repositorio remoto privado:** `Aranwill/malak-project-vault`
+**Repositorio remoto publico:** `Aranwill/malak-project-vault`
 **Rama:** `main`
 
 Estado verificado:
