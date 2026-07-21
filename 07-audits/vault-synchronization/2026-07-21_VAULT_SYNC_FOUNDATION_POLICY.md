@@ -107,8 +107,8 @@ ba9579e docs(language): normalize Spanish terminology in vault sync documents
   operation: created
   lines: 1-208
   creation_commit: 5950a35
-  language_normalization_commit: 22d6f6f
-  sha256: 6580ad716b83a73d9c56c5d957bf23888e7133ea3e4164c0e72aae54dcf96161
+  language_normalization_commit: f4bc913
+  sha256: 9078ac7dbae7776597058e09120f271d61e21ff1fc6eadeed438f6097092423f
 
 - file: 01-architecture/VAULT_SYNCHRONIZATION_AGENT_FOUNDATION.md
   operation: created
