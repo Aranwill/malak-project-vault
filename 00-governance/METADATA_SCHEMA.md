@@ -12,7 +12,7 @@ authority: derived
 operational_authority: none
 version: 1.0
 created: 2026-07-20
-last_reviewed: 2026-07-20
+last_reviewed: 2026-07-21
 source_repository: Aranwill/jarvis
 source_branch: main
 tags:
@@ -319,6 +319,10 @@ tags:
   - navigation
 ---
 ```
+
+El ejemplo siguiente representa deliberadamente un snapshot histórico concreto.
+
+Sus fechas y su `source_commit` no deben actualizarse para reflejar el baseline vigente, porque hacerlo alteraría la evidencia histórica representada.
 
 ### Snapshot histórico
 
