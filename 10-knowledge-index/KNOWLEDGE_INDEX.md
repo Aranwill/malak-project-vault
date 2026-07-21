@@ -1,4 +1,4 @@
----
+﻿---
 id: MALAK-KNOWLEDGE-INDEX
 title: Malāk Knowledge Index
 type: knowledge-index
@@ -452,6 +452,7 @@ python -m compileall src tests
 git diff --check
 
 ---
+```
 
 ## 18. Regla de actualización
 
@@ -489,7 +490,7 @@ Incluye:
 - plantillas;
 - README;
 - Git local;
-- respaldo remoto privado;
+- respaldo remoto público;
 - integración mínima con Obsidian;
 - índice maestro;
 - primer snapshot formal.
@@ -526,3 +527,37 @@ Todavía no incluye:
 > Un snapshot conserva el pasado; el repositorio determina el presente.
 
 > El Vault conserva contexto. El repositorio conserva el estado oficial.
+
+---
+
+## 21. Vault Synchronization Agent Foundation
+
+Documentación propuesta para mantener actualizado el Vault utilizado por Obsidian mediante cambios verificados del repositorio oficial.
+
+### Gobernanza
+
+- [[00-governance/VAULT_SYNC_AGENT_POLICY|Política obligatoria del Vault Synchronization Agent]]
+
+### Arquitectura
+
+- [[01-architecture/VAULT_SYNCHRONIZATION_AGENT_FOUNDATION|Vault Synchronization Agent Foundation]]
+
+### Seguridad
+
+- [[06-security/VAULT_SYNCHRONIZATION_THREAT_MODEL|Modelo de amenazas del Vault Synchronization Agent]]
+
+### Auditoría
+
+- [[07-audits/vault-synchronization/2026-07-21_VAULT_SYNC_FOUNDATION_POLICY|Informe de incorporación documental]]
+
+### Plantilla
+
+- [[templates/VAULT_SYNC_EXECUTION_REPORT_TEMPLATE|Plantilla de informe de ejecución]]
+
+Estado general:
+
+```text
+Arquitectura: under_review
+Implementación: no aprobada
+Autoridad operativa: ninguna
+Merge: exclusivamente humano
