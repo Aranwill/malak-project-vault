@@ -78,3 +78,9 @@ Los futuros documentos de esta sección deberán identificarse como uno de los s
 ## Restricción permanente
 
 El Vault no debe almacenar secretos operativos, credenciales, tokens, claves privadas ni datos sensibles necesarios para ejecutar Malāk.
+
+## Modelos de amenazas bajo revisión
+
+- [[06-security/VAULT_SYNCHRONIZATION_THREAT_MODEL|Modelo de amenazas del Vault Synchronization Agent]]
+
+Este documento define riesgos y controles propuestos. No constituye un control de seguridad implementado.

@@ -57,3 +57,10 @@ Antes de crear o modificar un documento del Vault:
 - [[05-decisions/PENDING_DECISIONS|Decisiones pendientes]]
 - [[08-session-context/MALAK_SESSION_CONTEXT|Contexto de sesión]]
 - [[10-knowledge-index/KNOWLEDGE_INDEX|Índice maestro]]
+## Propuestas de sincronización documental
+
+- [[00-governance/VAULT_SYNC_AGENT_POLICY|Política obligatoria del Vault Synchronization Agent]]
+
+Estado: `under_review`.
+
+Esta política no autoriza implementación ni concede autoridad operativa al agente.

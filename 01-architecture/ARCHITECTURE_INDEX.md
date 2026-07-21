@@ -182,3 +182,8 @@ Cualquier mapa adicional requiere:
 - aprobación antes de su incorporación.
 
 No existe actualmente un nuevo mapa arquitectónico aprobado.
+## Propuestas arquitectónicas bajo revisión
+
+- [[01-architecture/VAULT_SYNCHRONIZATION_AGENT_FOUNDATION|Vault Synchronization Agent Foundation]]
+
+La propuesta permanece externa al Kernel y al runtime de Malāk. Su implementación no está aprobada.

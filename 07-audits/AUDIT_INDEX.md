@@ -86,3 +86,11 @@ Toda auditoría deberá incluir:
 - Registrar las correcciones mediante documentos o revisiones nuevas.
 - Las recomendaciones requieren aprobación antes de convertirse en trabajo.
 - Los hallazgos no autorizan cambios automáticos.
+
+## Informes de Vault Synchronization
+
+- [[07-audits/vault-synchronization/2026-07-21_VAULT_SYNC_FOUNDATION_POLICY|Incorporación documental de Vault Synchronization Agent Foundation]]
+
+Estado del informe: `proposed`.
+
+El informe registra evidencia, límites, validaciones, riesgos y revisión humana pendiente.
