@@ -358,7 +358,8 @@ Antes de seleccionar el siguiente sprint se requiere:
 
 * alcance y separación entre logs, métricas y auditoría;
 * política de sincronización con Obsidian;
-* esquema de metadatos del Vault.
+* esquema de metadatos del Vault;
+* revisión de `DEC-PEND-013` sobre la aprobación e implementación del Vault Synchronization Agent.
 
 ### Diferidas
 
@@ -383,11 +384,11 @@ Los detalles completos se encuentran en:
 aprobada
 ```
 
-```markdown
 **Estado de ejecución:**
 
 ```text
 fundación documental inicial completada
+```
 
 **Ubicación:**
 
@@ -411,6 +412,46 @@ Estado actual de la secuencia:
 4. **External Project RAG:** pendiente y no aprobado para implementación;
 5. **Architecture & Security Auditor Foundation:** pendiente y no aprobado para implementación.
 
+### Vault Synchronization Agent Foundation
+
+Estado vigente:
+
+```text
+Incorporación documental: completada mediante PR #2
+Arquitectura: under_review
+Política: under_review
+Implementación aprobada: false
+Agente operativo: no implementado
+Autoridad operativa: none
+```
+
+La fundación fue integrada documentalmente en `Aranwill/malak-project-vault/main` mediante:
+
+```text
+PR #2
+Merge commit: bcefa948b250830139233376088d1e65bd159143
+```
+
+La integración no constituye aceptación arquitectónica ni autorización de implementación.
+
+La iniciativa:
+
+* permanece fuera del Kernel y del runtime;
+* no forma parte del roadmap operativo de `Aranwill/jarvis`;
+* mantiene `Aranwill/jarvis/main` en modo de solo lectura;
+* no puede escribir directamente en `main` del Vault;
+* requiere una rama documental y una PR draft para todo cambio futuro;
+* exige informe de auditoría con trazabilidad;
+* mantiene snapshots históricos inmutables;
+* no puede aprobar, habilitar auto-merge ni mergear PR;
+* reserva la integración final al propietario humano.
+
+La decisión abierta correspondiente se registra en:
+
+```text
+DEC-PEND-013 — Aprobación e implementación del Vault Synchronization Agent
+```
+
 El Vault:
 
 * permanece fuera del repositorio principal;
@@ -425,42 +466,66 @@ El Vault:
 
 ## 13. Estado actual del Vault
 
-**Repositorio local:** `D:\Ollama\malak-project-vault`
-**Repositorio remoto publico:** `Aranwill/malak-project-vault`
-**Rama:** `main`
+**Repositorio local:** `D:\Ollama\malak-project-vault`  
+**Repositorio remoto público:** `Aranwill/malak-project-vault`  
+**Rama oficial:** `main`
 
-Estado verificado:
+Estado verificado de la incorporación cerrada:
 
-- navegación principal consolidada mediante `HOME.md`;
-- índices creados para gobernanza, arquitectura, sprints, seguridad, auditorías, snapshots y plantillas;
-- `KNOWLEDGE_INDEX.md` actualizado con enlaces vigentes;
-- esquema de metadatos futuros definido en `00-governance/METADATA_SCHEMA.md`;
-- arquitectura reorganizada dentro de `01-architecture/`;
-- primer mapa arquitectónico creado en `01-architecture/CURRENT_COMPONENTS_MAP.md`;
-- diagrama Mermaid validado visualmente en Obsidian;
-- grafo documental operativo y sin nodos huérfanos evidentes;
-- Vault sincronizado con `origin/main`.
+* PR #2 mergeada;
+* merge commit `bcefa948b250830139233376088d1e65bd159143`;
+* rama `docs/vault-sync-foundation-policy` eliminada local y remotamente;
+* working tree limpio al finalizar la integración;
+* `main` local alineada con `origin/main`;
+* 5 archivos nuevos;
+* 5 índices modificados;
+* 13 commits;
+* 10 archivos afectados.
 
-El repositorio oficial de Malāk no fue modificado durante esta fase.
+Estado documental del Vault:
 
-Se conserva como baseline oficial:
+* navegación principal consolidada mediante `HOME.md`;
+* índices creados para gobernanza, arquitectura, sprints, seguridad, auditorías, snapshots y plantillas;
+* `KNOWLEDGE_INDEX.md` actualizado con enlaces vigentes;
+* esquema de metadatos futuros definido en `00-governance/METADATA_SCHEMA.md`;
+* arquitectura reorganizada dentro de `01-architecture/`;
+* primer mapa arquitectónico creado en `01-architecture/CURRENT_COMPONENTS_MAP.md`;
+* diagrama Mermaid validado visualmente en Obsidian;
+* grafo documental operativo y sin nodos huérfanos evidentes;
+* Vault Synchronization Agent Foundation integrada documentalmente.
 
-- repositorio: `Aranwill/jarvis`;
-- rama: `main`;
-- commit: `fd4da3d371d07b6aa91cc9f1c4d4bac3838ad627`;
-- último sprint cerrado: Sprint 7.3 — Conversation Provider Boundary Stabilization;
-- pull request integrado: PR #13;
-- suite documentada: 74 pruebas aprobadas;
-- próximo sprint aprobado: ninguno.
+Estado posterior de la iniciativa:
+
+```text
+Arquitectura: under_review
+Implementación aprobada: false
+Autoridad operativa: none
+Agente operativo: no implementado
+Kernel afectado: no
+Runtime afectado: no
+```
+
+El repositorio oficial de Malāk no fue modificado durante esta línea de trabajo.
+
+Se conserva como baseline oficial documentado:
+
+* repositorio: `Aranwill/jarvis`;
+* rama: `main`;
+* commit: `fd4da3d371d07b6aa91cc9f1c4d4bac3838ad627`;
+* último sprint cerrado: Sprint 7.3 — Conversation Provider Boundary Stabilization;
+* pull request integrado: PR #13;
+* suite documentada: 74 pruebas aprobadas;
+* próximo sprint aprobado: ninguno.
 
 Continúan pendientes y sin aprobación automática:
 
-- Session Context Generator;
-- RAG externo;
-- auditor arquitectónico;
-- auditor de seguridad;
-- sincronización automática;
-- integración operativa entre el Vault y Malāk.
+* implementación del Vault Synchronization Agent;
+* Session Context Generator;
+* RAG externo;
+* auditor arquitectónico;
+* auditor de seguridad;
+* sincronización automática;
+* integración operativa entre el Vault y Malāk.
 
 El Vault permanece como una capa documental externa, derivada y sin autoridad operativa.
 
@@ -478,6 +543,7 @@ Sin sprint aprobado:
 * Evidence Acquisition Foundation;
 * Secure Context Manager;
 * Architecture & Security Auditor Foundation;
+* Vault Synchronization Agent Foundation, bajo revisión y sin implementación aprobada;
 * AI Preservation System;
 * Model Archive;
 * Simulation & Sandbox;
@@ -544,58 +610,77 @@ Al recibir este archivo, el asistente debe:
 
 ## 17. Resultado de la sesión actual
 
-**Fecha:** `2026-07-20`
+**Fecha:** `2026-07-21`
 
-Objetivo completado:
+Objetivo en curso:
 
-> Consolidar la navegación y la fundación documental inicial del Malāk Project Vault mediante Obsidian.
+> Actualizar de forma gobernada los documentos operativos del Malāk Project Vault después de la integración documental de Vault Synchronization Agent Foundation.
 
-Trabajo realizado:
+Trabajo completado en esta línea:
 
-- creación y validación de `HOME.md`;
-- creación de índices de gobernanza, arquitectura, sprints, seguridad, auditorías, snapshots y plantillas;
-- actualización controlada de `KNOWLEDGE_INDEX.md`;
-- creación de `00-governance/METADATA_SCHEMA.md`;
-- reorganización de Arquitectura dentro de `01-architecture/`;
-- creación de `01-architecture/CURRENT_COMPONENTS_MAP.md`;
-- validación del flujo Kernel–Planner–Capability contra el repositorio oficial;
-- incorporación y validación visual del diagrama Mermaid;
-- comprobación del grafo documental y de los enlaces internos;
-- commits pequeños y sincronización del Vault con `origin/main`.
+* verificación de la PR #2 y de su merge commit;
+* creación del informe posterior al merge:
+  `07-audits/vault-synchronization/2026-07-21_VAULT_SYNC_FOUNDATION_MERGE_CLOSURE.md`;
+* actualización de `07-audits/AUDIT_INDEX.md`;
+* incorporación de `DEC-PEND-013` en `05-decisions/PENDING_DECISIONS.md`;
+* incorporación del estado de la fundación en `03-roadmap/IMPLEMENTATION_ROADMAP.md`;
+* trabajo mediante rama documental separada:
+  `docs/vault-sync-foundation-closure`;
+* commits pequeños y trazables;
+* preservación del working tree limpio después de cada commit.
+
+Commits creados hasta esta actualización:
+
+```text
+758217c docs(audit): record vault sync foundation merge closure
+9425143 docs(audit): index vault sync merge closure
+df40ca2 docs(decisions): track vault sync agent approval
+66adbdb docs(roadmap): register vault sync foundation status
+```
 
 Decisiones preservadas:
 
-- el repositorio oficial continúa siendo la fuente de verdad;
-- el Vault permanece como capa derivada y no operativa;
-- Obsidian es únicamente una interfaz;
-- ningún artefacto del Vault puede modificar Malāk automáticamente;
-- no se aprobó un próximo sprint;
-- no se aprobó RAG, automatización documental ni auditores externos.
+* el repositorio oficial continúa siendo la fuente de verdad;
+* el Vault permanece como capa derivada y no operativa;
+* Obsidian es únicamente una interfaz;
+* la integración documental no equivale a aceptación arquitectónica;
+* la implementación del agente permanece no aprobada;
+* el agente no posee autoridad operativa;
+* `Aranwill/jarvis` permanece en modo de solo lectura;
+* ningún snapshot histórico fue modificado;
+* no se creó un snapshot nuevo porque el baseline oficial no cambió;
+* no se aprobó un próximo sprint;
+* todo merge futuro continúa reservado al propietario humano.
 
-El repositorio oficial de Malāk fue actualizado mediante el Sprint 7.3 y el PR #13 antes de esta sincronización gobernada del Vault.
+Baseline oficial conservado:
 
-Baseline conservado:
+* repositorio: `Aranwill/jarvis`;
+* rama: `main`;
+* commit documentado: `fd4da3d371d07b6aa91cc9f1c4d4bac3838ad627`;
+* último sprint cerrado: Sprint 7.3 — Conversation Provider Boundary Stabilization;
+* pull request integrado: PR #13;
+* pruebas documentadas: 74 aprobadas.
 
-- repositorio: `Aranwill/jarvis`;
-- rama: `main`;
-- commit: `fd4da3d371d07b6aa91cc9f1c4d4bac3838ad627`;
-- último sprint cerrado: Sprint 7.3 — Conversation Provider Boundary Stabilization;
-- pull request integrado: PR #13;
-- pruebas documentadas: 74 aprobadas.
+Estado de la fundación:
+
+```text
+Incorporación documental: completada
+Arquitectura: under_review
+Implementación aprobada: false
+Autoridad operativa: none
+Agente operativo: no implementado
+```
 
 Punto de continuidad:
 
-La próxima sesión debe comenzar desde el Vault ya consolidado, sin reconstruir su estructura.
+1. completar la actualización de este contexto de sesión;
+2. actualizar `10-knowledge-index/KNOWLEDGE_INDEX.md` para enlazar el informe posterior al merge;
+3. validar el diff completo de la rama;
+4. publicar la rama;
+5. abrir una PR draft;
+6. esperar revisión y merge humano.
 
-Posibles trabajos futuros, todavía no aprobados:
-
-- mapa del subsistema conversacional;
-- mapa de métricas y telemetría;
-- mapa de contratos actuales;
-- mapa de límites del Kernel;
-- mejora visual controlada de `HOME.md`.
-
-No debe iniciarse ninguno automáticamente.
+No debe iniciarse ninguna implementación del agente durante esta línea de trabajo.
 
 ---
 

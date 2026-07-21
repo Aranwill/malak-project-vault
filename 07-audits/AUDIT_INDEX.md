@@ -90,7 +90,13 @@ Toda auditoría deberá incluir:
 ## Informes de Vault Synchronization
 
 - [[07-audits/vault-synchronization/2026-07-21_VAULT_SYNC_FOUNDATION_POLICY|Incorporación documental de Vault Synchronization Agent Foundation]]
+- [[07-audits/vault-synchronization/2026-07-21_VAULT_SYNC_FOUNDATION_MERGE_CLOSURE|Cierre de integración de Vault Synchronization Agent Foundation]]
 
-Estado del informe: `proposed`.
+### Estado de los informes
 
-El informe registra evidencia, límites, validaciones, riesgos y revisión humana pendiente.
+- incorporación documental inicial: `proposed`;
+- cierre posterior al merge humano: `completed`.
+
+El primer informe conserva la evidencia previa al merge y la revisión humana pendiente de ese momento.
+
+El segundo informe registra la integración efectiva mediante la PR #2, sin aprobar la implementación del agente ni concederle autoridad operativa.

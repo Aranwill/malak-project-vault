@@ -120,7 +120,8 @@ Categorías actuales:
 
 - alcance y separación entre logs, métricas y auditoría;
 - política de sincronización con Obsidian;
-- esquema de metadatos del Vault.
+- esquema de metadatos del Vault;
+- aprobación e implementación del Vault Synchronization Agent (`DEC-PEND-013`).
 
 ### Decisiones cerradas recientes
 
@@ -281,7 +282,16 @@ Carpeta:
 
 Estado:
 
-`Índice de navegación creado. No existen auditorías formales registradas.`
+`Índice de navegación activo con informes formales de Vault Synchronization registrados.`
+
+Informes vigentes:
+
+- [[07-audits/vault-synchronization/2026-07-21_VAULT_SYNC_FOUNDATION_POLICY|Informe de incorporación documental de Vault Synchronization Agent Foundation]];
+- [[07-audits/vault-synchronization/2026-07-21_VAULT_SYNC_FOUNDATION_MERGE_CLOSURE|Informe de cierre posterior al merge humano]].
+
+El primer informe conserva el estado previo al merge.
+
+El segundo informe registra la integración efectiva mediante la PR #2, sin aprobar la implementación del agente ni concederle autoridad operativa.
 
 Contenido futuro previsto:
 
@@ -532,7 +542,14 @@ Todavía no incluye:
 
 ## 21. Vault Synchronization Agent Foundation
 
-Documentación propuesta para mantener actualizado el Vault utilizado por Obsidian mediante cambios verificados del repositorio oficial.
+Documentación integrada para definir una posible capacidad externa de actualización del Vault mediante cambios verificados del repositorio oficial.
+
+La incorporación documental fue completada en `Aranwill/malak-project-vault/main` mediante:
+
+```text
+PR #2
+Merge commit: bcefa948b250830139233376088d1e65bd159143
+```
 
 ### Gobernanza
 
@@ -549,15 +566,32 @@ Documentación propuesta para mantener actualizado el Vault utilizado por Obsidi
 ### Auditoría
 
 - [[07-audits/vault-synchronization/2026-07-21_VAULT_SYNC_FOUNDATION_POLICY|Informe de incorporación documental]]
+- [[07-audits/vault-synchronization/2026-07-21_VAULT_SYNC_FOUNDATION_MERGE_CLOSURE|Informe de cierre posterior al merge humano]]
 
 ### Plantilla
 
 - [[templates/VAULT_SYNC_EXECUTION_REPORT_TEMPLATE|Plantilla de informe de ejecución]]
 
+### Decisión pendiente
+
+- [[05-decisions/PENDING_DECISIONS#DEC-PEND-013 — Aprobación e implementación del Vault Synchronization Agent|DEC-PEND-013 — Aprobación e implementación del Vault Synchronization Agent]]
+
 Estado general:
 
 ```text
+Incorporación documental: completada
 Arquitectura: under_review
-Implementación: no aprobada
-Autoridad operativa: ninguna
-Merge: exclusivamente humano
+Política: under_review
+Implementación aprobada: false
+Agente operativo: no implementado
+Autoridad operativa: none
+Kernel afectado: no
+Runtime afectado: no
+Merge futuro: exclusivamente humano
+```
+
+La integración documental no constituye aceptación arquitectónica ni autorización de implementación.
+
+`Aranwill/jarvis/main` permanece en modo de solo lectura para cualquier agente futuro.
+
+Los snapshots históricos permanecen inmutables.

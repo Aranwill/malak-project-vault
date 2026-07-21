@@ -840,6 +840,147 @@ No incorporar tooling para resolver un problema no demostrado.
 
 ---
 
+## DEC-PEND-013 — Aprobación e implementación del Vault Synchronization Agent
+
+**Estado:**
+
+```text
+under_review
+```
+
+**Prioridad:**
+
+```text
+media para continuidad documental; alta antes de cualquier automatización
+```
+
+**Contexto:**
+
+La fundación documental `Vault Synchronization Agent Foundation` fue integrada en la rama `main` de `Aranwill/malak-project-vault` mediante la PR #2 y el merge commit:
+
+```text
+bcefa948b250830139233376088d1e65bd159143
+```
+
+La integración incorporó:
+
+* una política de gobernanza;
+* una propuesta arquitectónica;
+* un modelo de amenazas;
+* una plantilla de informe de ejecución;
+* un informe de auditoría;
+* navegación mediante los índices correspondientes.
+
+La incorporación documental está cerrada, pero la arquitectura permanece `under_review`.
+
+Estado actual:
+
+```text
+Documentación integrada: sí
+Arquitectura aceptada: no
+Implementación aprobada: false
+Agente operativo: no implementado
+Autoridad operativa: none
+Kernel afectado: no
+Runtime afectado: no
+```
+
+**Decisión requerida:**
+
+Determinar si la propuesta debe:
+
+1. aceptarse como arquitectura futura;
+2. modificarse antes de ser aceptada;
+3. diferirse;
+4. rechazarse.
+
+Solo después de una aceptación arquitectónica podrá evaluarse si corresponde aprobar una primera fase de implementación externa.
+
+**Alternativas:**
+
+1. aceptar únicamente la arquitectura y mantener la implementación diferida;
+2. modificar políticas, límites o componentes conceptuales;
+3. aprobar posteriormente una fase mínima de detección de drift en modo de solo lectura;
+4. diferir toda implementación hasta estabilizar el Session Context Generator;
+5. rechazar la iniciativa y conservar sincronización exclusivamente manual.
+
+**Criterios obligatorios:**
+
+* preservar `Aranwill/jarvis` como fuente de verdad;
+* mantener `Aranwill/jarvis/main` en modo de solo lectura;
+* mantener el Vault fuera del Kernel y del runtime;
+* impedir escrituras directas sobre `main`;
+* utilizar una rama documental nueva por ejecución;
+* presentar cambios mediante PR draft;
+* mantener snapshots históricos inmutables;
+* aplicar denegación por defecto;
+* utilizar validaciones deterministas;
+* impedir que el LLM tome decisiones de autoridad;
+* generar informe de auditoría obligatorio;
+* reservar aprobación y merge al propietario humano;
+* preservar trazabilidad y rollback;
+* mantener cambios pequeños y reversibles.
+
+**Preguntas abiertas:**
+
+* ¿Cuál sería la primera fase mínima justificable?
+* ¿Debe comenzar exclusivamente como detector de drift de solo lectura?
+* ¿Qué rutas podrán incorporarse a una allowlist?
+* ¿Qué rutas deben permanecer en denylist absoluta?
+* ¿Qué credenciales y permisos técnicos mínimos utilizará?
+* ¿Cómo se validará TOCTOU?
+* ¿Qué presupuesto máximo de archivos y líneas podrá modificar?
+* ¿Cómo se detectarán secretos?
+* ¿Cómo se validarán enlaces, metadatos y referencias Git?
+* ¿Qué relación tendrá con el futuro Session Context Generator?
+* ¿Qué eventos podrán disparar una ejecución?
+* ¿Qué información podrá redactar un LLM sin autoridad decisoria?
+* ¿Qué pruebas deberán completarse antes de abrir una PR draft?
+* ¿Cómo se deshabilitará y revertirá una implementación defectuosa?
+
+**Dependencias:**
+
+* `00-governance/VAULT_SYNC_AGENT_POLICY.md`;
+* `01-architecture/VAULT_SYNCHRONIZATION_AGENT_FOUNDATION.md`;
+* `06-security/VAULT_SYNCHRONIZATION_THREAT_MODEL.md`;
+* `templates/VAULT_SYNC_EXECUTION_REPORT_TEMPLATE.md`;
+* resolución del modelo de permisos técnicos;
+* definición de allowlist y denylist;
+* definición de credenciales;
+* definición de controles TOCTOU;
+* revisión de las cuatro preguntas obligatorias;
+* aprobación humana explícita.
+
+**Riesgos:**
+
+* confundir documentación integrada con arquitectura aceptada;
+* interpretar permiso técnico como autoridad documental;
+* permitir modificaciones del repositorio oficial;
+* permitir escritura directa sobre `main`;
+* alterar snapshots históricos;
+* cerrar decisiones automáticamente;
+* producir cambios documentales masivos;
+* exponer secretos o credenciales;
+* utilizar un LLM para decisiones de seguridad o gobernanza;
+* iniciar implementación sin una necesidad y alcance concretos.
+
+**Próxima acción permitida:**
+
+Revisar la arquitectura, política, modelo de amenazas y límites de la iniciativa; presentar observaciones y alternativas al propietario.
+
+**Acción no permitida:**
+
+* implementar el agente;
+* crear un sprint de implementación;
+* ejecutar sincronizaciones automáticas;
+* otorgar permisos de escritura;
+* modificar `Aranwill/jarvis`;
+* abrir PR automáticas;
+* aprobar o mergear PR;
+* cambiar el estado de esta decisión sin aprobación humana.
+
+---
+
 # Decisiones resueltas recientes
 
 ## DEC-RES-001 — Rama permanente del repositorio
