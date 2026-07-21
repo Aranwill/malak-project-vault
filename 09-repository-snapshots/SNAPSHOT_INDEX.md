@@ -5,7 +5,7 @@ document_type: navigation
 status: active
 authority: derived
 operational_authority: none
-last_reviewed: 2026-07-20
+last_reviewed: 2026-07-21
 tags:
   - malak
   - vault
@@ -21,7 +21,7 @@ tags:
 >
 > Son derivados, inmutables y no constituyen una fuente operativa alternativa.
 
-## Snapshot disponible
+## Snapshot disponibles
 
 ### 2026-07-20 — `main` — `fdb3ee9`
 
@@ -31,6 +31,18 @@ tags:
 - **HEAD:** `fdb3ee922efc796e53ade1fc3abe4125f4072bd0`
 - **Versión nominal:** `v0.6.0-alpha`
 - **Último sprint cerrado:** Sprint 7.2 — Runtime Metric Sink Contract
+
+### 2026-07-21 — `main` — `fd4da3d`
+
+- [[09-repository-snapshots/2026-07-21_MAIN_FD4DA3D|Abrir snapshot]]
+- **Repositorio:** `Aranwill/jarvis`
+- **Rama:** `main`
+- **HEAD:** `fd4da3d371d07b6aa91cc9f1c4d4bac3838ad627`
+- **Versión nominal:** `v0.6.0-alpha`
+- **Último sprint cerrado:** Sprint 7.3 — Conversation Provider Boundary Stabilization
+- **Pull request integrado:** PR #13
+- **Suite validada:** 74 pruebas aprobadas
+- **Próximo sprint aprobado:** ninguno
 
 ## Reglas de creación
 
