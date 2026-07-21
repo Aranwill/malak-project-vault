@@ -27,7 +27,7 @@ tags:
 
 # Vault Synchronization Agent Foundation
 
-## 1. Proposito
+## 1. Propósito
 
 Definir una fundacion externa para mantener actualizado el Vault usado por Obsidian con los cambios verificados de `Aranwill/jarvis/main`.
 
@@ -37,9 +37,9 @@ La iniciativa reduce drift documental, referencias de baseline desfasadas, contr
 
 ```text
 Naturaleza: tooling documental externo
-Ubicacion: fuera del runtime de Malak
+Ubicacion: fuera del runtime de Malāk
 Estado: under_review
-Implementacion: no aprobada
+Implementación: no aprobada
 Autoridad operativa: ninguna
 ```
 
@@ -54,10 +54,10 @@ detectar
 → validar
 → proponer
 → preparar cambios
-→ generar informe de auditoria
+→ generar informe de auditoría
 → validar nuevamente
 → abrir PR draft
-→ revision y merge humano
+→ revisión y merge humano
 ```
 
 ## 4. Componentes conceptuales
@@ -76,13 +76,13 @@ detectar
 
 ## 5. Limites
 
-El repositorio oficial sera siempre de solo lectura.
+El repositorio oficial será siempre de solo lectura.
 
-El Vault solo podra modificarse en una rama nueva y mediante rutas autorizadas. El agente no podra aprobar ni mergear la PR resultante.
+El Vault solo podrá modificarse en una rama nueva y mediante rutas autorizadas. El agente no podrá aprobar ni mergear la PR resultante.
 
 Los snapshots existentes seran inmutables. Las contradicciones criticas y los tipos desconocidos se bloquearan por defecto.
 
-## 6. Clasificacion minima
+## 6. Clasificación minima
 
 ```text
 CURRENT_STATE
@@ -97,21 +97,21 @@ SECURITY_CONTRADICTION
 UNKNOWN
 ```
 
-`UNKNOWN` implica denegacion por defecto.
+`UNKNOWN` implica denegación por defecto.
 
-## 7. Politica aplicable
+## 7. Política aplicable
 
-La iniciativa debera cumplir obligatoriamente:
+La iniciativa deberá cumplir obligatoriamente:
 
-- [[00-governance/VAULT_SYNC_AGENT_POLICY|Politica obligatoria del Vault Synchronization Agent]].
+- [[00-governance/VAULT_SYNC_AGENT_POLICY|Política obligatoria del Vault Synchronization Agent]].
 
-## 8. Relacion con Session Context Generator
+## 8. Relación con Session Context Generator
 
 Vault Synchronization Foundation obtiene y valida evidencia, detecta drift y prepara cambios.
 
-Session Context Generator solo podra generar una propuesta de contexto de sesion a partir de evidencia ya validada. No decidira el baseline ni modificara otros documentos.
+Session Context Generator solo podrá generar una propuesta de contexto de sesion a partir de evidencia ya validada. No decidira el baseline ni modificara otros documentos.
 
-Esta relacion permanece `under_review`.
+Esta relación permanece `under_review`.
 
 ## 9. Fases
 
@@ -128,10 +128,10 @@ Las fases no estan aprobadas automaticamente.
 ## 10. Criterios de aceptacion
 
 - arquitectura externa al runtime;
-- Malak en modo de solo lectura;
+- Malāk en modo de solo lectura;
 - Vault sin autoridad operativa;
 - politicas deterministas;
-- denegacion por defecto;
+- denegación por defecto;
 - snapshots inmutables;
 - informe obligatorio;
 - LLM sin autoridad;

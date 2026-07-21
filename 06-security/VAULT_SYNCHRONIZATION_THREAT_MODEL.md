@@ -27,7 +27,7 @@ tags:
 - exactitud del baseline;
 - credenciales GitHub;
 - historial Git;
-- separacion entre propuesta y decision;
+- separacion entre propuesta y decisión;
 - separacion entre Vault y runtime;
 - contenido publico sin secretos.
 
@@ -37,13 +37,13 @@ tags:
 
 Riesgo: interpretar permiso tecnico como autoridad decisoria.
 
-Control: politicas deterministas, PR draft, merge humano y prohibicion de cambiar estados de decision.
+Control: politicas deterministas, PR draft, merge humano y prohibicion de cambiar estados de decisión.
 
 ### Prompt injection documental
 
 Riesgo: instrucciones hostiles dentro de documentos, issues o PR.
 
-Control: tratar contenido como datos, no instrucciones; separar LLM de autorizacion; allowlist de operaciones.
+Control: tratar contenido como datos, no instrucciones; separar LLM de autorización; allowlist de operaciones.
 
 ### Repositorio o rama incorrectos
 
@@ -61,7 +61,7 @@ Control: snapshots existentes en denylist absoluta de actualizacion.
 
 ### Escalada mediante token
 
-Control: solo lectura en Malak; permisos minimos en Vault; sin auto-merge ni administracion.
+Control: solo lectura en Malāk; permisos minimos en Vault; sin auto-merge ni administracion.
 
 ### Falsa evidencia de pruebas
 
@@ -69,7 +69,7 @@ Control: distinguir pruebas ejecutadas por el agente de pruebas documentadas por
 
 ### Reescritura masiva
 
-Control: presupuesto maximo de archivos y lineas; bloqueo de normalizaciones masivas no aprobadas.
+Control: presupuesto maximo de archivos y líneas; bloqueo de normalizaciones masivas no aprobadas.
 
 ### Exposicion de secretos
 
@@ -81,13 +81,13 @@ Control: versionar politicas, registrar su version en cada informe y denegar tip
 
 ## Reglas de bloqueo
 
-La ejecucion debera bloquearse ante:
+La ejecución deberá bloquearse ante:
 
 - intento de escritura en `Aranwill/jarvis`;
 - intento de escritura directa en `main`;
 - intento de modificar un snapshot existente;
 - contradiccion critica sin resolver;
 - tipo documental desconocido;
-- fallo de validacion de secretos;
-- cambio de `HEAD` durante la ejecucion;
-- imposibilidad de generar el informe de auditoria.
+- fallo de validación de secretos;
+- cambio de `HEAD` durante la ejecución;
+- imposibilidad de generar el informe de auditoría.

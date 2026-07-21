@@ -23,60 +23,60 @@ result: proposed
 risk_level: low
 ---
 
-# Informe de incorporacion documental
+# Informe de incorporación documental
 
 ## Resumen ejecutivo
 
-Se preparo una fundacion documental para definir el proposito, permisos, limites, auditoria obligatoria y modelo de amenazas del futuro Vault Synchronization Agent.
+Se preparo una fundacion documental para definir el propósito, permisos, limites, auditoría obligatoria y modelo de amenazas del futuro Vault Synchronization Agent.
 
-No se modifico `Aranwill/jarvis`. No se creo snapshot porque el baseline oficial no cambio. La integracion en `main` queda pendiente de revision y merge humano.
+No se modifico `Aranwill/jarvis`. No se creo snapshot porque el baseline oficial no cambio. La integracion en `main` queda pendiente de revisión y merge humano.
 
 ## Archivos creados
 
-- `00-governance/VAULT_SYNC_AGENT_POLICY.md` — politica obligatoria.
+- `00-governance/VAULT_SYNC_AGENT_POLICY.md` — política obligatoria.
 - `01-architecture/VAULT_SYNCHRONIZATION_AGENT_FOUNDATION.md` — arquitectura propuesta.
 - `06-security/VAULT_SYNCHRONIZATION_THREAT_MODEL.md` — modelo de amenazas.
 - `templates/VAULT_SYNC_EXECUTION_REPORT_TEMPLATE.md` — plantilla de informe.
 - `07-audits/vault-synchronization/2026-07-21_VAULT_SYNC_FOUNDATION_POLICY.md` — este informe.
 
-Los rangos de lineas y hashes definitivos deberan calcularse despues de incorporar los archivos en la rama local y antes de abrir la PR.
+Los rangos de líneas y hashes definitivos deberan calcularse después de incorporar los archivos en la rama local y antes de abrir la PR.
 
 ## Archivos deliberadamente no modificados
 
 - todos los snapshots existentes;
 - `Aranwill/jarvis` completo;
 - `CURRENT_BASELINE.md`;
-- documentos normativos oficiales de Malak.
+- documentos normativos oficiales de Malāk.
 
 ## Cambios bloqueados
 
 - escritura directa mediante la integracion de GitHub: bloqueada por permisos `403`;
 - merge automatico: prohibido por `POL-014`;
-- cambios en Malak: prohibidos por `POL-001`.
+- cambios en Malāk: prohibidos por `POL-001`.
 
 ## Validaciones
 
 - repositorio oficial sin cambios: PASS;
 - snapshot nuevo necesario: NOT_APPLICABLE;
 - snapshots historicos modificados: PASS, ninguno;
-- revision humana requerida: PASS;
+- revisión humana requerida: PASS;
 - merge permitido al agente: BLOCKED;
 
 ## Riesgos
 
 - indices aun no actualizados;
-- lineas y hashes pendientes de calculo local;
-- politica todavia `under_review`;
-- implementacion del agente no aprobada.
+- líneas y hashes pendientes de calculo local;
+- política todavia `under_review`;
+- implementación del agente no aprobada.
 
 ## Rollback
 
-Cerrar la PR, eliminar la rama `docs/vault-sync-foundation-policy` y descartar los archivos creados. No afecta Malak ni snapshots.
+Cerrar la PR, eliminar la rama `docs/vault-sync-foundation-policy` y descartar los archivos creados. No afecta Malāk ni snapshots.
 
-## Revision humana
+## Revisión humana
 
 - [ ] Revise los cinco archivos creados.
-- [ ] Complete lineas y hashes del informe.
+- [ ] Complete líneas y hashes del informe.
 - [ ] Confirme que ningun snapshot fue modificado.
-- [ ] Confirme que Malak no fue modificado.
+- [ ] Confirme que Malāk no fue modificado.
 - [ ] Decida personalmente el merge.

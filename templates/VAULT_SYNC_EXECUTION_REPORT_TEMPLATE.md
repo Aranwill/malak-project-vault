@@ -70,7 +70,7 @@ Estados: `PASS`, `FAIL`, `BLOCKED`, `NOT_APPLICABLE`.
 
 ## 10. Rollback
 
-## 11. Revision humana
+## 11. Revisión humana
 
 - [ ] Verifique el HEAD oficial.
 - [ ] Revise todos los archivos modificados.
@@ -78,5 +78,5 @@ Estados: `PASS`, `FAIL`, `BLOCKED`, `NOT_APPLICABLE`.
 - [ ] Confirme que ningun snapshot historico fue modificado.
 - [ ] Revise contradicciones y bloqueos.
 - [ ] Revise el informe de secretos.
-- [ ] Confirme que Malak no fue modificado.
+- [ ] Confirme que Malāk no fue modificado.
 - [ ] Apruebo personalmente el merge.
