@@ -1,10 +1,3 @@
-teca
-/
-Malāk — Engineering & Project Vault
-/
-PENDING_DECISIONS_MODIFICADO.md
-
-
 ---
 
 id: MALAK-PENDING-DECISIONS
