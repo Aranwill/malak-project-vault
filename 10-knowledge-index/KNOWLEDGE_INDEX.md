@@ -7,7 +7,7 @@ authority_level: technical_documentation
 authority_rank: 6
 version: 1.0
 created: 2026-07-20
-last_reviewed: 2026-07-20
+last_reviewed: 2026-07-21
 source_of_truth: project-vault
 derived: true
 operational_context: true
@@ -72,16 +72,18 @@ Estas fuentes determinan:
 
 - [[02-current-baseline/CURRENT_BASELINE|Malāk Current Baseline]]
 
-Estado documentado al crear este índice:
+Estado documentado al revisar este índice:
 
 ```text
 Repositorio: Aranwill/jarvis
 Rama permanente: main
 Versión nominal: v0.6.0-alpha
-Último sprint cerrado: Sprint 7.2 — Runtime Metric Sink Contract
-Suite documentada: 69 passed
-
----
+Último sprint cerrado: Sprint 7.3 — Conversation Provider Boundary Stabilization
+Pull request integrado: PR #13
+Baseline resultante: fd4da3d371d07b6aa91cc9f1c4d4bac3838ad627
+Suite documentada: 74 passed
+Próximo sprint aprobado: ninguno
+```
 
 ## 5. Roadmap
 
@@ -93,15 +95,18 @@ Regla:
 
 Actualmente:
 
-- los Sprints 7.0, 7.1 y 7.2 están cerrados;
+- los Sprints 7.0, 7.1, 7.2 y 7.3 están cerrados;
 - no existe un próximo sprint aprobado;
 - las iniciativas futuras requieren revisión y aprobación explícita;
-- el cierre de un sprint no autoriza automáticamente el siguiente.
+- el cierre de un sprint no autoriza automáticamente el siguiente;
+- Sprint 7.3 no aprobó una integración entre `Kernel.receive` y `ConversationService`.
 
 ---
 ## 6. Registro de decisiones
 
 - [[05-decisions/PENDING_DECISIONS|Malāk Pending Decisions]]
+
+Categorías actuales:
 
 Categorías actuales:
 
@@ -113,11 +118,14 @@ Categorías actuales:
 
 ### Prioridad media
 
+- alcance y separación entre logs, métricas y auditoría;
+- política de sincronización con Obsidian;
+- esquema de metadatos del Vault.
+
+### Decisiones cerradas recientes
+
 - redefinición del Sprint 7.3;
-- relación entre logs, métricas y auditoría;
-- integración Kernel–ConversationService;
-- política de Obsidian;
-- esquema de metadatos.
+- relación entre Kernel y `ConversationService`.
 
 ### Diferidas
 
@@ -147,7 +155,17 @@ Carpeta:
 
 Estado:
 
-`Índice de navegación creado. Los mapas arquitectónicos derivados continúan pendientes.`
+Estado:
+
+Índice de navegación creado.
+
+Existe un mapa derivado vigente:
+
+- [[01-architecture/CURRENT_COMPONENTS_MAP|Mapa de componentes actuales]]
+
+El mapa representa el flujo Kernel–Planner–Capability.
+
+El subsistema conversacional se mantiene separado y no existe integración formal entre `Kernel.receive` y `ConversationService`.
 
 Contenido futuro previsto:
 
@@ -181,7 +199,15 @@ Carpeta:
 
 Estado:
 
-`Índice de navegación creado. La reconstrucción retrospectiva de registros continúa pendiente.`
+Estado:
+
+Índice de navegación creado.
+
+El cierre del Sprint 7.3 se encuentra registrado en:
+
+- [[04-sprints/SPRINT-7.3-CLOSURE|Cierre del Sprint 7.3]]
+
+La reconstrucción retrospectiva de sprints anteriores continúa pendiente y requiere una tarea documental separada.
 
 Podrá contener:
 
@@ -203,10 +229,11 @@ No reemplazará:
 Sprints cerrados conocidos:
 
 | Sprint | Resultado |
-|---|---|
+| ------ | --------- |
 | 7.0 | CLI mínima con `MockLLMRuntime` |
 | 7.1 | Composición de CLI con `OllamaRuntime` |
 | 7.2 | Contrato estructural `RuntimeMetricSink` |
+| 7.3 | Conversation Provider Boundary Stabilization |
 
 ---
 
@@ -285,7 +312,12 @@ Carpeta:
 
 ### Snapshots disponibles
 
+- [[09-repository-snapshots/SNAPSHOT_INDEX|Índice de snapshots]]
 - [[09-repository-snapshots/2026-07-20_MAIN_FDB3EE9|Snapshot de main — 2026-07-20 — fdb3ee9]]
+
+El snapshot correspondiente al baseline del Sprint 7.3 debe registrarse como un artefacto nuevo e inmutable.
+
+No debe modificarse el snapshot de `fdb3ee9` para representar el estado posterior.
 
 Estado registrado en el snapshot:
 
@@ -356,6 +388,7 @@ Futuro RAG externo
 Futuro auditor externo
 
 ---
+```
 
 ## 15. Índices futuros
 
