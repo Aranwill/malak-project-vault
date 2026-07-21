@@ -1,4 +1,4 @@
----
+﻿---
 document_id: VAULT-SYNC-AGENT-POLICY-001
 title: Política obligatoria del Vault Synchronization Agent
 document_type: governance-policy
@@ -132,7 +132,7 @@ Los documentos evaluados y preservados deberán quedar registrados. Los snapshot
 
 ## 10. Cambios bloqueados
 
-Toda operación denegada deberá registrar archivo, cambió solicitado, resultado, razón, política aplicada y necesidad de revisión humana.
+Toda operación denegada deberá registrar archivo, cambio solicitado, resultado, razón, política aplicada y necesidad de revisión humana.
 
 ## 11. Contradicciones
 
@@ -159,7 +159,7 @@ Estados permitidos: `PASS`, `FAIL`, `BLOCKED`, `NOT_APPLICABLE`.
 
 ## 13. Uso del LLM
 
-El LLM podrá asistir en redacción, resumen, explicación de riesgos, detección auxiliar de ambigüedades y preparacion del cuerpo de la PR.
+El LLM podrá asistir en redacción, resumen, explicación de riesgos, detección auxiliar de ambigüedades y preparación del cuerpo de la PR.
 
 No podrá decidir autoridad, autorizar operaciones, aprobar archivos, convertir propuestas en decisiones, resolver contradicciones críticas, seleccionar permisos, determinar un merge ni modificar políticas.
 
@@ -175,8 +175,8 @@ Toda salida asistida por LLM quedará pendiente de revisión humana.
 - `POL-006` — Un snapshot nuevo solo podrá proponerse ante un nuevo baseline oficial.
 - `POL-007` — Una propuesta no podrá convertirse automáticamente en decisión.
 - `POL-008` — Una decisión no podrá cerrarse sin evidencia formal y aprobación humana.
-- `POL-009` — Las contradicciones críticas bloquearan la operación afectada.
-- `POL-010` — Los tipos documentales desconocidos se denegaran por defecto.
+- `POL-009` — Las contradicciones críticas bloquearán la operación afectada.
+- `POL-010` — Los tipos documentales desconocidos se denegarán por defecto.
 - `POL-011` — El LLM no tendrá autoridad de seguridad, gobernanza ni merge.
 - `POL-012` — Toda ejecución deberá registrar evidencia, riesgos y rollback.
 - `POL-013` — Toda ejecución con cambios deberá generar y validar un informe de auditoría en la misma rama y PR.
