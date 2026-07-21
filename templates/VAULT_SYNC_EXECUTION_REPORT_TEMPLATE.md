@@ -75,7 +75,7 @@ Estados: `PASS`, `FAIL`, `BLOCKED`, `NOT_APPLICABLE`.
 - [ ] Verifique el HEAD oficial.
 - [ ] Revise todos los archivos modificados.
 - [ ] Revise todos los archivos creados.
-- [ ] Confirme que ningun snapshot historico fue modificado.
+- [ ] Confirme que ningún snapshot historico fue modificado.
 - [ ] Revise contradicciones y bloqueos.
 - [ ] Revise el informe de secretos.
 - [ ] Confirme que Malāk no fue modificado.

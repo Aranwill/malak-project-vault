@@ -29,7 +29,7 @@ tags:
 
 ## 1. Propósito
 
-Definir una fundacion externa para mantener actualizado el Vault usado por Obsidian con los cambios verificados de `Aranwill/jarvis/main`.
+Definir una fundación externa para mantener actualizado el Vault usado por Obsidian con los cambios verificados de `Aranwill/jarvis/main`.
 
 La iniciativa reduce drift documental, referencias de baseline desfasadas, contradicciones y trabajo manual, sin otorgar autoridad operativa al Vault.
 
@@ -37,7 +37,7 @@ La iniciativa reduce drift documental, referencias de baseline desfasadas, contr
 
 ```text
 Naturaleza: tooling documental externo
-Ubicacion: fuera del runtime de Malāk
+Ubicación: fuera del runtime de Malāk
 Estado: under_review
 Implementación: no aprobada
 Autoridad operativa: ninguna
@@ -74,13 +74,13 @@ detectar
 - Draft PR Preparer.
 - Human Review.
 
-## 5. Limites
+## 5. Límites
 
 El repositorio oficial será siempre de solo lectura.
 
 El Vault solo podrá modificarse en una rama nueva y mediante rutas autorizadas. El agente no podrá aprobar ni mergear la PR resultante.
 
-Los snapshots existentes seran inmutables. Las contradicciones criticas y los tipos desconocidos se bloquearan por defecto.
+Los snapshots existentes seran inmutables. Las contradicciones críticas y los tipos desconocidos se bloquearan por defecto.
 
 ## 6. Clasificación minima
 
@@ -123,14 +123,14 @@ Esta relación permanece `under_review`.
 6. Event-driven Detection.
 7. LLM-assisted Documentation.
 
-Las fases no estan aprobadas automaticamente.
+Las fases no estan aprobadas automáticamente.
 
 ## 10. Criterios de aceptacion
 
 - arquitectura externa al runtime;
 - Malāk en modo de solo lectura;
 - Vault sin autoridad operativa;
-- politicas deterministas;
+- políticas deterministas;
 - denegación por defecto;
 - snapshots inmutables;
 - informe obligatorio;

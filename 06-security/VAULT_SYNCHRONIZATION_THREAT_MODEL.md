@@ -23,7 +23,7 @@ tags:
 
 - autoridad documental;
 - integridad del Vault;
-- snapshots historicos;
+- snapshots históricos;
 - exactitud del baseline;
 - credenciales GitHub;
 - historial Git;
@@ -37,7 +37,7 @@ tags:
 
 Riesgo: interpretar permiso tecnico como autoridad decisoria.
 
-Control: politicas deterministas, PR draft, merge humano y prohibicion de cambiar estados de decisión.
+Control: políticas deterministas, PR draft, merge humano y prohibicion de cambiar estados de decisión.
 
 ### Prompt injection documental
 
@@ -51,7 +51,7 @@ Control: validar repositorio, rama y `HEAD` esperado antes de leer, escribir y a
 
 ### TOCTOU
 
-Riesgo: cambio de `HEAD` entre comparacion y escritura.
+Riesgo: cambió de `HEAD` entre comparacion y escritura.
 
 Control: registrar SHAs y abortar si cambian.
 
@@ -75,9 +75,9 @@ Control: presupuesto maximo de archivos y líneas; bloqueo de normalizaciones ma
 
 Control: escaneo de secretos y bloqueo de tokens, credenciales, claves y datos sensibles.
 
-### Deriva de politicas
+### Deriva de políticas
 
-Control: versionar politicas, registrar su version en cada informe y denegar tipos desconocidos.
+Control: versionar políticas, registrar su versión en cada informe y denegar tipos desconocidos.
 
 ## Reglas de bloqueo
 
@@ -86,8 +86,8 @@ La ejecución deberá bloquearse ante:
 - intento de escritura en `Aranwill/jarvis`;
 - intento de escritura directa en `main`;
 - intento de modificar un snapshot existente;
-- contradiccion critica sin resolver;
+- contradicción crítica sin resolver;
 - tipo documental desconocido;
 - fallo de validación de secretos;
-- cambio de `HEAD` durante la ejecución;
+- cambió de `HEAD` durante la ejecución;
 - imposibilidad de generar el informe de auditoría.

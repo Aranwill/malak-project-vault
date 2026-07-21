@@ -1,6 +1,6 @@
 ---
 document_id: VAULT-SYNC-AGENT-POLICY-001
-title: Politica obligatoria del Vault Synchronization Agent
+title: Política obligatoria del Vault Synchronization Agent
 document_type: governance-policy
 status: under_review
 authority: proposal
@@ -28,7 +28,7 @@ tags:
 
 > [!warning] Estado
 > Esta política se encuentra `under_review`.
-> No autoriza implementación, ejecución automatica ni escritura sobre `main`.
+> No autoriza implementación, ejecución automática ni escritura sobre `main`.
 
 ## 1. Propósito principal
 
@@ -38,28 +38,28 @@ El agente no otorgará autoridad operativa al Vault y no convertirá informació
 
 ## 2. Fuente de verdad
 
-La fuente operativa y documental principal continua siendo:
+La fuente operativa y documental principal continúa siendo:
 
 ```text
 Aranwill/jarvis
 rama main
 ```
 
-El Vault permanece como capa documental externa, representacion derivada e interfaz de navegacion para Obsidian.
+El Vault permanece como capa documental externa, representación derivada e interfaz de navegación para Obsidian.
 
 ## 3. Permisos sobre Malāk
 
 Sobre `Aranwill/jarvis`, el agente tendrá exclusivamente permisos de lectura.
 
-Podra verificar `HEAD`, leer commits y PR integradas, inspeccionar documentación, código, pruebas y configuración, recuperar evidencia de cierre de sprint y comparar estados entre commits.
+Podrá verificar `HEAD`, leer commits y PR integradas, inspeccionar documentación, código, pruebas y configuración, recuperar evidencia de cierre de sprint y comparar estados entre commits.
 
 No podrá crear ramas, modificar archivos, crear commits, abrir o aprobar PR, mergear, eliminar ramas, ejecutar cambios ni alterar configuración del repositorio.
 
 ## 4. Permisos sobre el Vault
 
-Sobre `Aranwill/malak-project-vault`, y solo cuando exista implementación aprobada, podrá leer `main`, crear una rama documental desde un `HEAD` verificado, modificar rutas incluidas en una allowlist aprobada, crear archivos nuevos cuando corresponda, generar commits pequenos y trazables, abrir una PR draft y generar un informe de auditoría.
+Sobre `Aranwill/malak-project-vault`, y solo cuando exista implementación aprobada, podrá leer `main`, crear una rama documental desde un `HEAD` verificado, modificar rutas incluidas en una allowlist aprobada, crear archivos nuevos cuando corresponda, generar commits pequeños y trazables, abrir una PR draft y generar un informe de auditoría.
 
-No podrá escribir directamente en `main`, aprobar PR, habilitar auto-merge, mergear, eliminar ramas protegidas, modificar snapshots existentes, cerrar decisiones sin aprobacion humana, convertir propuestas en decisiones, elevar permisos ni modificar sus propias politicas.
+No podrá escribir directamente en `main`, aprobar PR, habilitar auto-merge, mergear, eliminar ramas protegidas, modificar snapshots existentes, cerrar decisiones sin aprobación humana, convertir propuestas en decisiones, elevar permisos ni modificar sus propias políticas.
 
 ## 5. Exclusividad humana del merge
 
@@ -71,7 +71,7 @@ El agente no podrá aprobar, mergear ni habilitar auto-merge antes, durante o de
 
 Toda ejecución que cree o modifique archivos del Vault deberá generar un informe dentro de la misma rama y PR.
 
-Ubicacion:
+Ubicación:
 
 ```text
 07-audits/vault-synchronization/
@@ -85,13 +85,13 @@ YYYY-MM-DD_VAULT_SYNC_<RUN_ID>.md
 
 Si el informe no puede generarse o validarse, la PR no deberá abrirse.
 
-## 7. Contenido minimo del informe
+## 7. Contenido mínimo del informe
 
 El informe deberá incluir:
 
 - identificador estable de ejecución;
 - fecha y hora;
-- version del agente y de la política;
+- versión del agente y de la política;
 - modo de ejecución;
 - repositorios, ramas y HEAD involucrados;
 - rama de trabajo;
@@ -128,21 +128,21 @@ Por cada archivo creado se registrará ruta, propósito, evidencia, generador o 
 
 ## 9. Archivos deliberadamente no modificados
 
-Los documentos evaluados y preservados deberan quedar registrados. Los snapshots historicos existentes deberan figurar como `unchanged` cuando hayan sido considerados.
+Los documentos evaluados y preservados deberán quedar registrados. Los snapshots históricos existentes deberán figurar como `unchanged` cuando hayan sido considerados.
 
 ## 10. Cambios bloqueados
 
-Toda operación denegada deberá registrar archivo, cambio solicitado, resultado, razón, política aplicada y necesidad de revisión humana.
+Toda operación denegada deberá registrar archivo, cambió solicitado, resultado, razón, política aplicada y necesidad de revisión humana.
 
 ## 11. Contradicciones
 
-El agente podrá detectar y reportar contradicciones, pero no resolvera automaticamente contradicciones de autoridad, arquitectura, gobernanza, seguridad, decisiones, roadmap o estado de sprint.
+El agente podrá detectar y reportar contradicciones, pero no resolverá automáticamente contradicciones de autoridad, arquitectura, gobernanza, seguridad, decisiones, roadmap o estado de sprint.
 
-Ante una contradiccion critica, la operación afectada se bloqueará.
+Ante una contradicción crítica, la operación afectada se bloqueará.
 
 ## 12. Validaciones obligatorias
 
-Antes de abrir una PR draft se registraran:
+Antes de abrir una PR draft se registrarán:
 
 - validación de repositorio y rama;
 - validación de `HEAD` esperado;
@@ -152,36 +152,36 @@ Antes de abrir una PR draft se registraran:
 - validación de enlaces internos y metadatos;
 - validación de referencias de commit;
 - escaneo de secretos;
-- validación de tamano y alcance del diff;
+- validación de tamaño y alcance del diff;
 - validación del informe de auditoría.
 
 Estados permitidos: `PASS`, `FAIL`, `BLOCKED`, `NOT_APPLICABLE`.
 
 ## 13. Uso del LLM
 
-El LLM podrá asistir en redaccion, resumen, explicacion de riesgos, deteccion auxiliar de ambiguedades y preparacion del cuerpo de la PR.
+El LLM podrá asistir en redacción, resumen, explicación de riesgos, detección auxiliar de ambigüedades y preparacion del cuerpo de la PR.
 
-No podrá decidir autoridad, autorizar operaciones, aprobar archivos, convertir propuestas en decisiones, resolver contradicciones criticas, seleccionar permisos, determinar un merge ni modificar politicas.
+No podrá decidir autoridad, autorizar operaciones, aprobar archivos, convertir propuestas en decisiones, resolver contradicciones críticas, seleccionar permisos, determinar un merge ni modificar políticas.
 
 Toda salida asistida por LLM quedará pendiente de revisión humana.
 
 ## 14. Reglas permanentes
 
 - `POL-001` — `Aranwill/jarvis` será siempre de solo lectura.
-- `POL-002` — No se escribira directamente en `main` del Vault.
-- `POL-003` — Toda escritura requerira una rama nueva desde un `HEAD` verificado.
-- `POL-004` — Toda propuesta se presentara mediante PR draft.
+- `POL-002` — No se escribirá directamente en `main` del Vault.
+- `POL-003` — Toda escritura requerirá una rama nueva desde un `HEAD` verificado.
+- `POL-004` — Toda propuesta se presentará mediante PR draft.
 - `POL-005` — Los snapshots existentes son inmutables.
 - `POL-006` — Un snapshot nuevo solo podrá proponerse ante un nuevo baseline oficial.
-- `POL-007` — Una propuesta no podrá convertirse automaticamente en decisión.
-- `POL-008` — Una decisión no podrá cerrarse sin evidencia formal y aprobacion humana.
-- `POL-009` — Las contradicciones criticas bloquearan la operación afectada.
+- `POL-007` — Una propuesta no podrá convertirse automáticamente en decisión.
+- `POL-008` — Una decisión no podrá cerrarse sin evidencia formal y aprobación humana.
+- `POL-009` — Las contradicciones críticas bloquearan la operación afectada.
 - `POL-010` — Los tipos documentales desconocidos se denegaran por defecto.
 - `POL-011` — El LLM no tendrá autoridad de seguridad, gobernanza ni merge.
 - `POL-012` — Toda ejecución deberá registrar evidencia, riesgos y rollback.
 - `POL-013` — Toda ejecución con cambios deberá generar y validar un informe de auditoría en la misma rama y PR.
 - `POL-014` — Solo el propietario humano podrá aprobar y mergear.
-- `POL-015` — Al ser repositorios públicos, no se incluiran secretos, tokens, credenciales, claves ni datos sensibles.
+- `POL-015` — Al ser repositorios públicos, no se incluirán secretos, tokens, credenciales, claves ni datos sensibles.
 
 ## 15. Flujo obligatorio
 
@@ -204,5 +204,5 @@ detectar
 Política: under_review
 Implementación: no aprobada
 Agente operativo: no implementado
-Proximo sprint de Malāk: no definido
+Próximo sprint de Malāk: no definido
 ```
