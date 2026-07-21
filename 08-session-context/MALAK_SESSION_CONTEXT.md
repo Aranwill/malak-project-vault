@@ -8,7 +8,7 @@ authority_level: technical_documentation
 authority_rank: 6
 version: 1.0
 created: 2026-07-20
-last_reviewed: 2026-07-20
+last_reviewed: 2026-07-21
 source_repository: Aranwill/jarvis
 source_branch: main
 derived: true
@@ -73,7 +73,7 @@ Malāk es una plataforma cognitiva personal ejecutada localmente, diseñada para
 **Último sprint cerrado:**
 
 ```text
-Sprint 7.2 — Runtime Metric Sink Contract
+Sprint 7.3 — Conversation Provider Boundary Stabilization
 ```
 
 **Sprints cerrados del bloque 7.x:**
@@ -83,23 +83,24 @@ Sprint 7.2 — Runtime Metric Sink Contract
 | 7.0    | CLI mínima con `MockLLMRuntime`                            |
 | 7.1    | CLI con `OllamaRuntime` mediante configuración externa     |
 | 7.2    | Contrato estructural `RuntimeMetricSink` de solo escritura |
+| 7.3    | Estabilización de la frontera `ConversationService`–Provider–Runtime |
 
-**Suite validada al cierre del Sprint 7.2:**
+**Suite validada al cierre del Sprint 7.3:**
 
 ```text
-69 passed
+74 passed
 ```
 
-**Último commit remoto verificado al crear este contexto:**
+**Último commit remoto verificado al revisar este contexto:**
 
 ```text
-fdb3ee922efc796e53ade1fc3abe4125f4072bd0
+fd4da3d371d07b6aa91cc9f1c4d4bac3838ad627
 ```
 
 Descripción:
 
 ```text
-Merge pull request #12 from Aranwill/docs/documentation-source-consolidation
+Merge pull request #13 from Aranwill/feature/sprint-7.3-conversation-provider-boundary
 ```
 
 Estos datos deben volver a verificarse si cambia `HEAD`.
@@ -134,7 +135,7 @@ LLMRuntime
 ├── MockLLMRuntime
 └── OllamaRuntime
         ↓
-MockConversationProvider
+RuntimeConversationProvider
         ↓
 ConversationProviderRegistry
         ↓
@@ -155,6 +156,10 @@ y:
 ConversationService
 ```
 
+No existe integración formal entre `Kernel.receive` y `ConversationService`.
+
+El cierre del Sprint 7.3 no autoriza ni propone dicha integración.
+
 La CLI técnica no representa todavía el pipeline cognitivo completo de Malāk.
 
 ---
@@ -173,7 +178,8 @@ Estado conocido del baseline:
 * `MockLLMRuntime`;
 * `OllamaRuntime`;
 * `ConversationProvider`;
-* `MockConversationProvider`;
+* `RuntimeConversationProvider`;
+* `ConversationProviderNotFoundError`;
 * `ConversationProviderRegistry`;
 * `ConversationService`;
 * CLI técnica;
@@ -317,7 +323,9 @@ Todavía no forman parte del baseline:
 Próximo sprint: no aprobado.
 ```
 
-El Sprint 7.3 histórico permanece como propuesta y requiere redefinición completa.
+El Sprint 7.3 fue cerrado e integrado en `main`.
+
+No existe un Sprint 7.4 aprobado ni una continuación automática autorizada.
 
 No debe iniciarse un sprint por continuidad numérica.
 
@@ -348,9 +356,7 @@ Antes de seleccionar el siguiente sprint se requiere:
 
 ### Prioridad media
 
-* redefinición del Sprint 7.3;
-* separación o integración de logs, métricas y auditoría;
-* posible integración entre Kernel y ConversationService;
+* alcance y separación entre logs, métricas y auditoría;
 * política de sincronización con Obsidian;
 * esquema de metadatos del Vault.
 
@@ -441,9 +447,10 @@ Se conserva como baseline oficial:
 
 - repositorio: `Aranwill/jarvis`;
 - rama: `main`;
-- commit: `fdb3ee922efc796e53ade1fc3abe4125f4072bd0`;
-- último sprint cerrado: Sprint 7.2 — Runtime Metric Sink Contract;
-- suite documentada: 69 pruebas aprobadas;
+- commit: `fd4da3d371d07b6aa91cc9f1c4d4bac3838ad627`;
+- último sprint cerrado: Sprint 7.3 — Conversation Provider Boundary Stabilization;
+- pull request integrado: PR #13;
+- suite documentada: 74 pruebas aprobadas;
 - próximo sprint aprobado: ninguno.
 
 Continúan pendientes y sin aprobación automática:
@@ -519,8 +526,8 @@ Al recibir este archivo, el asistente debe:
 
 * responder en español;
 * tratar `main` como única rama oficial;
-* reconocer Sprint 7.2 como último sprint cerrado;
-* utilizar 69 pruebas como último resultado documentado, no como resultado eterno;
+* reconocer Sprint 7.3 como último sprint cerrado;
+* utilizar 74 pruebas como último resultado documentado, no como resultado eterno;
 * diferenciar baseline, roadmap y propuestas;
 * no asumir que existe un próximo sprint aprobado;
 * no modificar el Kernel sin necesidad arquitectónica;
@@ -565,15 +572,16 @@ Decisiones preservadas:
 - no se aprobó un próximo sprint;
 - no se aprobó RAG, automatización documental ni auditores externos.
 
-El repositorio oficial de Malāk no fue modificado durante esta sesión.
+El repositorio oficial de Malāk fue actualizado mediante el Sprint 7.3 y el PR #13 antes de esta sincronización gobernada del Vault.
 
 Baseline conservado:
 
 - repositorio: `Aranwill/jarvis`;
 - rama: `main`;
-- commit: `fdb3ee922efc796e53ade1fc3abe4125f4072bd0`;
-- último sprint cerrado: Sprint 7.2 — Runtime Metric Sink Contract;
-- pruebas documentadas: 69 aprobadas.
+- commit: `fd4da3d371d07b6aa91cc9f1c4d4bac3838ad627`;
+- último sprint cerrado: Sprint 7.3 — Conversation Provider Boundary Stabilization;
+- pull request integrado: PR #13;
+- pruebas documentadas: 74 aprobadas.
 
 Punto de continuidad:
 
