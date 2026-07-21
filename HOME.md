@@ -8,7 +8,7 @@ authority: derived
 operational_authority: none
 repository_source: Aranwill/jarvis
 repository_branch: main
-last_reviewed: 2026-07-20
+last_reviewed: 2026-07-21
 tags:
 
 * malak
@@ -29,12 +29,15 @@ tags:
 
 ## Estado actual
 
+## Estado actual
+
 * **Repositorio oficial:** `Aranwill/jarvis`
 * **Rama oficial y única:** `main`
-* **Baseline verificado:** `fdb3ee922efc796e53ade1fc3abe4125f4072bd0`
+* **Baseline verificado:** `fd4da3d371d07b6aa91cc9f1c4d4bac3838ad627`
 * **Versión nominal:** `v0.6.0-alpha`
-* **Último sprint cerrado:** Sprint 7.2 — Runtime Metric Sink Contract
-* **Pruebas verificadas:** 69 aprobadas
+* **Último sprint cerrado:** Sprint 7.3 — Conversation Provider Boundary Stabilization
+* **Pull request integrado:** PR #13
+* **Pruebas verificadas:** 74 aprobadas
 * **Próximo sprint:** no aprobado
 * **Control de decisiones:** Human in Control
 
@@ -83,6 +86,7 @@ Planificación consolidada y líneas futuras registradas.
 Registro documental de sprints propuestos, activos y cerrados.
 
 * [[04-sprints/SPRINT_INDEX|Sprints]]
+* [[04-sprints/SPRINT-7.3-CLOSURE|Cierre del Sprint 7.3]]
 
 ### Decisiones
 
