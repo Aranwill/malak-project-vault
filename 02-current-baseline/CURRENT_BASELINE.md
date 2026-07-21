@@ -746,11 +746,14 @@ Propuestas actualmente documentadas como no aprobadas:
 
 | Propuesta                                   | Estado      |
 | ------------------------------------------- | ----------- |
-| Sprint 7.3                                  | No aprobado |
 | Consolidación de logs, métricas y auditoría | No aprobada |
 | Security Control Plane Foundation           | No aprobada |
 | Preparación del AKS para GraphRAG           | No aprobada |
 | Validación de baseline y release interna    | No aprobada |
+
+El Sprint 7.3 ya no forma parte de estas propuestas: fue cerrado e integrado en `main` mediante el PR #13.
+
+Ninguna propuesta de esta tabla posee autorización de implementación.
 
 La tabla no establece una secuencia obligatoria.
 
