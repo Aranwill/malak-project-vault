@@ -8,7 +8,7 @@ authority_level: approved_roadmap
 authority_rank: 7
 version: 1.0
 created: 2026-07-20
-last_reviewed: 2026-07-20
+last_reviewed: 2026-07-21
 source_of_truth: repository
 source_repository: Aranwill/jarvis
 source_branch: main
@@ -90,13 +90,13 @@ v0.6.0-alpha
 **Baseline operativo actual:**
 
 ```text
-Sprint 7.2 cerrado — Runtime Metric Sink Contract
+Sprint 7.3 cerrado — Conversation Provider Boundary Stabilization
 ```
 
 **Suite documentada:**
 
 ```text
-69 passed
+74 passed
 ```
 
 **Estado del próximo sprint:**
@@ -175,11 +175,13 @@ Resultado:
 | 7.0    | Cerrado   | Implementado |
 | 7.1    | Cerrado   | Implementado |
 | 7.2    | Cerrado   | Implementado |
-| 7.3    | Propuesta | No aprobado  |
+| 7.3    | Cerrado   | Implementado |
 | 7.4    | Propuesta | No aprobado  |
 | 7.5    | Propuesta | No aprobado  |
 | 7.6    | Propuesta | No aprobado  |
 | 7.7    | Propuesta | No aprobado  |
+
+El cierre del Sprint 7.3 no autoriza el inicio de Sprint 7.4 ni establece que la numeración histórica deba continuar.
 
 La numeración histórica se conserva como referencia.
 
@@ -192,6 +194,10 @@ Las fichas de sprints futuros deben tratarse como propuestas hasta que el propie
 ## 6. Próximo sprint
 
 Actualmente no existe un próximo sprint aprobado.
+
+El Sprint 7.3 no aprobó una integración entre `Kernel.receive` y `ConversationService`.
+
+Ambas rutas permanecen separadas y cualquier relación futura requerirá una necesidad concreta, diseño arquitectónico y aprobación explícita.
 
 Antes de seleccionar el siguiente sprint deberá realizarse:
 
@@ -212,30 +218,7 @@ No deberá seleccionarse un sprint únicamente porque sea el siguiente número d
 
 ## 7. Propuestas pendientes del roadmap oficial
 
-### 7.1 Sprint 7.3
-
-**Estado:**
-
-```text
-no aprobado
-```
-
-La propuesta histórica deberá redefinirse completamente.
-
-No se asumirá que Malāk necesita una segunda Capability únicamente para:
-
-* validar routing;
-* probar el Registry;
-* demostrar selección múltiple;
-* aumentar cobertura;
-* ejercitar infraestructura;
-* completar una secuencia.
-
-Una nueva Capability solo podrá admitirse si aporta una función real, permanente y necesaria.
-
----
-
-### 7.2 Consolidación de logs, métricas y auditoría
+### 7.1 Consolidación de logs, métricas y auditoría
 
 **Estado:**
 
@@ -260,7 +243,7 @@ No debe crearse una infraestructura unificada solo por conveniencia conceptual.
 
 ---
 
-### 7.3 Security Control Plane Foundation
+### 7.2 Security Control Plane Foundation
 
 **Estado:**
 
@@ -293,7 +276,7 @@ La aceptación conceptual de esta línea no autoriza todavía su sprint de imple
 
 ---
 
-### 7.4 Preparación del AKS para GraphRAG
+### 7.3 Preparación del AKS para GraphRAG
 
 **Estado:**
 
@@ -320,7 +303,7 @@ GraphRAG no debe implementarse únicamente por disponibilidad tecnológica.
 
 ---
 
-### 7.5 Validación de baseline y release interna
+### 7.4 Validación de baseline y release interna
 
 **Estado:**
 
@@ -338,7 +321,6 @@ Solo podrá realizarse cuando:
 * no existan desviaciones conocidas;
 * se defina formalmente el contenido de la release.
 
----
 
 ## 8. Iniciativas arquitectónicas aceptadas conceptualmente
 

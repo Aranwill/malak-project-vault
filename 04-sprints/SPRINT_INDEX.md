@@ -5,7 +5,7 @@ document_type: navigation
 status: active
 authority: derived
 operational_authority: none
-last_reviewed: 2026-07-20
+last_reviewed: 2026-07-21
 tags:
   - malak
   - vault
@@ -22,11 +22,15 @@ tags:
 
 ## Estado actual
 
-- **Último sprint cerrado:** Sprint 7.2 — Runtime Metric Sink Contract
+- **Último sprint cerrado:** Sprint 7.3 — Conversation Provider Boundary Stabilization
+- **Pull request integrado:** PR #13
+- **Baseline resultante:** `fd4da3d371d07b6aa91cc9f1c4d4bac3838ad627`
+- **Suite validada:** 74 pruebas aprobadas
 - **Próximo sprint aprobado:** ninguno
 - **Repositorio oficial:** `Aranwill/jarvis`
 - **Rama oficial:** `main`
-- **Baseline de referencia:** `fdb3ee922efc796e53ade1fc3abe4125f4072bd0`
+
+El cierre del Sprint 7.3 no autoriza el inicio automático de Sprint 7.4 ni de ninguna otra propuesta.
 
 ## Navegación
 
@@ -88,9 +92,37 @@ Un sprint cerrado debe registrar:
 - Mantener cambios pequeños, trazables y reversibles.
 - Validar código, arquitectura y documentación antes del cierre.
 - No modificar snapshots históricos para reflejar estados posteriores.
+- El cierre de un sprint no autoriza automáticamente el siguiente.
 
 ## Sprints registrados
 
-Actualmente no se agregan aquí registros retrospectivos adicionales.
+### Sprint 7.3 — Conversation Provider Boundary Stabilization
 
-La reconstrucción histórica de sprints anteriores deberá realizarse, cuando se apruebe, como una tarea documental separada y basada en evidencia.
+- **Estado:** cerrado
+- **Repositorio:** `Aranwill/jarvis`
+- **Rama integrada:** `main`
+- **Pull request:** PR #13
+- **Merge commit:** `fd4da3d371d07b6aa91cc9f1c4d4bac3838ad627`
+- **Pruebas post-merge:** 74 aprobadas
+- **Registro de cierre:** [[04-sprints/SPRINT-7.3-CLOSURE|Cierre del Sprint 7.3]]
+
+Resultado principal:
+
+- `RuntimeConversationProvider` reemplaza la denominación ambigua anterior;
+- `ConversationProviderRegistry` normaliza nombres y rechaza registros inválidos;
+- `ConversationProviderNotFoundError` encapsula la ausencia de providers;
+- `ConversationService` mantiene una responsabilidad mínima;
+- Kernel, Planner y `Capability` no fueron modificados;
+- no existe integración formal entre `Kernel.receive` y `ConversationService`;
+- no existe un próximo sprint aprobado.
+
+## Reconstrucción histórica
+
+No se agregan retrospectivamente otros sprints cerrados sin una tarea documental específica y basada en evidencia.
+
+La incorporación futura de registros anteriores deberá:
+
+- verificarse contra el repositorio oficial;
+- distinguir evidencia histórica de estado vigente;
+- evitar reconstrucciones inferidas;
+- contar con aprobación explícita.

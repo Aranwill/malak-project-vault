@@ -8,7 +8,7 @@ authority_level: proposal
 authority_rank: 9
 version: 1.0
 created: 2026-07-20
-last_reviewed: 2026-07-20
+last_reviewed: 2026-07-21
 source_of_truth: repository-and-owner-decisions
 source_repository: Aranwill/jarvis
 source_branch: main
@@ -143,9 +143,21 @@ alta
 
 **Contexto:**
 
-El baseline operativo actual corresponde al cierre del Sprint 7.2 — Runtime Metric Sink Contract.
+El baseline operativo actual corresponde al cierre del Sprint 7.3 — Conversation Provider Boundary Stabilization.
 
-Los Sprints 7.0, 7.1 y 7.2 están cerrados.
+Los Sprints 7.0, 7.1, 7.2 y 7.3 están cerrados.
+
+Baseline vigente:
+
+```text
+fd4da3d371d07b6aa91cc9f1c4d4bac3838ad627
+```
+
+Validación documentada:
+
+```text
+74 passed
+```
 
 No existe actualmente un próximo sprint aprobado.
 
@@ -155,12 +167,11 @@ Determinar qué necesidad real de Malāk debe abordarse a continuación.
 
 **Alternativas conocidas:**
 
-* redefinir completamente el Sprint 7.3;
-* evaluar consolidación de logs, métricas y auditoría;
-* evaluar Security Control Plane Foundation;
-* continuar Project Context & Knowledge Governance Foundation fuera del repositorio principal;
-* seleccionar otra necesidad detectada mediante relevamiento;
-* no iniciar un nuevo sprint hasta completar revisión adicional.
+* evaluar la delimitación entre logs, métricas y auditoría;
+* evaluar el momento de implementación del Security Control Plane Foundation;
+* continuar tareas documentales gobernadas del Project Vault;
+* evaluar una necesidad detectada mediante relevamiento del baseline;
+* no iniciar un nuevo sprint hasta completar una revisión adicional.
 
 **Criterios obligatorios:**
 
@@ -184,7 +195,7 @@ Relevamiento del baseline y presentación de alternativas.
 
 **Acción no permitida:**
 
-Crear rama o modificar el repositorio antes de aprobación.
+Crear una rama o modificar el repositorio oficial antes de una aprobación explícita.
 
 ---
 
@@ -193,45 +204,47 @@ Crear rama o modificar el repositorio antes de aprobación.
 **Estado:**
 
 ```text
-open
+closed
 ```
 
-**Prioridad:**
+**Prioridad histórica:**
 
 ```text
 media
 ```
 
-**Contexto:**
+**Resolución:**
 
-La propuesta histórica de Sprint 7.3 no debe asumirse como válida.
+El identificador Sprint 7.3 fue redefinido alrededor de una necesidad arquitectónica real:
 
-No se incorporará una nueva Capability únicamente para:
+```text
+Conversation Provider Boundary Stabilization
+```
 
-* demostrar routing;
-* validar múltiples entradas;
-* aumentar cobertura;
-* completar una secuencia;
-* ejercitar infraestructura;
-* crear una demostración sin utilidad real.
+La implementación:
 
-**Decisión requerida:**
+* reemplazó `MockConversationProvider` por `RuntimeConversationProvider`;
+* estabilizó `ConversationProviderRegistry`;
+* incorporó `ConversationProviderNotFoundError`;
+* delimitó la responsabilidad de `ConversationService`;
+* no incorporó una Capability artificial;
+* no modificó Kernel, Planner ni el contrato `Capability`;
+* fue integrada mediante el PR #13;
+* produjo el baseline `fd4da3d371d07b6aa91cc9f1c4d4bac3838ad627`;
+* fue validada con 74 pruebas aprobadas.
 
-Determinar si el identificador Sprint 7.3 debe:
+**Evidencia:**
 
-* redefinirse alrededor de una necesidad real;
-* conservarse sin implementación;
-* reemplazarse;
-* descartarse;
-* postergarse.
+* PR #13;
+* merge commit `fd4da3d371d07b6aa91cc9f1c4d4bac3838ad627`;
+* `04-sprints/SPRINT-7.3-CLOSURE.md`;
+* documentación oficial del Sprint 7.3 en `Aranwill/jarvis/main`.
 
-**Condición de admisión:**
+**Resultado:**
 
-La propuesta deberá demostrar funcionalidad real, necesaria y permanente.
+La propuesta histórica de una segunda Capability no fue adoptada.
 
-**Riesgo principal:**
-
-Introducir deuda arquitectónica mediante una Capability artificial.
+La decisión queda cerrada y no autoriza trabajo posterior.
 
 ---
 
@@ -358,15 +371,15 @@ Expandir capacidades antes de establecer límites de autoridad.
 
 ---
 
-## DEC-PEND-005 — Integración entre Kernel y ConversationService
+## DEC-PEND-005 — Relación entre Kernel y ConversationService
 
 **Estado:**
 
 ```text
-open
+closed
 ```
 
-**Prioridad:**
+**Prioridad histórica:**
 
 ```text
 media
@@ -374,50 +387,61 @@ media
 
 **Contexto:**
 
-El pipeline Kernel–Planner–Capability y la CLI conversacional son actualmente rutas separadas.
-
-No existe integración formal validada entre:
+El pipeline Kernel–Planner–Capability y el subsistema conversacional de CLI son rutas separadas:
 
 ```text
-Kernel.receive
+Kernel
+→ Planner
+→ Capability Registry
+→ Capability
 ```
 
 y:
 
 ```text
-ConversationService
+CLI
+→ ConversationService
+→ ConversationProviderRegistry
+→ RuntimeConversationProvider
+→ LLMRuntime
 ```
 
-**Decisión requerida:**
+**Resolución:**
 
-Determinar si, cuándo y mediante qué contrato deben conectarse.
+No se aprueba ni se propone una integración formal entre `Kernel.receive` y `ConversationService`.
 
-**Preguntas abiertas:**
+El cierre del Sprint 7.3 preserva expresamente esta separación.
 
-* ¿La conversación debe ser una Capability?
-* ¿Debe existir un Application Service intermedio?
-* ¿El Kernel debe recibir intención o texto?
-* ¿Dónde se selecciona el runtime?
-* ¿Dónde se transforma `ConversationRequest`?
-* ¿Qué autoridad posee el Planner?
-* ¿Cómo se preserva Runtime Independence?
-* ¿Cómo se evita convertir el Kernel en orquestador de infraestructura?
+El Kernel no debe depender de:
 
-**Restricción:**
-
-No debe acoplarse el Kernel a:
-
-* Ollama;
+* `ConversationService`;
 * providers concretos;
+* runtimes concretos;
+* Ollama;
 * configuración externa;
 * variables de entorno;
 * persistencia;
 * UI;
 * transporte.
 
-**Riesgo principal:**
+Una relación futura solo podrá volver a evaluarse si existe:
 
-Modificar prematuramente el límite arquitectónico del Kernel.
+* una necesidad funcional concreta;
+* un contrato arquitectónico explícito;
+* evidencia de utilidad;
+* preservación de Runtime Independence;
+* validación de las cuatro preguntas obligatorias;
+* aprobación humana explícita.
+
+**Riesgo evitado:**
+
+Modificar prematuramente el límite arquitectónico del Kernel o convertirlo en orquestador de infraestructura.
+
+**Resultado:**
+
+La separación actual se mantiene como baseline.
+
+Esta decisión no autoriza una futura integración automática.
 
 ---
 
@@ -915,10 +939,10 @@ closed
 **Decisión verificada:**
 
 ```text
-69 passed
+74 passed
 ```
 
-El valor corresponde al estado documentado al cierre del Sprint 7.2.
+El valor corresponde al estado documentado al cierre del Sprint 7.3.
 
 No debe reutilizarse automáticamente después de cambios futuros sin ejecutar nuevamente la suite.
 
@@ -935,12 +959,22 @@ closed
 **Decisión verificada:**
 
 ```text
-Sprint 7.2 — Runtime Metric Sink Contract
+Sprint 7.3 — Conversation Provider Boundary Stabilization
+```
+
+**Baseline resultante:**
+
+```text
+fd4da3d371d07b6aa91cc9f1c4d4bac3838ad627
+```
+
+**Pull request integrado:**
+
+```text
+PR #13
 ```
 
 No debe registrarse el baseline únicamente como “Sprint 7”.
-
----
 
 ## 5. Plantilla para nuevas decisiones
 

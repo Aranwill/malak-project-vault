@@ -7,10 +7,10 @@ authority: derived
 operational_authority: none
 version: 1.0
 created: 2026-07-20
-last_reviewed: 2026-07-20
+last_reviewed: 2026-07-21
 source_repository: Aranwill/jarvis
 source_branch: main
-baseline_reference: fdb3ee922efc796e53ade1fc3abe4125f4072bd0
+baseline_reference: fd4da3d371d07b6aa91cc9f1c4d4bac3838ad627
 tags:
   - malak
   - vault
@@ -29,16 +29,18 @@ tags:
 
 - **Repositorio oficial:** `Aranwill/jarvis`
 - **Rama oficial:** `main`
-- **Baseline:** `fdb3ee922efc796e53ade1fc3abe4125f4072bd0`
+- **Baseline:** `fd4da3d371d07b6aa91cc9f1c4d4bac3838ad627`
 - **Versión nominal:** `v0.6.0-alpha`
-- **Último sprint cerrado:** Sprint 7.2 — Runtime Metric Sink Contract
+- **Último sprint cerrado:** Sprint 7.3 — Conversation Provider Boundary Stabilization
+- **Pull request integrado:** PR #13
+- **Suite validada:** 74 pruebas aprobadas
 - **Próximo sprint aprobado:** ninguno
 
 La representación completa del estado vigente se encuentra en:
 
 - [[02-current-baseline/CURRENT_BASELINE|Current Baseline]]
 - [[08-session-context/MALAK_SESSION_CONTEXT|Contexto vigente de sesión]]
-- [[09-repository-snapshots/2026-07-20_MAIN_FDB3EE9|Snapshot del repositorio]]
+- [[09-repository-snapshots/SNAPSHOT_INDEX|Índice de snapshots del repositorio]]
 
 ## Arquitectura actualmente documentada
 
@@ -53,7 +55,7 @@ Según el baseline vigente, Malāk dispone de fundamentos implementados relacion
 - Planner MVP;
 - CLI;
 - métricas y telemetría de runtime;
-- contrato Runtime Metric Sink;
+- contrato `RuntimeMetricSink`;
 - biblioteca de conocimiento de ingeniería.
 
 > [!important]
@@ -74,16 +76,20 @@ El baseline documenta actualmente relaciones generales entre:
 - LLM Runtime;
 - telemetría y métricas.
 
-No se crea todavía un diagrama formal de estas relaciones.
+Existe un primer mapa arquitectónico derivado:
 
-Antes de generar un mapa arquitectónico deberá verificarse:
+- [[01-architecture/CURRENT_COMPONENTS_MAP|Mapa de componentes actuales]]
 
-- qué componentes están efectivamente implementados;
-- qué contratos los vinculan;
-- qué flujo pertenece al Kernel;
-- qué flujo pertenece al subsistema conversacional;
-- qué elementos son actuales y cuáles son futuros;
-- qué fuente oficial respalda cada relación.
+El mapa distingue:
+
+- el flujo Kernel–Planner–Capability;
+- el subsistema conversacional de CLI;
+- los contratos y runtimes implementados;
+- los límites entre estado actual y arquitectura futura.
+
+Las dos rutas permanecen separadas. El cierre del Sprint 7.3 no autoriza ni propone una integración entre `Kernel.receive` y `ConversationService`.
+
+Toda relación representada debe continuar verificándose contra el repositorio oficial y su baseline vigente.
 
 ## Principios arquitectónicos aplicables
 
@@ -131,7 +137,7 @@ Los demás mapas arquitectónicos permanecen pendientes y deberán crearse únic
 
 Los futuros mapas podrán incluir, cuando exista una necesidad concreta:
 
-- mapa de componentes implementados;
+- mapa detallado de contratos;
 - mapa de contratos;
 - límites del Kernel;
 - flujo Kernel–Planner–Capability;
@@ -163,12 +169,16 @@ Esta sección no debe:
 - sustituir documentación oficial;
 - habilitar automatizaciones sobre Malāk.
 
-## Próximo paso posible
+## Estado de evolución documental
 
-El primer mapa arquitectónico recomendado sería:
+El mapa inicial de componentes ya existe y permanece como representación derivada del baseline.
 
-`CURRENT_COMPONENTS_MAP.md`
+Cualquier mapa adicional requiere:
 
-Su creación permanece pendiente y no constituye una tarea aprobada automáticamente.
+- una necesidad documental concreta;
+- verificación directa contra `Aranwill/jarvis/main`;
+- alcance explícito;
+- revisión humana;
+- aprobación antes de su incorporación.
 
-Antes de crearlo deberá revisarse directamente el baseline y, cuando corresponda, el repositorio oficial.
+No existe actualmente un nuevo mapa arquitectónico aprobado.

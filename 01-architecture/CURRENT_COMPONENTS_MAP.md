@@ -7,11 +7,11 @@ authority: derived
 operational_authority: none
 version: 1.0
 created: 2026-07-20
-last_reviewed: 2026-07-20
+last_reviewed: 2026-07-21
 source_repository: Aranwill/jarvis
 source_branch: main
-source_commit: fdb3ee922efc796e53ade1fc3abe4125f4072bd0
-baseline_reference: fdb3ee922efc796e53ade1fc3abe4125f4072bd0
+source_commit: fd4da3d371d07b6aa91cc9f1c4d4bac3838ad627
+baseline_reference: fd4da3d371d07b6aa91cc9f1c4d4bac3838ad627
 tags:
   - malak
   - vault
@@ -51,13 +51,19 @@ Quedan fuera de alcance:
 
 Su exclusión de este documento no implica que no existan. Solamente evita mezclar subsistemas todavía no verificados dentro de este mapa.
 
+El Sprint 7.3 estabilizó el subsistema conversacional, pero no modificó el flujo Kernel–Planner–Capability representado en este documento.
+
+No existe integración formal entre `Kernel.receive` y `ConversationService`, y este mapa no propone ni autoriza dicha integración.
+
 ## 2. Baseline representado
 
 - **Repositorio:** `Aranwill/jarvis`
 - **Rama:** `main`
-- **Commit:** `fdb3ee922efc796e53ade1fc3abe4125f4072bd0`
+- **Commit:** `fd4da3d371d07b6aa91cc9f1c4d4bac3838ad627`
 - **Versión nominal:** `v0.6.0-alpha`
-- **Último sprint cerrado:** Sprint 7.2 — Runtime Metric Sink Contract
+- **Último sprint cerrado:** Sprint 7.3 — Conversation Provider Boundary Stabilization
+- **Pull request integrado:** PR #13
+- **Suite validada:** 74 pruebas aprobadas
 
 ## 3. Componentes verificados
 
@@ -233,7 +239,7 @@ Sin convertirlos en decisiones nuevas, el código observado muestra:
 - [[01-architecture/ARCHITECTURE_INDEX|Índice de arquitectura]]
 - [[02-current-baseline/CURRENT_BASELINE|Baseline vigente]]
 - [[08-session-context/MALAK_SESSION_CONTEXT|Contexto de sesión]]
-- [[09-repository-snapshots/2026-07-20_MAIN_FDB3EE9|Snapshot del baseline]]
+- [[09-repository-snapshots/SNAPSHOT_INDEX|Índice de snapshots]]
 - [[10-knowledge-index/KNOWLEDGE_INDEX|Índice maestro]]
 
 ## 11. Próximos mapas posibles

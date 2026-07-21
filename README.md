@@ -8,7 +8,7 @@ authority_level: technical_documentation
 authority_rank: 6
 version: 1.0
 created: 2026-07-20
-last_reviewed: 2026-07-20
+last_reviewed: 2026-07-21
 source_of_truth: project-vault
 derived: false
 operational_context: true
@@ -105,31 +105,44 @@ Cuando exista una contradicción, prevalece la fuente oficial de mayor autoridad
 
 ## 4. Estado actual de Malāk
 
-Datos documentados al crear este Vault:
+Datos verificados al revisar este Vault:
 
 ```text
 Repositorio: Aranwill/jarvis
 Rama permanente: main
 Versión nominal: v0.6.0-alpha
-Último sprint cerrado: Sprint 7.2 — Runtime Metric Sink Contract
-Suite documentada: 69 passed
+Último sprint cerrado: Sprint 7.3 — Conversation Provider Boundary Stabilization
+Pull request integrado: PR #13
+Suite documentada: 74 passed
+Próximo sprint aprobado: ninguno
 ```
 
-Último commit remoto verificado durante la creación inicial:
+Último commit remoto verificado:
 
 ```text
-fdb3ee922efc796e53ade1fc3abe4125f4072bd0
+fd4da3d371d07b6aa91cc9f1c4d4bac3838ad627
 ```
 
 Descripción:
 
 ```text
-Merge pull request #12 from Aranwill/docs/documentation-source-consolidation
+Merge pull request #13 from Aranwill/feature/sprint-7.3-conversation-provider-boundary
 ```
 
-Estos datos son temporales y deben revalidarse cuando cambie `HEAD`.
+El Sprint 7.3 estabilizó la frontera:
 
----
+```text
+ConversationService
+→ ConversationProviderRegistry
+→ RuntimeConversationProvider
+→ LLMRuntime
+```
+
+No existe integración formal entre `Kernel.receive` y `ConversationService`.
+
+El cierre del Sprint 7.3 no autoriza ni propone dicha integración.
+
+Estos datos deben revalidarse cuando cambie `HEAD`.
 
 ## 5. Principios del Vault
 
@@ -278,6 +291,13 @@ Podrá contener:
 * referencias a fichas oficiales del repositorio.
 
 No debe reemplazar las fichas oficiales de sprint.
+
+Registro vigente:
+
+* `SPRINT_INDEX.md`;
+* `SPRINT-7.3-CLOSURE.md`.
+
+El último sprint documentado como cerrado es Sprint 7.3.
 
 ---
 
@@ -734,13 +754,13 @@ El Vault no puede modificar directamente la autoridad oficial.
 ### Project Context Foundation
 
 ```text
-en construcción
+fundación inicial completada
 ```
 
 ### Obsidian Knowledge Foundation
 
 ```text
-no iniciada
+fundación inicial completada
 ```
 
 ### Session Context Generator
@@ -765,21 +785,20 @@ no implementada
 
 ## 21. Próximos pasos del Vault
 
-Próximos pasos recomendados, sujetos a revisión:
+Próximos pasos sujetos a revisión y aprobación:
 
-1. revisar integridad de la estructura;
-2. definir modelo de versionado;
-3. inicializar Git local independiente;
-4. crear el primer cierre de sesión;
-5. abrir el directorio mediante Obsidian;
-6. evaluar configuración mínima;
-7. definir esquema de metadatos;
-8. crear índices de navegación;
-9. diseñar el generador de contexto;
-10. evaluar RAG después de estabilizar la documentación.
+1. completar la sincronización documental del Sprint 7.3;
+2. crear un snapshot nuevo del baseline `fd4da3d`;
+3. actualizar el índice de snapshots;
+4. verificar referencias desfasadas restantes;
+5. revisar el modelo de versionado y respaldo;
+6. revisar la política de sincronización con Obsidian;
+7. revisar el esquema de metadatos;
+8. mantener diferido el Session Context Generator;
+9. mantener no implementado el RAG externo;
+10. mantener no implementado el auditor externo.
 
 Esta lista no autoriza implementaciones automáticas.
-
 ---
 
 ## 22. Reglas para asistentes
@@ -829,3 +848,7 @@ Todo asistente que utilice este Vault deberá:
 - [[03-roadmap/IMPLEMENTATION_ROADMAP|Roadmap de implementación]]
 - [[05-decisions/PENDING_DECISIONS|Decisiones pendientes]]
 - [[08-session-context/MALAK_SESSION_CONTEXT|Contexto de sesión]]
+- [[01-architecture/ARCHITECTURE_INDEX|Índice de arquitectura]]
+- [[04-sprints/SPRINT_INDEX|Índice de sprints]]
+- [[04-sprints/SPRINT-7.3-CLOSURE|Cierre del Sprint 7.3]]
+- [[09-repository-snapshots/SNAPSHOT_INDEX|Índice de snapshots]]

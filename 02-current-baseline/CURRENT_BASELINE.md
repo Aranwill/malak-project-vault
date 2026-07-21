@@ -8,7 +8,7 @@ authority_level: baseline
 authority_rank: 5
 version: 1.0
 created: 2026-07-20
-last_reviewed: 2026-07-20
+last_reviewed: 2026-07-21
 source_of_truth: repository
 source_repository: Aranwill/jarvis
 source_branch: main
@@ -103,16 +103,16 @@ No debe utilizarse ninguna rama histórica como fuente del estado actual.
 **Último commit remoto verificado al revisar este documento:**
 
 ```text
-fdb3ee922efc796e53ade1fc3abe4125f4072bd0
+fd4da3d371d07b6aa91cc9f1c4d4bac3838ad627
 ```
 
 **Descripción:**
 
 ```text
-Merge pull request #12 from Aranwill/docs/documentation-source-consolidation
+Merge pull request #13 from Aranwill/feature/sprint-7.3-conversation-provider-boundary
 ```
 
-Este commit consolidó fuentes documentales activas y legacy.
+Este commit cerró el Sprint 7.3 — Conversation Provider Boundary Stabilization e incorporó la estabilización de la frontera del subsistema conversacional.
 
 El hash registrado aquí es una referencia temporal y deberá actualizarse cuando cambie materialmente `HEAD`.
 
@@ -123,7 +123,7 @@ El hash registrado aquí es una referencia temporal y deberá actualizarse cuand
 **Último sprint cerrado:**
 
 ```text
-Sprint 7.2 — Runtime Metric Sink Contract
+Sprint 7.3 — Conversation Provider Boundary Stabilization
 ```
 
 El bloque 7.x contiene actualmente los siguientes sprints cerrados:
@@ -133,6 +133,7 @@ El bloque 7.x contiene actualmente los siguientes sprints cerrados:
 | 7.0    | Cerrado | CLI mínima con `MockLLMRuntime`                                       |
 | 7.1    | Cerrado | Composición de CLI con `OllamaRuntime` mediante configuración externa |
 | 7.2    | Cerrado | Contrato estructural `RuntimeMetricSink` de solo escritura            |
+| 7.3    | Cerrado | Estabilización de la frontera `ConversationService`–Provider–Runtime  |
 
 No existe todavía un siguiente sprint aprobado automáticamente.
 
@@ -142,10 +143,10 @@ El cierre de un sprint no autoriza el inicio del siguiente.
 
 ## 6. Estado de validación
 
-**Suite validada al cierre del Sprint 7.2:**
+**Suite validada al cierre del Sprint 7.3:**
 
 ```text
-69 passed
+74 passed
 ```
 
 Validaciones documentadas:
@@ -158,7 +159,7 @@ git diff --check
 
 Resultado registrado:
 
-* 69 pruebas aprobadas;
+* 74 pruebas aprobadas;
 * compilación validada sin errores;
 * diff validado sin errores de formato;
 * documentación sincronizada para el alcance del sprint.
@@ -206,7 +207,7 @@ LLMRuntime
 ├── MockLLMRuntime
 └── OllamaRuntime
         ↓
-MockConversationProvider
+RuntimeConversationProvider
         ↓
 ConversationProviderRegistry
         ↓
@@ -395,15 +396,27 @@ qwen3.5:9b
 Componentes implementados:
 
 * `ConversationProvider`;
-* `MockConversationProvider`;
+* `RuntimeConversationProvider`;
 * `ConversationProviderRegistry`;
+* `ConversationProviderNotFoundError`;
 * `ConversationService`.
 
 Función:
 
 * separar el servicio conversacional del runtime concreto;
-* registrar y resolver providers;
+* adaptar solicitudes conversacionales a un `LLMRuntime` inyectado;
+* registrar y resolver providers mediante nombres normalizados;
+* rechazar nombres vacíos y registros duplicados;
+* encapsular el `KeyError` interno mediante `ConversationProviderNotFoundError`;
+* preservar una responsabilidad mínima en `ConversationService`;
 * componer la CLI sin modificar el Kernel.
+
+Límites vigentes:
+
+* `RuntimeConversationProvider` no selecciona modelos ni configura runtimes;
+* `ConversationService` no implementa retries, logging, métricas, persistencia ni gobernanza;
+* no existe integración formal entre `ConversationService` y `Kernel.receive`;
+* el Sprint 7.3 no incorporó nuevas Capabilities.
 
 ---
 
@@ -733,11 +746,14 @@ Propuestas actualmente documentadas como no aprobadas:
 
 | Propuesta                                   | Estado      |
 | ------------------------------------------- | ----------- |
-| Sprint 7.3                                  | No aprobado |
 | Consolidación de logs, métricas y auditoría | No aprobada |
 | Security Control Plane Foundation           | No aprobada |
 | Preparación del AKS para GraphRAG           | No aprobada |
 | Validación de baseline y release interna    | No aprobada |
+
+El Sprint 7.3 ya no forma parte de estas propuestas: fue cerrado e integrado en `main` mediante el PR #13.
+
+Ninguna propuesta de esta tabla posee autorización de implementación.
 
 La tabla no establece una secuencia obligatoria.
 
