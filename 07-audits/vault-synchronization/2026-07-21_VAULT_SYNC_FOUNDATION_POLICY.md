@@ -98,6 +98,11 @@ f5c7e4d docs(templates): add vault synchronization audit report template
 7aa2963 docs(audit): record vault synchronization foundation incorporation
 82f1179 docs(navigation): index vault synchronization foundation
 ba9579e docs(language): normalize Spanish terminology in vault sync documents
+ed0f82e docs(audit): finalize vault synchronization traceability
+22d6f6f docs(language): complete Spanish normalization in vault sync documents
+a03f91f docs(audit): refresh hashes after final language normalization
+f4bc913 docs(language): fix final terminology in vault sync policy
+78f3b99 docs(audit): refresh policy hash after final terminology fix
 
 ```
 
@@ -133,19 +138,19 @@ ba9579e docs(language): normalize Spanish terminology in vault sync documents
 
 - file: 07-audits/vault-synchronization/2026-07-21_VAULT_SYNC_FOUNDATION_POLICY.md
   operation: created-and-finalized
-  lines: 1-192
+  lines: 1-216
   creation_commit: 7aa2963
   language_normalization_commit: ba9579e
   verification: git-history-and-diff
   sha256: not-recorded-self-referential
 
-  ### Índices modificados
+### Índices modificados
 
 - file: 00-governance/GOVERNANCE_INDEX.md
   operation: modified
   commit: 82f1179
   reason: enlazar la política obligatoria
-  lines_before: insertion-after-59
+  lines_before: 59
   lines_after: 59-66
   sha256: e7bba1a71f489cb0127000e5905c0780aef7b481aab81c91a56e791c47da54e3
 
@@ -182,13 +187,30 @@ ba9579e docs(language): normalize Spanish terminology in vault sync documents
   diff_reference: 82f1179
   sha256: 2d53918c5e314dc58e2fcf32bf0e2339e416dfead0106dfbd8479f45f4bff764
 
+### Validaciones finales
+
+- `git diff --check main...HEAD`: `PASS`;
+- working tree limpio antes del push final: `PASS`;
+- rama local y remota sincronizadas: `PASS`;
+- repositorio oficial `Aranwill/jarvis` modificado: `NO`;
+- snapshots históricos modificados: `NO`;
+- escritura directa sobre `main`: `NO`;
+- PR en estado draft: `PASS`;
+- auto-merge habilitado: `NO`;
+- merge permitido al agente: `BLOCKED`;
+- revisión humana requerida: `PASS`;
+- placeholders pendientes: `NO`;
+- caracteres UTF-8 dañados detectados: `NO`;
+- enlaces de navegación incorporados: `PASS`;
+- implementación del agente aprobada: `NO`.
+
 ## Revisión humana
 
-- [ ] Revise los cinco archivos creados.
-- [ ] Revisé los cinco indices modificados.
-- [ ] Confirme líneas, commits y hashes registrados.
-- [ ] Confirme que ningún snapshot fue modificado.
-- [ ] Confirme que Aranwill/jarvis no fue modificado.
+- [ ] Revisé los cinco archivos creados.
+- [ ] Revisé los cinco índices modificados.
+- [ ] Confirmé líneas, commits y hashes registrados.
+- [ ] Confirmé que ningún snapshot histórico fue modificado.
+- [ ] Confirmé que Aranwill/jarvis no fue modificado.
 - [ ] Revisé los cambios bloqueados y los riesgos.
 - [ ] Confirmé que la PR continúa en estado draft.
 - [ ] Decidiré personalmente si corresponde realizar el merge.
