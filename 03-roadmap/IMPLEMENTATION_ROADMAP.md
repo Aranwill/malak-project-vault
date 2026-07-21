@@ -370,6 +370,81 @@ Esta iniciativa debe permanecer separada del Kernel y del runtime de Malāk.
 
 ---
 
+### 8.1.1 Vault Synchronization Agent Foundation
+
+**Naturaleza:**
+
+```text
+tooling documental externo
+```
+
+**Estado documental:**
+
+```text
+integrado en el Malāk Project Vault mediante la PR #2
+```
+
+**Estado arquitectónico:**
+
+```text
+under_review
+```
+
+**Implementación:**
+
+```text
+no aprobada
+```
+
+**Autoridad operativa:**
+
+```text
+none
+```
+
+La fundación define una posible capacidad externa para mantener actualizado el Vault a partir de evidencia verificada de `Aranwill/jarvis/main`.
+
+No forma parte de:
+
+* Kernel;
+* Planner;
+* Capability Registry;
+* ConversationService;
+* LLMRuntime;
+* CLI;
+* runtime de Malāk;
+* Security Control Plane.
+
+Límites vigentes:
+
+* `Aranwill/jarvis` permanece en modo de solo lectura;
+* el Vault conserva naturaleza derivada y externa;
+* no se permite escritura directa sobre `main`;
+* toda propuesta futura deberá utilizar una rama documental;
+* toda ejecución con cambios deberá generar un informe de auditoría;
+* los snapshots históricos permanecen inmutables;
+* el agente no podrá aprobar PR;
+* el agente no podrá habilitar auto-merge;
+* el agente no podrá mergear PR;
+* la integración final permanecerá bajo control humano.
+
+La incorporación documental no constituye aceptación arquitectónica ni autorización de implementación.
+
+Cualquier fase futura requerirá:
+
+1. resolución de `DEC-PEND-013`;
+2. revisión del baseline;
+3. definición de alcance y fuera de alcance;
+4. modelo de permisos;
+5. allowlist y denylist;
+6. validaciones deterministas;
+7. riesgos;
+8. rollback;
+9. criterios de aceptación;
+10. aprobación explícita del propietario.
+
+---
+
 ### 8.2 Resource Governance Foundation
 
 **Estado conceptual:**
