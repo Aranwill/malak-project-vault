@@ -8,7 +8,7 @@ authority_level: approved_roadmap
 authority_rank: 7
 version: 1.0
 created: 2026-07-20
-last_reviewed: 2026-07-21
+last_reviewed: 2026-07-22
 source_of_truth: repository
 source_repository: Aranwill/jarvis
 source_branch: main
@@ -381,19 +381,25 @@ tooling documental externo
 **Estado documental:**
 
 ```text
-integrado en el Malāk Project Vault mediante la PR #2
+integrado en el Malāk Project Vault mediante las PR #2 y #3
 ```
 
 **Estado arquitectónico:**
 
 ```text
-under_review
+Fase 1 aprobada
 ```
 
 **Implementación:**
 
 ```text
-no aprobada
+Fase 1 aprobada para ejecución supervisada por gates
+```
+
+**Estado operativo:**
+
+```text
+no implementado
 ```
 
 **Autoridad operativa:**
@@ -402,7 +408,9 @@ no aprobada
 none
 ```
 
-La fundación define una posible capacidad externa para mantener actualizado el Vault a partir de evidencia verificada de `Aranwill/jarvis/main`.
+La fundación define una capacidad externa para mantener actualizado el Vault a partir de evidencia verificada de `Aranwill/jarvis/main`.
+
+La aprobación vigente se limita exclusivamente a la Fase 1.
 
 No forma parte de:
 
@@ -415,33 +423,148 @@ No forma parte de:
 * runtime de Malāk;
 * Security Control Plane.
 
-Límites vigentes:
+**Objetivo autorizado de la Fase 1:**
+
+Construir una herramienta local en Python que opere de forma determinista y en modo `dry-run` para:
+
+* detectar cambios en `Aranwill/jarvis/main`;
+* comparar el HEAD remoto con el último commit observado;
+* registrar estado operativo local;
+* generar un paquete de evidencia;
+* identificar documentos candidatos del Vault mediante reglas explícitas;
+* aplicar allowlist y denylist;
+* validar rutas, Markdown, YAML, enlaces, hashes y metadatos;
+* generar un informe de auditoría;
+* operar mediante ejecución manual o scheduler externo.
+
+**Ubicación prevista:**
+
+```text
+D:\Ollama\malak-vault-sync-agent
+```
+
+La implementación permanecerá separada de:
+
+```text
+D:\Ollama\jarvis
+D:\Ollama\malak-project-vault
+```
+
+**Modelo de autoridad:**
+
+```text
+Agente:
+observa, compara, valida y genera evidencia
+
+LLM:
+no utilizado en la Fase 1
+
+Humano:
+revisa, aprueba y autoriza cada gate
+```
+
+La autorización técnica no otorga autoridad documental ni operativa al agente.
+
+**Límites obligatorios de la Fase 1:**
 
 * `Aranwill/jarvis` permanece en modo de solo lectura;
 * el Vault conserva naturaleza derivada y externa;
-* no se permite escritura directa sobre `main`;
-* toda propuesta futura deberá utilizar una rama documental;
-* toda ejecución con cambios deberá generar un informe de auditoría;
-* los snapshots históricos permanecen inmutables;
-* el agente no podrá aprobar PR;
-* el agente no podrá habilitar auto-merge;
-* el agente no podrá mergear PR;
-* la integración final permanecerá bajo control humano.
+* la primera versión operará exclusivamente en modo `dry-run`;
+* no se utilizará LLM;
+* no se modificarán archivos de `Aranwill/jarvis`;
+* no se modificarán archivos del Vault mediante el agente;
+* no se crearán ramas mediante el agente;
+* no se crearán commits mediante el agente;
+* no se ejecutará `push`;
+* no se abrirán pull requests;
+* no se aprobarán ni mergearán pull requests;
+* no se cerrarán decisiones automáticamente;
+* no se modificarán snapshots históricos;
+* no se implementará servidor HTTP;
+* no se implementarán webhooks;
+* no se implementará un daemon permanente;
+* no se avanzará automáticamente entre gates;
+* todo cambio de alcance requerirá aprobación humana explícita.
 
-La incorporación documental no constituye aceptación arquitectónica ni autorización de implementación.
+**Proceso de implementación aprobado:**
 
-Cualquier fase futura requerirá:
+```text
+Gate 0 — relevamiento de solo lectura
+Gate 1 — workspace y configuración
+Gate 2 — inspección Git de solo lectura
+Gate 3 — estado persistente local
+Gate 4 — paquete de evidencia
+Gate 5 — resolución de documentos candidatos
+Gate 6 — validadores deterministas
+Gate 7 — informe de auditoría
+Gate 8 — runner, lock y polling externo
+Gate 9 — validación final
+```
 
-1. resolución de `DEC-PEND-013`;
-2. revisión del baseline;
-3. definición de alcance y fuera de alcance;
-4. modelo de permisos;
-5. allowlist y denylist;
-6. validaciones deterministas;
-7. riesgos;
-8. rollback;
-9. criterios de aceptación;
-10. aprobación explícita del propietario.
+Cada gate debe:
+
+1. mantener alcance limitado;
+2. incluir pruebas;
+3. demostrar que no modificó los repositorios observados;
+4. presentar archivos creados o modificados;
+5. presentar riesgos y desviaciones;
+6. detenerse antes del siguiente gate;
+7. esperar aprobación humana explícita.
+
+**Fuera de alcance de la Fase 1:**
+
+* modificación automática del Vault;
+* creación automática de ramas documentales;
+* creación automática de commits;
+* apertura automática de PR draft;
+* actualización automática de baseline;
+* modificación de documentos normativos;
+* modificación de snapshots;
+* integración con Kernel, Planner, Capability Registry, ConversationService, LLMRuntime o CLI;
+* uso de LLM para permisos, gobernanza o decisiones;
+* automatización completa;
+* capacidades de fases posteriores.
+
+**Dependencias resueltas para la Fase 1:**
+
+* `DEC-PEND-013` cerrado;
+* arquitectura mínima revisada;
+* alcance y fuera de alcance definidos;
+* modelo de permisos mínimos definido;
+* implementación por gates aprobada;
+* rollback definido;
+* aprobación humana explícita registrada.
+
+**Dependencias que deberán materializarse durante la implementación:**
+
+* definición concreta de allowlist y denylist;
+* validaciones deterministas;
+* controles TOCTOU;
+* pruebas de invariantes de no modificación;
+* sanitización de evidencia;
+* límites de tamaño y alcance;
+* criterios de aceptación por gate.
+
+**Rollback:**
+
+La Fase 1 no modificará los repositorios observados.
+
+El rollback consistirá en:
+
+1. detener la ejecución;
+2. deshabilitar cualquier scheduler;
+3. retirar el workspace del agente;
+4. restaurar el último estado local válido;
+5. conservar o eliminar evidencia según decisión humana;
+6. verificar que ambos repositorios permanecen sin cambios.
+
+**Fases posteriores:**
+
+```text
+no aprobadas
+```
+
+Cualquier ampliación hacia escritura documental, ramas, commits, PR draft, LLM o automatización adicional requerirá una decisión independiente y aprobación humana explícita.
 
 ---
 

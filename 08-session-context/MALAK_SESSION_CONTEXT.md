@@ -8,7 +8,7 @@ authority_level: technical_documentation
 authority_rank: 6
 version: 1.0
 created: 2026-07-20
-last_reviewed: 2026-07-21
+last_reviewed: 2026-07-22
 source_repository: Aranwill/jarvis
 source_branch: main
 derived: true
@@ -358,8 +358,7 @@ Antes de seleccionar el siguiente sprint se requiere:
 
 * alcance y separación entre logs, métricas y auditoría;
 * política de sincronización con Obsidian;
-* esquema de metadatos del Vault;
-* revisión de `DEC-PEND-013` sobre la aprobación e implementación del Vault Synchronization Agent.
+* esquema de metadatos del Vault.
 
 ### Diferidas
 
@@ -417,10 +416,9 @@ Estado actual de la secuencia:
 Estado vigente:
 
 ```text
-Incorporación documental: completada mediante PR #2
-Arquitectura: under_review
-Política: under_review
-Implementación aprobada: false
+Incorporación documental: completada mediante las PR #2 y #3
+Arquitectura de Fase 1: aprobada
+Implementación de Fase 1: aprobada para ejecución supervisada por gates
 Agente operativo: no implementado
 Autoridad operativa: none
 ```
@@ -430,23 +428,30 @@ La fundación fue integrada documentalmente en `Aranwill/malak-project-vault/mai
 ```text
 PR #2
 Merge commit: bcefa948b250830139233376088d1e65bd159143
+
+PR #3
+Merge commit: 918997a61e9a7b68c353c2eb5697ea21ede7e91f
 ```
 
-La integración no constituye aceptación arquitectónica ni autorización de implementación.
+La aprobación vigente se limita a la Fase 1 del agente.
 
 La iniciativa:
 
 * permanece fuera del Kernel y del runtime;
 * no forma parte del roadmap operativo de `Aranwill/jarvis`;
 * mantiene `Aranwill/jarvis/main` en modo de solo lectura;
-* no puede escribir directamente en `main` del Vault;
-* requiere una rama documental y una PR draft para todo cambio futuro;
-* exige informe de auditoría con trazabilidad;
+* se implementará en un workspace externo;
+* operará inicialmente en modo `dry-run`;
+* no utilizará LLM durante la Fase 1;
+* no modificará archivos de `Aranwill/jarvis`;
+* no modificará archivos del Vault mediante el agente;
+* no creará ramas, commits ni pull requests;
 * mantiene snapshots históricos inmutables;
 * no puede aprobar, habilitar auto-merge ni mergear PR;
-* reserva la integración final al propietario humano.
+* reserva toda ampliación de alcance al propietario humano;
+* se desarrollará mediante gates pequeños y aprobación humana entre cada gate.
 
-La decisión abierta correspondiente se registra en:
+La decisión correspondiente fue resuelta y cerrada en:
 
 ```text
 DEC-PEND-013 — Aprobación e implementación del Vault Synchronization Agent
@@ -497,8 +502,8 @@ Estado documental del Vault:
 Estado posterior de la iniciativa:
 
 ```text
-Arquitectura: under_review
-Implementación aprobada: false
+Arquitectura de Fase 1: aprobada
+Implementación de Fase 1: aprobada para ejecución supervisada por gates
 Autoridad operativa: none
 Agente operativo: no implementado
 Kernel afectado: no
@@ -519,7 +524,7 @@ Se conserva como baseline oficial documentado:
 
 Continúan pendientes y sin aprobación automática:
 
-* implementación del Vault Synchronization Agent;
+* fases posteriores del Vault Synchronization Agent;
 * Session Context Generator;
 * RAG externo;
 * auditor arquitectónico;
@@ -543,7 +548,7 @@ Sin sprint aprobado:
 * Evidence Acquisition Foundation;
 * Secure Context Manager;
 * Architecture & Security Auditor Foundation;
-* Vault Synchronization Agent Foundation, bajo revisión y sin implementación aprobada;
+* Vault Synchronization Agent Foundation, con Fase 1 aprobada y fases posteriores no aprobadas;
 * AI Preservation System;
 * Model Archive;
 * Simulation & Sandbox;
@@ -610,47 +615,53 @@ Al recibir este archivo, el asistente debe:
 
 ## 17. Resultado de la sesión actual
 
-**Fecha:** `2026-07-21`
+**Fecha:** `2026-07-22`
 
 Objetivo en curso:
 
-> Actualizar de forma gobernada los documentos operativos del Malāk Project Vault después de la integración documental de Vault Synchronization Agent Foundation.
+> Formalizar y preparar la implementación supervisada de la Fase 1 del Vault Synchronization Agent.
 
 Trabajo completado en esta línea:
 
-* verificación de la PR #2 y de su merge commit;
-* creación del informe posterior al merge:
-  `07-audits/vault-synchronization/2026-07-21_VAULT_SYNC_FOUNDATION_MERGE_CLOSURE.md`;
-* actualización de `07-audits/AUDIT_INDEX.md`;
-* incorporación de `DEC-PEND-013` en `05-decisions/PENDING_DECISIONS.md`;
-* incorporación del estado de la fundación en `03-roadmap/IMPLEMENTATION_ROADMAP.md`;
-* trabajo mediante rama documental separada:
-  `docs/vault-sync-foundation-closure`;
+* verificación de `Aranwill/jarvis/main`;
+* confirmación del baseline oficial en `fd4da3d371d07b6aa91cc9f1c4d4bac3838ad627`;
+* verificación de `Aranwill/malak-project-vault/main`;
+* confirmación del cierre documental mediante la PR #3 y el merge commit `918997a61e9a7b68c353c2eb5697ea21ede7e91f`;
+* Gate 0 completado en modo de solo lectura;
+* arquitectura mínima de Fase 1 revisada;
+* alcance, fuera de alcance, permisos, riesgos, rollback y gates definidos;
+* `DEC-PEND-013` resuelto y cerrado;
+* Fase 1 aprobada para implementación externa, determinista, en Python y supervisada por gates;
+* actualización del roadmap del Vault Synchronization Agent;
+* trabajo mediante la rama documental:
+  `docs/vault-sync-phase-1-approval`;
 * commits pequeños y trazables;
 * preservación del working tree limpio después de cada commit.
 
 Commits creados hasta esta actualización:
 
 ```text
-758217c docs(audit): record vault sync foundation merge closure
-9425143 docs(audit): index vault sync merge closure
-df40ca2 docs(decisions): track vault sync agent approval
-66adbdb docs(roadmap): register vault sync foundation status
+ebd60f7 docs(decisions): approve vault sync agent phase 1
+e57b5ac docs(decisions): fix phase 1 approval formatting
+45bc90c docs(roadmap): approve vault sync agent phase 1
 ```
 
-Decisiones preservadas:
+Decisiones vigentes:
 
-* el repositorio oficial continúa siendo la fuente de verdad;
-* el Vault permanece como capa derivada y no operativa;
-* Obsidian es únicamente una interfaz;
-* la integración documental no equivale a aceptación arquitectónica;
-* la implementación del agente permanece no aprobada;
-* el agente no posee autoridad operativa;
-* `Aranwill/jarvis` permanece en modo de solo lectura;
-* ningún snapshot histórico fue modificado;
-* no se creó un snapshot nuevo porque el baseline oficial no cambió;
-* no se aprobó un próximo sprint;
-* todo merge futuro continúa reservado al propietario humano.
+* `Aranwill/jarvis` continúa siendo la fuente de verdad operativa;
+* el Vault permanece como capa derivada y sin autoridad operativa;
+* Obsidian continúa siendo únicamente una interfaz local;
+* la Fase 1 del agente fue aprobada;
+* el agente aún no está implementado;
+* la implementación será externa al Kernel y al runtime;
+* la primera versión operará exclusivamente en modo `dry-run`;
+* no se utilizará LLM durante la Fase 1;
+* el agente no modificará `Aranwill/jarvis`;
+* el agente no modificará archivos del Vault durante la Fase 1;
+* no creará ramas, commits, push ni pull requests;
+* no modificará snapshots históricos;
+* no se aprobó un próximo sprint de Malāk;
+* Malāk permanece pausado para nuevas implementaciones mientras se construye y valida el agente.
 
 Baseline oficial conservado:
 
@@ -661,26 +672,44 @@ Baseline oficial conservado:
 * pull request integrado: PR #13;
 * pruebas documentadas: 74 aprobadas.
 
+Estado del Vault:
+
+* repositorio: `Aranwill/malak-project-vault`;
+* rama oficial: `main`;
+* último merge verificado: PR #3;
+* merge commit: `918997a61e9a7b68c353c2eb5697ea21ede7e91f`.
+
 Estado de la fundación:
 
 ```text
 Incorporación documental: completada
-Arquitectura: under_review
-Implementación aprobada: false
+Arquitectura de Fase 1: aprobada
+Implementación de Fase 1: aprobada para ejecución supervisada por gates
 Autoridad operativa: none
 Agente operativo: no implementado
 ```
 
+Estado de implementación:
+
+```text
+Gate 0: completado
+Gate 1: pendiente de inicio
+Gates 2 a 9: no iniciados
+```
+
 Punto de continuidad:
 
-1. completar la actualización de este contexto de sesión;
-2. actualizar `10-knowledge-index/KNOWLEDGE_INDEX.md` para enlazar el informe posterior al merge;
-3. validar el diff completo de la rama;
-4. publicar la rama;
-5. abrir una PR draft;
-6. esperar revisión y merge humano.
+1. finalizar la actualización documental de esta rama;
+2. validar el diff completo;
+3. publicar la rama documental;
+4. abrir una PR draft;
+5. esperar revisión y merge humano;
+6. después del cierre documental, crear el workspace externo:
+   `D:\Ollama\malak-vault-sync-agent`;
+7. iniciar únicamente el Gate 1 — workspace y configuración;
+8. detenerse al finalizar Gate 1 y esperar aprobación humana.
 
-No debe iniciarse ninguna implementación del agente durante esta línea de trabajo.
+No debe iniciarse Gate 2 ni ninguna fase posterior sin aprobación explícita.
 
 ---
 

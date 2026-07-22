@@ -845,139 +845,205 @@ No incorporar tooling para resolver un problema no demostrado.
 **Estado:**
 
 ```text
-under_review
+closed
 ```
 
-**Prioridad:**
+**Prioridad histórica:**
 
 ```text
-media para continuidad documental; alta antes de cualquier automatización
+alta para continuidad documental
 ```
 
 **Contexto:**
 
-La fundación documental `Vault Synchronization Agent Foundation` fue integrada en la rama `main` de `Aranwill/malak-project-vault` mediante la PR #2 y el merge commit:
+La fundación documental `Vault Synchronization Agent Foundation` fue integrada en la rama `main` de `Aranwill/malak-project-vault` mediante:
 
 ```text
-bcefa948b250830139233376088d1e65bd159143
+PR #2
+Merge commit: bcefa948b250830139233376088d1e65bd159143
 ```
 
-La integración incorporó:
-
-* una política de gobernanza;
-* una propuesta arquitectónica;
-* un modelo de amenazas;
-* una plantilla de informe de ejecución;
-* un informe de auditoría;
-* navegación mediante los índices correspondientes.
-
-La incorporación documental está cerrada, pero la arquitectura permanece `under_review`.
-
-Estado actual:
+El cierre documental posterior fue integrado mediante:
 
 ```text
-Documentación integrada: sí
-Arquitectura aceptada: no
-Implementación aprobada: false
-Agente operativo: no implementado
-Autoridad operativa: none
-Kernel afectado: no
-Runtime afectado: no
+PR #3
+Merge commit: 918997a61e9a7b68c353c2eb5697ea21ede7e91f
 ```
 
-**Decisión requerida:**
+La incorporación documental no constituyó por sí sola aceptación arquitectónica ni autorización de implementación.
 
-Determinar si la propuesta debe:
+Después de revisar la política, la arquitectura, el modelo de amenazas, los límites operativos y la propuesta de implementación, el propietario aprobó la arquitectura mínima y la implementación supervisada de la Fase 1.
 
-1. aceptarse como arquitectura futura;
-2. modificarse antes de ser aceptada;
-3. diferirse;
-4. rechazarse.
+**Decisión:**
 
-Solo después de una aceptación arquitectónica podrá evaluarse si corresponde aprobar una primera fase de implementación externa.
+Se acepta la arquitectura mínima del Vault Synchronization Agent y se autoriza exclusivamente la implementación supervisada de la Fase 1.
 
-**Alternativas:**
+La autorización se limita a una herramienta externa en Python que opere inicialmente como detector determinista de cambios y generador de evidencia en modo `dry-run`.
 
-1. aceptar únicamente la arquitectura y mantener la implementación diferida;
-2. modificar políticas, límites o componentes conceptuales;
-3. aprobar posteriormente una fase mínima de detección de drift en modo de solo lectura;
-4. diferir toda implementación hasta estabilizar el Session Context Generator;
-5. rechazar la iniciativa y conservar sincronización exclusivamente manual.
+**Alcance autorizado de la Fase 1:**
 
-**Criterios obligatorios:**
+* detectar cambios en `Aranwill/jarvis/main`;
+* comparar el HEAD remoto con el último commit observado;
+* registrar estado operativo local;
+* generar un paquete de evidencia;
+* identificar documentos candidatos del Vault mediante reglas deterministas;
+* aplicar allowlist y denylist;
+* validar rutas, Markdown, YAML, enlaces, hashes y metadatos;
+* generar un informe de auditoría;
+* operar mediante ejecución manual o scheduler externo;
+* trabajar mediante gates pequeños y aprobación humana entre cada gate.
 
-* preservar `Aranwill/jarvis` como fuente de verdad;
-* mantener `Aranwill/jarvis/main` en modo de solo lectura;
-* mantener el Vault fuera del Kernel y del runtime;
-* impedir escrituras directas sobre `main`;
-* utilizar una rama documental nueva por ejecución;
-* presentar cambios mediante PR draft;
-* mantener snapshots históricos inmutables;
-* aplicar denegación por defecto;
-* utilizar validaciones deterministas;
-* impedir que el LLM tome decisiones de autoridad;
-* generar informe de auditoría obligatorio;
-* reservar aprobación y merge al propietario humano;
-* preservar trazabilidad y rollback;
-* mantener cambios pequeños y reversibles.
+**Límites obligatorios:**
 
-**Preguntas abiertas:**
+* `Aranwill/jarvis` permanece en modo de solo lectura;
+* el Vault permanece fuera del Kernel y del runtime;
+* la implementación se realizará en un workspace externo;
+* la primera versión operará exclusivamente en modo `dry-run`;
+* no se utilizará LLM durante la Fase 1;
+* no se modificarán archivos de `Aranwill/jarvis`;
+* no se modificarán archivos del Vault mediante el agente;
+* no se crearán ramas mediante el agente;
+* no se crearán commits mediante el agente;
+* no se ejecutará `push`;
+* no se abrirán pull requests;
+* no se aprobarán ni mergearán pull requests;
+* no se cerrarán decisiones automáticamente;
+* no se modificarán snapshots históricos;
+* no se implementará servidor HTTP;
+* no se implementarán webhooks;
+* no se implementará un daemon permanente;
+* no se avanzará automáticamente entre gates;
+* todo cambio de alcance requerirá aprobación humana explícita.
 
-* ¿Cuál sería la primera fase mínima justificable?
-* ¿Debe comenzar exclusivamente como detector de drift de solo lectura?
-* ¿Qué rutas podrán incorporarse a una allowlist?
-* ¿Qué rutas deben permanecer en denylist absoluta?
-* ¿Qué credenciales y permisos técnicos mínimos utilizará?
-* ¿Cómo se validará TOCTOU?
-* ¿Qué presupuesto máximo de archivos y líneas podrá modificar?
-* ¿Cómo se detectarán secretos?
-* ¿Cómo se validarán enlaces, metadatos y referencias Git?
-* ¿Qué relación tendrá con el futuro Session Context Generator?
-* ¿Qué eventos podrán disparar una ejecución?
-* ¿Qué información podrá redactar un LLM sin autoridad decisoria?
-* ¿Qué pruebas deberán completarse antes de abrir una PR draft?
-* ¿Cómo se deshabilitará y revertirá una implementación defectuosa?
+**Modelo de autoridad:**
 
-**Dependencias:**
+```text
+Agente:
+observa, compara, valida y genera evidencia
 
-* `00-governance/VAULT_SYNC_AGENT_POLICY.md`;
-* `01-architecture/VAULT_SYNCHRONIZATION_AGENT_FOUNDATION.md`;
-* `06-security/VAULT_SYNCHRONIZATION_THREAT_MODEL.md`;
-* `templates/VAULT_SYNC_EXECUTION_REPORT_TEMPLATE.md`;
-* resolución del modelo de permisos técnicos;
-* definición de allowlist y denylist;
-* definición de credenciales;
-* definición de controles TOCTOU;
-* revisión de las cuatro preguntas obligatorias;
-* aprobación humana explícita.
+LLM:
+no utilizado en la Fase 1
 
-**Riesgos:**
+Humano:
+revisa, aprueba y autoriza cada gate
+```
 
-* confundir documentación integrada con arquitectura aceptada;
-* interpretar permiso técnico como autoridad documental;
-* permitir modificaciones del repositorio oficial;
-* permitir escritura directa sobre `main`;
-* alterar snapshots históricos;
-* cerrar decisiones automáticamente;
-* producir cambios documentales masivos;
-* exponer secretos o credenciales;
-* utilizar un LLM para decisiones de seguridad o gobernanza;
-* iniciar implementación sin una necesidad y alcance concretos.
+La autorización técnica no otorga autoridad documental ni operativa al agente.
 
-**Próxima acción permitida:**
+**Ubicación prevista:**
 
-Revisar la arquitectura, política, modelo de amenazas y límites de la iniciativa; presentar observaciones y alternativas al propietario.
+```text
+D:\Ollama\malak-vault-sync-agent
+```
 
-**Acción no permitida:**
+La ubicación es externa a:
 
-* implementar el agente;
-* crear un sprint de implementación;
-* ejecutar sincronizaciones automáticas;
-* otorgar permisos de escritura;
-* modificar `Aranwill/jarvis`;
-* abrir PR automáticas;
-* aprobar o mergear PR;
-* cambiar el estado de esta decisión sin aprobación humana.
+```text
+D:\Ollama\jarvis
+D:\Ollama\malak-project-vault
+```
+
+**Permisos mínimos:**
+
+* lectura de `D:\Ollama\jarvis`;
+* lectura de `D:\Ollama\malak-project-vault`;
+* escritura exclusiva dentro de `D:\Ollama\malak-vault-sync-agent`;
+* comandos Git limitados a operaciones explícitamente autorizadas de lectura;
+* sin credenciales de escritura sobre GitHub durante la Fase 1.
+
+**Proceso de implementación aprobado:**
+
+```text
+Gate 0 — relevamiento de solo lectura
+Gate 1 — workspace y configuración
+Gate 2 — inspección Git de solo lectura
+Gate 3 — estado persistente local
+Gate 4 — paquete de evidencia
+Gate 5 — resolución de documentos candidatos
+Gate 6 — validadores deterministas
+Gate 7 — informe de auditoría
+Gate 8 — runner, lock y polling externo
+Gate 9 — validación final
+```
+
+Cada gate debe:
+
+1. mantener alcance limitado;
+2. incluir pruebas;
+3. demostrar que no modificó los repositorios observados;
+4. presentar archivos creados o modificados;
+5. presentar riesgos y desviaciones;
+6. detenerse antes del siguiente gate;
+7. esperar aprobación humana explícita.
+
+**Fuera de alcance:**
+
+* modificación automática del Vault;
+* creación automática de ramas documentales;
+* creación automática de commits;
+* apertura automática de PR draft;
+* actualización automática de baseline;
+* modificación de documentos normativos;
+* modificación de snapshots;
+* integración con Kernel, Planner, Capability Registry, ConversationService, LLMRuntime o CLI;
+* uso de LLM para permisos, gobernanza o decisiones;
+* automatización completa;
+* capacidades de fases posteriores.
+
+**Validación arquitectónica:**
+
+1. ¿Respeta el Blueprint?
+
+   Sí. La herramienta permanece externa y no modifica la arquitectura operativa de Malāk.
+
+2. ¿Respeta la Constitución Cognitiva?
+
+   Sí. El agente observa y genera evidencia, pero no adquiere autoridad decisoria.
+
+3. ¿Respeta la Gobernanza?
+
+   Sí. Mantiene Human in Control, denegación por defecto, mínimo privilegio, trazabilidad y aprobación humana entre gates.
+
+4. ¿Simplifica o mantiene simple el Kernel?
+
+   Sí. El Kernel no es modificado ni conoce al agente.
+
+**Riesgos aceptados y controles:**
+
+* escritura accidental: controlada mediante separación de workspace y permisos mínimos;
+* deriva de alcance: controlada mediante gates y aprobación humana;
+* TOCTOU: deberá validarse antes de cerrar cada ejecución;
+* exposición de secretos: deberá prevenirse mediante denylist, sanitización y límites de evidencia;
+* falsos positivos: deberán explicarse mediante reglas deterministas;
+* interpretación de evidencia como aprobación: prohibida explícitamente;
+* ejecución defectuosa: reversible mediante deshabilitación del scheduler y eliminación del workspace.
+
+**Rollback:**
+
+La Fase 1 no modificará los repositorios observados.
+
+El rollback consistirá en:
+
+1. detener la ejecución;
+2. deshabilitar cualquier scheduler;
+3. retirar el workspace del agente;
+4. restaurar el último estado local válido;
+5. conservar o eliminar evidencia según decisión humana;
+6. verificar que ambos repositorios permanecen sin cambios.
+
+**Criterio de cierre:**
+
+La decisión se considera resuelta porque:
+
+* la arquitectura mínima fue revisada;
+* la Fase 1 fue delimitada;
+* los permisos fueron definidos;
+* el alcance y fuera de alcance fueron aceptados;
+* los gates fueron establecidos;
+* el rollback fue definido;
+* la implementación supervisada fue autorizada expresamente.
+
+La autorización se limita a la Fase 1 y no aprueba ninguna fase posterior.
 
 ---
 
