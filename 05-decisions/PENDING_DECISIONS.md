@@ -992,19 +992,19 @@ Cada gate debe:
 
 **Validación arquitectónica:**
 
-1. ¿Respeta el Blueprint?  
+1. ¿Respeta el Blueprint?
 
    Sí. La herramienta permanece externa y no modifica la arquitectura operativa de Malāk.
 
-2. ¿Respeta la Constitución Cognitiva?  
+2. ¿Respeta la Constitución Cognitiva?
 
    Sí. El agente observa y genera evidencia, pero no adquiere autoridad decisoria.
 
-3. ¿Respeta la Gobernanza?  
+3. ¿Respeta la Gobernanza?
 
    Sí. Mantiene Human in Control, denegación por defecto, mínimo privilegio, trazabilidad y aprobación humana entre gates.
 
-4. ¿Simplifica o mantiene simple el Kernel?  
+4. ¿Simplifica o mantiene simple el Kernel?
 
    Sí. El Kernel no es modificado ni conoce al agente.
 
