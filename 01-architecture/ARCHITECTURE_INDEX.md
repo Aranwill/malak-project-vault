@@ -7,7 +7,7 @@ authority: derived
 operational_authority: none
 version: 1.0
 created: 2026-07-20
-last_reviewed: 2026-07-21
+last_reviewed: 2026-07-22
 source_repository: Aranwill/jarvis
 source_branch: main
 baseline_reference: fd4da3d371d07b6aa91cc9f1c4d4bac3838ad627
@@ -182,8 +182,52 @@ Cualquier mapa adicional requiere:
 - aprobación antes de su incorporación.
 
 No existe actualmente un nuevo mapa arquitectónico aprobado.
-## Propuestas arquitectónicas bajo revisión
+
+## Arquitectura externa documentada
 
 - [[01-architecture/VAULT_SYNCHRONIZATION_AGENT_FOUNDATION|Vault Synchronization Agent Foundation]]
 
-La propuesta permanece externa al Kernel y al runtime de Malāk. Su implementación no está aprobada.
+Estado arquitectónico:
+
+```text
+Fase 1 aceptada, implementada y cerrada
+```
+
+Estado operativo:
+
+```text
+tooling documental externo en modo dry-run
+```
+
+Autoridad operativa:
+
+```text
+none
+```
+
+La arquitectura implementada:
+
+- permanece fuera del Kernel;
+- permanece fuera del runtime;
+- permanece fuera del Security Control Plane;
+- no modifica `Aranwill/jarvis`;
+- no modifica automáticamente el Vault;
+- no utiliza LLM;
+- no crea ramas, commits, push ni pull requests mediante el agente;
+- no modifica snapshots históricos;
+- mantiene `last_applied_commit: null`.
+
+Baseline final del agente:
+
+```text
+Rama: main
+HEAD: 954659b
+Suite completa: 148 passed
+Resultado end-to-end: pass
+```
+
+La arquitectura aprobada se limita exclusivamente a la Fase 1.
+
+Fase 2 y posteriores permanecen no aprobadas.
+
+La existencia de esta arquitectura externa no modifica el baseline operativo de Malāk ni convierte al agente en parte del sistema cognitivo.
