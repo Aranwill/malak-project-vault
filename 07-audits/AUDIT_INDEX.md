@@ -5,7 +5,7 @@ document_type: navigation
 status: active
 authority: derived
 operational_authority: none
-last_reviewed: 2026-07-20
+last_reviewed: 2026-07-22
 tags:
   - malak
   - vault
@@ -36,9 +36,17 @@ Esta sección está reservada para revisiones independientes o controladas sobre
 
 ## Estado actual
 
-No existen auditorías formales registradas en este índice.
+Existen informes formales registrados para la iniciativa Vault Synchronization Agent.
 
-La ausencia de una auditoría no debe interpretarse como ausencia de riesgos ni como certificación del sistema.
+Estos informes documentan etapas históricas distintas:
+
+- incorporación documental inicial;
+- cierre posterior al merge humano;
+- cierre técnico y validación final de la Fase 1.
+
+La existencia de estos informes no modifica automáticamente el repositorio, el roadmap, el baseline ni las decisiones del proyecto.
+
+Tampoco concede autoridad operativa al agente ni autoriza fases posteriores.
 
 ## Navegación relacionada
 
