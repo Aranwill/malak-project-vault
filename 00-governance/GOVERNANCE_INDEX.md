@@ -5,7 +5,7 @@ document_type: navigation
 status: active
 authority: derived
 operational_authority: none
-last_reviewed: 2026-07-20
+last_reviewed: 2026-07-22
 tags:
   - malak
   - vault
@@ -57,10 +57,55 @@ Antes de crear o modificar un documento del Vault:
 - [[05-decisions/PENDING_DECISIONS|Decisiones pendientes]]
 - [[08-session-context/MALAK_SESSION_CONTEXT|Contexto de sesión]]
 - [[10-knowledge-index/KNOWLEDGE_INDEX|Índice maestro]]
-## Propuestas de sincronización documental
+## Vault Synchronization Agent
 
 - [[00-governance/VAULT_SYNC_AGENT_POLICY|Política obligatoria del Vault Synchronization Agent]]
 
-Estado: `under_review`.
+Estado de la política:
 
-Esta política no autoriza implementación ni concede autoridad operativa al agente.
+```text
+accepted
+```
+
+Estado de implementación:
+
+```text
+Fase 1 completada y cerrada
+```
+
+Autoridad operativa:
+
+```text
+none
+```
+
+La política aprobada se limita exclusivamente al alcance cerrado de la Fase 1.
+
+La Fase 1:
+
+- operó en modo determinista y de solo lectura;
+- mantuvo `Aranwill/jarvis/main` intacto;
+- mantuvo el Vault intacto;
+- no utilizó LLM;
+- no creó ramas, commits, push ni pull requests mediante el agente;
+- no modificó snapshots históricos;
+- preservó `last_applied_commit: null`.
+
+Fase 2 y posteriores permanecen no aprobadas.
+
+La aceptación de la política no autoriza:
+
+- escritura automática en el Vault;
+- creación automática de ramas;
+- creación automática de commits;
+- apertura automática de PR;
+- scheduler operativo;
+- servicio permanente;
+- daemon;
+- webhooks;
+- uso de LLM;
+- integración con Kernel o runtime;
+- modificación de Malāk;
+- modificación de snapshots históricos.
+
+Cualquier ampliación de alcance requiere una decisión independiente y aprobación humana explícita.
