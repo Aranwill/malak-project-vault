@@ -7,7 +7,7 @@ authority_level: technical_documentation
 authority_rank: 6
 version: 1.0
 created: 2026-07-20
-last_reviewed: 2026-07-21
+last_reviewed: 2026-07-22
 source_of_truth: project-vault
 derived: true
 operational_context: true
@@ -108,8 +108,6 @@ Actualmente:
 
 Categorías actuales:
 
-Categorías actuales:
-
 ### Prioridad alta
 
 - selección del próximo sprint;
@@ -120,13 +118,14 @@ Categorías actuales:
 
 - alcance y separación entre logs, métricas y auditoría;
 - política de sincronización con Obsidian;
-- esquema de metadatos del Vault;
-- aprobación e implementación del Vault Synchronization Agent (`DEC-PEND-013`).
+- esquema de metadatos del Vault.
 
 ### Decisiones cerradas recientes
 
 - redefinición del Sprint 7.3;
-- relación entre Kernel y `ConversationService`.
+- relación entre Kernel y `ConversationService`;
+- aprobación e implementación de la Fase 1 del Vault Synchronization Agent (`DEC-PEND-013`);
+- cierre técnico y validación final de la Fase 1.
 
 ### Diferidas
 
@@ -153,8 +152,6 @@ No deben completarse directamente sobre el archivo original.
 Carpeta:
 
 [[01-architecture/ARCHITECTURE_INDEX|Índice de arquitectura]]
-
-Estado:
 
 Estado:
 
@@ -197,8 +194,6 @@ No deben crearse diagramas o mapas sin una necesidad concreta.
 Carpeta:
 
 [[04-sprints/SPRINT_INDEX|Índice de sprints]]
-
-Estado:
 
 Estado:
 
@@ -246,7 +241,22 @@ Carpeta:
 
 Estado:
 
-`Índice de navegación creado. El contenido especializado de seguridad continúa pendiente.`
+`Índice de navegación activo con un modelo de amenazas aceptado para la Fase 1 del Vault Synchronization Agent.`
+
+El agente permanece fuera del Security Control Plane, del Kernel y del runtime.
+
+Controles de Fase 1 verificados:
+
+- comandos Git auditados como read-only;
+- validación de repositorio, rama y `HEAD`;
+- allowlist y denylist;
+- controles TOCTOU;
+- validación de rutas, Markdown, YAML, enlaces y metadatos;
+- hashes SHA-256;
+- invariantes de no modificación;
+- `last_applied_commit: null`;
+- Malāk intacto;
+- Vault intacto.
 
 Contenido futuro previsto:
 
@@ -287,11 +297,16 @@ Estado:
 Informes vigentes:
 
 - [[07-audits/vault-synchronization/2026-07-21_VAULT_SYNC_FOUNDATION_POLICY|Informe de incorporación documental de Vault Synchronization Agent Foundation]];
-- [[07-audits/vault-synchronization/2026-07-21_VAULT_SYNC_FOUNDATION_MERGE_CLOSURE|Informe de cierre posterior al merge humano]].
+- [[07-audits/vault-synchronization/2026-07-21_VAULT_SYNC_FOUNDATION_MERGE_CLOSURE|Informe de cierre posterior al merge humano]];
+- [[07-audits/vault-synchronization/2026-07-22_VAULT_SYNC_PHASE_1_CLOSURE|Informe de cierre de la Fase 1 del Vault Synchronization Agent]].
 
 El primer informe conserva el estado previo al merge.
 
-El segundo informe registra la integración efectiva mediante la PR #2, sin aprobar la implementación del agente ni concederle autoridad operativa.
+El segundo informe registra la integración efectiva mediante la PR #2.
+
+El tercer informe registra la implementación supervisada, la validación end-to-end y el cierre formal de los Gates 0 a 9.
+
+Los informes históricos anteriores no deben modificarse retroactivamente.
 
 Contenido futuro previsto:
 
@@ -542,56 +557,127 @@ Todavía no incluye:
 
 ## 21. Vault Synchronization Agent Foundation
 
-Documentación integrada para definir una posible capacidad externa de actualización del Vault mediante cambios verificados del repositorio oficial.
+Capacidad externa de observación, comparación, validación y generación de evidencia para el Malāk Project Vault.
 
-La incorporación documental fue completada en `Aranwill/malak-project-vault/main` mediante:
+La fundación documental fue integrada en `Aranwill/malak-project-vault/main` mediante:
 
 ```text
 PR #2
 Merge commit: bcefa948b250830139233376088d1e65bd159143
+
+PR #3
+Merge commit: 918997a61e9a7b68c353c2eb5697ea21ede7e91f
+
+PR #4
+Merge commit: 52976e771ad8307badbc0ac37a78a771e6df51fc
 ```
 
 ### Gobernanza
 
 - [[00-governance/VAULT_SYNC_AGENT_POLICY|Política obligatoria del Vault Synchronization Agent]]
 
+Estado:
+
+```text
+accepted
+```
+
 ### Arquitectura
 
 - [[01-architecture/VAULT_SYNCHRONIZATION_AGENT_FOUNDATION|Vault Synchronization Agent Foundation]]
+
+Estado:
+
+```text
+Fase 1 aceptada, implementada y cerrada
+```
 
 ### Seguridad
 
 - [[06-security/VAULT_SYNCHRONIZATION_THREAT_MODEL|Modelo de amenazas del Vault Synchronization Agent]]
 
+Estado:
+
+```text
+accepted
+```
+
 ### Auditoría
 
 - [[07-audits/vault-synchronization/2026-07-21_VAULT_SYNC_FOUNDATION_POLICY|Informe de incorporación documental]]
 - [[07-audits/vault-synchronization/2026-07-21_VAULT_SYNC_FOUNDATION_MERGE_CLOSURE|Informe de cierre posterior al merge humano]]
+- [[07-audits/vault-synchronization/2026-07-22_VAULT_SYNC_PHASE_1_CLOSURE|Informe de cierre de la Fase 1]]
 
 ### Plantilla
 
 - [[templates/VAULT_SYNC_EXECUTION_REPORT_TEMPLATE|Plantilla de informe de ejecución]]
 
-### Decisión pendiente
+### Decisión cerrada
 
 - [[05-decisions/PENDING_DECISIONS#DEC-PEND-013 — Aprobación e implementación del Vault Synchronization Agent|DEC-PEND-013 — Aprobación e implementación del Vault Synchronization Agent]]
 
-Estado general:
+`DEC-PEND-013` permanece `closed`.
+
+### Baseline final del agente
+
+```text
+Workspace: D:\Ollama\malak-vault-sync-agent
+Rama: main
+HEAD: 954659b
+Último commit: docs(baseline): record phase 1 completion
+Working tree: limpio
+Suite completa: 148 passed
+compileall: correcto
+git diff --check: correcto
+Resultado end-to-end: pass
+last_applied_commit: null
+```
+
+### Estado remoto
+
+```text
+Remoto configurado: no
+URL remota: ninguna
+Upstream de main: no
+Respaldo remoto: pendiente de decisión humana
+Push ejecutado: no
+```
+
+### Estado general
 
 ```text
 Incorporación documental: completada
-Arquitectura: under_review
-Política: under_review
-Implementación aprobada: false
-Agente operativo: no implementado
+Arquitectura de Fase 1: accepted
+Política de Fase 1: accepted
+Modelo de amenazas de Fase 1: accepted
+Fase 1: completed
+Gates 0 a 9: cerrados
+Agente operativo: herramienta local determinista de solo lectura
 Autoridad operativa: none
 Kernel afectado: no
 Runtime afectado: no
-Merge futuro: exclusivamente humano
+Security Control Plane afectado: no
+Fase 2 y posteriores: no aprobadas
 ```
 
-La integración documental no constituye aceptación arquitectónica ni autorización de implementación.
+La Fase 1:
 
-`Aranwill/jarvis/main` permanece en modo de solo lectura para cualquier agente futuro.
+- observa y compara estados;
+- clasifica cambios;
+- resuelve documentos candidatos;
+- aplica allowlist y denylist;
+- valida rutas, Markdown, YAML, enlaces, hashes y metadatos;
+- genera evidencia e informes locales;
+- no modifica `Aranwill/jarvis`;
+- no modifica automáticamente el Vault;
+- no crea ramas, commits, push ni pull requests;
+- no utiliza LLM;
+- no modifica snapshots históricos;
+- no cierra decisiones automáticamente.
 
-Los snapshots históricos permanecen inmutables.
+La implementación del agente no modifica el baseline operativo de Malāk y no lo convierte en parte del Kernel, del runtime ni del sistema cognitivo.
+
+Fase 2 y posteriores permanecen no aprobadas.
+
+Cualquier ampliación requerirá una decisión independiente y aprobación humana explícita.
+
