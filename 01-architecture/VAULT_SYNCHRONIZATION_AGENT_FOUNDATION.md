@@ -5,17 +5,24 @@ document_type: architecture
 status: accepted
 authority: approved_architecture
 operational_authority: none
-version: 1.0
+version: 1.1
 created: 2026-07-21
-last_reviewed: 2026-07-22
+last_reviewed: 2026-07-24
 source_repository: Aranwill/jarvis
 source_branch: main
 source_commit: fd4da3d371d07b6aa91cc9f1c4d4bac3838ad627
 vault_repository: Aranwill/malak-project-vault
 vault_branch: main
-vault_base_commit: 52976e771ad8307badbc0ac37a78a771e6df51fc
+vault_base_commit_before_update: 03032a7b2aaecb47c27c2e8e5bff3a2c04179bd2
+agent_repository: Aranwill/malak-vault-sync-agent
+agent_branch: main
+agent_head: ade622b99eaaed0a6342400db743d472aa30a3ae
 implementation_approved: true
 phase_1_status: completed
+operationalization_status: completed
+execution_mode: manual-on-demand
+scheduler_enabled: false
+phase_2_approved: false
 runtime_component: false
 kernel_component: false
 tags:
@@ -31,6 +38,10 @@ tags:
 ## 1. Propósito
 
 Definir y documentar una fundación externa para observar `Aranwill/jarvis/main`, detectar drift documental y generar evidencia verificable para el Malāk Project Vault sin otorgar autoridad operativa al agente ni al Vault.
+
+La fundación fue implementada, respaldada en un repositorio independiente y operacionalizada en Windows en modo estrictamente read-only.
+
+El modo vigente es manual bajo demanda, posterior a cada sesión aprobada de Malāk y una vez publicados o fusionados los cambios legítimos en `Aranwill/jarvis/main`.
 
 La iniciativa busca reducir:
 
@@ -56,6 +67,9 @@ Naturaleza: tooling documental externo
 Ubicación: fuera del runtime de Malāk
 Estado arquitectónico: accepted
 Fase 1: implementada y cerrada
+Operacionalización read-only: completed
+Modo operativo: manual-on-demand
+Scheduler activo: no
 Autoridad operativa: none
 Kernel afectado: no
 Runtime afectado: no
@@ -76,12 +90,21 @@ La arquitectura aprobada se limita a la Fase 1.
 
 Las fases posteriores permanecen no aprobadas.
 
+La operacionalización no amplía la arquitectura ni concede autoridad adicional. Únicamente permite ejecutar localmente las capacidades read-only ya aprobadas.
+
 ## 3. Ubicación y separación
 
 Workspace externo verificado:
 
 ```text
 D:\Ollama\malak-vault-sync-agent
+```
+
+Repositorio independiente del agente:
+
+```text
+Aranwill/malak-vault-sync-agent
+rama main
 ```
 
 Repositorios observados:
@@ -100,23 +123,37 @@ La separación física y lógica preserva:
 - aislamiento de fallos;
 - ausencia de autoridad sobre los repositorios observados.
 
-## 4. Baseline final de la Fase 1
+## 4. Baseline vigente del agente
+
+Baseline operacional vigente:
 
 ```text
+Repositorio: Aranwill/malak-vault-sync-agent
 Rama: main
-HEAD: 954659b
-Último commit: docs(baseline): record phase 1 completion
-Commit anterior: 7ff4880 fix(audit): align canonical run id contract
+HEAD: ade622b99eaaed0a6342400db743d472aa30a3ae
+PR de operacionalización: #1 integrada
 Working tree: limpio
+main local: alineada con origin/main
+Suite completa: 165 passed
+Configuración privada: válida y excluida de Git
+Ejecución manual: pass
+Ejecución programada de validación: pass
+Scheduler final: eliminado
+Modo operativo: manual-on-demand
+last_applied_commit: null
 ```
 
-Baseline formal:
+El baseline formal e histórico del cierre técnico de la Fase 1 permanece registrado en:
 
 ```text
-docs/PHASE_1_FINAL_BASELINE.md
+HEAD de cierre: 954659b
+Suite de cierre: 148 passed
+Documento: docs/PHASE_1_FINAL_BASELINE.md
 ```
 
-Validaciones finales:
+Ese baseline conserva la evidencia del cierre formal de los Gates 0 a 9. El `HEAD ade622b` incorpora posteriormente la operacionalización read-only sin modificar el alcance ni la autoridad de la Fase 1.
+
+Validaciones del cierre técnico:
 
 ```text
 Suite completa: 148 passed
@@ -129,13 +166,15 @@ last_applied_commit: null
 Hashes SHA-256 verificados: sí
 ```
 
-## 5. Arquitectura implementada en Fase 1
+## 5. Arquitectura implementada y operacionalizada
 
 La arquitectura efectiva de la Fase 1 está compuesta por:
 
-- configuración externa;
+- configuración externa privada;
+- validación formal de configuración;
 - inspección Git de solo lectura;
 - controlador de ejecución manual;
+- comando `run-once`;
 - runner determinista;
 - lock de ejecución;
 - polling externo;
@@ -159,10 +198,23 @@ La arquitectura efectiva de la Fase 1 está compuesta por:
 - validación end-to-end;
 - verificación de invariantes de no modificación.
 
+La operacionalización posterior incorporó:
+
+- repositorio remoto independiente para respaldar el código del agente;
+- observación controlada de `origin/main`;
+- soporte para ejecución local en Windows;
+- persistencia y respaldo del estado operativo;
+- configuración privada excluida de Git;
+- validación temporal mediante el Programador de tareas de Windows;
+- adopción final del modo manual bajo demanda;
+- eliminación de la tarea programada después de su validación.
+
 ## 6. Flujo implementado en Fase 1
 
 ```text
-detectar
+ejecutar run-once
+→ realizar fetch controlado
+→ detectar
 → comparar
 → clasificar
 → resolver documentos candidatos
@@ -178,6 +230,29 @@ detectar
 El flujo termina sin escritura sobre Malāk ni sobre el Vault.
 
 La Fase 1 no prepara cambios, no crea ramas, no crea commits y no abre pull requests.
+
+Flujo operativo vigente:
+
+```text
+Avance aprobado de Malāk
+→ merge o push a Aranwill/jarvis/main
+→ ejecución manual de run-once
+→ revisión humana de evidencia e informe
+→ propuesta de actualización del Vault
+→ aprobación del propietario
+→ actualización documental gobernada
+```
+
+El agente observa el estado publicado de `origin/main`. Los cambios exclusivamente locales y todavía no publicados no constituyen el estado remoto que debe procesar.
+
+Comando operativo:
+
+```powershell
+cd D:\Ollama\malak-vault-sync-agent
+
+.\.venv\Scripts\malak-vault-sync.exe run-once `
+  --config .\config\vault-sync.yaml
+```
 
 ## 7. Modelo de autoridad
 
@@ -201,6 +276,8 @@ La arquitectura preserva:
 - trazabilidad;
 - reversibilidad;
 - ausencia de autoridad autónoma.
+
+La existencia de un repositorio remoto propio para el agente no modifica este modelo de autoridad.
 
 ## 8. Límites obligatorios verificados
 
@@ -227,6 +304,17 @@ Durante la Fase 1:
 - no se adquirió autoridad operativa.
 
 Todos los comandos Git operativos auditados fueron clasificados como read-only.
+
+Durante la operacionalización:
+
+- el agente realizó únicamente `fetch` controlado sobre los repositorios observados;
+- la configuración privada permaneció excluida de Git;
+- el estado, la evidencia y los informes operativos permanecieron locales;
+- `last_applied_commit` permaneció en `null`;
+- la ejecución manual finalizó con resultado `pass`;
+- la ejecución programada de validación finalizó con código `0`;
+- la tarea programada fue eliminada después de la prueba;
+- no quedó servicio, daemon ni proceso permanente en segundo plano.
 
 ## 9. Clasificación implementada
 
@@ -320,7 +408,7 @@ Los siguientes componentes permanecen fuera de la Fase 1:
 - Draft PR Preparer;
 - integración con GitHub para escritura;
 - apertura automática de PR draft;
-- scheduler operativo;
+- scheduler permanente o activo;
 - servicio permanente;
 - daemon;
 - webhooks;
@@ -361,16 +449,32 @@ Cualquier fase posterior requerirá:
 ## 15. Estado remoto del agente
 
 ```text
-Remoto configurado: no
-URL remota: ninguna
-Upstream de main: no
+Remoto configurado: sí
+Repositorio remoto: Aranwill/malak-vault-sync-agent
+Rama remota: main
+Upstream de main: origin/main
 Working tree: limpio
-HEAD: 954659b
-Respaldo remoto: pendiente de decisión humana
-Push ejecutado: no
+HEAD: ade622b99eaaed0a6342400db743d472aa30a3ae
+HEAD local y remoto: coincidentes
+Respaldo remoto: completado
+PR de operacionalización: #1 integrada
 ```
 
-La creación de un remoto y cualquier push futuro constituyen una tarea administrativa separada.
+El remoto respalda el código del agente, pero no le concede autoridad sobre Malāk ni sobre el Vault.
+
+Estado operativo:
+
+```text
+Operacionalización read-only: completed
+Modo de ejecución: manual-on-demand
+Scheduler activo: no
+Tarea programada activa: no
+Servicio permanente: no
+Daemon: no
+Proceso en segundo plano: no
+```
+
+La ejecución programada fue utilizada únicamente para validar la operacionalización en Windows. La tarea `Malak Vault Sync - Read Only` fue eliminada posteriormente por decisión humana.
 
 ## 16. Evidencia de cierre
 
@@ -390,6 +494,23 @@ El informe registra:
 - fuera de alcance;
 - autoridad operativa `none`.
 
+El cierre de la operacionalización read-only está documentado en:
+
+- [[07-audits/vault-synchronization/2026-07-24_VAULT_SYNC_OPERATIONALIZATION_CLOSURE|Informe de cierre de la operacionalización read-only del Vault Synchronization Agent]].
+
+El informe registra:
+
+- repositorio remoto independiente;
+- PR #1 integrada;
+- baseline operacional `ade622b`;
+- suite completa de `165 passed`;
+- configuración privada validada;
+- ejecución manual y ejecución programada de validación;
+- eliminación posterior del scheduler;
+- adopción del modo `manual-on-demand`;
+- preservación de `last_applied_commit: null`;
+- Fase 2 no aprobada.
+
 ## 17. Criterios de aceptación cumplidos
 
 - arquitectura externa al runtime;
@@ -408,7 +529,15 @@ El informe registra:
 - `compileall` correcto;
 - `git diff --check` correcto;
 - validación end-to-end `pass`;
-- `last_applied_commit: null`.
+- `last_applied_commit: null`;
+- repositorio remoto independiente configurado;
+- operacionalización read-only completada;
+- ejecución manual validada;
+- ejecución mediante Programador de tareas validada;
+- scheduler eliminado después de la validación;
+- modo operativo `manual-on-demand` aprobado;
+- suite operacional de `165 passed`;
+- Fase 2 preservada como no aprobada.
 
 ## 18. Riesgos residuales
 
@@ -419,7 +548,10 @@ Continúan vigentes:
 - iniciar una fase posterior por continuidad;
 - conceder permisos de escritura prematuramente;
 - publicar evidencia sensible;
-- respaldar remotamente el agente sin revisar secretos y artefactos;
+- olvidar ejecutar manualmente el agente después de una sesión aprobada;
+- ejecutar el agente antes de publicar los cambios en `origin/main`;
+- interpretar documentos candidatos como cambios obligatorios;
+- reactivar un scheduler sin una nueva aprobación explícita;
 - presentar componentes futuros como implementados;
 - incorporar el agente al baseline operativo de Malāk;
 - interpretar `pass` como autorización autónoma.
@@ -428,10 +560,13 @@ Continúan vigentes:
 
 ```text
 Fase 1: completada
+Operacionalización read-only: completada
+Modo operativo: manual-on-demand
+Scheduler activo: no
 Autoridad operativa: none
 Fases posteriores: no aprobadas
 ```
 
-La arquitectura aprobada de Fase 1 queda cerrada.
+La arquitectura aprobada de Fase 1 y su operacionalización read-only quedan cerradas.
 
 Cualquier cambio futuro deberá registrarse mediante una nueva decisión, un nuevo alcance y una nueva aprobación humana.

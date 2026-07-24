@@ -8,7 +8,7 @@ authority_level: proposal
 authority_rank: 9
 version: 1.0
 created: 2026-07-20
-last_reviewed: 2026-07-22
+last_reviewed: 2026-07-24
 source_of_truth: repository-and-owner-decisions
 source_repository: Aranwill/jarvis
 source_branch: main
@@ -16,7 +16,7 @@ derived: true
 operational_context: true
 retrieval_enabled: true
 retrieval_scope: proposals
---------------------------
+---
 
 # Malāk Pending Decisions
 
@@ -450,10 +450,10 @@ Esta decisión no autoriza una futura integración automática.
 **Estado:**
 
 ```text
-under_review
+closed
 ```
 
-**Prioridad:**
+**Prioridad histórica:**
 
 ```text
 alta para continuidad de sesiones
@@ -475,35 +475,61 @@ Su separación fue intencional para evitar:
 * acoplamiento al runtime;
 * incorporación prematura de artefactos derivados.
 
-**Decisión requerida:**
+**Resolución:**
 
-Definir su modelo final de versionado y respaldo.
+Se adopta la combinación de:
 
-**Alternativas:**
+```text
+Git local independiente
+→ repositorio privado independiente en GitHub
+```
 
-1. repositorio Git local independiente;
-2. repositorio privado independiente en GitHub;
-3. almacenamiento exclusivamente local;
-4. respaldo cifrado;
-5. combinación de Git local y remoto privado.
+Repositorio:
 
-**Criterios:**
+```text
+Aranwill/malak-project-vault
+```
 
-* confidencialidad;
-* trazabilidad;
-* reversibilidad;
-* portabilidad;
-* recuperación ante pérdida;
-* separación respecto del repositorio oficial;
-* compatibilidad con Obsidian;
-* exclusión de índices y cachés.
+Rama oficial:
 
-**Riesgos:**
+```text
+main
+```
 
-* pérdida del Vault;
-* duplicación no controlada;
-* exposición de información sensible;
-* confusión entre Vault y fuente de verdad.
+Estado verificado antes de la actualización documental vigente:
+
+```text
+HEAD: 03032a7b2aaecb47c27c2e8e5bff3a2c04179bd2
+Working tree: limpio
+main local: alineada con origin/main
+```
+
+El repositorio privado remoto proporciona respaldo, portabilidad y trazabilidad sin modificar la jerarquía de autoridad.
+
+**Límites preservados:**
+
+* el Vault continúa separado de `Aranwill/jarvis`;
+* el Vault continúa siendo documental y derivado;
+* el Vault no adquiere autoridad operativa;
+* Obsidian continúa siendo únicamente una interfaz local;
+* los snapshots históricos permanecen inmutables;
+* índices, cachés, configuración privada y artefactos operativos no deben convertirse en fuentes documentales;
+* la publicación remota no autoriza automatización ni escritura sobre Malāk.
+
+**Evidencia:**
+
+* repositorio privado `Aranwill/malak-project-vault`;
+* PR #2 — incorporación documental de Vault Synchronization Agent Foundation;
+* PR #3 — cierre posterior al merge humano;
+* PR #4 — cierre técnico de la Fase 1;
+* `07-audits/AUDIT_INDEX.md`;
+* `08-session-context/MALAK_SESSION_CONTEXT.md`.
+
+**Resultado:**
+
+La decisión sobre ubicación, versionado y respaldo queda cerrada.
+
+La política específica de sincronización con Obsidian permanece abierta en `DEC-PEND-007`.
 
 ---
 
@@ -1045,7 +1071,7 @@ La decisión se considera resuelta porque:
 
 La autorización se limita a la Fase 1 y no aprueba ninguna fase posterior.
 
-**Resultado posterior de implementación:**
+**Resultado posterior de implementación — cierre formal de Fase 1:**
 
 La implementación autorizada fue completada y cerrada formalmente en el workspace externo:
 
@@ -1096,14 +1122,64 @@ El baseline final del agente se encuentra en:
 docs/PHASE_1_FINAL_BASELINE.md
 ```
 
-Estado remoto verificado del agente:
+Este baseline se conserva como evidencia histórica del cierre técnico de la Fase 1.
+
+**Resultado posterior de operacionalización read-only:**
+
+Después del cierre formal de la Fase 1, el agente fue respaldado en un repositorio remoto independiente y operacionalizado en Windows sin ampliar su autoridad ni habilitar escritura sobre los repositorios observados.
+
+Baseline operacional vigente:
 
 ```text
-Remoto configurado: no
-URL remota: ninguna
-Upstream de main: no
-Respaldo remoto: pendiente de decisión humana
-Push ejecutado: no
+Repositorio: Aranwill/malak-vault-sync-agent
+Rama: main
+HEAD: ade622b99eaaed0a6342400db743d472aa30a3ae
+PR integrada: #1
+Working tree: limpio
+main local: alineada con origin/main
+Suite completa: 165 passed
+Configuración privada: válida y excluida de Git
+Ejecución manual: pass
+Ejecución programada de validación: pass
+last_applied_commit: null
+Autoridad operativa: none
+```
+
+Estado remoto vigente del agente:
+
+```text
+Remoto configurado: sí
+Repositorio remoto: Aranwill/malak-vault-sync-agent
+Rama remota: main
+Upstream de main: origin/main
+Respaldo remoto: completado
+HEAD local y remoto: coincidentes
+```
+
+La ejecución mediante el Programador de tareas de Windows fue utilizada únicamente para validar que el mismo comando `run-once` podía ejecutarse correctamente. La tarea programada fue eliminada posteriormente por decisión humana.
+
+Modo operativo elegido:
+
+```text
+manual-on-demand
+```
+
+Flujo vigente:
+
+```text
+Avance aprobado de Malāk
+→ merge o push a Aranwill/jarvis/main
+→ ejecución manual de run-once
+→ revisión humana de evidencia e informe
+→ propuesta de actualización del Vault
+→ aprobación del propietario
+→ actualización documental gobernada
+```
+
+La evidencia del cierre de la operacionalización read-only se registra en:
+
+```text
+07-audits/vault-synchronization/2026-07-24_VAULT_SYNC_OPERATIONALIZATION_CLOSURE.md
 ```
 
 Este resultado no reabre `DEC-PEND-013`, no modifica su estado `closed` y no autoriza:
@@ -1111,7 +1187,7 @@ Este resultado no reabre `DEC-PEND-013`, no modifica su estado `closed` y no aut
 * Fase 2;
 * escritura automática en el Vault;
 * creación automática de ramas, commits o pull requests;
-* scheduler operativo;
+* scheduler activo o ejecución permanente sin una nueva aprobación;
 * servicio permanente;
 * daemon;
 * webhooks;
@@ -1259,6 +1335,66 @@ PR #13
 ```
 
 No debe registrarse el baseline únicamente como “Sprint 7”.
+
+---
+
+## DEC-RES-007 — Versionado y respaldo del Project Vault
+
+**Estado:**
+
+```text
+closed
+```
+
+**Decisión:**
+
+El Project Vault utiliza Git local y un repositorio privado independiente:
+
+```text
+Repositorio: Aranwill/malak-project-vault
+Rama: main
+```
+
+El remoto proporciona respaldo y trazabilidad, pero no modifica el carácter derivado del Vault ni le concede autoridad sobre Malāk.
+
+Esta resolución cierra `DEC-PEND-006` y no resuelve la política específica de sincronización con Obsidian registrada en `DEC-PEND-007`.
+
+---
+
+## DEC-RES-008 — Modo operativo del Vault Synchronization Agent
+
+**Estado:**
+
+```text
+closed
+```
+
+**Decisión:**
+
+El Vault Synchronization Agent se ejecutará:
+
+```text
+manualmente y bajo demanda
+después de cada sesión aprobada de Malāk
+una vez publicados o fusionados los cambios en Aranwill/jarvis/main
+```
+
+La ejecución programada fue validada técnicamente y la tarea del Programador de tareas de Windows fue eliminada por decisión humana.
+
+Estado final:
+
+```text
+Modo operativo: manual-on-demand
+Scheduler configurado: no
+Servicio permanente: no
+Daemon: no
+Autoridad operativa: none
+Fase 2 aprobada: no
+```
+
+Esta decisión no autoriza escritura automática sobre el Vault ni ampliaciones de alcance.
+
+---
 
 ## 5. Plantilla para nuevas decisiones
 

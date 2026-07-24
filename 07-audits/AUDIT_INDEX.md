@@ -5,7 +5,7 @@ document_type: navigation
 status: active
 authority: derived
 operational_authority: none
-last_reviewed: 2026-07-22
+last_reviewed: 2026-07-24
 tags:
   - malak
   - vault
@@ -43,6 +43,7 @@ Estos informes documentan etapas históricas distintas:
 - incorporación documental inicial;
 - cierre posterior al merge humano;
 - cierre técnico y validación final de la Fase 1.
+- cierre de la operacionalización read-only y adopción del modo manual bajo demanda.
 
 La existencia de estos informes no modifica automáticamente el repositorio, el roadmap, el baseline ni las decisiones del proyecto.
 
@@ -99,12 +100,22 @@ Toda auditoría deberá incluir:
 
 - [[07-audits/vault-synchronization/2026-07-21_VAULT_SYNC_FOUNDATION_POLICY|Incorporación documental de Vault Synchronization Agent Foundation]]
 - [[07-audits/vault-synchronization/2026-07-21_VAULT_SYNC_FOUNDATION_MERGE_CLOSURE|Cierre de integración de Vault Synchronization Agent Foundation]]
+- [[07-audits/vault-synchronization/2026-07-22_VAULT_SYNC_PHASE_1_CLOSURE|Cierre técnico y validación final de la Fase 1]]
+- [[07-audits/vault-synchronization/2026-07-24_VAULT_SYNC_OPERATIONALIZATION_CLOSURE|Cierre de la operacionalización read-only del Vault Synchronization Agent]]
 
 ### Estado de los informes
 
 - incorporación documental inicial: `proposed`;
-- cierre posterior al merge humano: `completed`.
+- cierre posterior al merge humano: `completed`;
+- cierre técnico de la Fase 1: `completed`;
+- cierre de la operacionalización read-only: `completed`.
 
 El primer informe conserva la evidencia previa al merge y la revisión humana pendiente de ese momento.
 
-El segundo informe registra la integración efectiva mediante la PR #2, sin aprobar la implementación del agente ni concederle autoridad operativa.
+El segundo informe registra la integración efectiva mediante la PR #2 del Vault, sin conceder autoridad operativa al agente.
+
+El tercer informe registra el cierre formal de la Fase 1 y sus validaciones finales.
+
+El cuarto informe registra la integración de la operacionalización read-only, la validación del agente en Windows y la decisión humana de utilizar ejecución manual posterior a cada sesión aprobada de Malāk.
+
+Ninguno de estos informes aprueba la Fase 2, concede autoridad de escritura ni modifica el baseline operativo de Malāk.

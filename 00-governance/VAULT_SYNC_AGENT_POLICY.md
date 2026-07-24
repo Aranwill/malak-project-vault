@@ -5,17 +5,24 @@ document_type: governance-policy
 status: accepted
 authority: approved_policy
 operational_authority: none
-version: 1.0
+version: 1.1
 created: 2026-07-21
-last_reviewed: 2026-07-22
+last_reviewed: 2026-07-24
 source_repository: Aranwill/jarvis
 source_branch: main
 source_commit: fd4da3d371d07b6aa91cc9f1c4d4bac3838ad627
 vault_repository: Aranwill/malak-project-vault
 vault_branch: main
-vault_base_commit: 52976e771ad8307badbc0ac37a78a771e6df51fc
+vault_base_commit: 03032a7b2aaecb47c27c2e8e5bff3a2c04179bd2
+agent_repository: Aranwill/malak-vault-sync-agent
+agent_branch: main
+agent_commit: ade622b99eaaed0a6342400db743d472aa30a3ae
 implementation_approved: true
 phase_1_status: completed
+operationalization_status: completed
+execution_mode: manual-on-demand
+scheduler_enabled: false
+phase_2_approved: false
 human_review_required: true
 tags:
   - malak
@@ -28,9 +35,13 @@ tags:
 # Política obligatoria del Vault Synchronization Agent
 
 > [!important] Estado
-> Esta política fue aprobada y aplicada exclusivamente al alcance de la Fase 1.
+> Esta política fue aprobada originalmente para el alcance de la Fase 1 y continúa rigiendo la operacionalización read-only sin ampliar permisos ni autoridad.
 >
 > La Fase 1 fue implementada, validada y cerrada.
+>
+> La operacionalización read-only fue integrada y validada. El modo vigente es la ejecución manual bajo demanda después de cada sesión aprobada de Malāk.
+>
+> No existe un scheduler activo, un servicio permanente ni un proceso del agente en segundo plano.
 >
 > La política no concede autoridad operativa al agente, no autoriza escritura sobre Malāk ni sobre el Vault y no aprueba fases posteriores.
 
@@ -72,6 +83,10 @@ Ante contradicción, prevalecerá la fuente con mayor autoridad documental.
 ```text
 Naturaleza: tooling documental externo
 Fase 1: completada
+Operacionalización read-only: completada
+Repositorio: Aranwill/malak-vault-sync-agent
+Modo operativo: manual-on-demand
+Scheduler activo: no
 Autoridad operativa: none
 Autoridad documental: none
 Kernel afectado: no
@@ -215,6 +230,8 @@ La evidencia mínima deberá incluir:
 - hashes cuando corresponda.
 
 Durante la Fase 1, el informe permanece local y no modifica automáticamente el Vault.
+
+En el modo operativo vigente, la evidencia y el informe continúan siendo artefactos locales del agente. Su revisión puede originar una propuesta humana de actualización documental, pero nunca una modificación automática ni una aprobación.
 
 ## 8. Trazabilidad
 
@@ -360,6 +377,10 @@ El uso futuro de LLM requerirá una decisión independiente y aprobación humana
 - `POL-018` — La evidencia no constituye aprobación.
 - `POL-019` — `last_applied_commit` permanecerá en `null` mientras no exista escritura aprobada.
 - `POL-020` — El agente permanecerá fuera del Kernel y del runtime.
+- `POL-021` — La ejecución operativa vigente será manual y bajo demanda.
+- `POL-022` — El agente deberá ejecutarse después de que los cambios aprobados hayan sido publicados o fusionados en `Aranwill/jarvis/main`.
+- `POL-023` — No existirá scheduler activo, servicio permanente ni daemon sin una decisión independiente y aprobación humana explícita.
+- `POL-024` — El repositorio remoto del agente no le concede autoridad sobre Malāk ni sobre el Vault.
 
 ## 15. Flujo obligatorio de Fase 1
 
@@ -381,13 +402,19 @@ detectar
 
 ```text
 Workspace: D:\Ollama\malak-vault-sync-agent
+Repositorio: Aranwill/malak-vault-sync-agent
 Rama: main
-HEAD: 954659b
+HEAD: ade622b99eaaed0a6342400db743d472aa30a3ae
 Gate 0 a Gate 9: cerrados
-Suite completa: 148 passed
+Suite completa: 165 passed
 compileall: correcto
 git diff --check: correcto
 Resultado end-to-end: pass
+Configuración privada: válida y excluida de Git
+Ejecución manual: pass
+Ejecución programada de validación: pass
+Scheduler final: eliminado
+Modo operativo: manual-on-demand
 Malāk intacto: sí
 Vault intacto: sí
 last_applied_commit: null
@@ -397,19 +424,48 @@ Autoridad operativa: none
 
 Todos los comandos Git operativos auditados fueron clasificados como read-only.
 
-## 17. Estado remoto del agente
+## 17. Estado remoto y operacionalización del agente
 
 ```text
-Remoto configurado: no
-URL remota: ninguna
-Upstream de main: no
+Remoto configurado: sí
+Repositorio remoto: Aranwill/malak-vault-sync-agent
+Rama remota: main
+Upstream de main: origin/main
 Working tree: limpio
-HEAD: 954659b
-Respaldo remoto: pendiente de decisión humana
-Push ejecutado: no
+HEAD: ade622b99eaaed0a6342400db743d472aa30a3ae
+HEAD local y remoto: coincidentes
+Respaldo remoto: completado
+PR de operacionalización: #1 integrada
 ```
 
-La creación de un remoto y cualquier push futuro constituyen una tarea administrativa separada.
+La existencia del repositorio remoto del agente constituye respaldo y trazabilidad de su propio código. No modifica su autoridad, no lo convierte en parte de Malāk y no le concede permisos de escritura sobre los repositorios observados.
+
+Se validaron tanto la ejecución manual como una ejecución temporal mediante el Programador de tareas de Windows. Después de la validación, la tarea programada fue eliminada por decisión humana.
+
+Estado operativo vigente:
+
+```text
+Modo: manual-on-demand
+Scheduler activo: no
+Servicio permanente: no
+Daemon: no
+Proceso en segundo plano: no
+Autoridad operativa: none
+```
+
+El flujo autorizado es:
+
+```text
+avance aprobado de Malāk
+→ merge o push a Aranwill/jarvis/main
+→ ejecución manual de run-once
+→ revisión humana de evidencia e informe
+→ propuesta de actualización del Vault
+→ aprobación del propietario
+→ actualización documental gobernada
+```
+
+Los cambios exclusivamente locales y todavía no publicados en `origin/main` no constituyen el estado remoto que debe observar el agente.
 
 ## 18. Capacidades futuras no aprobadas
 
@@ -456,6 +512,10 @@ El cierre de la Fase 1 está documentado en:
 
 - [[07-audits/vault-synchronization/2026-07-22_VAULT_SYNC_PHASE_1_CLOSURE|Informe de cierre de la Fase 1 del Vault Synchronization Agent]].
 
+El cierre de la operacionalización read-only está documentado en:
+
+- [[07-audits/vault-synchronization/2026-07-24_VAULT_SYNC_OPERATIONALIZATION_CLOSURE|Informe de cierre de la operacionalización read-only del Vault Synchronization Agent]].
+
 El baseline final del agente se encuentra en:
 
 ```text
@@ -467,7 +527,12 @@ docs/PHASE_1_FINAL_BASELINE.md
 ```text
 Política: accepted
 Fase 1: completed
-Agente operativo: herramienta local de solo lectura
+Operacionalización read-only: completed
+Repositorio del agente: Aranwill/malak-vault-sync-agent
+HEAD del agente: ade622b99eaaed0a6342400db743d472aa30a3ae
+Agente operativo: herramienta externa de solo lectura
+Modo operativo: manual-on-demand
+Scheduler activo: no
 Autoridad operativa: none
 Escritura sobre Malāk: no
 Escritura sobre el Vault: no
