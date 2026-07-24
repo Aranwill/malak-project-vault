@@ -8,7 +8,7 @@ authority_level: technical_documentation
 authority_rank: 6
 version: 1.0
 created: 2026-07-20
-last_reviewed: 2026-07-22
+last_reviewed: 2026-07-24
 source_repository: Aranwill/jarvis
 source_branch: main
 derived: true
@@ -416,13 +416,14 @@ Estado actual de la secuencia:
 Estado vigente:
 
 ```text
-Incorporación documental: completada mediante las PR #2, #3 y #4
-Arquitectura de Fase 1: accepted
-Política de Fase 1: accepted
-Modelo de amenazas de Fase 1: accepted
+Incorporación documental: completada mediante las PR #2, #3 y #4 del Vault
 Fase 1: completed
 Gates 0 a 9: cerrados
-Agente operativo: herramienta local determinista de solo lectura
+Operacionalización read-only: completed
+Repositorio independiente del agente: Aranwill/malak-vault-sync-agent
+PR de operacionalización del agente: #1 integrada
+Modo operativo elegido: manual-on-demand
+Scheduler activo: no
 Autoridad operativa: none
 Fase 2 y posteriores: no aprobadas
 ```
@@ -449,26 +450,46 @@ D:\Ollama\malak-vault-sync-agent
 Baseline final del agente:
 
 ```text
+Repositorio: Aranwill/malak-vault-sync-agent
 Rama: main
-HEAD: 954659b
-Último commit: docs(baseline): record phase 1 completion
-Commit anterior: 7ff4880 fix(audit): align canonical run id contract
+HEAD: ade622b99eaaed0a6342400db743d472aa30a3ae
+PR integrada: #1
 Working tree: limpio
-Suite completa: 148 passed
-compileall: correcto
-git diff --check: correcto
-Resultado end-to-end: pass
+main local: alineada con origin/main
+Suite completa: 165 passed
+Configuración privada: válida y excluida de Git
+Ejecución manual: pass
+Ejecución programada de validación: pass
+Scheduler final: eliminado
+Modo operativo: manual-on-demand
 last_applied_commit: null
 ```
 
 Estado remoto verificado:
 
 ```text
-Remoto configurado: no
-URL remota: ninguna
-Upstream de main: no
-Respaldo remoto: pendiente de decisión humana
-Push ejecutado: no
+Remoto configurado: sí
+Repositorio remoto: Aranwill/malak-vault-sync-agent
+Rama remota: main
+Upstream de main: origin/main
+Respaldo remoto: completado
+HEAD local y remoto: coincidentes
+```
+
+La ejecución programada fue utilizada únicamente para validar la operacionalización en Windows. La tarea programada fue eliminada posteriormente por decisión humana.
+
+El agente se ejecutará manualmente después de cada sesión aprobada de Malāk, una vez que los cambios legítimos hayan sido publicados o fusionados en `Aranwill/jarvis/main`.
+
+Flujo vigente:
+
+```text
+Avance aprobado de Malāk
+→ merge o push a main
+→ ejecución manual de run-once
+→ revisión humana de evidencia e informe
+→ propuesta de actualización del Vault
+→ aprobación del propietario
+→ actualización documental gobernada
 ```
 
 La implementación completada se limita exclusivamente a la Fase 1.
@@ -501,6 +522,12 @@ El cierre técnico se documenta en:
 07-audits/vault-synchronization/2026-07-22_VAULT_SYNC_PHASE_1_CLOSURE.md
 ```
 
+El cierre de la operacionalización read-only se documenta en:
+
+```text
+07-audits/vault-synchronization/2026-07-24_VAULT_SYNC_OPERATIONALIZATION_CLOSURE.md
+```
+
 El Vault:
 
 * permanece fuera del repositorio principal;
@@ -515,8 +542,8 @@ El Vault:
 
 ## 13. Estado actual del Vault
 
-**Repositorio local:** `D:\Ollama\malak-project-vault`  
-**Repositorio remoto público:** `Aranwill/malak-project-vault`  
+**Repositorio local:** `D:\Ollama\malak-project-vault`
+**Repositorio remoto:** `Aranwill/malak-project-vault`
 **Rama oficial:** `main`
 
 Estado verificado del Vault antes de esta actualización documental:
@@ -524,10 +551,10 @@ Estado verificado del Vault antes de esta actualización documental:
 * PR #2 mergeada;
 * PR #3 mergeada;
 * PR #4 mergeada;
-* HEAD remoto verificado: `52976e771ad8307badbc0ac37a78a771e6df51fc`;
+* HEAD remoto verificado: `03032a7b2aaecb47c27c2e8e5bff3a2c04179bd2`;
 * rama oficial: `main`;
 * working tree limpio antes de iniciar la rama de cierre;
-* rama documental actual: `docs/vault-sync-phase-1-closure`;
+* rama documental actual: `docs/vault-sync-operationalization-closure`;
 * cambios organizados mediante commits pequeños y trazables;
 * ningún cambio realizado sobre `Aranwill/jarvis`.
 
@@ -541,7 +568,10 @@ Estado documental del Vault:
 * primer mapa arquitectónico creado en `01-architecture/CURRENT_COMPONENTS_MAP.md`;
 * diagrama Mermaid validado visualmente en Obsidian;
 * grafo documental operativo y sin nodos huérfanos evidentes;
-* Vault Synchronization Agent Foundation integrada documentalmente.
+* Vault Synchronization Agent Foundation integrada documentalmente;
+* cierre técnico de la Fase 1 documentado;
+* operacionalización read-only integrada en `main` del repositorio independiente del agente;
+* modo operativo manual bajo demanda aprobado por el propietario.
 
 Estado posterior de la iniciativa:
 
@@ -553,6 +583,10 @@ Fase 1: completed
 Gates 0 a 9: cerrados
 Autoridad operativa: none
 Agente operativo: herramienta local determinista de solo lectura
+Repositorio del agente: Aranwill/malak-vault-sync-agent
+HEAD del agente: ade622b99eaaed0a6342400db743d472aa30a3ae
+Modo operativo: manual-on-demand
+Scheduler activo: no
 Kernel afectado: no
 Runtime afectado: no
 Security Control Plane afectado: no
@@ -664,60 +698,49 @@ Al recibir este archivo, el asistente debe:
 
 ## 17. Resultado de la sesión actual
 
-**Fecha:** `2026-07-22`
+**Fecha:** `2026-07-24`
 
 Objetivo de la sesión:
 
-> Cerrar administrativamente la Fase 1 del Vault Synchronization Agent, verificar su estado remoto y actualizar de forma gobernada la documentación derivada del Malāk Project Vault.
+> Cerrar documentalmente la operacionalización read-only del Vault Synchronization Agent y registrar la decisión humana de utilizarlo manualmente después de cada sesión aprobada de Malāk.
 
 Trabajo completado:
 
-* verificación del repositorio local del agente;
-* confirmación de rama `main`;
-* confirmación de HEAD `954659b`;
-* confirmación de working tree limpio;
-* verificación de ausencia de remoto;
-* verificación de ausencia de upstream;
-* confirmación de que no se ejecutó push;
-* confirmación de Gate 8 cerrado;
-* confirmación de Gate 9 cerrado;
-* confirmación de Fase 1 cerrada formalmente;
-* confirmación de suite completa con `148 passed`;
-* confirmación de `compileall` correcto;
-* confirmación de `git diff --check` correcto;
-* confirmación de resultado end-to-end `pass`;
-* confirmación de Malāk intacto;
-* confirmación del Vault intacto durante la ejecución del agente;
+* verificación de `Aranwill/jarvis/main` en `fd4da3d371d07b6aa91cc9f1c4d4bac3838ad627`;
+* verificación de `Aranwill/malak-project-vault/main` en `03032a7b2aaecb47c27c2e8e5bff3a2c04179bd2`;
+* verificación de `Aranwill/malak-vault-sync-agent/main` en `ade622b99eaaed0a6342400db743d472aa30a3ae`;
+* confirmación de la PR #1 integrada en el repositorio del agente;
+* confirmación de working tree limpio y `main` alineada con `origin/main` en el agente;
+* confirmación de suite completa con `165 passed`;
+* validación de la configuración privada y de su exclusión de Git;
+* validación de ejecución manual con resultado `pass` y código de salida `0`;
+* validación temporal de ejecución mediante el Programador de tareas de Windows;
+* eliminación posterior de la tarea programada por decisión humana;
+* adopción del modo operativo `manual-on-demand`;
 * confirmación de `last_applied_commit: null`;
-* confirmación de hashes SHA-256 verificados;
-* confirmación de comandos Git operativos auditados como read-only;
-* creación del informe de cierre de Fase 1;
-* actualización de decisiones, roadmap, arquitectura, política, seguridad e índices relacionados;
+* confirmación de Malāk intacto;
+* confirmación del Vault intacto durante las ejecuciones del agente;
+* creación del informe de cierre de la operacionalización read-only;
+* actualización del índice de auditorías;
+* actualización del contexto de sesión;
 * preservación de `CURRENT_BASELINE.md`;
+* preservación de `SPRINT_INDEX.md`;
 * preservación de snapshots históricos;
-* preservación de informes históricos;
-* ausencia de cambios sobre `Aranwill/jarvis`.
+* ausencia de cambios sobre `Aranwill/jarvis`;
+* ausencia de aprobación de la Fase 2.
 
 Rama documental utilizada:
 
 ```text
-docs/vault-sync-phase-1-closure
+docs/vault-sync-operationalization-closure
 ```
 
-Commits creados hasta esta actualización:
+Archivos incorporados o actualizados hasta este punto:
 
 ```text
-c7bb158 docs(audit): record vault sync phase 1 closure
-e7cec8a docs(audits): index vault sync phase 1 closure
-3888a27 docs(decisions): record vault sync phase 1 result
-91942d5 docs(roadmap): close vault sync phase 1
-f820465 docs(architecture): close vault sync phase 1
-b594af0 docs(governance): approve vault sync phase 1 policy
-07d5dc4 docs(security): close vault sync phase 1 threat model
-32e67b6 docs(governance): index vault sync phase 1 closure
-706b522 docs(architecture): index vault sync phase 1 closure
-63f6f27 docs(security): index vault sync phase 1 closure
-17a5bf2 docs(knowledge): index vault sync phase 1 closure
+07-audits/vault-synchronization/2026-07-24_VAULT_SYNC_OPERATIONALIZATION_CLOSURE.md
+07-audits/AUDIT_INDEX.md
+08-session-context/MALAK_SESSION_CONTEXT.md
 ```
 
 Decisiones vigentes:
@@ -726,15 +749,18 @@ Decisiones vigentes:
 * el Vault permanece como capa derivada y sin autoridad operativa;
 * Obsidian continúa siendo únicamente una interfaz local;
 * la Fase 1 del agente está completada y cerrada;
+* la operacionalización read-only está completada;
+* el agente posee un repositorio remoto independiente;
 * el agente permanece externo al Kernel, runtime y Security Control Plane;
 * el agente opera únicamente en modo determinista y de solo lectura;
-* no se utilizó LLM;
-* el agente no modificó `Aranwill/jarvis`;
-* el agente no modificó automáticamente el Vault;
-* no creó ramas, commits, push ni pull requests;
-* no modificó snapshots históricos;
-* no existe remoto configurado para el agente;
-* no se ejecutó push del agente;
+* el modo operativo elegido es ejecución manual posterior a cada sesión aprobada de Malāk;
+* no existe scheduler activo, servicio permanente, daemon ni proceso periódico;
+* no se utiliza LLM;
+* el agente no modifica `Aranwill/jarvis`;
+* el agente no modifica automáticamente el Vault;
+* no crea ramas, commits, push ni pull requests en los repositorios observados;
+* no modifica snapshots históricos;
+* `last_applied_commit` permanece en `null`;
 * Fase 2 y posteriores permanecen no aprobadas;
 * no se aprobó un próximo sprint de Malāk.
 
@@ -753,16 +779,21 @@ Próximo sprint aprobado: ninguno
 Estado del agente:
 
 ```text
+Repositorio: Aranwill/malak-vault-sync-agent
 Workspace: D:\Ollama\malak-vault-sync-agent
 Rama: main
-HEAD: 954659b
+HEAD: ade622b99eaaed0a6342400db743d472aa30a3ae
+PR integrada: #1
 Working tree: limpio
-Remoto: no configurado
-Upstream: no configurado
-Suite completa: 148 passed
-compileall: correcto
-git diff --check: correcto
-End-to-end: pass
+Remoto: configurado
+Upstream: origin/main
+HEAD local y remoto: coincidentes
+Suite completa: 165 passed
+Configuración privada: válida y excluida de Git
+Ejecución manual: pass
+Ejecución programada de validación: pass
+Scheduler final: eliminado
+Modo operativo: manual-on-demand
 last_applied_commit: null
 Autoridad operativa: none
 ```
@@ -772,25 +803,26 @@ Estado del Vault:
 ```text
 Repositorio: Aranwill/malak-project-vault
 Rama oficial: main
-HEAD base verificado: 52976e771ad8307badbc0ac37a78a771e6df51fc
-Rama documental actual: docs/vault-sync-phase-1-closure
+HEAD base verificado: 03032a7b2aaecb47c27c2e8e5bff3a2c04179bd2
+Rama documental actual: docs/vault-sync-operationalization-closure
 CURRENT_BASELINE.md modificado: no
+SPRINT_INDEX.md modificado: no
 Snapshots históricos modificados: no
 Informes históricos modificados: no
 ```
 
 Punto de continuidad:
 
-1. completar los índices o documentos finales aún necesarios;
-2. validar el diff completo de la rama;
-3. confirmar que `CURRENT_BASELINE.md` y snapshots permanecen intactos;
+1. actualizar los documentos gobernados restantes dentro del alcance aprobado;
+2. revisar el diff completo de la rama;
+3. confirmar que `CURRENT_BASELINE.md`, `SPRINT_INDEX.md` y los snapshots permanecen intactos;
 4. ejecutar `git diff --check`;
 5. revisar la lista total de archivos modificados;
-6. publicar la rama documental;
-7. abrir una PR draft;
-8. esperar revisión y merge humano;
-9. no iniciar Fase 2;
-10. tratar la creación del remoto del agente como una tarea administrativa separada.
+6. crear commits pequeños, trazables y reversibles;
+7. publicar la rama documental;
+8. abrir una PR draft;
+9. esperar revisión y merge humano;
+10. no iniciar Fase 2 ni un nuevo sprint de Malāk.
 
 No debe iniciarse ninguna fase posterior sin una nueva decisión y aprobación humana explícita.
 

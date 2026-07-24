@@ -8,7 +8,7 @@ authority_level: approved_roadmap
 authority_rank: 7
 version: 1.0
 created: 2026-07-20
-last_reviewed: 2026-07-22
+last_reviewed: 2026-07-24
 source_of_truth: repository
 source_repository: Aranwill/jarvis
 source_branch: main
@@ -16,7 +16,7 @@ derived: true
 operational_context: true
 retrieval_enabled: true
 retrieval_scope: active
------------------------
+---
 
 # Malāk Implementation Roadmap
 
@@ -399,7 +399,9 @@ Fase 1 completada mediante Gates 0 a 9
 **Estado operativo:**
 
 ```text
-herramienta local determinista disponible en modo dry-run
+operacionalización read-only completada
+modo manual-on-demand
+scheduler activo: no
 ```
 
 **Autoridad operativa:**
@@ -410,7 +412,7 @@ none
 
 La fundación define una capacidad externa para observar `Aranwill/jarvis/main`, comparar estados, validar evidencia y detectar drift documental sin modificar Malāk ni el Vault.
 
-La implementación completada se limita exclusivamente a la Fase 1.
+La implementación y la operacionalización completadas permanecen dentro del alcance read-only aprobado para la Fase 1.
 
 No forma parte de:
 
@@ -436,17 +438,35 @@ D:\Ollama\jarvis
 D:\Ollama\malak-project-vault
 ```
 
-**Baseline final del agente:**
+**Repositorio independiente del agente:**
+
+```text
+Repositorio: Aranwill/malak-vault-sync-agent
+Rama: main
+HEAD: ade622b99eaaed0a6342400db743d472aa30a3ae
+PR de operacionalización: #1 integrada
+Working tree: limpio
+main local: alineada con origin/main
+Suite completa: 165 passed
+Configuración privada: válida y excluida de Git
+Ejecución manual: pass
+Ejecución programada de validación: pass
+Scheduler final: eliminado
+Modo operativo: manual-on-demand
+last_applied_commit: null
+```
+
+**Baseline histórico del cierre formal de la Fase 1:**
 
 ```text
 Rama: main
 HEAD: 954659b
 Último commit: docs(baseline): record phase 1 completion
 Commit anterior: 7ff4880 fix(audit): align canonical run id contract
-Working tree: limpio
+Suite completa: 148 passed
 ```
 
-El baseline formal de cierre se encuentra en:
+El baseline histórico de cierre se encuentra en:
 
 ```text
 docs/PHASE_1_FINAL_BASELINE.md
@@ -471,10 +491,13 @@ Fase 1: cerrada formalmente
 **Resultado de validación:**
 
 ```text
-Suite completa: 148 passed
+Suite de cierre de Fase 1: 148 passed
+Suite operacional vigente: 165 passed
 compileall: correcto
 git diff --check: correcto
 Resultado end-to-end: pass
+Ejecución manual operacional: pass
+Ejecución programada de validación: pass
 Malāk intacto: sí
 Vault intacto: sí
 last_applied_commit: null
@@ -540,19 +563,43 @@ La finalización técnica no concede autoridad documental ni operativa al agente
 **Estado remoto del agente:**
 
 ```text
-Remoto configurado: no
-URL remota: ninguna
-Upstream de main: no
-Respaldo remoto: pendiente de decisión humana
-Push ejecutado: no
+Remoto configurado: sí
+Repositorio remoto: Aranwill/malak-vault-sync-agent
+Rama remota: main
+Upstream de main: origin/main
+Respaldo remoto: completado
+HEAD local y remoto: coincidentes
 ```
 
-La creación de un remoto y cualquier push futuro constituyen una tarea administrativa independiente.
+La existencia del repositorio remoto no concede autoridad operativa ni documental al agente.
+
+**Modo operativo vigente:**
+
+```text
+Ejecución manual posterior a cada sesión aprobada de Malāk
+```
+
+La ejecución programada se utilizó únicamente para validar la operacionalización en Windows. La tarea programada fue eliminada posteriormente por decisión humana.
+
+El agente deberá ejecutarse después de que los cambios legítimos de Malāk hayan sido publicados o fusionados en `Aranwill/jarvis/main`.
+
+Flujo vigente:
+
+```text
+Avance aprobado de Malāk
+→ merge o push a main
+→ ejecución manual de run-once
+→ revisión humana de evidencia e informe
+→ propuesta de actualización del Vault
+→ aprobación del propietario
+→ actualización documental gobernada
+```
 
 **Evidencia de cierre:**
 
 ```text
 07-audits/vault-synchronization/2026-07-22_VAULT_SYNC_PHASE_1_CLOSURE.md
+07-audits/vault-synchronization/2026-07-24_VAULT_SYNC_OPERATIONALIZATION_CLOSURE.md
 ```
 
 **Fase 2 y posteriores:**
@@ -1093,4 +1140,3 @@ Este documento deberá revisarse cuando ocurra:
 > La aprobación conceptual de una fundación no equivale a autorización para implementarla.
 
 > Ningún sprint comienza sin revisión, debate y aprobación explícita.
-
