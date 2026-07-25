@@ -5,7 +5,7 @@ document_type: navigation
 status: active
 authority: derived
 operational_authority: none
-last_reviewed: 2026-07-21
+last_reviewed: 2026-07-25
 tags:
   - malak
   - vault
@@ -44,6 +44,20 @@ tags:
 - **Suite validada:** 74 pruebas aprobadas
 - **Próximo sprint aprobado:** ninguno
 
+### 2026-07-25 — `main` — `7cd7fcc`
+
+- [[09-repository-snapshots/2026-07-25_MAIN_7CD7FCC|Abrir snapshot]]
+- **Repositorio:** `Aranwill/jarvis`
+- **Rama:** `main`
+- **HEAD:** `7cd7fcc811df01555837319ec4cac0a93ef94fff`
+- **Versión nominal:** `v0.6.0-alpha`
+- **Pull request integrado:** PR #14
+- **Sprint 7.4:** implementación técnica mergeada; cierre formal pendiente
+- **Incremento 7:** completado, validado y mergeado
+- **Incremento 8:** en ejecución documental gobernada
+- **Suite integral documentada:** 121 pruebas sobre `5b951918006c464745e1eb1e3816bde619fad8b1`
+- **Evidencia del agente:** `20260725T032607612120Z_7cd7fcc8_49858c60`
+
 ## Reglas de creación
 
 Un snapshot nuevo debe:
@@ -72,3 +86,4 @@ Cuando un snapshot necesite una aclaración, deberá generarse un documento comp
 
 ```text
 AAAA-MM-DD_RAMA_HASH-CORTO.md
+```

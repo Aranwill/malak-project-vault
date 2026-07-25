@@ -5,7 +5,7 @@ document_type: navigation
 status: active
 authority: derived
 operational_authority: none
-last_reviewed: 2026-07-21
+last_reviewed: 2026-07-25
 tags:
   - malak
   - vault
@@ -23,14 +23,19 @@ tags:
 ## Estado actual
 
 - **Último sprint cerrado:** Sprint 7.3 — Conversation Provider Boundary Stabilization
-- **Pull request integrado:** PR #13
-- **Baseline resultante:** `fd4da3d371d07b6aa91cc9f1c4d4bac3838ad627`
-- **Suite validada:** 74 pruebas aprobadas
-- **Próximo sprint aprobado:** ninguno
+- **Sprint integrado en progreso:** Sprint 7.4 — Consolidación de logs, métricas y auditoría
+- **Pull request integrado:** PR #14
+- **HEAD oficial:** `7cd7fcc811df01555837319ec4cac0a93ef94fff`
+- **Suite integral documentada:** 121 pruebas aprobadas sobre `5b951918006c464745e1eb1e3816bde619fad8b1`
+- **Incremento 7:** completado, validado y mergeado
+- **Incremento 8:** en ejecución documental gobernada
+- **Sprint posterior aprobado:** ninguno
 - **Repositorio oficial:** `Aranwill/jarvis`
 - **Rama oficial:** `main`
 
-El cierre del Sprint 7.3 no autoriza el inicio automático de Sprint 7.4 ni de ninguna otra propuesta.
+Sprint 7.4 no debe declararse formalmente cerrado mientras la ficha
+oficial permanezca `en progreso` y el Incremento 8 no haya completado
+su actualización, commit y merge en el Vault.
 
 ## Navegación
 
@@ -39,6 +44,8 @@ El cierre del Sprint 7.3 no autoriza el inicio automático de Sprint 7.4 ni de n
 - [[05-decisions/PENDING_DECISIONS|Decisiones pendientes]]
 - [[08-session-context/MALAK_SESSION_CONTEXT|Contexto de sesión]]
 - [[templates/SPRINT_CLOSE_TEMPLATE|Plantilla de cierre de sprint]]
+- [[04-sprints/SPRINT-7.3-CLOSURE|Cierre del Sprint 7.3]]
+- [[04-sprints/SPRINT-7.4-CLOSURE|Registro de cierre gobernado de Sprint 7.4]]
 
 ## Clasificación documental
 
@@ -115,6 +122,36 @@ Resultado principal:
 - Kernel, Planner y `Capability` no fueron modificados;
 - no existe integración formal entre `Kernel.receive` y `ConversationService`;
 - no existe un próximo sprint aprobado.
+
+### Sprint 7.4 — Consolidación de logs, métricas y auditoría
+
+- **Estado:** en progreso — implementación técnica mergeada
+- **Repositorio:** `Aranwill/jarvis`
+- **Rama integrada:** `feature/sprint-7.4-logs-metrics-audit`
+- **Pull request:** PR #14
+- **Merge commit:** `7cd7fcc811df01555837319ec4cac0a93ef94fff`
+- **Incremento 7:** completado, validado y mergeado
+- **Incremento 8:** en ejecución
+- **Registro:** [[04-sprints/SPRINT-7.4-CLOSURE|Registro de cierre gobernado del Sprint 7.4]]
+
+Resultado técnico:
+
+- eventos operativos separados de las métricas y de la auditoría;
+- `OperationalEvent` y `OperationalEventSink`;
+- stores operativos en memoria y JSONL;
+- correlación mediante `request_id` generado exclusivamente en la CLI;
+- Kernel, Planner, `ConversationService` y contratos conversacionales intactos;
+- 94 pruebas específicas y 121 pruebas totales;
+- ningún hallazgo bloqueante;
+- sin dependencias externas.
+
+Condición de cierre:
+
+- completar la actualización gobernada del Vault;
+- commitear y mergear la actualización;
+- reconciliar posteriormente `docs/project/sprints/SPRINT-7.4.md`
+  en `Aranwill/jarvis/main`;
+- no declarar el sprint formalmente cerrado antes de esa reconciliación.
 
 ## Reconstrucción histórica
 

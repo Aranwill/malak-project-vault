@@ -8,7 +8,7 @@ authority_level: baseline
 authority_rank: 5
 version: 1.0
 created: 2026-07-20
-last_reviewed: 2026-07-21
+last_reviewed: 2026-07-25
 source_of_truth: repository
 source_repository: Aranwill/jarvis
 source_branch: main
@@ -103,16 +103,21 @@ No debe utilizarse ninguna rama histórica como fuente del estado actual.
 **Último commit remoto verificado al revisar este documento:**
 
 ```text
-fd4da3d371d07b6aa91cc9f1c4d4bac3838ad627
+7cd7fcc811df01555837319ec4cac0a93ef94fff
 ```
 
 **Descripción:**
 
 ```text
-Merge pull request #13 from Aranwill/feature/sprint-7.3-conversation-provider-boundary
+Merge pull request #14 from Aranwill/feature/sprint-7.4-logs-metrics-audit
 ```
 
-Este commit cerró el Sprint 7.3 — Conversation Provider Boundary Stabilization e incorporó la estabilización de la frontera del subsistema conversacional.
+Este commit integró la implementación técnica de Sprint 7.4 y completó
+el estado mergeado del Incremento 7.
+
+La ficha oficial mantiene Sprint 7.4 `en progreso` porque el Incremento
+8 corresponde a la sincronización gobernada del Vault posterior al
+merge.
 
 El hash registrado aquí es una referencia temporal y deberá actualizarse cuando cambie materialmente `HEAD`.
 
@@ -120,13 +125,19 @@ El hash registrado aquí es una referencia temporal y deberá actualizarse cuand
 
 ## 5. Baseline operativo actual
 
-**Último sprint cerrado:**
+**Último sprint formalmente cerrado:**
 
 ```text
 Sprint 7.3 — Conversation Provider Boundary Stabilization
 ```
 
-El bloque 7.x contiene actualmente los siguientes sprints cerrados:
+**Sprint integrado en progreso:**
+
+```text
+Sprint 7.4 — Consolidación de logs, métricas y auditoría
+```
+
+El bloque 7.x presenta el siguiente estado:
 
 | Sprint | Estado  | Resultado                                                             |
 | ------ | ------- | --------------------------------------------------------------------- |
@@ -134,8 +145,9 @@ El bloque 7.x contiene actualmente los siguientes sprints cerrados:
 | 7.1    | Cerrado | Composición de CLI con `OllamaRuntime` mediante configuración externa |
 | 7.2    | Cerrado | Contrato estructural `RuntimeMetricSink` de solo escritura            |
 | 7.3    | Cerrado | Estabilización de la frontera `ConversationService`–Provider–Runtime  |
+| 7.4    | En progreso — mergeado | Eventos operativos y correlación desde la CLI; Incremento 8 pendiente |
 
-No existe todavía un siguiente sprint aprobado automáticamente.
+No existe un sprint posterior aprobado.
 
 El cierre de un sprint no autoriza el inicio del siguiente.
 
@@ -143,10 +155,10 @@ El cierre de un sprint no autoriza el inicio del siguiente.
 
 ## 6. Estado de validación
 
-**Suite validada al cierre del Sprint 7.3:**
+**Última suite integral documentada para Sprint 7.4:**
 
 ```text
-74 passed
+121 passed
 ```
 
 Validaciones documentadas:
@@ -159,12 +171,22 @@ git diff --check
 
 Resultado registrado:
 
-* 74 pruebas aprobadas;
+* 94 pruebas específicas aprobadas;
+* 121 pruebas totales aprobadas;
 * compilación validada sin errores;
 * diff validado sin errores de formato;
-* documentación sincronizada para el alcance del sprint.
+* revisión de privacidad y arquitectura con resultado `APTO`;
+* ningún hallazgo bloqueante.
 
-Este resultado representa el estado documentado del baseline remoto.
+La validación integral fue ejecutada sobre:
+
+```text
+5b951918006c464745e1eb1e3816bde619fad8b1
+```
+
+Los commits posteriores fueron exclusivamente documentales. Las
+pruebas y `compileall` no se presentan como reejecutados después del
+merge `7cd7fcc811df01555837319ec4cac0a93ef94fff`.
 
 Antes de una nueva implementación deberá verificarse nuevamente en el entorno local:
 
@@ -543,7 +565,54 @@ Implementaciones estructuralmente compatibles:
 
 ---
 
-### 8.14 AKS Engineering Knowledge Foundation
+### 8.14 Operational Events
+
+Estado:
+
+```text
+implementación técnica integrada en Sprint 7.4
+```
+
+Componentes:
+
+* `OperationalEvent`;
+* `OperationalEventSink`;
+* `InMemoryOperationalEventStore`;
+* `JsonlOperationalEventStore`.
+
+Propiedades:
+
+* contrato inmutable;
+* allowlist estricta de seis campos;
+* timestamps UTC;
+* sink de solo escritura;
+* stores separados de las métricas;
+* persistencia JSONL append-only;
+* límite de 4096 bytes por línea;
+* errores de persistencia explícitos;
+* ausencia de dependencias externas.
+
+Los eventos no incorporan prompts, respuestas, contenido
+conversacional, secretos, credenciales, modelos, proveedores ni
+excepciones.
+
+La CLI genera exclusivamente el `request_id` y lo utiliza para
+correlacionar:
+
+```text
+conversation.started
+conversation.succeeded
+conversation.failed
+```
+
+`ConversationRequest`, `ConversationResponse`, Kernel, Planner y
+`ConversationService` permanecen intactos.
+
+La auditoría de seguridad no fue implementada.
+
+---
+
+### 8.15 AKS Engineering Knowledge Foundation
 
 Estado:
 
@@ -572,7 +641,7 @@ No debe confundirse con:
 
 ---
 
-### 8.15 Development Framework
+### 8.16 Development Framework
 
 Estado:
 
@@ -746,12 +815,14 @@ Propuestas actualmente documentadas como no aprobadas:
 
 | Propuesta                                   | Estado      |
 | ------------------------------------------- | ----------- |
-| Consolidación de logs, métricas y auditoría | No aprobada |
+| Consolidación de logs, métricas y auditoría | Implementación técnica mergeada; cierre formal pendiente |
 | Security Control Plane Foundation           | No aprobada |
 | Preparación del AKS para GraphRAG           | No aprobada |
 | Validación de baseline y release interna    | No aprobada |
 
-El Sprint 7.3 ya no forma parte de estas propuestas: fue cerrado e integrado en `main` mediante el PR #13.
+Sprint 7.4 dejó de ser una propuesta: fue aprobado e integrado en
+`main` mediante la PR #14. Continúa en progreso hasta completar el
+Incremento 8.
 
 Ninguna propuesta de esta tabla posee autorización de implementación.
 
@@ -814,19 +885,21 @@ Esta iniciativa:
 
 ## 15. Estado actual del Project Vault
 
-Estado verificado durante la creación inicial:
+Estado verificado para la sincronización de Sprint 7.4:
 
-* estructura de carpetas creada;
-* `VAULT_GOVERNANCE.md` creado;
-* `DOCUMENT_AUTHORITY_MODEL.md` creado;
-* `CONTENT_LIFECYCLE.md` creado;
-* `CURRENT_BASELINE.md` en actualización;
-* Obsidian todavía no configurado;
-* Git del Vault todavía no inicializado;
-* RAG no implementado;
-* embeddings no generados;
-* índices no creados;
-* auditor no implementado.
+```text
+Repositorio: Aranwill/malak-project-vault
+Rama: main
+HEAD: 49858c603c1b5ec533e26e8986b24c24d41d4dd5
+origin/main: 49858c603c1b5ec533e26e8986b24c24d41d4dd5
+Working tree inicial: limpio
+```
+
+La navegación, gobernanza, índices, snapshots y respaldo remoto del
+Vault están operativos.
+
+La actualización correspondiente al Incremento 8 continúa sujeta a
+revisión, aplicación, commit y merge humanos.
 
 ---
 
@@ -845,6 +918,8 @@ docs/project/implementation_roadmap.md
 docs/project/sprints/SPRINT-7.0.md
 docs/project/sprints/SPRINT-7.1.md
 docs/project/sprints/SPRINT-7.2.md
+docs/project/sprints/SPRINT-7.3.md
+docs/project/sprints/SPRINT-7.4.md
 ```
 
 Las fichas de sprints futuros no constituyen aprobación para implementarlos.

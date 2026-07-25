@@ -8,7 +8,7 @@ authority: derived
 operational_authority: none
 repository_source: Aranwill/jarvis
 repository_branch: main
-last_reviewed: 2026-07-21
+last_reviewed: 2026-07-25
 tags:
 
 * malak
@@ -33,19 +33,21 @@ tags:
 
 * **Repositorio oficial:** `Aranwill/jarvis`
 * **Rama oficial y única:** `main`
-* **Baseline verificado:** `fd4da3d371d07b6aa91cc9f1c4d4bac3838ad627`
+* **Baseline técnico verificado:** `7cd7fcc811df01555837319ec4cac0a93ef94fff`
 * **Versión nominal:** `v0.6.0-alpha`
-* **Último sprint cerrado:** Sprint 7.3 — Conversation Provider Boundary Stabilization
-* **Pull request integrado:** PR #13
-* **Pruebas verificadas:** 74 aprobadas
-* **Próximo sprint:** no aprobado
+* **Último sprint formalmente cerrado:** Sprint 7.3 — Conversation Provider Boundary Stabilization
+* **Sprint integrado en progreso:** Sprint 7.4 — Consolidación de logs, métricas y auditoría
+* **Pull request integrado:** PR #14
+* **Pruebas documentadas:** 121 aprobadas sobre `5b951918006c464745e1eb1e3816bde619fad8b1`
+* **Incremento 8:** en ejecución documental gobernada
+* **Sprint posterior:** no aprobado
 * **Control de decisiones:** Human in Control
 
 Abrir el estado completo:
 
 * [[02-current-baseline/CURRENT_BASELINE|Current Baseline]]
 * [[08-session-context/MALAK_SESSION_CONTEXT|Contexto vigente de sesión]]
-* [[09-repository-snapshots/2026-07-20_MAIN_FDB3EE9|Snapshot del repositorio]]
+* [[09-repository-snapshots/2026-07-25_MAIN_7CD7FCC|Snapshot vigente del repositorio]]
 
 ---
 
@@ -87,6 +89,7 @@ Registro documental de sprints propuestos, activos y cerrados.
 
 * [[04-sprints/SPRINT_INDEX|Sprints]]
 * [[04-sprints/SPRINT-7.3-CLOSURE|Cierre del Sprint 7.3]]
+* [[04-sprints/SPRINT-7.4-CLOSURE|Registro de cierre gobernado del Sprint 7.4]]
 
 ### Decisiones
 
@@ -118,6 +121,8 @@ Capturas históricas, inmutables y derivadas del repositorio oficial.
 
 * [[09-repository-snapshots/SNAPSHOT_INDEX|Índice de snapshots]]
 * [[09-repository-snapshots/2026-07-20_MAIN_FDB3EE9|Snapshot 2026-07-20 — main — fdb3ee9]]
+* [[09-repository-snapshots/2026-07-21_MAIN_FD4DA3D|Snapshot 2026-07-21 — main — fd4da3d]]
+* [[09-repository-snapshots/2026-07-25_MAIN_7CD7FCC|Snapshot 2026-07-25 — main — 7cd7fcc]]
 
 ### Índice maestro
 

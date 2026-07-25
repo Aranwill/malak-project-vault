@@ -8,7 +8,7 @@ authority_level: approved_roadmap
 authority_rank: 7
 version: 1.0
 created: 2026-07-20
-last_reviewed: 2026-07-24
+last_reviewed: 2026-07-25
 source_of_truth: repository
 source_repository: Aranwill/jarvis
 source_branch: main
@@ -90,19 +90,27 @@ v0.6.0-alpha
 **Baseline operativo actual:**
 
 ```text
-Sprint 7.3 cerrado — Conversation Provider Boundary Stabilization
+main en 7cd7fcc811df01555837319ec4cac0a93ef94fff
+Sprint 7.4 integrado mediante PR #14
+Sprint 7.4 todavía en progreso hasta completar el Incremento 8
 ```
 
 **Suite documentada:**
 
 ```text
-74 passed
+121 passed
 ```
 
-**Estado del próximo sprint:**
+La suite corresponde a la validación integral ejecutada sobre
+`5b951918006c464745e1eb1e3816bde619fad8b1`. Los commits posteriores
+fueron exclusivamente documentales y no se presenta la suite como
+reejecutada después del merge.
+
+**Estado del trabajo vigente:**
 
 ```text
-No aprobado
+Incremento 8 de Sprint 7.4 en ejecución documental gobernada
+Sprint posterior no aprobado
 ```
 
 ---
@@ -168,6 +176,24 @@ Resultado:
 
 ---
 
+### Sprint 7.3 — Conversation Provider Boundary Stabilization
+
+**Estado:**
+
+```text
+cerrado
+```
+
+Resultado:
+
+* estabilización de `ConversationProviderRegistry`;
+* incorporación de `ConversationProviderNotFoundError`;
+* delimitación mínima de `ConversationService`;
+* integración mediante PR #13;
+* baseline resultante `fd4da3d371d07b6aa91cc9f1c4d4bac3838ad627`.
+
+---
+
 ## 5. Estado del bloque 7.x
 
 | Sprint | Estado    | Autorización |
@@ -176,12 +202,15 @@ Resultado:
 | 7.1    | Cerrado   | Implementado |
 | 7.2    | Cerrado   | Implementado |
 | 7.3    | Cerrado   | Implementado |
-| 7.4    | Propuesta | No aprobado  |
+| 7.4    | En progreso — mergeado | Incrementos 1–7 implementados; Incremento 8 en ejecución |
 | 7.5    | Propuesta | No aprobado  |
 | 7.6    | Propuesta | No aprobado  |
 | 7.7    | Propuesta | No aprobado  |
 
-El cierre del Sprint 7.3 no autoriza el inicio de Sprint 7.4 ni establece que la numeración histórica deba continuar.
+El Sprint 7.4 fue aprobado, implementado e integrado mediante la PR #14.
+
+Su cierre formal permanece pendiente hasta completar el Incremento 8 y
+reconciliar la documentación oficial de `Aranwill/jarvis/main`.
 
 La numeración histórica se conserva como referencia.
 
@@ -193,13 +222,29 @@ Las fichas de sprints futuros deben tratarse como propuestas hasta que el propie
 
 ## 6. Próximo sprint
 
-Actualmente no existe un próximo sprint aprobado.
+El trabajo vigente es el Incremento 8 de Sprint 7.4.
 
-El Sprint 7.3 no aprobó una integración entre `Kernel.receive` y `ConversationService`.
+El Incremento 7 está completado, validado y mergeado.
 
-Ambas rutas permanecen separadas y cualquier relación futura requerirá una necesidad concreta, diseño arquitectónico y aprobación explícita.
+El Incremento 8 está limitado a:
 
-Antes de seleccionar el siguiente sprint deberá realizarse:
+* revisar la evidencia read-only del Vault Synchronization Agent;
+* aplicar una actualización documental gobernada del Vault;
+* crear un snapshot nuevo e inmutable;
+* registrar el cierre condicionado del sprint;
+* preservar snapshots históricos;
+* someter el cambio a commit, PR y merge humanos.
+
+El Incremento 8 no constituye implementación operativa dentro de Malāk.
+
+La ficha oficial de Sprint 7.4 continúa declarando el sprint `en
+progreso`. Después del merge de esta actualización del Vault será
+necesaria una actualización posterior en `Aranwill/jarvis/main` para
+registrar la finalización del Incremento 8 y el cierre formal.
+
+No existe un sprint posterior aprobado.
+
+Antes de seleccionar un sprint posterior deberá realizarse:
 
 1. relevamiento completo del baseline;
 2. revisión de arquitectura;
@@ -216,30 +261,28 @@ No deberá seleccionarse un sprint únicamente porque sea el siguiente número d
 
 ---
 
-## 7. Propuestas pendientes del roadmap oficial
+## 7. Estado de líneas del roadmap oficial
 
 ### 7.1 Consolidación de logs, métricas y auditoría
 
 **Estado:**
 
 ```text
-no aprobada
+implementación técnica integrada mediante Sprint 7.4
+cierre formal pendiente del Incremento 8
 ```
 
-Antes de implementarla deberá determinarse:
+Resultado:
 
-* qué logs existen;
-* qué métricas existen;
-* qué contratos están implementados;
-* qué evidencia se necesita conservar;
-* qué parte corresponde a observabilidad;
-* qué parte corresponde a auditoría;
-* qué parte corresponde a seguridad;
-* qué almacenamiento resulta necesario;
-* qué datos son sensibles;
-* qué retención es apropiada.
-
-No debe crearse una infraestructura unificada solo por conveniencia conceptual.
+* métricas, eventos operativos y auditoría permanecen separados;
+* `OperationalEvent` define una allowlist mínima e inmutable;
+* `OperationalEventSink` conserva semántica de solo escritura;
+* existen stores operativos separados de los stores de métricas;
+* la CLI genera exclusivamente el `request_id`;
+* los contratos conversacionales permanecen intactos;
+* no se implementó auditoría de seguridad;
+* no se incorporaron dependencias externas;
+* Kernel, Planner y `ConversationService` permanecieron intactos.
 
 ---
 
@@ -879,6 +922,42 @@ El auditor no podrá modificar automáticamente el sistema auditado.
 
 ---
 
+### 8.9 Sandbox Containment & Evaluation Evidence Foundation
+
+**Estado conceptual:**
+
+```text
+incorporada a la planificación futura
+diseño detallado no aprobado
+implementación no aprobada
+sin número de sprint asignado
+```
+
+Ubicación lógica propuesta:
+
+```text
+después de Security Control Plane Foundation
+antes de simulaciones con agentes o del
+Controlled Engineering Improvement Loop Foundation
+```
+
+Alcance conceptual:
+
+* aislamiento y entornos descartables;
+* control de red, archivos, procesos y herramientas;
+* límites de CPU, RAM, VRAM, disco, tiempo y procesos;
+* manifiestos reproducibles;
+* telemetría externa al agente;
+* registro verificable de operaciones;
+* snapshots y hashes anteriores y posteriores;
+* kill switch, timeout, cuarentena y cierre seguro;
+* artefactos de evaluación separados;
+* revisión humana obligatoria.
+
+La incorporación documental no aprueba su diseño ni implementación.
+
+---
+
 ## 9. Capacidades futuras sin implementación aprobada
 
 Se mantienen como líneas futuras o pendientes:
@@ -1103,7 +1182,8 @@ deberá incluir únicamente:
 Mientras no exista un próximo sprint aprobado deberá indicar:
 
 ```text
-Próximo sprint: pendiente de revisión y aprobación.
+Sprint 7.4: en progreso hasta completar el Incremento 8.
+Sprint posterior: pendiente de revisión y aprobación.
 ```
 
 ---

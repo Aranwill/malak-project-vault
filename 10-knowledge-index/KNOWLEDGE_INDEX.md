@@ -7,7 +7,7 @@ authority_level: technical_documentation
 authority_rank: 6
 version: 1.0
 created: 2026-07-20
-last_reviewed: 2026-07-22
+last_reviewed: 2026-07-25
 source_of_truth: project-vault
 derived: true
 operational_context: true
@@ -78,11 +78,13 @@ Estado documentado al revisar este índice:
 Repositorio: Aranwill/jarvis
 Rama permanente: main
 Versión nominal: v0.6.0-alpha
-Último sprint cerrado: Sprint 7.3 — Conversation Provider Boundary Stabilization
-Pull request integrado: PR #13
-Baseline resultante: fd4da3d371d07b6aa91cc9f1c4d4bac3838ad627
-Suite documentada: 74 passed
-Próximo sprint aprobado: ninguno
+Último sprint formalmente cerrado: Sprint 7.3 — Conversation Provider Boundary Stabilization
+Sprint integrado en progreso: Sprint 7.4 — Consolidación de logs, métricas y auditoría
+Pull request integrado: PR #14
+Baseline técnico: 7cd7fcc811df01555837319ec4cac0a93ef94fff
+Suite integral documentada: 121 passed sobre 5b951918006c464745e1eb1e3816bde619fad8b1
+Incremento 8: en ejecución documental gobernada
+Sprint posterior aprobado: ninguno
 ```
 
 ## 5. Roadmap
@@ -95,8 +97,11 @@ Regla:
 
 Actualmente:
 
-- los Sprints 7.0, 7.1, 7.2 y 7.3 están cerrados;
-- no existe un próximo sprint aprobado;
+- los Sprints 7.0, 7.1, 7.2 y 7.3 están formalmente cerrados;
+- Sprint 7.4 está mergeado y continúa en progreso;
+- los Incrementos 1 a 7 de Sprint 7.4 están completados;
+- el Incremento 8 está en ejecución documental gobernada;
+- no existe un sprint posterior aprobado;
 - las iniciativas futuras requieren revisión y aprobación explícita;
 - el cierre de un sprint no autoriza automáticamente el siguiente;
 - Sprint 7.3 no aprobó una integración entre `Kernel.receive` y `ConversationService`.
@@ -110,13 +115,11 @@ Categorías actuales:
 
 ### Prioridad alta
 
-- selección del próximo sprint;
+- cierre formal de Sprint 7.4 después del Incremento 8;
 - momento de implementación del Security Control Plane;
-- versionado y respaldo del Project Vault.
 
 ### Prioridad media
 
-- alcance y separación entre logs, métricas y auditoría;
 - política de sincronización con Obsidian;
 - esquema de metadatos del Vault.
 
@@ -126,6 +129,8 @@ Categorías actuales:
 - relación entre Kernel y `ConversationService`;
 - aprobación e implementación de la Fase 1 del Vault Synchronization Agent (`DEC-PEND-013`);
 - cierre técnico y validación final de la Fase 1.
+- selección de Sprint 7.4 (`DEC-PEND-001`);
+- separación entre métricas, eventos operativos y auditoría (`DEC-PEND-003`).
 
 ### Diferidas
 
@@ -161,7 +166,11 @@ Existe un mapa derivado vigente:
 
 - [[01-architecture/CURRENT_COMPONENTS_MAP|Mapa de componentes actuales]]
 
-El mapa representa el flujo Kernel–Planner–Capability.
+El mapa representa:
+
+- el flujo Kernel–Planner–Capability;
+- la frontera de eventos operativos integrada en la CLI;
+- la separación entre métricas, eventos operativos y auditoría.
 
 El subsistema conversacional se mantiene separado y no existe integración formal entre `Kernel.receive` y `ConversationService`.
 
@@ -203,6 +212,10 @@ El cierre del Sprint 7.3 se encuentra registrado en:
 
 - [[04-sprints/SPRINT-7.3-CLOSURE|Cierre del Sprint 7.3]]
 
+El estado de cierre gobernado de Sprint 7.4 se registra en:
+
+- [[04-sprints/SPRINT-7.4-CLOSURE|Registro de cierre gobernado del Sprint 7.4]]
+
 La reconstrucción retrospectiva de sprints anteriores continúa pendiente y requiere una tarea documental separada.
 
 Podrá contener:
@@ -230,6 +243,7 @@ Sprints cerrados conocidos:
 | 7.1 | Composición de CLI con `OllamaRuntime` |
 | 7.2 | Contrato estructural `RuntimeMetricSink` |
 | 7.3 | Conversation Provider Boundary Stabilization |
+| 7.4 | Eventos operativos y correlación CLI; cierre formal pendiente |
 
 ---
 
@@ -339,8 +353,11 @@ Carpeta:
 
 - [[09-repository-snapshots/SNAPSHOT_INDEX|Índice de snapshots]]
 - [[09-repository-snapshots/2026-07-20_MAIN_FDB3EE9|Snapshot de main — 2026-07-20 — fdb3ee9]]
+- [[09-repository-snapshots/2026-07-21_MAIN_FD4DA3D|Snapshot de main — 2026-07-21 — fd4da3d]]
+- [[09-repository-snapshots/2026-07-25_MAIN_7CD7FCC|Snapshot de main — 2026-07-25 — 7cd7fcc]]
 
-El snapshot correspondiente al baseline del Sprint 7.3 debe registrarse como un artefacto nuevo e inmutable.
+El snapshot de `7cd7fcc` registra el merge técnico de Sprint 7.4 sin
+declarar su cierre formal.
 
 No debe modificarse el snapshot de `fdb3ee9` para representar el estado posterior.
 
