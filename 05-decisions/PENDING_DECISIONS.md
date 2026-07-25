@@ -8,7 +8,7 @@ authority_level: proposal
 authority_rank: 9
 version: 1.0
 created: 2026-07-20
-last_reviewed: 2026-07-24
+last_reviewed: 2026-07-25
 source_of_truth: repository-and-owner-decisions
 source_repository: Aranwill/jarvis
 source_branch: main
@@ -132,70 +132,47 @@ La conversación donde se aprobó una decisión no sustituye su formalización.
 **Estado:**
 
 ```text
-open
+closed
 ```
 
-**Prioridad:**
+**Prioridad histórica:**
 
 ```text
 alta
 ```
 
-**Contexto:**
-
-El baseline operativo actual corresponde al cierre del Sprint 7.3 — Conversation Provider Boundary Stabilization.
-
-Los Sprints 7.0, 7.1, 7.2 y 7.3 están cerrados.
-
-Baseline vigente:
+**Resolución:**
 
 ```text
-fd4da3d371d07b6aa91cc9f1c4d4bac3838ad627
+Sprint 7.4 — Consolidación de logs, métricas y auditoría
 ```
 
-Validación documentada:
-
-```text
-74 passed
-```
-
-No existe actualmente un próximo sprint aprobado.
-
-**Decisión requerida:**
-
-Determinar qué necesidad real de Malāk debe abordarse a continuación.
-
-**Alternativas conocidas:**
-
-* evaluar la delimitación entre logs, métricas y auditoría;
-* evaluar el momento de implementación del Security Control Plane Foundation;
-* continuar tareas documentales gobernadas del Project Vault;
-* evaluar una necesidad detectada mediante relevamiento del baseline;
-* no iniciar un nuevo sprint hasta completar una revisión adicional.
-
-**Criterios obligatorios:**
+Sprint 7.4 fue seleccionado después de:
 
 * necesidad real;
 * alineación con Blueprint;
 * alineación con Constitución Cognitiva;
 * alineación con Gobernanza;
 * mantenimiento de un Kernel simple;
-* alcance corto;
-* reversibilidad;
-* ausencia de expansión prematura;
-* utilidad permanente.
+* alcance explícito y limitado;
+* riesgos y rollback;
+* aprobación humana.
 
-**Riesgo principal:**
+**Evidencia:**
 
-Seleccionar un sprint por continuidad numérica y no por necesidad arquitectónica.
+* `docs/project/sprints/SPRINT-7.4.md`;
+* PR #14;
+* merge commit `7cd7fcc811df01555837319ec4cac0a93ef94fff`;
+* validación integral con 121 pruebas aprobadas;
+* registro gobernado del Incremento 8.
 
-**Próxima acción permitida:**
+**Resultado:**
 
-Relevamiento del baseline y presentación de alternativas.
+La decisión histórica de seleccionar el sprint posterior a Sprint 7.3
+queda resuelta.
 
-**Acción no permitida:**
-
-Crear una rama o modificar el repositorio oficial antes de una aprobación explícita.
+Esta resolución no aprueba automáticamente un sprint posterior a
+Sprint 7.4.
 
 ---
 
@@ -253,59 +230,69 @@ La decisión queda cerrada y no autoriza trabajo posterior.
 **Estado:**
 
 ```text
-open
+closed
 ```
 
-**Prioridad:**
+**Prioridad histórica:**
 
 ```text
 media
 ```
 
-**Contexto:**
+**Resolución:**
 
-Malāk posee infraestructura inicial de métricas de runtime:
+Métricas, eventos operativos y auditoría permanecen como subsistemas
+separados.
 
-* `RuntimeMetricSample`;
-* `RuntimeMetricSink`;
-* `InMemoryRuntimeMetricStore`;
-* `JsonlRuntimeMetricStore`;
-* perfilado de métricas.
+Pueden compartir únicamente convenciones mínimas de trazabilidad:
 
-No debe asumirse que logs, métricas, telemetría, seguridad y auditoría sean una única responsabilidad.
+* identificadores;
+* fechas UTC;
+* nombres de eventos y componentes.
 
-**Decisión requerida:**
+No comparten:
 
-Definir si deben permanecer como subsistemas separados o compartir infraestructura limitada.
+* contratos;
+* stores;
+* políticas de error;
+* políticas de retención;
+* autoridad;
+* un envelope universal.
 
-**Preguntas abiertas:**
+Sprint 7.4 implementó únicamente eventos operativos:
 
-* ¿Qué eventos deben registrarse?
-* ¿Qué métricas son operativas?
-* ¿Qué información es evidencia de auditoría?
-* ¿Qué datos pueden ser sensibles?
-* ¿Qué retención resulta necesaria?
-* ¿Qué responsabilidades corresponden a seguridad?
-* ¿Qué contratos deben mantenerse separados?
-* ¿Debe existir persistencia configurable?
-* ¿Quién puede leer cada clase de información?
-* ¿Qué información debe ser inmutable?
+* `OperationalEvent`;
+* `OperationalEventSink`;
+* stores operativos separados;
+* integración opcional en la CLI;
+* `request_id` generado exclusivamente en la CLI.
 
-**Alternativas iniciales:**
+No implementó auditoría de seguridad ni autorización.
 
-1. mantener métricas, logs y auditoría separados;
-2. compartir almacenamiento, pero no contratos;
-3. compartir un envelope de eventos;
-4. crear una capa común de observabilidad;
-5. diferir la decisión hasta Security Control Plane.
+**Evidencia:**
 
-**Riesgos:**
+* `docs/project/sprints/SPRINT-7.4.md`;
+* PR #14;
+* merge commit `7cd7fcc811df01555837319ec4cac0a93ef94fff`;
+* 94 pruebas específicas;
+* 121 pruebas totales;
+* revisión de privacidad y arquitectura con resultado `APTO`.
 
-* acoplamiento excesivo;
-* filtración de datos;
-* pérdida de trazabilidad;
-* complejidad prematura;
-* confusión entre observación y autoridad.
+**Deuda futura no bloqueante:**
+
+* validación adicional de identificadores;
+* exposición de errores;
+* rotación y límites de crecimiento;
+* retención y eliminación;
+* concurrencia;
+* recuperación ante corrupción parcial;
+* permisos del archivo persistido.
+
+**Resultado:**
+
+La decisión de frontera queda cerrada. Las políticas futuras de
+retención, seguridad y auditoría requieren alcance y aprobación
+independientes.
 
 ---
 

@@ -8,7 +8,7 @@ authority_level: technical_documentation
 authority_rank: 6
 version: 1.0
 created: 2026-07-20
-last_reviewed: 2026-07-24
+last_reviewed: 2026-07-25
 source_repository: Aranwill/jarvis
 source_branch: main
 derived: true
@@ -70,13 +70,27 @@ Malāk es una plataforma cognitiva personal ejecutada localmente, diseñada para
 
 ## 3. Baseline operativo vigente
 
-**Último sprint cerrado:**
+**Último sprint formalmente cerrado:**
 
 ```text
 Sprint 7.3 — Conversation Provider Boundary Stabilization
 ```
 
-**Sprints cerrados del bloque 7.x:**
+**Sprint integrado pendiente de cierre formal:**
+
+```text
+Sprint 7.4 — Consolidación de logs, métricas y auditoría
+```
+
+**Estado de Sprint 7.4:**
+
+```text
+Incremento 7: completado, validado y mergeado
+Incremento 8: en ejecución mediante sincronización gobernada del Vault
+Sprint: en progreso
+```
+
+**Estado del bloque 7.x:**
 
 | Sprint | Resultado                                                  |
 | ------ | ---------------------------------------------------------- |
@@ -84,23 +98,34 @@ Sprint 7.3 — Conversation Provider Boundary Stabilization
 | 7.1    | CLI con `OllamaRuntime` mediante configuración externa     |
 | 7.2    | Contrato estructural `RuntimeMetricSink` de solo escritura |
 | 7.3    | Estabilización de la frontera `ConversationService`–Provider–Runtime |
+| 7.4    | Eventos operativos y correlación desde la CLI; cierre formal pendiente |
 
-**Suite validada al cierre del Sprint 7.3:**
+**Última suite integral documentada para Sprint 7.4:**
 
 ```text
-74 passed
+121 passed
 ```
 
-**Último commit remoto verificado al revisar este contexto:**
+La validación integral fue ejecutada sobre:
 
 ```text
-fd4da3d371d07b6aa91cc9f1c4d4bac3838ad627
+5b951918006c464745e1eb1e3816bde619fad8b1
+```
+
+Los commits posteriores al commit validado fueron exclusivamente
+documentales. La suite no se presenta como reejecutada después del
+merge.
+
+**Último commit remoto verificado:**
+
+```text
+7cd7fcc811df01555837319ec4cac0a93ef94fff
 ```
 
 Descripción:
 
 ```text
-Merge pull request #13 from Aranwill/feature/sprint-7.3-conversation-provider-boundary
+Merge pull request #14 from Aranwill/feature/sprint-7.4-logs-metrics-audit
 ```
 
 Estos datos deben volver a verificarse si cambia `HEAD`.
@@ -188,6 +213,12 @@ Estado conocido del baseline:
 * `RuntimeMetricSink`;
 * `InMemoryRuntimeMetricStore`;
 * `JsonlRuntimeMetricStore`;
+* `OperationalEvent`;
+* `OperationalEventSink`;
+* `InMemoryOperationalEventStore`;
+* `JsonlOperationalEventStore`;
+* correlación conversacional mediante `request_id` generado
+  exclusivamente en la CLI;
 * perfilado inicial de métricas;
 * AKS Engineering Knowledge Foundation;
 * Development Framework.
@@ -320,16 +351,29 @@ Todavía no forman parte del baseline:
 ## 10. Estado del próximo sprint
 
 ```text
-Próximo sprint: no aprobado.
+Sprint 7.4: en progreso.
+Incremento 8: en ejecución documental gobernada.
+Próximo sprint posterior: no aprobado.
 ```
 
-El Sprint 7.3 fue cerrado e integrado en `main`.
+El Sprint 7.4 fue integrado en `main` mediante la PR #14.
 
-No existe un Sprint 7.4 aprobado ni una continuación automática autorizada.
+El Incremento 7 está completado, validado y mergeado.
 
-No debe iniciarse un sprint por continuidad numérica.
+El Incremento 8 permanece en ejecución hasta que la actualización
+gobernada del Vault sea revisada, aplicada, commiteada y mergeada.
 
-Antes de seleccionar el siguiente sprint se requiere:
+La ficha oficial en `Aranwill/jarvis/main` continúa declarando el Sprint
+7.4 `en progreso`. Por ello, el sprint no debe declararse formalmente
+cerrado desde el Vault.
+
+Después del merge de la actualización del Vault será necesaria una
+actualización posterior en `Aranwill/jarvis/main` para registrar la
+finalización del Incremento 8 y eliminar la contradicción documental.
+
+No existe un sprint posterior aprobado.
+
+Antes de seleccionar un sprint posterior se requiere:
 
 * relevamiento completo;
 * identificación de una necesidad real;
@@ -350,15 +394,18 @@ Antes de seleccionar el siguiente sprint se requiere:
 
 ### Alta prioridad
 
-* selección del próximo sprint;
+* cierre formal de Sprint 7.4 después de completar el Incremento 8 y
+  reconciliar la documentación oficial;
 * momento de implementación del Security Control Plane;
-* modelo de versionado y respaldo del Project Vault.
 
 ### Prioridad media
 
-* alcance y separación entre logs, métricas y auditoría;
 * política de sincronización con Obsidian;
 * esquema de metadatos del Vault.
+
+La selección de Sprint 7.4 y la separación mínima entre métricas,
+eventos operativos y auditoría quedaron resueltas mediante la
+aprobación, implementación y merge de Sprint 7.4.
 
 ### Diferidas
 
@@ -546,7 +593,48 @@ El Vault:
 **Repositorio remoto:** `Aranwill/malak-project-vault`
 **Rama oficial:** `main`
 
-Estado verificado del Vault antes de esta actualización documental:
+Estado verificado para la sincronización gobernada de Sprint 7.4:
+
+```text
+Rama: main
+HEAD: 49858c603c1b5ec533e26e8986b24c24d41d4dd5
+origin/main: 49858c603c1b5ec533e26e8986b24c24d41d4dd5
+Working tree: limpio
+```
+
+Evidencia del Vault Synchronization Agent:
+
+```text
+run_id: 20260725T032607612120Z_7cd7fcc8_49858c60
+source main: 7cd7fcc811df01555837319ec4cac0a93ef94fff
+baseline anterior: fd4da3d371d07b6aa91cc9f1c4d4bac3838ad627
+Vault main: 49858c603c1b5ec533e26e8986b24c24d41d4dd5
+changed files: 14
+document candidates: 4
+validation findings: 0
+conclusion: pass
+```
+
+Referencia local de evidencia:
+
+```text
+D:\Ollama\malak-vault-sync-agent\var\reports\20260725T032607612120Z_7cd7fcc8_49858c60\audit-report.md
+D:\Ollama\malak-vault-sync-agent\var\evidence\20260725T032607612120Z_7cd7fcc8_49858c60
+SHA-256: 18b9eeba722ad6838749c3adb66d43d5834883c8d294f7eb24994d68308a10fc
+```
+
+Estado del Incremento 8:
+
+```text
+en ejecución
+```
+
+La ejecución read-only fue revisada y aprobada. La actualización
+documental gobernada continúa pendiente de aplicación, commit y merge.
+
+### Registro histórico anterior
+
+Estado verificado durante el cierre de la operacionalización read-only:
 
 * PR #2 mergeada;
 * PR #3 mergeada;
@@ -680,10 +768,13 @@ Al recibir este archivo, el asistente debe:
 
 * responder en español;
 * tratar `main` como única rama oficial;
-* reconocer Sprint 7.3 como último sprint cerrado;
-* utilizar 74 pruebas como último resultado documentado, no como resultado eterno;
+* reconocer Sprint 7.3 como último sprint formalmente cerrado;
+* reconocer que Sprint 7.4 fue mergeado pero continúa en progreso;
+* reconocer que el Incremento 8 está en ejecución documental gobernada;
+* utilizar 121 pruebas como última suite integral documentada para
+  Sprint 7.4, sin presentarla como reejecutada después del merge;
 * diferenciar baseline, roadmap y propuestas;
-* no asumir que existe un próximo sprint aprobado;
+* no asumir que existe un sprint posterior aprobado;
 * no modificar el Kernel sin necesidad arquitectónica;
 * no incorporar Ruff improvisadamente;
 * no confundir el Vault con la fuente de verdad;
@@ -697,6 +788,42 @@ Al recibir este archivo, el asistente debe:
 ---
 
 ## 17. Resultado de la sesión actual
+
+### 17.1 Continuidad vigente — 2026-07-25
+
+Objetivo:
+
+> Ejecutar la sincronización gobernada del Vault correspondiente al
+> Incremento 8 de Sprint 7.4, después del merge aprobado de la PR #14.
+
+Evidencia verificada:
+
+```text
+Repositorio oficial: Aranwill/jarvis
+Rama: main
+HEAD: 7cd7fcc811df01555837319ec4cac0a93ef94fff
+PR integrada: #14
+Incremento 7: completado, validado y mergeado
+Incremento 8: en ejecución
+Sprint 7.4: en progreso
+Vault HEAD: 49858c603c1b5ec533e26e8986b24c24d41d4dd5
+run_id: 20260725T032607612120Z_7cd7fcc8_49858c60
+resultado del agente: pass
+```
+
+Punto de continuidad:
+
+1. revisar y aprobar la propuesta documental;
+2. aplicar únicamente los archivos aprobados;
+3. validar el diff y el estado Git;
+4. crear un commit documental;
+5. publicar una rama y crear un PR del Vault;
+6. esperar el merge humano;
+7. actualizar posteriormente `Aranwill/jarvis/main` para registrar la
+   finalización del Incremento 8 y el cierre formal de Sprint 7.4;
+8. no iniciar un sprint posterior sin aprobación independiente.
+
+### 17.2 Registro histórico anterior — 2026-07-24
 
 **Fecha:** `2026-07-24`
 

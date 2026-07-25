@@ -7,10 +7,10 @@ authority: derived
 operational_authority: none
 version: 1.0
 created: 2026-07-20
-last_reviewed: 2026-07-22
+last_reviewed: 2026-07-25
 source_repository: Aranwill/jarvis
 source_branch: main
-baseline_reference: fd4da3d371d07b6aa91cc9f1c4d4bac3838ad627
+baseline_reference: 7cd7fcc811df01555837319ec4cac0a93ef94fff
 tags:
   - malak
   - vault
@@ -29,12 +29,14 @@ tags:
 
 - **Repositorio oficial:** `Aranwill/jarvis`
 - **Rama oficial:** `main`
-- **Baseline:** `fd4da3d371d07b6aa91cc9f1c4d4bac3838ad627`
+- **Baseline:** `7cd7fcc811df01555837319ec4cac0a93ef94fff`
 - **Versión nominal:** `v0.6.0-alpha`
-- **Último sprint cerrado:** Sprint 7.3 — Conversation Provider Boundary Stabilization
-- **Pull request integrado:** PR #13
-- **Suite validada:** 74 pruebas aprobadas
-- **Próximo sprint aprobado:** ninguno
+- **Último sprint formalmente cerrado:** Sprint 7.3 — Conversation Provider Boundary Stabilization
+- **Sprint integrado en progreso:** Sprint 7.4 — Consolidación de logs, métricas y auditoría
+- **Pull request integrado:** PR #14
+- **Suite integral documentada:** 121 pruebas sobre `5b951918006c464745e1eb1e3816bde619fad8b1`
+- **Incremento 8:** en ejecución documental gobernada
+- **Sprint posterior aprobado:** ninguno
 
 La representación completa del estado vigente se encuentra en:
 
@@ -56,6 +58,10 @@ Según el baseline vigente, Malāk dispone de fundamentos implementados relacion
 - CLI;
 - métricas y telemetría de runtime;
 - contrato `RuntimeMetricSink`;
+- contrato `OperationalEvent`;
+- contrato `OperationalEventSink`;
+- stores operativos en memoria y JSONL;
+- correlación conversacional generada exclusivamente en la CLI;
 - biblioteca de conocimiento de ingeniería.
 
 > [!important]
@@ -84,10 +90,16 @@ El mapa distingue:
 
 - el flujo Kernel–Planner–Capability;
 - el subsistema conversacional de CLI;
+- la frontera de eventos operativos;
+- los stores operativos separados de las métricas;
 - los contratos y runtimes implementados;
 - los límites entre estado actual y arquitectura futura.
 
-Las dos rutas permanecen separadas. El cierre del Sprint 7.3 no autoriza ni propone una integración entre `Kernel.receive` y `ConversationService`.
+Las rutas permanecen separadas. Sprint 7.4 no incorporó una
+integración entre `Kernel.receive` y `ConversationService`.
+
+La observabilidad operativa no implementa auditoría de seguridad ni
+semántica de autorización.
 
 Toda relación representada debe continuar verificándose contra el repositorio oficial y su baseline vigente.
 
@@ -171,7 +183,9 @@ Esta sección no debe:
 
 ## Estado de evolución documental
 
-El mapa inicial de componentes ya existe y permanece como representación derivada del baseline.
+El mapa de componentes fue revalidado para el baseline `7cd7fcc` e
+incorpora la frontera mínima de eventos operativos agregada por Sprint
+7.4.
 
 Cualquier mapa adicional requiere:
 
