@@ -5,13 +5,13 @@ document_type: architecture
 status: active
 authority: derived
 operational_authority: none
-version: 1.1
+version: 1.2
 created: 2026-07-20
-last_reviewed: 2026-07-25
+last_reviewed: 2026-07-26
 source_repository: Aranwill/jarvis
 source_branch: main
-source_commit: 7cd7fcc811df01555837319ec4cac0a93ef94fff
-baseline_reference: 7cd7fcc811df01555837319ec4cac0a93ef94fff
+source_commit: 4afeed440a3bf2096035d0d458d2ef75c71689fd
+baseline_reference: 4afeed440a3bf2096035d0d458d2ef75c71689fd
 tags:
   - malak
   - vault
@@ -21,42 +21,6 @@ tags:
 ---
 
 # Mapa de componentes actuales
-
-<!-- MALAK_VAULT_SYNC:START -->
-## Proyección automática de sincronización
-
-> [!warning] Estado derivado pendiente de revisión
-> Este bloque fue generado de forma determinista a partir de
-> `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
-> sprints y no reemplaza la revisión humana del documento.
-
-- **Run ID:** `20260726T191148713343Z_4afeed44_b20482cf`
-- **HEAD oficial observado:** `4afeed440a3bf2096035d0d458d2ef75c71689fd`
-- **Commit previamente observado:** `7cd7fcc811df01555837319ec4cac0a93ef94fff`
-- **Generado:** `2026-07-26T19:11:48.713343+00:00`
-- **Prioridad:** `high`
-- **Disposición:** `review_required`
-
-### Estado estructurado de la fuente oficial
-
-- **Ficha de sprint más reciente:** `docs/project/sprints/SPRINT-7.5.md`
-- **Título declarado:** Sprint 7.5 — Base del plano de control de seguridad
-- **Estado declarado:** `en progreso`
-- **`as_of_commit` declarado:** `c0a4283b100609daeb4b3422dd28634df9d851b6`
-
-### Commits oficiales observados
-
-- 4afeed440a3bf2096035d0d458d2ef75c71689fd	Merge pull request #16 from Aranwill/docs/sprint-7.5-activation-reconciliation
-- 0bcdbcb13efd4c3087e82b91d259e77c938d3aea	fix(docs): repair roadmap encoding
-- f8cf65945fde070f9c81efd28e4b5305dae39386	docs(project): reconcile sprint 7.5 activation
-- c0a4283b100609daeb4b3422dd28634df9d851b6	Merge pull request #15 from Aranwill/feature/sprint-7.5-authorization-contracts
-- 841e4814c620fd7b98188e29931ec4600bfaec13	feat(security): add authorization contracts
-
-### Evidencia que originó esta proyección
-
-- `architecture-change` por `src/malak/security/__init__.py`
-- `architecture-change` por `src/malak/security/contracts.py`
-<!-- MALAK_VAULT_SYNC:END -->
 
 > [!warning] Naturaleza derivada
 > Este documento representa únicamente relaciones verificadas en el repositorio oficial para el baseline indicado.
@@ -76,6 +40,7 @@ Este mapa cubre dos fronteras verificadas:
 - CLI conversacional;
 - eventos operativos;
 - stores operativos.
+- contratos fundamentales de autorización.
 
 Quedan fuera de alcance:
 
@@ -83,7 +48,7 @@ Quedan fuera de alcance:
 - detalle interno de proveedores y runtimes;
 - métricas de runtime;
 - auditoría de seguridad;
-- seguridad futura;
+- Policy Decision Point, Policy Enforcement Point y auditoría de autorización;
 - componentes propuestos en el roadmap.
 
 Su exclusión de este documento no implica que no existan. Solamente evita mezclar subsistemas todavía no verificados dentro de este mapa.
@@ -97,13 +62,13 @@ No existe integración formal entre `Kernel.receive` y `ConversationService`, y 
 
 - **Repositorio:** `Aranwill/jarvis`
 - **Rama:** `main`
-- **Commit:** `7cd7fcc811df01555837319ec4cac0a93ef94fff`
+- **Commit:** `4afeed440a3bf2096035d0d458d2ef75c71689fd`
 - **Versión nominal:** `v0.6.0-alpha`
-- **Último sprint formalmente cerrado:** Sprint 7.3 — Conversation Provider Boundary Stabilization
-- **Sprint integrado en progreso:** Sprint 7.4 — Consolidación de logs, métricas y auditoría
-- **Pull request integrado:** PR #14
-- **Suite integral documentada:** 121 pruebas aprobadas sobre `5b951918006c464745e1eb1e3816bde619fad8b1`
-- **Incremento 8:** en ejecución documental gobernada
+- **Último sprint formalmente cerrado:** Sprint 7.4 — Consolidación de logs, métricas y auditoría
+- **Sprint aprobado en progreso:** Sprint 7.5 — Base del plano de control de seguridad
+- **Pull requests integrados en el rango:** PR #15 y PR #16
+- **Suite integral documentada:** 166 pruebas aprobadas sobre `c0a4283b100609daeb4b3422dd28634df9d851b6`
+- **Incremento vigente:** Sprint 7.5, Incremento 2 reconciliado documentalmente
 
 ## 3. Componentes verificados
 
@@ -262,6 +227,34 @@ Fuente:
 src/malak/app/cli.py
 ```
 
+### Contratos fundamentales de autorización
+
+El Sprint 7.5 incorporó cuatro contratos inmutables y desacoplados:
+
+| Contrato | Responsabilidad verificada |
+| --- | --- |
+| `PermissionScope` | Identificar un recurso y una acción normalizados |
+| `SecurityContext` | Identificar al sujeto y su estado de autenticación |
+| `AuthorizationRequest` | Relacionar contexto, permiso, identificador y fecha trazable |
+| `AuthorizationDecision` | Expresar un resultado binario y su razón |
+
+Estos contratos:
+
+- están expuestos mediante `malak.security`;
+- separan solicitud y decisión;
+- no ejecutan operaciones;
+- no implementan políticas;
+- no dependen de LLM;
+- no modifican el Kernel, Planner ni runtimes.
+
+Fuentes:
+
+```text
+src/malak/security/contracts.py
+src/malak/security/__init__.py
+tests/test_authorization_contracts.py
+```
+
 ## 4. Flujo implementado
 
 ```mermaid
@@ -350,9 +343,10 @@ Este mapa no afirma:
 - que el registro sea persistente;
 - que el diagrama represente toda la arquitectura de Malāk.
 - que eventos operativos y métricas compartan contratos o stores;
-- que exista auditoría de seguridad;
+- que exista PDP, PEP o auditoría de autorización;
 - que la observabilidad adopte decisiones de autorización;
 - que `ConversationRequest` contenga `request_id`.
+- que los contratos de autorización concedan permisos por sí mismos.
 
 ## 9. Hallazgos arquitectónicos descriptivos
 
@@ -369,6 +363,10 @@ Sin convertirlos en decisiones nuevas, el código observado muestra:
 - persistencia operativa opcional e inyectada;
 - degradación controlada ante fallos del sink;
 - Kernel, Planner y contratos conversacionales intactos.
+- solicitud, contexto, permiso y decisión representados por contratos
+  separados e inmutables;
+- ausencia de PDP, PEP y ejecución de operaciones dentro de esos
+  contratos.
 
 ## 10. Fuentes oficiales
 
@@ -385,7 +383,11 @@ Sin convertirlos en decisiones nuevas, el código observado muestra:
 - `src/malak/observability/operational_event_sink.py`
 - `src/malak/observability/operational_event_store.py`
 - `src/malak/observability/operational_event_jsonl_store.py`
+- `src/malak/security/contracts.py`
+- `src/malak/security/__init__.py`
+- `tests/test_authorization_contracts.py`
 - `docs/project/sprints/SPRINT-7.4.md`
+- `docs/project/sprints/SPRINT-7.5.md`
 
 ## 11. Navegación relacionada
 
