@@ -590,46 +590,50 @@ El Vault:
 **Repositorio remoto:** `Aranwill/malak-project-vault`
 **Rama oficial:** `main`
 
-Estado base verificado para la propuesta de sincronización vigente:
+Estado remoto vigente después de las sincronizaciones gobernadas:
 
 ```text
-Vault base: b20482cff9f104c86d7967b393381021b21ec629
-Rama de propuesta: agent/vault-sync-4afeed44
-PR draft: #10
-Malāk observado: 4afeed440a3bf2096035d0d458d2ef75c71689fd
-Working trees locales: limpios al finalizar la ejecución
+Vault main: d795a645e40b88c376015032533c54a8916b1712
+PR #10: integrada
+Merge commit PR #10: 579e5b9d7ea693215af0ebd5ca1962d658a7a09f
+PR #11: integrada
+Merge commit PR #11: d795a645e40b88c376015032533c54a8916b1712
+Malāk observado: 83ceb96838df0770bb9309172a75e3dc79bff121
+PR abiertas: ninguna
+Ramas de propuesta #10 y #11: eliminadas después del merge
 ```
 
-Evidencia del Vault Synchronization Agent:
+Última evidencia del Vault Synchronization Agent:
 
 ```text
-run_id: 20260726T191148713343Z_4afeed44_b20482cf
-source previous: 7cd7fcc811df01555837319ec4cac0a93ef94fff
-source current: 4afeed440a3bf2096035d0d458d2ef75c71689fd
-Vault base: b20482cff9f104c86d7967b393381021b21ec629
-changed files: 6
+run_id: 20260726T203205786776Z_83ceb968_579e5b9d
+source previous: 4afeed440a3bf2096035d0d458d2ef75c71689fd
+source current: 83ceb96838df0770bb9309172a75e3dc79bff121
+Vault base: 579e5b9d7ea693215af0ebd5ca1962d658a7a09f
+changed files: 7
 document candidates: 4
 validation findings: 0
 conclusion: pass
 ```
 
-Informe auditable propuesto:
+Informe auditable integrado:
 
 ```text
-07-audits/vault-synchronization/2026-07-26_VAULT_SYNC_20260726T191148713343Z_4afeed44_b20482cf.md
+07-audits/vault-synchronization/2026-07-26_VAULT_SYNC_20260726T203205786776Z_83ceb968_579e5b9d.md
 ```
 
-Estado de la propuesta:
+Estado de la sincronización:
 
 ```text
 end-to-end completado;
-reconciliación humana incorporada en la PR #10;
-merge pendiente del propietario
+reconciliación humana incorporada;
+PR #11 integrada exclusivamente por decisión del propietario;
+baseline derivado del Vault actualizado en main
 ```
 
 El agente recuperó el rango pendiente después del `dry-run`, creó la
-propuesta controlada y mantuvo Malāk intacto. La PR no concede autoridad
-operativa ni habilita merge automático.
+propuesta controlada y mantuvo Malāk intacto. El merge humano no concede
+autoridad operativa ni habilita merge automático para ciclos futuros.
 
 ### Registro histórico anterior
 
@@ -815,21 +819,20 @@ Agente main: c54bfb0f4b1f6d715172d3dbb56704c639154019
 Corrección integrada: PR #3
 Suite del agente: 178 passed
 
-Vault base: 579e5b9d7ea693215af0ebd5ca1962d658a7a09f
-PR de sincronización: #11, draft
+Vault main: d795a645e40b88c376015032533c54a8916b1712
+PR de sincronización: #11, integrada
+Merge commit: d795a645e40b88c376015032533c54a8916b1712
 run_id: 20260726T203205786776Z_83ceb968_579e5b9d
 resultado end-to-end: pass
 ```
 
 Punto de continuidad:
 
-1. revisar el diff reconciliado de la PR #11;
-2. validar referencias, formato e inmutabilidad de snapshots;
-3. mantener la PR como draft hasta aprobación humana;
-4. realizar el merge exclusivamente por decisión del propietario;
-5. sincronizar el Vault local después del merge;
-6. cerrar el agente para su alcance operativo actual;
-7. retomar Malāk desde Sprint 7.5 sin asumir aprobación del Incremento 4.
+1. sincronizar el Vault local con `origin/main`;
+2. mantener cerrado el agente para su alcance operativo actual;
+3. retomar Malāk desde Sprint 7.5;
+4. diseñar el Incremento 4 sin asumir autorización de implementación;
+5. mantener los Incrementos 4 a 6 pendientes de aprobación humana.
 
 ### 17.2 Registro histórico anterior — 2026-07-24
 
