@@ -102,6 +102,7 @@ Toda auditoría deberá incluir:
 - [[07-audits/vault-synchronization/2026-07-21_VAULT_SYNC_FOUNDATION_MERGE_CLOSURE|Cierre de integración de Vault Synchronization Agent Foundation]]
 - [[07-audits/vault-synchronization/2026-07-22_VAULT_SYNC_PHASE_1_CLOSURE|Cierre técnico y validación final de la Fase 1]]
 - [[07-audits/vault-synchronization/2026-07-24_VAULT_SYNC_OPERATIONALIZATION_CLOSURE|Cierre de la operacionalización read-only del Vault Synchronization Agent]]
+- [[07-audits/vault-synchronization/2026-07-26_VAULT_SYNC_20260725T032607612120Z_7cd7fcc8_49858c60|Registro retrospectivo de la sincronización gobernada de Sprint 7.4]]
 
 ### Estado de los informes
 
@@ -109,6 +110,7 @@ Toda auditoría deberá incluir:
 - cierre posterior al merge humano: `completed`;
 - cierre técnico de la Fase 1: `completed`;
 - cierre de la operacionalización read-only: `completed`.
+- registro retrospectivo de Sprint 7.4: `under-review`.
 
 El primer informe conserva la evidencia previa al merge y la revisión humana pendiente de ese momento.
 
