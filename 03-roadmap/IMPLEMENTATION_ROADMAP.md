@@ -21,6 +21,41 @@ retrieval_scope: active
 
 # Malāk Implementation Roadmap
 
+<!-- MALAK_VAULT_SYNC:START -->
+## Proyección automática de sincronización
+
+> [!warning] Estado derivado pendiente de revisión
+> Este bloque fue generado de forma determinista a partir de
+> `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
+> sprints y no reemplaza la revisión humana del documento.
+
+- **Run ID:** `20260726T203205786776Z_83ceb968_579e5b9d`
+- **HEAD oficial observado:** `83ceb96838df0770bb9309172a75e3dc79bff121`
+- **Commit previamente observado:** `4afeed440a3bf2096035d0d458d2ef75c71689fd`
+- **Generado:** `2026-07-26T20:32:05.786776+00:00`
+- **Prioridad:** `high`
+- **Disposición:** `review_required`
+
+### Estado estructurado de la fuente oficial
+
+- **Ficha de sprint más reciente:** `docs/project/sprints/SPRINT-7.5.md`
+- **Título declarado:** Sprint 7.5 — Base del plano de control de seguridad
+- **Estado declarado:** `en progreso`
+- **`as_of_commit` declarado:** `78799deabba5009e66c219220349e8202f5464bb`
+
+### Commits oficiales observados
+
+- 83ceb96838df0770bb9309172a75e3dc79bff121	Merge pull request #18 from Aranwill/agent/sprint-7.5-pdp-doc-reconciliation
+- e26469eb422f6686850057de5c0d1ef57f7faaa9	docs: reconcile sprint 7.5 PDP integration
+- 78799deabba5009e66c219220349e8202f5464bb	Merge pull request #17 from Aranwill/agent/sprint-7.5-minimal-pdp
+- 5947f3b702477bb10a183a75b95efbe06e4681e6	feat(security): add minimal policy decision point
+
+### Evidencia que originó esta proyección
+
+- `baseline-source-change` por `docs/project/implementation_roadmap.md`
+- `baseline-source-change` por `docs/project/sprints/SPRINT-7.5.md`
+<!-- MALAK_VAULT_SYNC:END -->
+
 ## 1. Propósito
 
 Este documento organiza el estado de implementación y las líneas futuras conocidas de Malāk.
