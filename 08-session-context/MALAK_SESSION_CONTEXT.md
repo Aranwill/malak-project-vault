@@ -19,6 +19,46 @@ retrieval_scope: active
 
 # Malāk Session Context
 
+<!-- MALAK_VAULT_SYNC:START -->
+## Proyección automática de sincronización
+
+> [!warning] Estado derivado pendiente de revisión
+> Este bloque fue generado de forma determinista a partir de
+> `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
+> sprints y no reemplaza la revisión humana del documento.
+
+- **Run ID:** `20260726T191148713343Z_4afeed44_b20482cf`
+- **HEAD oficial observado:** `4afeed440a3bf2096035d0d458d2ef75c71689fd`
+- **Commit previamente observado:** `7cd7fcc811df01555837319ec4cac0a93ef94fff`
+- **Generado:** `2026-07-26T19:11:48.713343+00:00`
+- **Prioridad:** `high`
+- **Disposición:** `review_required`
+
+### Estado estructurado de la fuente oficial
+
+- **Ficha de sprint más reciente:** `docs/project/sprints/SPRINT-7.5.md`
+- **Título declarado:** Sprint 7.5 — Base del plano de control de seguridad
+- **Estado declarado:** `en progreso`
+- **`as_of_commit` declarado:** `c0a4283b100609daeb4b3422dd28634df9d851b6`
+
+### Commits oficiales observados
+
+- 4afeed440a3bf2096035d0d458d2ef75c71689fd	Merge pull request #16 from Aranwill/docs/sprint-7.5-activation-reconciliation
+- 0bcdbcb13efd4c3087e82b91d259e77c938d3aea	fix(docs): repair roadmap encoding
+- f8cf65945fde070f9c81efd28e4b5305dae39386	docs(project): reconcile sprint 7.5 activation
+- c0a4283b100609daeb4b3422dd28634df9d851b6	Merge pull request #15 from Aranwill/feature/sprint-7.5-authorization-contracts
+- 841e4814c620fd7b98188e29931ec4600bfaec13	feat(security): add authorization contracts
+
+### Evidencia que originó esta proyección
+
+- `architecture-change` por `src/malak/security/__init__.py`
+- `architecture-change` por `src/malak/security/contracts.py`
+- `baseline-source-change` por `docs/project/implementation_roadmap.md`
+- `baseline-source-change` por `docs/project/sprints/SPRINT-7.4.md`
+- `baseline-source-change` por `docs/project/sprints/SPRINT-7.5.md`
+- `test-change` por `tests/test_authorization_contracts.py`
+<!-- MALAK_VAULT_SYNC:END -->
+
 ## 1. Instrucción de uso
 
 Este archivo es el punto de entrada para iniciar una sesión de trabajo sobre Malāk.
