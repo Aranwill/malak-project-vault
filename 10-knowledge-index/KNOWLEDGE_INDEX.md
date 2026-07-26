@@ -1,4 +1,4 @@
-﻿---
+---
 id: MALAK-KNOWLEDGE-INDEX
 title: Malāk Knowledge Index
 type: knowledge-index
@@ -16,6 +16,41 @@ retrieval_scope: active
 ---
 
 # Malāk Knowledge Index
+
+<!-- MALAK_VAULT_SYNC:START -->
+## Proyección automática de sincronización
+
+> [!warning] Estado derivado pendiente de revisión
+> Este bloque fue generado de forma determinista a partir de
+> `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
+> sprints y no reemplaza la revisión humana del documento.
+
+- **Run ID:** `20260726T214149097509Z_d1c90bf0_70ffa813`
+- **HEAD oficial observado:** `d1c90bf0bf55a7076d68c1f4830e89e0d843661c`
+- **Commit previamente observado:** `83ceb96838df0770bb9309172a75e3dc79bff121`
+- **Generado:** `2026-07-26T21:41:49.097509+00:00`
+- **Prioridad:** `high`
+- **Disposición:** `review_required`
+
+### Estado estructurado de la fuente oficial
+
+- **Ficha de sprint más reciente:** `docs/project/sprints/SPRINT-7.5.md`
+- **Título declarado:** Sprint 7.5 — Base del plano de control de seguridad
+- **Estado declarado:** `en progreso`
+- **`as_of_commit` declarado:** `af64b062aa1395ba7f7bdd59e5c1099ded68b683`
+
+### Commits oficiales observados
+
+- d1c90bf0bf55a7076d68c1f4830e89e0d843661c	Merge pull request #20 from Aranwill/agent/sprint-7.5-pep-doc-reconciliation
+- 3c2acdbdadae84535b08c039243d4da405560d89	docs: reconcile sprint 7.5 PEP integration
+- af64b062aa1395ba7f7bdd59e5c1099ded68b683	Merge pull request #19 from Aranwill/agent/sprint-7.5-initial-pep
+- 30b05587839cdac914e7ee31755bb5c0540862c1	feat(security): add initial policy enforcement point
+
+### Evidencia que originó esta proyección
+
+- `governance-change` por `docs/architecture/adr/ADR-002-policy-enforcement-boundary.md`
+- `governance-change` por `docs/architecture/decisions/decision-index.md`
+<!-- MALAK_VAULT_SYNC:END -->
 
 ## 1. Propósito
 
