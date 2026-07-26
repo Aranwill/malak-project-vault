@@ -11,7 +11,7 @@ created: 2026-07-20
 last_reviewed: 2026-07-26
 source_repository: Aranwill/jarvis
 source_branch: main
-source_commit: 4afeed440a3bf2096035d0d458d2ef75c71689fd
+source_commit: 83ceb96838df0770bb9309172a75e3dc79bff121
 derived: true
 operational_context: true
 retrieval_enabled: true
@@ -88,7 +88,8 @@ Sprint 7.5 — Base del plano de control de seguridad
 ```text
 Incremento 1: contratos de autorización completados e integrados
 Incremento 2: activación y reconciliación documental completada
-Incremento 3: pendiente de diseño y aprobación incremental
+Incremento 3: PDP mínimo completado e integrado
+Incrementos 4 a 6: pendientes de diseño y aprobación incremental
 Sprint: en progreso
 ```
 
@@ -101,34 +102,34 @@ Sprint: en progreso
 | 7.2    | Contrato estructural `RuntimeMetricSink` de solo escritura |
 | 7.3    | Estabilización de la frontera `ConversationService`–Provider–Runtime |
 | 7.4    | Eventos operativos y correlación desde la CLI; sprint cerrado |
-| 7.5    | Contratos de autorización integrados; PDP y demás incrementos pendientes |
+| 7.5    | Contratos y PDP mínimo integrados; Incrementos 4 a 6 pendientes |
 
 **Última suite integral documentada:**
 
 ```text
-166 passed
+225 passed
 ```
 
 La validación integral fue ejecutada sobre:
 
 ```text
-c0a4283b100609daeb4b3422dd28634df9d851b6
+5947f3b702477bb10a183a75b95efbe06e4681e6
 ```
 
-Los commits posteriores hasta `4afeed440a3bf2096035d0d458d2ef75c71689fd`
-fueron exclusivamente documentales. La suite no se presenta como
-reejecutada después del commit validado.
+La implementación validada fue integrada mediante la PR #17. La PR #18
+reconcilió documentalmente el estado del Incremento 3. La suite no se
+presenta como reejecutada después de `5947f3b`.
 
 **Último commit remoto verificado:**
 
 ```text
-4afeed440a3bf2096035d0d458d2ef75c71689fd
+83ceb96838df0770bb9309172a75e3dc79bff121
 ```
 
 Descripción:
 
 ```text
-Merge pull request #16 from Aranwill/docs/sprint-7.5-activation-reconciliation
+Merge pull request #18 from Aranwill/agent/sprint-7.5-pdp-doc-reconciliation
 ```
 
 Estos datos deben volver a verificarse si cambia `HEAD`.
@@ -224,6 +225,12 @@ Estado conocido del baseline:
 * `SecurityContext`;
 * `AuthorizationRequest`;
 * `AuthorizationDecision`;
+* `PolicyDecisionPoint`;
+* `StaticPolicyDecisionPoint`;
+* `PolicyRule`;
+* `PolicyEffect`;
+* `HumanConfirmationEvidence`;
+* `HumanConfirmationVerifier`;
 * correlación conversacional mediante `request_id` generado
   exclusivamente en la CLI;
 * perfilado inicial de métricas;
@@ -348,7 +355,6 @@ Todavía no forman parte del baseline:
 * modificación automática de timeout;
 * modificación automática de `keep_alive`;
 * aplicación automática de recomendaciones;
-* Policy Decision Point implementado;
 * Policy Enforcement Point implementado;
 * auditoría de autorización implementada;
 * Secure Context Manager implementado;
@@ -362,17 +368,19 @@ Todavía no forman parte del baseline:
 ```text
 Sprint 7.4: cerrado.
 Sprint 7.5: aprobado y en progreso.
-Incrementos 1 y 2: completados.
-Incremento 3: pendiente de diseño y aprobación humana.
+Incrementos 1, 2 y 3: completados.
+Incrementos 4 a 6: pendientes de diseño y aprobación humana.
 ```
 
 El Sprint 7.4 fue cerrado después de completar su sincronización
 gobernada. El Sprint 7.5 incorporó mediante la PR #15 los cuatro
 contratos fundamentales de autorización y reconcilió su activación
-documental mediante la PR #16.
+documental mediante la PR #16. El PDP mínimo fue integrado mediante la
+PR #17 y reconciliado documentalmente mediante la PR #18.
 
-Antes del PDP debe resolverse la semántica de confirmación humana. Los
-incrementos 3 a 6 requieren revisión y aprobación humana separada; no
+La semántica de confirmación humana fue aprobada e implementada con
+decisión pública binaria, solicitud nueva y verificación inyectable. Los
+Incrementos 4 a 6 requieren revisión y aprobación humana separada; no
 existe un sprint posterior aprobado.
 
 ---
@@ -381,8 +389,7 @@ existe un sprint posterior aprobado.
 
 ### Alta prioridad
 
-* semántica de confirmación humana antes del PDP;
-* diseño y aprobación incremental del Policy Decision Point;
+* diseño y aprobación incremental del Policy Enforcement Point;
 
 ### Prioridad media
 
@@ -766,9 +773,9 @@ Al recibir este archivo, el asistente debe:
 * tratar `main` como única rama oficial;
 * reconocer Sprint 7.4 como último sprint formalmente cerrado;
 * reconocer Sprint 7.5 como aprobado y en progreso;
-* reconocer los Incrementos 1 y 2 de Sprint 7.5 como completados;
-* utilizar 166 pruebas como última suite integral documentada, sin
-  presentarla como reejecutada después de `c0a4283`;
+* reconocer los Incrementos 1, 2 y 3 de Sprint 7.5 como completados;
+* utilizar 225 pruebas como última suite integral documentada, sin
+  presentarla como reejecutada después de `5947f3b`;
 * diferenciar baseline, roadmap y propuestas;
 * no asumir que un incremento pendiente o sprint posterior está aprobado;
 * no modificar el Kernel sin necesidad arquitectónica;
@@ -798,30 +805,31 @@ Evidencia verificada:
 ```text
 Repositorio oficial: Aranwill/jarvis
 Rama: main
-HEAD: 4afeed440a3bf2096035d0d458d2ef75c71689fd
+HEAD: 83ceb96838df0770bb9309172a75e3dc79bff121
 Último sprint cerrado: Sprint 7.4
 Sprint vigente: Sprint 7.5, aprobado y en progreso
-Suite integral documentada: 166 passed sobre c0a4283
+Incremento 3: PDP mínimo completado e integrado
+Suite integral documentada: 225 passed sobre 5947f3b
 
 Agente main: c54bfb0f4b1f6d715172d3dbb56704c639154019
 Corrección integrada: PR #3
 Suite del agente: 178 passed
 
-Vault base: b20482cff9f104c86d7967b393381021b21ec629
-PR de sincronización: #10, draft
-run_id: 20260726T191148713343Z_4afeed44_b20482cf
+Vault base: 579e5b9d7ea693215af0ebd5ca1962d658a7a09f
+PR de sincronización: #11, draft
+run_id: 20260726T203205786776Z_83ceb968_579e5b9d
 resultado end-to-end: pass
 ```
 
 Punto de continuidad:
 
-1. revisar el diff reconciliado de la PR #10;
+1. revisar el diff reconciliado de la PR #11;
 2. validar referencias, formato e inmutabilidad de snapshots;
 3. mantener la PR como draft hasta aprobación humana;
 4. realizar el merge exclusivamente por decisión del propietario;
 5. sincronizar el Vault local después del merge;
 6. cerrar el agente para su alcance operativo actual;
-7. retomar Malāk desde Sprint 7.5 sin asumir aprobación del Incremento 3.
+7. retomar Malāk desde Sprint 7.5 sin asumir aprobación del Incremento 4.
 
 ### 17.2 Registro histórico anterior — 2026-07-24
 

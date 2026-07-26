@@ -123,3 +123,5 @@ El cuarto informe registra la integración de la operacionalización read-only, 
 Ninguno de estos informes aprueba la Fase 2, concede autoridad de escritura ni modifica el baseline operativo de Malāk.
 
 - [[07-audits/vault-synchronization/2026-07-26_VAULT_SYNC_20260726T191148713343Z_4afeed44_b20482cf|Sincronización 20260726T191148713343Z_4afeed44_b20482cf]]
+
+- [[07-audits/vault-synchronization/2026-07-26_VAULT_SYNC_20260726T203205786776Z_83ceb968_579e5b9d|Sincronización 20260726T203205786776Z_83ceb968_579e5b9d]]

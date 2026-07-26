@@ -12,7 +12,7 @@ last_reviewed: 2026-07-26
 source_of_truth: repository
 source_repository: Aranwill/jarvis
 source_branch: main
-source_commit: 4afeed440a3bf2096035d0d458d2ef75c71689fd
+source_commit: 83ceb96838df0770bb9309172a75e3dc79bff121
 derived: true
 operational_context: true
 retrieval_enabled: true
@@ -104,21 +104,22 @@ No debe utilizarse ninguna rama histórica como fuente del estado actual.
 **Último commit remoto verificado al revisar este documento:**
 
 ```text
-4afeed440a3bf2096035d0d458d2ef75c71689fd
+83ceb96838df0770bb9309172a75e3dc79bff121
 ```
 
 **Descripción:**
 
 ```text
-Merge pull request #16 from Aranwill/docs/sprint-7.5-activation-reconciliation
+Merge pull request #18 from Aranwill/agent/sprint-7.5-pdp-doc-reconciliation
 ```
 
 El rango posterior a `7cd7fcc811df01555837319ec4cac0a93ef94fff`
 cerró formalmente el Sprint 7.4, activó el Sprint 7.5 e incorporó sus
-cuatro contratos fundamentales de autorización. La implementación fue
-integrada mediante la PR #15 en
-`c0a4283b100609daeb4b3422dd28634df9d851b6`; la PR #16 reconcilió la
-documentación oficial sin modificar código.
+cuatro contratos fundamentales de autorización y el PDP mínimo. Los
+contratos fueron integrados mediante la PR #15; la PR #16 reconcilió
+la activación documental. El PDP se integró mediante la PR #17 en
+`78799deabba5009e66c219220349e8202f5464bb`; la PR #18 reconcilió su
+estado en la documentación oficial sin modificar código.
 
 El hash registrado aquí es una referencia temporal y deberá actualizarse cuando cambie materialmente `HEAD`.
 
@@ -147,7 +148,7 @@ El bloque 7.x presenta el siguiente estado:
 | 7.2    | Cerrado | Contrato estructural `RuntimeMetricSink` de solo escritura            |
 | 7.3    | Cerrado | Estabilización de la frontera `ConversationService`–Provider–Runtime  |
 | 7.4    | Cerrado | Eventos operativos, correlación desde la CLI y sincronización gobernada del Vault |
-| 7.5    | En progreso | Contratos de autorización integrados; PDP y demás incrementos pendientes |
+| 7.5    | En progreso | Contratos y PDP mínimo integrados; Incrementos 4 a 6 pendientes |
 
 El Sprint 7.5 fue aprobado por el propietario. Sus incrementos
 pendientes requieren revisión y aprobación humana independiente.
@@ -161,7 +162,7 @@ El cierre de un sprint no autoriza el inicio del siguiente.
 **Última suite integral documentada:**
 
 ```text
-166 passed
+225 passed
 ```
 
 Validaciones documentadas:
@@ -174,8 +175,8 @@ git diff --check
 
 Resultado registrado:
 
-* 45 pruebas específicas de contratos de autorización aprobadas;
-* 166 pruebas totales aprobadas;
+* 104 pruebas específicas del Incremento 3 aprobadas;
+* 225 pruebas totales aprobadas;
 * compilación validada sin errores;
 * diff validado sin errores de formato;
 * Kernel, Planner y runtimes sin cambios;
@@ -184,12 +185,15 @@ Resultado registrado:
 La validación integral fue ejecutada sobre:
 
 ```text
-c0a4283b100609daeb4b3422dd28634df9d851b6
+5947f3b702477bb10a183a75b95efbe06e4681e6
 ```
 
-Los commits posteriores hasta `4afeed440a3bf2096035d0d458d2ef75c71689fd`
-fueron exclusivamente documentales. Las pruebas y `compileall` no se
-presentan como reejecutados después de ese commit validado.
+El commit validado fue integrado mediante la PR #17. Los commits
+posteriores `78799deabba5009e66c219220349e8202f5464bb`,
+`e26469eb422f6686850057de5c0d1ef57f7faaa9` y
+`83ceb96838df0770bb9309172a75e3dc79bff121` corresponden al merge y a
+la reconciliación documental. Las pruebas y `compileall` no se
+presentan como reejecutados después de `5947f3b`.
 
 Antes de una nueva implementación deberá verificarse nuevamente en el entorno local:
 
@@ -650,9 +654,10 @@ tests/test_authorization_contracts.py
 docs/project/sprints/SPRINT-7.5.md
 ```
 
-Todavía no están implementados el PDP, el PEP ni la evidencia de
-auditoría de autorización. La semántica de confirmación humana debe
-resolverse antes del PDP y no puede inferirse desde el Vault.
+El PDP mínimo está implementado e integrado en Sprint 7.5, Incremento
+3. Todavía no están implementados el PEP ni la evidencia de auditoría
+de autorización. Los Incrementos 4 a 6 permanecen pendientes de
+diseño, revisión y aprobación humana independiente.
 
 ---
 
@@ -842,7 +847,6 @@ Todavía no forman parte del baseline operativo:
 * campañas formales de calibración;
 * comparación automática de modelos;
 * autoajuste.
-* Policy Decision Point;
 * Policy Enforcement Point;
 * auditoría de decisiones de autorización;
 * Secure Context Manager;

@@ -8,7 +8,7 @@ authority_level: proposal
 authority_rank: 9
 version: 1.0
 created: 2026-07-20
-last_reviewed: 2026-07-25
+last_reviewed: 2026-07-26
 source_of_truth: repository-and-owner-decisions
 source_repository: Aranwill/jarvis
 source_branch: main
@@ -301,60 +301,57 @@ independientes.
 **Estado:**
 
 ```text
-open
+closed
 ```
 
-**Prioridad:**
+**Prioridad histórica:**
 
 ```text
 alta antes de capacidades sensibles
 ```
 
-**Contexto:**
+**Resolución:**
 
-Security Control Plane Foundation está aceptada conceptualmente como línea futura.
+La Security Control Plane Foundation fue seleccionada, aprobada y
+activada como:
 
-No existe todavía un sprint aprobado.
+```text
+Sprint 7.5 — Base del plano de control de seguridad
+```
 
-Debe implementarse antes de:
+El Sprint 7.5 permanece en progreso y conserva una secuencia
+incremental con aprobación humana independiente:
 
-* herramientas externas;
-* navegación;
-* automatización del sistema operativo;
-* mensajería;
-* memoria sensible;
-* agentes;
-* ejecución de acciones de alto riesgo.
+1. contratos fundamentales de autorización: completados mediante la
+   PR #15;
+2. activación y reconciliación documental: completada mediante la
+   PR #16;
+3. Policy Decision Point mínimo: completado mediante la PR #17 y
+   reconciliado documentalmente mediante la PR #18;
+4. Policy Enforcement Point inicial: pendiente;
+5. evidencia de auditoría de autorización: pendiente;
+6. revisión integral y cierre: pendiente.
 
-**Decisión requerida:**
+**Evidencia:**
 
-Determinar en qué momento del roadmap debe convertirse en un sprint aprobado.
+* `docs/project/sprints/SPRINT-7.5.md`;
+* `docs/project/implementation_roadmap.md`;
+* PR #15 y merge commit
+  `c0a4283b100609daeb4b3422dd28634df9d851b6`;
+* PR #16 y merge commit
+  `4afeed440a3bf2096035d0d458d2ef75c71689fd`;
+* PR #17 y merge commit
+  `78799deabba5009e66c219220349e8202f5464bb`;
+* PR #18 y merge commit
+  `83ceb96838df0770bb9309172a75e3dc79bff121`;
+* 104 pruebas específicas y 225 pruebas totales aprobadas para el
+  Incremento 3.
 
-**Dependencias por revisar:**
+**Resultado:**
 
-* contratos actuales;
-* boundaries del Kernel;
-* modelo de identidad;
-* modelo de permisos;
-* eventos de auditoría;
-* necesidad de `SecurityContext`;
-* integración con capabilities;
-* separación entre PDP y PEP.
-
-**Alcance conceptual mínimo:**
-
-* `AuthorizationRequest`;
-* `AuthorizationDecision`;
-* `SecurityContext`;
-* `PermissionScope`;
-* Policy Decision Point determinista;
-* Policy Enforcement Point;
-* denegación por defecto;
-* ausencia de LLM en decisiones de autorización.
-
-**Riesgo principal:**
-
-Expandir capacidades antes de establecer límites de autoridad.
+La decisión sobre el momento de implementación queda resuelta. Este
+cierre no completa el Sprint 7.5, no autoriza los Incrementos 4 a 6 y
+no autoriza capacidades sensibles posteriores.
 
 ---
 
