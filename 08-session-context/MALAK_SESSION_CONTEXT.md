@@ -11,7 +11,7 @@ created: 2026-07-20
 last_reviewed: 2026-07-26
 source_repository: Aranwill/jarvis
 source_branch: main
-source_commit: 83ceb96838df0770bb9309172a75e3dc79bff121
+source_commit: d1c90bf0bf55a7076d68c1f4830e89e0d843661c
 derived: true
 operational_context: true
 retrieval_enabled: true
@@ -131,7 +131,8 @@ Sprint 7.5 — Base del plano de control de seguridad
 Incremento 1: contratos de autorización completados e integrados
 Incremento 2: activación y reconciliación documental completada
 Incremento 3: PDP mínimo completado e integrado
-Incrementos 4 a 6: pendientes de diseño y aprobación incremental
+Incremento 4: PEP inicial completado e integrado
+Incrementos 5 y 6: pendientes y no autorizados
 Sprint: en progreso
 ```
 
@@ -144,34 +145,34 @@ Sprint: en progreso
 | 7.2    | Contrato estructural `RuntimeMetricSink` de solo escritura |
 | 7.3    | Estabilización de la frontera `ConversationService`–Provider–Runtime |
 | 7.4    | Eventos operativos y correlación desde la CLI; sprint cerrado |
-| 7.5    | Contratos y PDP mínimo integrados; Incrementos 4 a 6 pendientes |
+| 7.5    | Contratos, PDP y PEP inicial integrados; Incrementos 5 y 6 pendientes |
 
 **Última suite integral documentada:**
 
 ```text
-225 passed
+244 passed
 ```
 
 La validación integral fue ejecutada sobre:
 
 ```text
-5947f3b702477bb10a183a75b95efbe06e4681e6
+30b05587839cdac914e7ee31755bb5c0540862c1
 ```
 
-La implementación validada fue integrada mediante la PR #17. La PR #18
-reconcilió documentalmente el estado del Incremento 3. La suite no se
-presenta como reejecutada después de `5947f3b`.
+La implementación validada fue integrada mediante la PR #19. La PR #20
+reconcilió documentalmente el estado del Incremento 4. La suite no se
+presenta como reejecutada después de `30b0558`.
 
 **Último commit remoto verificado:**
 
 ```text
-83ceb96838df0770bb9309172a75e3dc79bff121
+d1c90bf0bf55a7076d68c1f4830e89e0d843661c
 ```
 
 Descripción:
 
 ```text
-Merge pull request #18 from Aranwill/agent/sprint-7.5-pdp-doc-reconciliation
+Merge pull request #20 from Aranwill/agent/sprint-7.5-pep-doc-reconciliation
 ```
 
 Estos datos deben volver a verificarse si cambia `HEAD`.
@@ -273,6 +274,11 @@ Estado conocido del baseline:
 * `PolicyEffect`;
 * `HumanConfirmationEvidence`;
 * `HumanConfirmationVerifier`;
+* `PolicyEnforcementPoint`;
+* `StrictPolicyEnforcementPoint`;
+* `ProtectedOperation`;
+* `AuthorizationDeniedError`;
+* `AuthorizationEnforcementError`;
 * correlación conversacional mediante `request_id` generado
   exclusivamente en la CLI;
 * perfilado inicial de métricas;
@@ -397,7 +403,6 @@ Todavía no forman parte del baseline:
 * modificación automática de timeout;
 * modificación automática de `keep_alive`;
 * aplicación automática de recomendaciones;
-* Policy Enforcement Point implementado;
 * auditoría de autorización implementada;
 * Secure Context Manager implementado;
 * RAG externo;
@@ -410,8 +415,8 @@ Todavía no forman parte del baseline:
 ```text
 Sprint 7.4: cerrado.
 Sprint 7.5: aprobado y en progreso.
-Incrementos 1, 2 y 3: completados.
-Incrementos 4 a 6: pendientes de diseño y aprobación humana.
+Incrementos 1, 2, 3 y 4: completados.
+Incrementos 5 y 6: pendientes y no autorizados.
 ```
 
 El Sprint 7.4 fue cerrado después de completar su sincronización
@@ -419,10 +424,12 @@ gobernada. El Sprint 7.5 incorporó mediante la PR #15 los cuatro
 contratos fundamentales de autorización y reconcilió su activación
 documental mediante la PR #16. El PDP mínimo fue integrado mediante la
 PR #17 y reconciliado documentalmente mediante la PR #18.
+El PEP inicial fue integrado mediante la PR #19 y reconciliado
+documentalmente mediante la PR #20.
 
 La semántica de confirmación humana fue aprobada e implementada con
 decisión pública binaria, solicitud nueva y verificación inyectable. Los
-Incrementos 4 a 6 requieren revisión y aprobación humana separada; no
+Incrementos 5 y 6 requieren revisión y aprobación humana separada; no
 existe un sprint posterior aprobado.
 
 ---
@@ -431,7 +438,8 @@ existe un sprint posterior aprobado.
 
 ### Alta prioridad
 
-* diseño y aprobación incremental del Policy Enforcement Point;
+* diseño y aprobación incremental de la evidencia de auditoría de
+  autorización;
 
 ### Prioridad media
 
@@ -635,25 +643,23 @@ El Vault:
 Estado remoto vigente después de las sincronizaciones gobernadas:
 
 ```text
-Vault main: d795a645e40b88c376015032533c54a8916b1712
-PR #10: integrada
-Merge commit PR #10: 579e5b9d7ea693215af0ebd5ca1962d658a7a09f
-PR #11: integrada
-Merge commit PR #11: d795a645e40b88c376015032533c54a8916b1712
-Malāk observado: 83ceb96838df0770bb9309172a75e3dc79bff121
+Vault main: 772991d4b1dfecd95d746398bbcd268f450bfe2c
+PR #13: integrada
+Merge commit PR #13: 772991d4b1dfecd95d746398bbcd268f450bfe2c
+Malāk observado: d1c90bf0bf55a7076d68c1f4830e89e0d843661c
 PR abiertas: ninguna
-Ramas de propuesta #10 y #11: eliminadas después del merge
+Rama de propuesta #13: eliminada después del merge
 ```
 
 Última evidencia del Vault Synchronization Agent:
 
 ```text
-run_id: 20260726T203205786776Z_83ceb968_579e5b9d
-source previous: 4afeed440a3bf2096035d0d458d2ef75c71689fd
-source current: 83ceb96838df0770bb9309172a75e3dc79bff121
-Vault base: 579e5b9d7ea693215af0ebd5ca1962d658a7a09f
+run_id: 20260726T214149097509Z_d1c90bf0_70ffa813
+source previous: 83ceb96838df0770bb9309172a75e3dc79bff121
+source current: d1c90bf0bf55a7076d68c1f4830e89e0d843661c
+Vault base: 70ffa8137a698c81b2d3013ea01f8c92f8959478
 changed files: 7
-document candidates: 4
+document candidates: 6
 validation findings: 0
 conclusion: pass
 ```
@@ -661,7 +667,7 @@ conclusion: pass
 Informe auditable integrado:
 
 ```text
-07-audits/vault-synchronization/2026-07-26_VAULT_SYNC_20260726T203205786776Z_83ceb968_579e5b9d.md
+07-audits/vault-synchronization/2026-07-26_VAULT_SYNC_20260726T214149097509Z_d1c90bf0_70ffa813.md
 ```
 
 Estado de la sincronización:
@@ -669,7 +675,7 @@ Estado de la sincronización:
 ```text
 end-to-end completado;
 reconciliación humana incorporada;
-PR #11 integrada exclusivamente por decisión del propietario;
+PR #13 integrada exclusivamente por decisión del propietario;
 baseline derivado del Vault actualizado en main
 ```
 
@@ -819,9 +825,9 @@ Al recibir este archivo, el asistente debe:
 * tratar `main` como única rama oficial;
 * reconocer Sprint 7.4 como último sprint formalmente cerrado;
 * reconocer Sprint 7.5 como aprobado y en progreso;
-* reconocer los Incrementos 1, 2 y 3 de Sprint 7.5 como completados;
-* utilizar 225 pruebas como última suite integral documentada, sin
-  presentarla como reejecutada después de `5947f3b`;
+* reconocer los Incrementos 1, 2, 3 y 4 de Sprint 7.5 como completados;
+* utilizar 244 pruebas como última suite integral documentada, sin
+  presentarla como reejecutada después de `30b0558`;
 * diferenciar baseline, roadmap y propuestas;
 * no asumir que un incremento pendiente o sprint posterior está aprobado;
 * no modificar el Kernel sin necesidad arquitectónica;
@@ -851,30 +857,29 @@ Evidencia verificada:
 ```text
 Repositorio oficial: Aranwill/jarvis
 Rama: main
-HEAD: 83ceb96838df0770bb9309172a75e3dc79bff121
+HEAD: d1c90bf0bf55a7076d68c1f4830e89e0d843661c
 Último sprint cerrado: Sprint 7.4
 Sprint vigente: Sprint 7.5, aprobado y en progreso
-Incremento 3: PDP mínimo completado e integrado
-Suite integral documentada: 225 passed sobre 5947f3b
+Incremento 4: PEP inicial completado e integrado
+Suite integral documentada: 244 passed sobre 30b0558
 
 Agente main: c54bfb0f4b1f6d715172d3dbb56704c639154019
 Corrección integrada: PR #3
 Suite del agente: 178 passed
 
-Vault main: d795a645e40b88c376015032533c54a8916b1712
-PR de sincronización: #11, integrada
-Merge commit: d795a645e40b88c376015032533c54a8916b1712
-run_id: 20260726T203205786776Z_83ceb968_579e5b9d
+Vault main: 772991d4b1dfecd95d746398bbcd268f450bfe2c
+PR de sincronización: #13, integrada
+Merge commit: 772991d4b1dfecd95d746398bbcd268f450bfe2c
+run_id: 20260726T214149097509Z_d1c90bf0_70ffa813
 resultado end-to-end: pass
 ```
 
 Punto de continuidad:
 
-1. sincronizar el Vault local con `origin/main`;
-2. mantener cerrado el agente para su alcance operativo actual;
-3. retomar Malāk desde Sprint 7.5;
-4. diseñar el Incremento 4 sin asumir autorización de implementación;
-5. mantener los Incrementos 4 a 6 pendientes de aprobación humana.
+1. mantener cerrado el agente para su alcance operativo actual;
+2. retomar Malāk desde Sprint 7.5;
+3. mantener el Incremento 5 pendiente y no autorizado;
+4. no cerrar Sprint 7.5 sin revisión integral y aprobación humana.
 
 ### 17.2 Registro histórico anterior — 2026-07-24
 
