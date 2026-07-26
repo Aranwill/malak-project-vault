@@ -110,7 +110,7 @@ Toda auditoría deberá incluir:
 - cierre posterior al merge humano: `completed`;
 - cierre técnico de la Fase 1: `completed`;
 - cierre de la operacionalización read-only: `completed`.
-- registro retrospectivo de Sprint 7.4: `under-review`.
+- registro retrospectivo de Sprint 7.4: `completed`.
 
 El primer informe conserva la evidencia previa al merge y la revisión humana pendiente de ese momento.
 
