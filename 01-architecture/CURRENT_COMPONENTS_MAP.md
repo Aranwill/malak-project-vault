@@ -10,8 +10,8 @@ created: 2026-07-20
 last_reviewed: 2026-07-26
 source_repository: Aranwill/jarvis
 source_branch: main
-source_commit: 4afeed440a3bf2096035d0d458d2ef75c71689fd
-baseline_reference: 4afeed440a3bf2096035d0d458d2ef75c71689fd
+source_commit: 83ceb96838df0770bb9309172a75e3dc79bff121
+baseline_reference: 83ceb96838df0770bb9309172a75e3dc79bff121
 tags:
   - malak
   - vault
@@ -21,42 +21,6 @@ tags:
 ---
 
 # Mapa de componentes actuales
-
-<!-- MALAK_VAULT_SYNC:START -->
-## Proyección automática de sincronización
-
-> [!warning] Estado derivado pendiente de revisión
-> Este bloque fue generado de forma determinista a partir de
-> `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
-> sprints y no reemplaza la revisión humana del documento.
-
-- **Run ID:** `20260726T203205786776Z_83ceb968_579e5b9d`
-- **HEAD oficial observado:** `83ceb96838df0770bb9309172a75e3dc79bff121`
-- **Commit previamente observado:** `4afeed440a3bf2096035d0d458d2ef75c71689fd`
-- **Generado:** `2026-07-26T20:32:05.786776+00:00`
-- **Prioridad:** `high`
-- **Disposición:** `review_required`
-
-### Estado estructurado de la fuente oficial
-
-- **Ficha de sprint más reciente:** `docs/project/sprints/SPRINT-7.5.md`
-- **Título declarado:** Sprint 7.5 — Base del plano de control de seguridad
-- **Estado declarado:** `en progreso`
-- **`as_of_commit` declarado:** `78799deabba5009e66c219220349e8202f5464bb`
-
-### Commits oficiales observados
-
-- 83ceb96838df0770bb9309172a75e3dc79bff121	Merge pull request #18 from Aranwill/agent/sprint-7.5-pdp-doc-reconciliation
-- e26469eb422f6686850057de5c0d1ef57f7faaa9	docs: reconcile sprint 7.5 PDP integration
-- 78799deabba5009e66c219220349e8202f5464bb	Merge pull request #17 from Aranwill/agent/sprint-7.5-minimal-pdp
-- 5947f3b702477bb10a183a75b95efbe06e4681e6	feat(security): add minimal policy decision point
-
-### Evidencia que originó esta proyección
-
-- `architecture-change` por `src/malak/security/__init__.py`
-- `architecture-change` por `src/malak/security/contracts.py`
-- `architecture-change` por `src/malak/security/pdp.py`
-<!-- MALAK_VAULT_SYNC:END -->
 
 > [!warning] Naturaleza derivada
 > Este documento representa únicamente relaciones verificadas en el repositorio oficial para el baseline indicado.
@@ -77,6 +41,7 @@ Este mapa cubre dos fronteras verificadas:
 - eventos operativos;
 - stores operativos.
 - contratos fundamentales de autorización.
+- Policy Decision Point mínimo.
 
 Quedan fuera de alcance:
 
@@ -84,7 +49,7 @@ Quedan fuera de alcance:
 - detalle interno de proveedores y runtimes;
 - métricas de runtime;
 - auditoría de seguridad;
-- Policy Decision Point, Policy Enforcement Point y auditoría de autorización;
+- Policy Enforcement Point y auditoría de autorización;
 - componentes propuestos en el roadmap.
 
 Su exclusión de este documento no implica que no existan. Solamente evita mezclar subsistemas todavía no verificados dentro de este mapa.
@@ -98,13 +63,13 @@ No existe integración formal entre `Kernel.receive` y `ConversationService`, y 
 
 - **Repositorio:** `Aranwill/jarvis`
 - **Rama:** `main`
-- **Commit:** `4afeed440a3bf2096035d0d458d2ef75c71689fd`
+- **Commit:** `83ceb96838df0770bb9309172a75e3dc79bff121`
 - **Versión nominal:** `v0.6.0-alpha`
 - **Último sprint formalmente cerrado:** Sprint 7.4 — Consolidación de logs, métricas y auditoría
 - **Sprint aprobado en progreso:** Sprint 7.5 — Base del plano de control de seguridad
-- **Pull requests integrados en el rango:** PR #15 y PR #16
-- **Suite integral documentada:** 166 pruebas aprobadas sobre `c0a4283b100609daeb4b3422dd28634df9d851b6`
-- **Incremento vigente:** Sprint 7.5, Incremento 2 reconciliado documentalmente
+- **Pull requests integrados en el rango:** PR #15, PR #16, PR #17 y PR #18
+- **Suite integral documentada:** 225 pruebas aprobadas sobre `5947f3b702477bb10a183a75b95efbe06e4681e6`
+- **Incremento vigente:** Sprint 7.5, Incremento 3 completado e integrado
 
 ## 3. Componentes verificados
 
@@ -291,6 +256,37 @@ src/malak/security/__init__.py
 tests/test_authorization_contracts.py
 ```
 
+### Policy Decision Point mínimo
+
+El Incremento 3 incorporó un punto de decisión determinista y
+desacoplado:
+
+| Componente | Responsabilidad verificada |
+| --- | --- |
+| `PolicyDecisionPoint` | Definir el contrato estructural de decisión |
+| `StaticPolicyDecisionPoint` | Evaluar reglas exactas con denegación por defecto |
+| `PolicyRule` | Relacionar sujeto, permiso y efecto explícitos |
+| `PolicyEffect` | Representar `ALLOW`, `DENY` y `REQUIRE_HUMAN_CONFIRMATION` dentro del PDP |
+| `HumanConfirmationEvidence` | Ligar de forma inmutable la confirmación a la solicitud original y a la nueva |
+| `HumanConfirmationVerifier` | Separar la verificación de evidencia de la decisión |
+
+La salida pública continúa siendo `AuthorizationDecision` binaria.
+El PDP no admite comodines, herencia implícita, interpretación de texto
+ni participación de LLM. La ausencia de regla, un sujeto no autenticado,
+evidencia incongruente o un fallo del verificador producen denegación
+segura.
+
+El PDP no ejecuta operaciones y todavía no existe un PEP implementado.
+
+Fuentes:
+
+```text
+src/malak/security/pdp.py
+src/malak/security/__init__.py
+tests/test_policy_decision_point.py
+docs/project/sprints/SPRINT-7.5.md
+```
+
 ## 4. Flujo implementado
 
 ```mermaid
@@ -379,7 +375,7 @@ Este mapa no afirma:
 - que el registro sea persistente;
 - que el diagrama represente toda la arquitectura de Malāk.
 - que eventos operativos y métricas compartan contratos o stores;
-- que exista PDP, PEP o auditoría de autorización;
+- que exista PEP o auditoría de autorización;
 - que la observabilidad adopte decisiones de autorización;
 - que `ConversationRequest` contenga `request_id`.
 - que los contratos de autorización concedan permisos por sí mismos.
@@ -401,8 +397,10 @@ Sin convertirlos en decisiones nuevas, el código observado muestra:
 - Kernel, Planner y contratos conversacionales intactos.
 - solicitud, contexto, permiso y decisión representados por contratos
   separados e inmutables;
-- ausencia de PDP, PEP y ejecución de operaciones dentro de esos
-  contratos.
+- PDP determinista separado de la ejecución;
+- reglas exactas y denegación por defecto;
+- evidencia de confirmación inmutable y verificador inyectable;
+- ausencia de PEP y ejecución de operaciones.
 
 ## 10. Fuentes oficiales
 
@@ -420,8 +418,10 @@ Sin convertirlos en decisiones nuevas, el código observado muestra:
 - `src/malak/observability/operational_event_store.py`
 - `src/malak/observability/operational_event_jsonl_store.py`
 - `src/malak/security/contracts.py`
+- `src/malak/security/pdp.py`
 - `src/malak/security/__init__.py`
 - `tests/test_authorization_contracts.py`
+- `tests/test_policy_decision_point.py`
 - `docs/project/sprints/SPRINT-7.4.md`
 - `docs/project/sprints/SPRINT-7.5.md`
 
