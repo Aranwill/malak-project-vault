@@ -6,12 +6,13 @@ type: roadmap-summary
 status: active
 authority_level: approved_roadmap
 authority_rank: 7
-version: 1.0
+version: 1.1
 created: 2026-07-20
-last_reviewed: 2026-07-25
+last_reviewed: 2026-07-26
 source_of_truth: repository
 source_repository: Aranwill/jarvis
 source_branch: main
+source_commit: 4afeed440a3bf2096035d0d458d2ef75c71689fd
 derived: true
 operational_context: true
 retrieval_enabled: true
@@ -90,27 +91,31 @@ v0.6.0-alpha
 **Baseline operativo actual:**
 
 ```text
-main en 7cd7fcc811df01555837319ec4cac0a93ef94fff
-Sprint 7.4 integrado mediante PR #14
-Sprint 7.4 todavía en progreso hasta completar el Incremento 8
+main en 4afeed440a3bf2096035d0d458d2ef75c71689fd
+Sprint 7.4 cerrado
+Sprint 7.5 aprobado y en progreso
+Incremento 1 integrado mediante PR #15
+Incremento 2 reconciliado mediante PR #16
 ```
 
 **Suite documentada:**
 
 ```text
-121 passed
+166 passed
 ```
 
 La suite corresponde a la validación integral ejecutada sobre
-`5b951918006c464745e1eb1e3816bde619fad8b1`. Los commits posteriores
-fueron exclusivamente documentales y no se presenta la suite como
-reejecutada después del merge.
+`c0a4283b100609daeb4b3422dd28634df9d851b6`. Los commits posteriores
+hasta `4afeed440a3bf2096035d0d458d2ef75c71689fd` fueron exclusivamente
+documentales y no se presenta la suite como reejecutada después de ese
+commit validado.
 
 **Estado del trabajo vigente:**
 
 ```text
-Incremento 8 de Sprint 7.4 en ejecución documental gobernada
-Sprint posterior no aprobado
+Sprint 7.5 en progreso
+Incrementos 1 y 2 completados
+Incremento 3 — PDP mínimo: pendiente de diseño y aprobación incremental
 ```
 
 ---
@@ -194,6 +199,25 @@ Resultado:
 
 ---
 
+### Sprint 7.4 — Consolidación de logs, métricas y auditoría
+
+**Estado:**
+
+```text
+cerrado
+```
+
+Resultado:
+
+* eventos operativos y correlación desde la CLI;
+* métricas, eventos y auditoría separados;
+* 94 pruebas específicas y 121 pruebas totales aprobadas;
+* integración técnica mediante la PR #14;
+* sincronización gobernada del Vault completada;
+* Kernel, Planner y `ConversationService` intactos.
+
+---
+
 ## 5. Estado del bloque 7.x
 
 | Sprint | Estado    | Autorización |
@@ -202,62 +226,41 @@ Resultado:
 | 7.1    | Cerrado   | Implementado |
 | 7.2    | Cerrado   | Implementado |
 | 7.3    | Cerrado   | Implementado |
-| 7.4    | En progreso — mergeado | Incrementos 1–7 implementados; Incremento 8 en ejecución |
-| 7.5    | Propuesta | No aprobado  |
+| 7.4    | Cerrado   | Implementado y sincronizado |
+| 7.5    | En progreso | Aprobado; Incrementos 1 y 2 completados |
 | 7.6    | Propuesta | No aprobado  |
 | 7.7    | Propuesta | No aprobado  |
 
-El Sprint 7.4 fue aprobado, implementado e integrado mediante la PR #14.
-
-Su cierre formal permanece pendiente hasta completar el Incremento 8 y
-reconciliar la documentación oficial de `Aranwill/jarvis/main`.
+El Sprint 7.4 fue cerrado formalmente. El Sprint 7.5 fue aprobado por
+el propietario y activado en la documentación oficial.
 
 La numeración histórica se conserva como referencia.
 
 No establece una secuencia obligatoria.
 
-Las fichas de sprints futuros deben tratarse como propuestas hasta que el propietario las apruebe expresamente.
+Las fichas de Sprint 7.6 y 7.7 deben tratarse como propuestas hasta que
+el propietario las apruebe expresamente.
 
 ---
 
-## 6. Próximo sprint
+## 6. Trabajo vigente
 
-El trabajo vigente es el Incremento 8 de Sprint 7.4.
+El trabajo vigente es el Sprint 7.5 — Base del plano de control de
+seguridad.
 
-El Incremento 7 está completado, validado y mergeado.
+Estado incremental:
 
-El Incremento 8 está limitado a:
+1. contratos fundamentales de autorización: completado e integrado;
+2. activación y reconciliación documental: completado;
+3. Policy Decision Point mínimo: pendiente de diseño, revisión y
+   aprobación humana;
+4. Policy Enforcement Point inicial: pendiente;
+5. evidencia de auditoría de autorización: pendiente;
+6. revisión integral y cierre: pendiente.
 
-* revisar la evidencia read-only del Vault Synchronization Agent;
-* aplicar una actualización documental gobernada del Vault;
-* crear un snapshot nuevo e inmutable;
-* registrar el cierre condicionado del sprint;
-* preservar snapshots históricos;
-* someter el cambio a commit, PR y merge humanos.
-
-El Incremento 8 no constituye implementación operativa dentro de Malāk.
-
-La ficha oficial de Sprint 7.4 continúa declarando el sprint `en
-progreso`. Después del merge de esta actualización del Vault será
-necesaria una actualización posterior en `Aranwill/jarvis/main` para
-registrar la finalización del Incremento 8 y el cierre formal.
-
-No existe un sprint posterior aprobado.
-
-Antes de seleccionar un sprint posterior deberá realizarse:
-
-1. relevamiento completo del baseline;
-2. revisión de arquitectura;
-3. revisión del estado de la CLI;
-4. revisión del subsistema de métricas;
-5. revisión del Kernel;
-6. revisión del Planner;
-7. revisión del Capability Registry;
-8. revisión de contratos centrales;
-9. revisión de seguridad;
-10. análisis de necesidades reales.
-
-No deberá seleccionarse un sprint únicamente porque sea el siguiente número disponible.
+Antes del PDP debe resolverse la semántica exacta de confirmación
+humana. `AuthorizationDecision` conserva por ahora una decisión binaria
+y no se incorporará un tercer estado por inferencia.
 
 ---
 
@@ -268,8 +271,7 @@ No deberá seleccionarse un sprint únicamente porque sea el siguiente número d
 **Estado:**
 
 ```text
-implementación técnica integrada mediante Sprint 7.4
-cierre formal pendiente del Incremento 8
+Sprint 7.4 cerrado
 ```
 
 Resultado:
@@ -291,18 +293,19 @@ Resultado:
 **Estado:**
 
 ```text
-conceptualmente aceptada como línea futura
+Sprint 7.5 aprobado y en progreso
 ```
 
 **Implementación:**
 
 ```text
-no aprobada
+contratos fundamentales integrados;
+PDP, PEP y auditoría de autorización pendientes
 ```
 
 Esta fundación deberá establecerse antes de capacidades externas o de alto riesgo.
 
-Alcance conceptual conocido:
+Estado verificado:
 
 * separación entre solicitud, autorización, ejecución y auditoría;
 * denegación por defecto;
@@ -315,7 +318,10 @@ Alcance conceptual conocido:
 * independencia respecto del Kernel;
 * decisiones de seguridad sin LLM.
 
-La aceptación conceptual de esta línea no autoriza todavía su sprint de implementación.
+Los cuatro contratos públicos fueron integrados mediante la PR #15 y
+validados con 45 pruebas específicas y 166 pruebas totales. La
+aprobación del sprint no autoriza automáticamente sus incrementos
+pendientes.
 
 ---
 
@@ -367,7 +373,9 @@ Solo podrá realizarse cuando:
 
 ## 8. Iniciativas arquitectónicas aceptadas conceptualmente
 
-Las siguientes iniciativas fueron aceptadas como direcciones futuras, pero no forman parte del baseline implementado.
+Las siguientes iniciativas organizan líneas presentes y futuras. Su
+estado debe leerse individualmente: la inclusión en esta sección no
+constituye autorización adicional.
 
 ---
 
@@ -442,8 +450,9 @@ Fase 1 completada mediante Gates 0 a 9
 **Estado operativo:**
 
 ```text
-operacionalización read-only completada
+operacionalización manual completada
 modo manual-on-demand
+modos dry-run y controlled-proposal
 scheduler activo: no
 ```
 
@@ -453,9 +462,11 @@ scheduler activo: no
 none
 ```
 
-La fundación define una capacidad externa para observar `Aranwill/jarvis/main`, comparar estados, validar evidencia y detectar drift documental sin modificar Malāk ni el Vault.
-
-La implementación y la operacionalización completadas permanecen dentro del alcance read-only aprobado para la Fase 1.
+La fundación define una capacidad externa para observar
+`Aranwill/jarvis/main`, comparar estados, validar evidencia y detectar
+drift documental sin modificar Malāk. En modo `controlled-proposal`
+puede preparar cambios únicamente en una rama aislada del Vault y abrir
+una PR draft; nunca escribe directamente en `main`.
 
 No forma parte de:
 
@@ -481,21 +492,22 @@ D:\Ollama\jarvis
 D:\Ollama\malak-project-vault
 ```
 
-**Repositorio independiente del agente:**
+**Baseline operativo vigente del agente:**
 
 ```text
 Repositorio: Aranwill/malak-vault-sync-agent
 Rama: main
-HEAD: ade622b99eaaed0a6342400db743d472aa30a3ae
+HEAD: c54bfb0f4b1f6d715172d3dbb56704c639154019
 PR de operacionalización: #1 integrada
+PR de corrección del flujo controlado: #3 integrada
 Working tree: limpio
 main local: alineada con origin/main
-Suite completa: 165 passed
+Suite completa: 178 passed
 Configuración privada: válida y excluida de Git
-Ejecución manual: pass
-Ejecución programada de validación: pass
+Ejecución manual end-to-end: pass
 Scheduler final: eliminado
 Modo operativo: manual-on-demand
+Cursores de observación y propuesta: independientes
 last_applied_commit: null
 ```
 
@@ -535,21 +547,26 @@ Fase 1: cerrada formalmente
 
 ```text
 Suite de cierre de Fase 1: 148 passed
-Suite operacional vigente: 165 passed
+Suite operacional vigente: 178 passed
 compileall: correcto
 git diff --check: correcto
 Resultado end-to-end: pass
-Ejecución manual operacional: pass
-Ejecución programada de validación: pass
+Ejecución manual controlled-proposal: pass
 Malāk intacto: sí
-Vault intacto: sí
+Vault main intacto: sí
 last_applied_commit: null
 Hashes SHA-256 verificados: sí
 ```
 
-Todos los comandos Git operativos auditados durante la Fase 1 fueron clasificados como operaciones de solo lectura.
+Todos los comandos Git operativos auditados durante el cierre histórico
+de la Fase 1 fueron clasificados como operaciones de solo lectura. El
+alcance controlado vigente añade escritura únicamente sobre una rama de
+propuesta del Vault.
 
-**Capacidades implementadas en Fase 1:**
+**Capacidades operativas vigentes:**
+
+La lista incluye la base read-only de la Fase 1 y la extensión
+controlada aprobada posteriormente:
 
 * detección determinista de cambios en `Aranwill/jarvis/main`;
 * comparación entre el HEAD remoto y el último commit observado;
@@ -572,12 +589,17 @@ Todos los comandos Git operativos auditados durante la Fase 1 fueron clasificado
 * lock de ejecución;
 * polling externo;
 * validación final end-to-end.
+* cursores independientes para observación y propuesta;
+* creación controlada de rama y commits en el Vault;
+* publicación y apertura de PR draft;
+* ausencia de aprobación o merge automático.
 
 **Modelo de autoridad:**
 
 ```text
 Agente:
-observa, compara, valida y genera evidencia
+observa, compara, valida, genera evidencia y prepara propuestas
+documentales aisladas
 
 LLM:
 no utilizado en la Fase 1
@@ -594,8 +616,8 @@ La finalización técnica no concede autoridad documental ni operativa al agente
 * no se modificaron archivos de Malāk;
 * no se ejecutó configuración de Malāk;
 * no se crearon ramas, commits ni push sobre Malāk;
-* no se modificaron archivos del Vault mediante el agente;
-* no se crearon ramas, commits ni PR mediante el agente;
+* no se escribió directamente sobre `main` del Vault;
+* las modificaciones del Vault quedaron limitadas a una rama de propuesta;
 * no se aprobaron ni mergearon PR;
 * no se cerraron decisiones automáticamente;
 * no se modificaron snapshots históricos;
@@ -633,9 +655,19 @@ Avance aprobado de Malāk
 → merge o push a main
 → ejecución manual de run-once
 → revisión humana de evidencia e informe
-→ propuesta de actualización del Vault
-→ aprobación del propietario
-→ actualización documental gobernada
+→ rama y PR draft de actualización del Vault
+→ reconciliación y aprobación humanas
+→ merge exclusivamente humano
+```
+
+La ejecución end-to-end del flujo controlado quedó demostrada mediante:
+
+```text
+Run ID: 20260726T191148713343Z_4afeed44_b20482cf
+Rango: 7cd7fcc811df01555837319ec4cac0a93ef94fff
+       → 4afeed440a3bf2096035d0d458d2ef75c71689fd
+PR draft del Vault: #10
+Resultado: pass
 ```
 
 **Evidencia de cierre:**
@@ -643,6 +675,7 @@ Avance aprobado de Malāk
 ```text
 07-audits/vault-synchronization/2026-07-22_VAULT_SYNC_PHASE_1_CLOSURE.md
 07-audits/vault-synchronization/2026-07-24_VAULT_SYNC_OPERATIONALIZATION_CLOSURE.md
+07-audits/vault-synchronization/2026-07-26_VAULT_SYNC_20260726T191148713343Z_4afeed44_b20482cf.md
 ```
 
 **Fase 2 y posteriores:**
@@ -651,13 +684,10 @@ Avance aprobado de Malāk
 no aprobadas
 ```
 
-El cierre de la Fase 1 no autoriza:
+El baseline operativo vigente no autoriza:
 
-* modificación automática del Vault;
-* escritura documental mediante el agente;
-* creación automática de ramas;
-* creación automática de commits;
-* apertura automática de PR draft;
+* escritura directa en `main` del Vault;
+* aprobación o merge automático;
 * actualización automática de baseline;
 * modificación de documentos normativos;
 * modificación de snapshots;
@@ -1179,11 +1209,12 @@ deberá incluir únicamente:
 * restricciones;
 * objetivo de la sesión.
 
-Mientras no exista un próximo sprint aprobado deberá indicar:
+Mientras el Sprint 7.5 permanezca abierto deberá indicar:
 
 ```text
-Sprint 7.4: en progreso hasta completar el Incremento 8.
-Sprint posterior: pendiente de revisión y aprobación.
+Sprint 7.5: aprobado y en progreso.
+Incremento 3: pendiente de diseño, revisión y aprobación humana.
+Sprint posterior: no aprobado.
 ```
 
 ---

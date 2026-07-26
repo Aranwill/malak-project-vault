@@ -121,3 +121,5 @@ El tercer informe registra el cierre formal de la Fase 1 y sus validaciones fina
 El cuarto informe registra la integración de la operacionalización read-only, la validación del agente en Windows y la decisión humana de utilizar ejecución manual posterior a cada sesión aprobada de Malāk.
 
 Ninguno de estos informes aprueba la Fase 2, concede autoridad de escritura ni modifica el baseline operativo de Malāk.
+
+- [[07-audits/vault-synchronization/2026-07-26_VAULT_SYNC_20260726T191148713343Z_4afeed44_b20482cf|Sincronización 20260726T191148713343Z_4afeed44_b20482cf]]

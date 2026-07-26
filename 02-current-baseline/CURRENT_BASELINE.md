@@ -6,12 +6,13 @@ type: baseline-summary
 status: active
 authority_level: baseline
 authority_rank: 5
-version: 1.0
+version: 1.1
 created: 2026-07-20
-last_reviewed: 2026-07-25
+last_reviewed: 2026-07-26
 source_of_truth: repository
 source_repository: Aranwill/jarvis
 source_branch: main
+source_commit: 4afeed440a3bf2096035d0d458d2ef75c71689fd
 derived: true
 operational_context: true
 retrieval_enabled: true
@@ -103,21 +104,21 @@ No debe utilizarse ninguna rama histórica como fuente del estado actual.
 **Último commit remoto verificado al revisar este documento:**
 
 ```text
-7cd7fcc811df01555837319ec4cac0a93ef94fff
+4afeed440a3bf2096035d0d458d2ef75c71689fd
 ```
 
 **Descripción:**
 
 ```text
-Merge pull request #14 from Aranwill/feature/sprint-7.4-logs-metrics-audit
+Merge pull request #16 from Aranwill/docs/sprint-7.5-activation-reconciliation
 ```
 
-Este commit integró la implementación técnica de Sprint 7.4 y completó
-el estado mergeado del Incremento 7.
-
-La ficha oficial mantiene Sprint 7.4 `en progreso` porque el Incremento
-8 corresponde a la sincronización gobernada del Vault posterior al
-merge.
+El rango posterior a `7cd7fcc811df01555837319ec4cac0a93ef94fff`
+cerró formalmente el Sprint 7.4, activó el Sprint 7.5 e incorporó sus
+cuatro contratos fundamentales de autorización. La implementación fue
+integrada mediante la PR #15 en
+`c0a4283b100609daeb4b3422dd28634df9d851b6`; la PR #16 reconcilió la
+documentación oficial sin modificar código.
 
 El hash registrado aquí es una referencia temporal y deberá actualizarse cuando cambie materialmente `HEAD`.
 
@@ -128,13 +129,13 @@ El hash registrado aquí es una referencia temporal y deberá actualizarse cuand
 **Último sprint formalmente cerrado:**
 
 ```text
-Sprint 7.3 — Conversation Provider Boundary Stabilization
+Sprint 7.4 — Consolidación de logs, métricas y auditoría
 ```
 
-**Sprint integrado en progreso:**
+**Sprint aprobado en progreso:**
 
 ```text
-Sprint 7.4 — Consolidación de logs, métricas y auditoría
+Sprint 7.5 — Base del plano de control de seguridad
 ```
 
 El bloque 7.x presenta el siguiente estado:
@@ -145,9 +146,11 @@ El bloque 7.x presenta el siguiente estado:
 | 7.1    | Cerrado | Composición de CLI con `OllamaRuntime` mediante configuración externa |
 | 7.2    | Cerrado | Contrato estructural `RuntimeMetricSink` de solo escritura            |
 | 7.3    | Cerrado | Estabilización de la frontera `ConversationService`–Provider–Runtime  |
-| 7.4    | En progreso — mergeado | Eventos operativos y correlación desde la CLI; Incremento 8 pendiente |
+| 7.4    | Cerrado | Eventos operativos, correlación desde la CLI y sincronización gobernada del Vault |
+| 7.5    | En progreso | Contratos de autorización integrados; PDP y demás incrementos pendientes |
 
-No existe un sprint posterior aprobado.
+El Sprint 7.5 fue aprobado por el propietario. Sus incrementos
+pendientes requieren revisión y aprobación humana independiente.
 
 El cierre de un sprint no autoriza el inicio del siguiente.
 
@@ -155,10 +158,10 @@ El cierre de un sprint no autoriza el inicio del siguiente.
 
 ## 6. Estado de validación
 
-**Última suite integral documentada para Sprint 7.4:**
+**Última suite integral documentada:**
 
 ```text
-121 passed
+166 passed
 ```
 
 Validaciones documentadas:
@@ -171,22 +174,22 @@ git diff --check
 
 Resultado registrado:
 
-* 94 pruebas específicas aprobadas;
-* 121 pruebas totales aprobadas;
+* 45 pruebas específicas de contratos de autorización aprobadas;
+* 166 pruebas totales aprobadas;
 * compilación validada sin errores;
 * diff validado sin errores de formato;
-* revisión de privacidad y arquitectura con resultado `APTO`;
-* ningún hallazgo bloqueante.
+* Kernel, Planner y runtimes sin cambios;
+* ningún LLM participa en decisiones de autorización.
 
 La validación integral fue ejecutada sobre:
 
 ```text
-5b951918006c464745e1eb1e3816bde619fad8b1
+c0a4283b100609daeb4b3422dd28634df9d851b6
 ```
 
-Los commits posteriores fueron exclusivamente documentales. Las
-pruebas y `compileall` no se presentan como reejecutados después del
-merge `7cd7fcc811df01555837319ec4cac0a93ef94fff`.
+Los commits posteriores hasta `4afeed440a3bf2096035d0d458d2ef75c71689fd`
+fueron exclusivamente documentales. Las pruebas y `compileall` no se
+presentan como reejecutados después de ese commit validado.
 
 Antes de una nueva implementación deberá verificarse nuevamente en el entorno local:
 
@@ -612,7 +615,48 @@ La auditoría de seguridad no fue implementada.
 
 ---
 
-### 8.15 AKS Engineering Knowledge Foundation
+### 8.15 Contratos fundamentales de autorización
+
+Estado:
+
+```text
+implementados e integrados en Sprint 7.5, Incremento 1
+```
+
+Componentes públicos expuestos mediante `malak.security`:
+
+* `PermissionScope`;
+* `SecurityContext`;
+* `AuthorizationRequest`;
+* `AuthorizationDecision`.
+
+Propiedades verificadas:
+
+* contratos inmutables;
+* validación estricta y normalización de texto requerido;
+* `AuthorizationRequest` relaciona contexto y permiso;
+* identificador trazable y fecha con zona horaria;
+* `AuthorizationDecision` mantiene resultado binario explícito;
+* solicitud y decisión permanecen separadas;
+* no existe decisión de autorización basada en LLM;
+* Kernel, Planner y runtimes permanecen intactos.
+
+Fuentes:
+
+```text
+src/malak/security/contracts.py
+src/malak/security/__init__.py
+tests/test_authorization_contracts.py
+docs/project/sprints/SPRINT-7.5.md
+```
+
+Todavía no están implementados el PDP, el PEP ni la evidencia de
+auditoría de autorización. La semántica de confirmación humana debe
+resolverse antes del PDP y no puede inferirse desde el Vault.
+
+---
+
+### 8.16 AKS Engineering Knowledge Foundation
 
 Estado:
 
@@ -641,7 +685,7 @@ No debe confundirse con:
 
 ---
 
-### 8.16 Development Framework
+### 8.17 Development Framework
 
 Estado:
 
@@ -798,6 +842,10 @@ Todavía no forman parte del baseline operativo:
 * campañas formales de calibración;
 * comparación automática de modelos;
 * autoajuste.
+* Policy Decision Point;
+* Policy Enforcement Point;
+* auditoría de decisiones de autorización;
+* Secure Context Manager;
 
 ---
 
@@ -806,25 +854,26 @@ Todavía no forman parte del baseline operativo:
 La hoja de ruta oficial se encuentra clasificada como:
 
 ```text
-borrador, derivada, informativa y no normativa
+activa, derivada, informativa y no normativa
 ```
 
 No aprueba arquitectura ni autoriza implementaciones.
 
-Propuestas actualmente documentadas como no aprobadas:
+Estado vigente:
 
-| Propuesta                                   | Estado      |
+| Línea                                       | Estado      |
 | ------------------------------------------- | ----------- |
-| Consolidación de logs, métricas y auditoría | Implementación técnica mergeada; cierre formal pendiente |
-| Security Control Plane Foundation           | No aprobada |
+| Consolidación de logs, métricas y auditoría | Sprint 7.4 cerrado |
+| Security Control Plane Foundation           | Sprint 7.5 aprobado y en progreso |
 | Preparación del AKS para GraphRAG           | No aprobada |
 | Validación de baseline y release interna    | No aprobada |
 
-Sprint 7.4 dejó de ser una propuesta: fue aprobado e integrado en
-`main` mediante la PR #14. Continúa en progreso hasta completar el
-Incremento 8.
+El Incremento 1 del Sprint 7.5 fue integrado mediante la PR #15. El
+Incremento 2 reconcilió la documentación oficial mediante la PR #16.
+Los incrementos 3 a 6 no están autorizados automáticamente.
 
-Ninguna propuesta de esta tabla posee autorización de implementación.
+Las líneas marcadas como no aprobadas no poseen autorización de
+implementación.
 
 La tabla no establece una secuencia obligatoria.
 
@@ -885,21 +934,24 @@ Esta iniciativa:
 
 ## 15. Estado actual del Project Vault
 
-Estado verificado para la sincronización de Sprint 7.4:
+Estado base verificado para la propuesta de sincronización actual:
 
 ```text
 Repositorio: Aranwill/malak-project-vault
 Rama: main
-HEAD: 49858c603c1b5ec533e26e8986b24c24d41d4dd5
-origin/main: 49858c603c1b5ec533e26e8986b24c24d41d4dd5
+HEAD base: b20482cff9f104c86d7967b393381021b21ec629
+Rama de propuesta: agent/vault-sync-4afeed44
+PR draft: #10
 Working tree inicial: limpio
 ```
 
 La navegación, gobernanza, índices, snapshots y respaldo remoto del
 Vault están operativos.
 
-La actualización correspondiente al Incremento 8 continúa sujeta a
-revisión, aplicación, commit y merge humanos.
+La propuesta fue producida por una ejecución manual bajo demanda del
+agente, se mantiene en una rama aislada y requiere revisión y merge
+humanos. El HEAD resultante de `main` deberá verificarse después del
+merge; este documento no lo anticipa.
 
 ---
 
@@ -920,6 +972,10 @@ docs/project/sprints/SPRINT-7.1.md
 docs/project/sprints/SPRINT-7.2.md
 docs/project/sprints/SPRINT-7.3.md
 docs/project/sprints/SPRINT-7.4.md
+docs/project/sprints/SPRINT-7.5.md
+src/malak/security/contracts.py
+src/malak/security/__init__.py
+tests/test_authorization_contracts.py
 ```
 
 Las fichas de sprints futuros no constituyen aprobación para implementarlos.
