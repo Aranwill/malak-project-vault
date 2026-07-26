@@ -363,7 +363,8 @@ incremental con aprobación humana independiente:
    PR #16;
 3. Policy Decision Point mínimo: completado mediante la PR #17 y
    reconciliado documentalmente mediante la PR #18;
-4. Policy Enforcement Point inicial: pendiente;
+4. Policy Enforcement Point inicial: completado mediante la PR #19 y
+   reconciliado documentalmente mediante la PR #20;
 5. evidencia de auditoría de autorización: pendiente;
 6. revisión integral y cierre: pendiente.
 
@@ -379,13 +380,17 @@ incremental con aprobación humana independiente:
   `78799deabba5009e66c219220349e8202f5464bb`;
 * PR #18 y merge commit
   `83ceb96838df0770bb9309172a75e3dc79bff121`;
-* 104 pruebas específicas y 225 pruebas totales aprobadas para el
-  Incremento 3.
+* PR #19 y merge commit
+  `af64b062aa1395ba7f7bdd59e5c1099ded68b683`;
+* PR #20 y merge commit
+  `d1c90bf0bf55a7076d68c1f4830e89e0d843661c`;
+* 19 pruebas específicas y 244 pruebas totales aprobadas para el
+  Incremento 4.
 
 **Resultado:**
 
 La decisión sobre el momento de implementación queda resuelta. Este
-cierre no completa el Sprint 7.5, no autoriza los Incrementos 4 a 6 y
+cierre no completa el Sprint 7.5, no autoriza los Incrementos 5 y 6 y
 no autoriza capacidades sensibles posteriores.
 
 ---

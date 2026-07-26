@@ -12,7 +12,7 @@ last_reviewed: 2026-07-26
 source_of_truth: repository
 source_repository: Aranwill/jarvis
 source_branch: main
-source_commit: 83ceb96838df0770bb9309172a75e3dc79bff121
+source_commit: d1c90bf0bf55a7076d68c1f4830e89e0d843661c
 derived: true
 operational_context: true
 retrieval_enabled: true
@@ -128,31 +128,32 @@ v0.6.0-alpha
 **Baseline operativo actual:**
 
 ```text
-main en 83ceb96838df0770bb9309172a75e3dc79bff121
+main en d1c90bf0bf55a7076d68c1f4830e89e0d843661c
 Sprint 7.4 cerrado
 Sprint 7.5 aprobado y en progreso
 Incremento 1 integrado mediante PR #15
 Incremento 2 reconciliado mediante PR #16
 Incremento 3 integrado mediante PR #17 y reconciliado mediante PR #18
+Incremento 4 integrado mediante PR #19 y reconciliado mediante PR #20
 ```
 
 **Suite documentada:**
 
 ```text
-225 passed
+244 passed
 ```
 
 La suite corresponde a la validación integral ejecutada sobre
-`5947f3b702477bb10a183a75b95efbe06e4681e6`. El commit fue integrado
-mediante la PR #17. La PR #18 fue exclusivamente documental y no se
+`30b05587839cdac914e7ee31755bb5c0540862c1`. El commit fue integrado
+mediante la PR #19. La PR #20 fue exclusivamente documental y no se
 presenta la suite como reejecutada después del commit validado.
 
 **Estado del trabajo vigente:**
 
 ```text
 Sprint 7.5 en progreso
-Incrementos 1, 2 y 3 completados
-Incremento 4 — PEP inicial: pendiente de diseño y aprobación incremental
+Incrementos 1, 2, 3 y 4 completados
+Incremento 5 — evidencia de auditoría de autorización: pendiente y no autorizado
 ```
 
 ---
@@ -264,7 +265,7 @@ Resultado:
 | 7.2    | Cerrado   | Implementado |
 | 7.3    | Cerrado   | Implementado |
 | 7.4    | Cerrado   | Implementado y sincronizado |
-| 7.5    | En progreso | Aprobado; Incrementos 1, 2 y 3 completados |
+| 7.5    | En progreso | Aprobado; Incrementos 1, 2, 3 y 4 completados |
 | 7.6    | Propuesta | No aprobado  |
 | 7.7    | Propuesta | No aprobado  |
 
@@ -290,14 +291,15 @@ Estado incremental:
 1. contratos fundamentales de autorización: completado e integrado;
 2. activación y reconciliación documental: completado;
 3. Policy Decision Point mínimo: completado e integrado;
-4. Policy Enforcement Point inicial: pendiente;
+4. Policy Enforcement Point inicial: completado e integrado;
 5. evidencia de auditoría de autorización: pendiente;
 6. revisión integral y cierre: pendiente.
 
 La semántica de confirmación humana fue aprobada e implementada sin
 incorporar un tercer estado. La solicitud original se deniega y una
 confirmación verificable solo permite evaluar desde cero una solicitud
-nueva. El PEP continúa pendiente y requiere diseño, revisión y
+nueva. El PEP inicial fue integrado sin operaciones reales ni
+auditoría. Los Incrementos 5 y 6 requieren diseño, revisión y
 aprobación humana independientes.
 
 ---
@@ -339,7 +341,8 @@ Sprint 7.5 aprobado y en progreso
 ```text
 contratos fundamentales integrados;
 PDP mínimo integrado;
-PEP y auditoría de autorización pendientes
+PEP inicial integrado;
+auditoría de autorización pendiente
 ```
 
 Esta fundación deberá establecerse antes de capacidades externas o de alto riesgo.
@@ -359,10 +362,11 @@ Estado verificado:
 
 Los cuatro contratos públicos fueron integrados mediante la PR #15.
 El PDP mínimo fue integrado mediante la PR #17 y reconciliado
-documentalmente mediante la PR #18. Su validación registró 104 pruebas
-específicas, 225 pruebas totales, `compileall` y `git diff --check`
-aprobados. La aprobación del sprint no autoriza automáticamente sus
-incrementos pendientes.
+documentalmente mediante la PR #18. El PEP inicial fue integrado
+mediante la PR #19 y reconciliado documentalmente mediante la PR #20.
+Su validación registró 19 pruebas específicas, 244 pruebas totales,
+`compileall` y `git diff --check` aprobados. La aprobación del sprint
+no autoriza automáticamente sus incrementos pendientes.
 
 ---
 
@@ -1254,8 +1258,8 @@ Mientras el Sprint 7.5 permanezca abierto deberá indicar:
 
 ```text
 Sprint 7.5: aprobado y en progreso.
-Incremento 3: completado e integrado.
-Incrementos 4 a 6: pendientes de diseño, revisión y aprobación humana.
+Incrementos 1 a 4: completados e integrados.
+Incrementos 5 y 6: pendientes y no autorizados.
 Sprint posterior: no aprobado.
 ```
 

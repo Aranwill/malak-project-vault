@@ -10,8 +10,8 @@ created: 2026-07-20
 last_reviewed: 2026-07-26
 source_repository: Aranwill/jarvis
 source_branch: main
-source_commit: 83ceb96838df0770bb9309172a75e3dc79bff121
-baseline_reference: 83ceb96838df0770bb9309172a75e3dc79bff121
+source_commit: d1c90bf0bf55a7076d68c1f4830e89e0d843661c
+baseline_reference: d1c90bf0bf55a7076d68c1f4830e89e0d843661c
 tags:
   - malak
   - vault
@@ -66,7 +66,7 @@ tags:
 
 ## 1. Alcance
 
-Este mapa cubre dos fronteras verificadas:
+Este mapa cubre las siguientes fronteras verificadas:
 
 - `Request`;
 - `Kernel`;
@@ -79,6 +79,7 @@ Este mapa cubre dos fronteras verificadas:
 - stores operativos.
 - contratos fundamentales de autorización.
 - Policy Decision Point mínimo.
+- Policy Enforcement Point inicial.
 
 Quedan fuera de alcance:
 
@@ -86,7 +87,7 @@ Quedan fuera de alcance:
 - detalle interno de proveedores y runtimes;
 - métricas de runtime;
 - auditoría de seguridad;
-- Policy Enforcement Point y auditoría de autorización;
+- auditoría de autorización;
 - componentes propuestos en el roadmap.
 
 Su exclusión de este documento no implica que no existan. Solamente evita mezclar subsistemas todavía no verificados dentro de este mapa.
@@ -100,13 +101,13 @@ No existe integración formal entre `Kernel.receive` y `ConversationService`, y 
 
 - **Repositorio:** `Aranwill/jarvis`
 - **Rama:** `main`
-- **Commit:** `83ceb96838df0770bb9309172a75e3dc79bff121`
+- **Commit:** `d1c90bf0bf55a7076d68c1f4830e89e0d843661c`
 - **Versión nominal:** `v0.6.0-alpha`
 - **Último sprint formalmente cerrado:** Sprint 7.4 — Consolidación de logs, métricas y auditoría
 - **Sprint aprobado en progreso:** Sprint 7.5 — Base del plano de control de seguridad
-- **Pull requests integrados en el rango:** PR #15, PR #16, PR #17 y PR #18
-- **Suite integral documentada:** 225 pruebas aprobadas sobre `5947f3b702477bb10a183a75b95efbe06e4681e6`
-- **Incremento vigente:** Sprint 7.5, Incremento 3 completado e integrado
+- **Pull requests integrados en el rango:** PR #15, PR #16, PR #17, PR #18, PR #19 y PR #20
+- **Suite integral documentada:** 244 pruebas aprobadas sobre `30b05587839cdac914e7ee31755bb5c0540862c1`
+- **Incremento vigente:** Sprint 7.5, Incremento 4 completado e integrado
 
 ## 3. Componentes verificados
 
@@ -313,7 +314,8 @@ ni participación de LLM. La ausencia de regla, un sujeto no autenticado,
 evidencia incongruente o un fallo del verificador producen denegación
 segura.
 
-El PDP no ejecuta operaciones y todavía no existe un PEP implementado.
+El PDP no ejecuta operaciones. El enforcement permanece separado en el
+PEP inicial descrito a continuación.
 
 Fuentes:
 
@@ -321,6 +323,39 @@ Fuentes:
 src/malak/security/pdp.py
 src/malak/security/__init__.py
 tests/test_policy_decision_point.py
+docs/project/sprints/SPRINT-7.5.md
+```
+
+### Policy Enforcement Point inicial
+
+El Incremento 4 incorporó una frontera de enforcement determinista y
+fail-closed:
+
+| Componente | Responsabilidad verificada |
+| --- | --- |
+| `PolicyEnforcementPoint` | Definir el contrato estructural de enforcement |
+| `StrictPolicyEnforcementPoint` | Consultar al PDP inyectado, validar la decisión y controlar la ejecución |
+| `ProtectedOperation` | Representar una operación protegida sin acoplarla al PEP |
+| `AuthorizationDeniedError` | Diferenciar una denegación válida del PDP |
+| `AuthorizationEnforcementError` | Bloquear fallos, tipos inválidos o decisiones incongruentes |
+
+El PEP no acepta decisiones aportadas por el llamador. Consulta
+directamente al PDP, verifica que la decisión corresponda al
+`request_id` original y ejecuta la operación exactamente una vez solo
+ante una autorización válida. Los fallos del PDP bloquean la operación;
+los fallos de la operación se propagan sin reintento automático.
+
+El incremento no conecta operaciones reales, no integra el PEP con
+Kernel, Planner, CLI o runtimes y no incorpora todavía evidencia de
+auditoría de autorización.
+
+Fuentes:
+
+```text
+src/malak/security/pep.py
+src/malak/security/__init__.py
+tests/test_policy_enforcement_point.py
+docs/architecture/adr/ADR-002-policy-enforcement-boundary.md
 docs/project/sprints/SPRINT-7.5.md
 ```
 
@@ -412,7 +447,7 @@ Este mapa no afirma:
 - que el registro sea persistente;
 - que el diagrama represente toda la arquitectura de Malāk.
 - que eventos operativos y métricas compartan contratos o stores;
-- que exista PEP o auditoría de autorización;
+- que exista auditoría de autorización;
 - que la observabilidad adopte decisiones de autorización;
 - que `ConversationRequest` contenga `request_id`.
 - que los contratos de autorización concedan permisos por sí mismos.
@@ -437,7 +472,10 @@ Sin convertirlos en decisiones nuevas, el código observado muestra:
 - PDP determinista separado de la ejecución;
 - reglas exactas y denegación por defecto;
 - evidencia de confirmación inmutable y verificador inyectable;
-- ausencia de PEP y ejecución de operaciones.
+- PEP separado del PDP y de la operación protegida;
+- enforcement fail-closed con asociación estricta por `request_id`;
+- ausencia de integración con operaciones reales y de auditoría de
+  autorización.
 
 ## 10. Fuentes oficiales
 
@@ -456,9 +494,12 @@ Sin convertirlos en decisiones nuevas, el código observado muestra:
 - `src/malak/observability/operational_event_jsonl_store.py`
 - `src/malak/security/contracts.py`
 - `src/malak/security/pdp.py`
+- `src/malak/security/pep.py`
 - `src/malak/security/__init__.py`
 - `tests/test_authorization_contracts.py`
 - `tests/test_policy_decision_point.py`
+- `tests/test_policy_enforcement_point.py`
+- `docs/architecture/adr/ADR-002-policy-enforcement-boundary.md`
 - `docs/project/sprints/SPRINT-7.4.md`
 - `docs/project/sprints/SPRINT-7.5.md`
 

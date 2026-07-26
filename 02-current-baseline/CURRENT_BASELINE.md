@@ -12,7 +12,7 @@ last_reviewed: 2026-07-26
 source_of_truth: repository
 source_repository: Aranwill/jarvis
 source_branch: main
-source_commit: 83ceb96838df0770bb9309172a75e3dc79bff121
+source_commit: d1c90bf0bf55a7076d68c1f4830e89e0d843661c
 derived: true
 operational_context: true
 retrieval_enabled: true
@@ -144,22 +144,25 @@ No debe utilizarse ninguna rama histórica como fuente del estado actual.
 **Último commit remoto verificado al revisar este documento:**
 
 ```text
-83ceb96838df0770bb9309172a75e3dc79bff121
+d1c90bf0bf55a7076d68c1f4830e89e0d843661c
 ```
 
 **Descripción:**
 
 ```text
-Merge pull request #18 from Aranwill/agent/sprint-7.5-pdp-doc-reconciliation
+Merge pull request #20 from Aranwill/agent/sprint-7.5-pep-doc-reconciliation
 ```
 
 El rango posterior a `7cd7fcc811df01555837319ec4cac0a93ef94fff`
 cerró formalmente el Sprint 7.4, activó el Sprint 7.5 e incorporó sus
-cuatro contratos fundamentales de autorización y el PDP mínimo. Los
-contratos fueron integrados mediante la PR #15; la PR #16 reconcilió
+cuatro contratos fundamentales de autorización, el PDP mínimo y el PEP
+inicial. Los contratos fueron integrados mediante la PR #15; la PR #16 reconcilió
 la activación documental. El PDP se integró mediante la PR #17 en
 `78799deabba5009e66c219220349e8202f5464bb`; la PR #18 reconcilió su
-estado en la documentación oficial sin modificar código.
+estado en la documentación oficial sin modificar código. El PEP se
+integró mediante la PR #19 en
+`af64b062aa1395ba7f7bdd59e5c1099ded68b683`; la PR #20 reconcilió su
+estado documental y produjo el HEAD verificado.
 
 El hash registrado aquí es una referencia temporal y deberá actualizarse cuando cambie materialmente `HEAD`.
 
@@ -188,7 +191,7 @@ El bloque 7.x presenta el siguiente estado:
 | 7.2    | Cerrado | Contrato estructural `RuntimeMetricSink` de solo escritura            |
 | 7.3    | Cerrado | Estabilización de la frontera `ConversationService`–Provider–Runtime  |
 | 7.4    | Cerrado | Eventos operativos, correlación desde la CLI y sincronización gobernada del Vault |
-| 7.5    | En progreso | Contratos y PDP mínimo integrados; Incrementos 4 a 6 pendientes |
+| 7.5    | En progreso | Contratos, PDP y PEP inicial integrados; Incrementos 5 y 6 pendientes |
 
 El Sprint 7.5 fue aprobado por el propietario. Sus incrementos
 pendientes requieren revisión y aprobación humana independiente.
@@ -202,7 +205,7 @@ El cierre de un sprint no autoriza el inicio del siguiente.
 **Última suite integral documentada:**
 
 ```text
-225 passed
+244 passed
 ```
 
 Validaciones documentadas:
@@ -215,8 +218,8 @@ git diff --check
 
 Resultado registrado:
 
-* 104 pruebas específicas del Incremento 3 aprobadas;
-* 225 pruebas totales aprobadas;
+* 19 pruebas específicas del Incremento 4 aprobadas;
+* 244 pruebas totales aprobadas;
 * compilación validada sin errores;
 * diff validado sin errores de formato;
 * Kernel, Planner y runtimes sin cambios;
@@ -225,15 +228,15 @@ Resultado registrado:
 La validación integral fue ejecutada sobre:
 
 ```text
-5947f3b702477bb10a183a75b95efbe06e4681e6
+30b05587839cdac914e7ee31755bb5c0540862c1
 ```
 
-El commit validado fue integrado mediante la PR #17. Los commits
-posteriores `78799deabba5009e66c219220349e8202f5464bb`,
-`e26469eb422f6686850057de5c0d1ef57f7faaa9` y
-`83ceb96838df0770bb9309172a75e3dc79bff121` corresponden al merge y a
+El commit validado fue integrado mediante la PR #19. Los commits
+posteriores `af64b062aa1395ba7f7bdd59e5c1099ded68b683`,
+`3c2acdbdadae84535b08c039243d4da405560d89` y
+`d1c90bf0bf55a7076d68c1f4830e89e0d843661c` corresponden al merge y a
 la reconciliación documental. Las pruebas y `compileall` no se
-presentan como reejecutados después de `5947f3b`.
+presentan como reejecutados después de `30b0558`.
 
 Antes de una nueva implementación deberá verificarse nuevamente en el entorno local:
 
@@ -695,13 +698,54 @@ docs/project/sprints/SPRINT-7.5.md
 ```
 
 El PDP mínimo está implementado e integrado en Sprint 7.5, Incremento
-3. Todavía no están implementados el PEP ni la evidencia de auditoría
-de autorización. Los Incrementos 4 a 6 permanecen pendientes de
-diseño, revisión y aprobación humana independiente.
+3. El PEP inicial está implementado e integrado como Incremento 4.
+Todavía no existe evidencia de auditoría de autorización. Los
+Incrementos 5 y 6 permanecen pendientes de diseño, revisión y
+aprobación humana independiente.
 
 ---
 
-### 8.16 AKS Engineering Knowledge Foundation
+### 8.16 Policy Enforcement Point inicial
+
+Estado:
+
+```text
+implementado e integrado en Sprint 7.5, Incremento 4
+```
+
+Componentes públicos expuestos mediante `malak.security`:
+
+* `PolicyEnforcementPoint`;
+* `StrictPolicyEnforcementPoint`;
+* `ProtectedOperation`;
+* `AuthorizationDeniedError`;
+* `AuthorizationEnforcementError`.
+
+Propiedades verificadas:
+
+* el PEP consulta directamente al PDP confiable inyectado;
+* la API no acepta una `AuthorizationDecision` aportada por el llamador;
+* la decisión debe corresponder al `request_id` de la solicitud;
+* denegaciones, fallos y respuestas inválidas bloquean la operación;
+* una autorización válida permite una única ejecución;
+* los errores de la operación se propagan sin reintento;
+* no existe integración con operaciones reales;
+* Kernel, Planner, CLI y runtimes permanecen intactos;
+* la auditoría de autorización continúa pendiente.
+
+Fuentes:
+
+```text
+src/malak/security/pep.py
+src/malak/security/__init__.py
+tests/test_policy_enforcement_point.py
+docs/architecture/adr/ADR-002-policy-enforcement-boundary.md
+docs/project/sprints/SPRINT-7.5.md
+```
+
+---
+
+### 8.17 AKS Engineering Knowledge Foundation
 
 Estado:
 
@@ -730,7 +774,7 @@ No debe confundirse con:
 
 ---
 
-### 8.17 Development Framework
+### 8.18 Development Framework
 
 Estado:
 
