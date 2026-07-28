@@ -127,3 +127,5 @@ Ninguno de estos informes aprueba la Fase 2, concede autoridad de escritura ni m
 - [[07-audits/vault-synchronization/2026-07-26_VAULT_SYNC_20260726T203205786776Z_83ceb968_579e5b9d|Sincronización 20260726T203205786776Z_83ceb968_579e5b9d]]
 
 - [[07-audits/vault-synchronization/2026-07-26_VAULT_SYNC_20260726T214149097509Z_d1c90bf0_70ffa813|Sincronización 20260726T214149097509Z_d1c90bf0_70ffa813]]
+
+- [[07-audits/vault-synchronization/2026-07-28_VAULT_SYNC_20260728T213937172036Z_695179aa_379503f9|Sincronización 20260728T213937172036Z_695179aa_379503f9]]

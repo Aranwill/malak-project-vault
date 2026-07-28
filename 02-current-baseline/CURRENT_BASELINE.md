@@ -29,10 +29,10 @@ retrieval_scope: active
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260726T214149097509Z_d1c90bf0_70ffa813`
-- **HEAD oficial observado:** `d1c90bf0bf55a7076d68c1f4830e89e0d843661c`
-- **Commit previamente observado:** `83ceb96838df0770bb9309172a75e3dc79bff121`
-- **Generado:** `2026-07-26T21:41:49.097509+00:00`
+- **Run ID:** `20260728T213937172036Z_695179aa_379503f9`
+- **HEAD oficial observado:** `695179aa491baeaf93189f271e6af9c611d84ca8`
+- **Commit previamente observado:** `4afeed440a3bf2096035d0d458d2ef75c71689fd`
+- **Generado:** `2026-07-28T21:39:37.172036+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
@@ -45,19 +45,29 @@ retrieval_scope: active
 
 ### Commits oficiales observados
 
+- 695179aa491baeaf93189f271e6af9c611d84ca8	Merge pull request #21 from Aranwill/agent/record-high-value-evolution-ideas
+- cad60e8e7bff256458e06d69fc1dfd674075cb0f	docs(ideas): record validation and evolution foundations
 - d1c90bf0bf55a7076d68c1f4830e89e0d843661c	Merge pull request #20 from Aranwill/agent/sprint-7.5-pep-doc-reconciliation
 - 3c2acdbdadae84535b08c039243d4da405560d89	docs: reconcile sprint 7.5 PEP integration
 - af64b062aa1395ba7f7bdd59e5c1099ded68b683	Merge pull request #19 from Aranwill/agent/sprint-7.5-initial-pep
 - 30b05587839cdac914e7ee31755bb5c0540862c1	feat(security): add initial policy enforcement point
+- 83ceb96838df0770bb9309172a75e3dc79bff121	Merge pull request #18 from Aranwill/agent/sprint-7.5-pdp-doc-reconciliation
+- e26469eb422f6686850057de5c0d1ef57f7faaa9	docs: reconcile sprint 7.5 PDP integration
+- 78799deabba5009e66c219220349e8202f5464bb	Merge pull request #17 from Aranwill/agent/sprint-7.5-minimal-pdp
+- 5947f3b702477bb10a183a75b95efbe06e4681e6	feat(security): add minimal policy decision point
 
 ### Evidencia que originó esta proyección
 
 - `architecture-change` por `docs/architecture/adr/ADR-002-policy-enforcement-boundary.md`
 - `architecture-change` por `docs/architecture/decisions/decision-index.md`
 - `architecture-change` por `src/malak/security/__init__.py`
+- `architecture-change` por `src/malak/security/contracts.py`
+- `architecture-change` por `src/malak/security/pdp.py`
 - `architecture-change` por `src/malak/security/pep.py`
 - `baseline-source-change` por `docs/project/implementation_roadmap.md`
 - `baseline-source-change` por `docs/project/sprints/SPRINT-7.5.md`
+- `test-change` por `tests/test_authorization_contracts.py`
+- `test-change` por `tests/test_policy_decision_point.py`
 - `test-change` por `tests/test_policy_enforcement_point.py`
 <!-- MALAK_VAULT_SYNC:END -->
 
