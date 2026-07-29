@@ -8,11 +8,11 @@ authority_level: baseline
 authority_rank: 5
 version: 1.1
 created: 2026-07-20
-last_reviewed: 2026-07-26
+last_reviewed: 2026-07-29
 source_of_truth: repository
 source_repository: Aranwill/jarvis
 source_branch: main
-source_commit: d1c90bf0bf55a7076d68c1f4830e89e0d843661c
+source_commit: 4a2f49a0007290ee6b290710e28946c40cee41ff
 derived: true
 operational_context: true
 retrieval_enabled: true
@@ -22,41 +22,41 @@ retrieval_scope: active
 # Malāk Current Baseline
 
 <!-- MALAK_VAULT_SYNC:START -->
-## Proyección automática de sincronización
+## Proyección gobernada de sincronización
 
 > [!warning] Estado derivado pendiente de revisión
-> Este bloque fue generado de forma determinista a partir de
-> `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
-> sprints y no reemplaza la revisión humana del documento.
+> Esta proyección refleja cambios verificados en `Aranwill/jarvis/main`.
+> No aprueba implementaciones, no cierra sprints y no reemplaza la
+> revisión humana del documento.
 
-- **Run ID:** `20260728T230427930525Z_38b0917c_da474149`
-- **HEAD oficial observado:** `38b0917c5b8dba5c5a4ef4db157e78ac428ab4bc`
-- **Commit previamente observado:** `695179aa491baeaf93189f271e6af9c611d84ca8`
-- **Generado:** `2026-07-28T23:04:27.930525+00:00`
+- **Run ID:** `20260729T222434802365Z_4a2f49a_8cd4314`
+- **HEAD oficial observado:** `4a2f49a0007290ee6b290710e28946c40cee41ff`
+- **Commit previamente observado:** `38b0917c5b8dba5c5a4ef4db157e78ac428ab4bc`
+- **Generado:** `2026-07-29T22:24:34.802365+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
 ### Estado estructurado de la fuente oficial
 
-- **Ficha de sprint más reciente:** `docs/project/sprints/SPRINT-7.5.md`
-- **Título declarado:** Sprint 7.5 — Base del plano de control de seguridad
-- **Estado declarado:** `en progreso`
-- **`as_of_commit` declarado:** `af64b062aa1395ba7f7bdd59e5c1099ded68b683`
+- **Sprint vigente:** Sprint 7.5 — Base del plano de control de seguridad
+- **Estado:** `en progreso`
+- **Auditoría de autorización:** integrada mediante PR #22 y PR #23
+- **Cambio documental nuevo:** planificación futura incorporada mediante PR #24
+- **PR #24 modifica código:** `false`
+- **PR #24 cambia el baseline operativo:** `false`
 
 ### Commits oficiales observados
 
+- 4a2f49a0007290ee6b290710e28946c40cee41ff	Merge pull request #24 from Aranwill/agent/record-segmented-scaling-and-active-defense
+- 93689b903f28f61537d502b68785c5d3f6b37137	docs: record segmented scaling and governed active defense
 - 38b0917c5b8dba5c5a4ef4db157e78ac428ab4bc	Merge pull request #23 from Aranwill/agent/sprint-7.5-pep-audit-integration
-- 0ab64aeb646eb234df97b040f308cf2fd1333224	feat(security): integrate authorization audit into PEP
-- 418358cc5b543c59cf4b113f42e762f6c78eec59	Merge pull request #22 from Aranwill/agent/sprint-7.5-authorization-audit-contracts
-- 82c8c51f28e29340f798bfb4bacee596e92cd53a	feat(security): add authorization audit contracts
 
 ### Evidencia que originó esta proyección
 
-- `architecture-change` por `src/malak/security/__init__.py`
-- `architecture-change` por `src/malak/security/audit.py`
-- `architecture-change` por `src/malak/security/pep.py`
-- `test-change` por `tests/test_authorization_audit.py`
-- `test-change` por `tests/test_policy_enforcement_point.py`
+- `baseline-source-change` por `docs/project/implementation_roadmap.md`
+- `strategy-change` por `documents/projects/jarvis/ideas.md`
+- `verified-merge` por PR #24
+- `reconciliation` del estado de auditoría de autorización del Sprint 7.5
 <!-- MALAK_VAULT_SYNC:END -->
 
 ## 1. Propósito
@@ -142,13 +142,13 @@ No debe utilizarse ninguna rama histórica como fuente del estado actual.
 **Último commit remoto verificado al revisar este documento:**
 
 ```text
-d1c90bf0bf55a7076d68c1f4830e89e0d843661c
+4a2f49a0007290ee6b290710e28946c40cee41ff
 ```
 
 **Descripción:**
 
 ```text
-Merge pull request #20 from Aranwill/agent/sprint-7.5-pep-doc-reconciliation
+Merge pull request #24 from Aranwill/agent/record-segmented-scaling-and-active-defense
 ```
 
 El rango posterior a `7cd7fcc811df01555837319ec4cac0a93ef94fff`
@@ -189,12 +189,50 @@ El bloque 7.x presenta el siguiente estado:
 | 7.2    | Cerrado | Contrato estructural `RuntimeMetricSink` de solo escritura            |
 | 7.3    | Cerrado | Estabilización de la frontera `ConversationService`–Provider–Runtime  |
 | 7.4    | Cerrado | Eventos operativos, correlación desde la CLI y sincronización gobernada del Vault |
-| 7.5    | En progreso | Contratos, PDP y PEP inicial integrados; Incrementos 5 y 6 pendientes |
+| 7.5    | En progreso | Contratos, PDP, PEP y auditoría de autorización integrados; revisión integral y cierre pendientes |
 
-El Sprint 7.5 fue aprobado por el propietario. Sus incrementos
-pendientes requieren revisión y aprobación humana independiente.
+El Sprint 7.5 fue aprobado por el propietario. Los contratos de auditoría
+de autorización y su integración fail-closed con el PEP fueron incorporados
+mediante las PR #22 y #23. La revisión integral y el cierre permanecen
+pendientes y requieren aprobación humana independiente.
+
+La PR #24 es exclusivamente documental: registra visión y planificación
+futura, pero no incorpora componentes operativos ni modifica el baseline.
 
 El cierre de un sprint no autoriza el inicio del siguiente.
+
+---
+
+## 5.1 Planificación futura aprobada sin implementación
+
+La PR #24 incorporó al roadmap oficial:
+
+- `Segmented Domain Governance Foundation`;
+- `Knowledge Intake & External Evidence Governance`;
+- `Security Learning, Adversarial Evaluation & Deception`.
+
+También registró investigación externa, presencia pública controlada,
+escalado vertical y flotas de agentes.
+
+Estado común:
+
+```text
+planificación futura aprobada
+diseño detallado no aprobado
+implementación no aprobada
+sin número de sprint asignado
+```
+
+No forman parte del baseline operativo:
+
+- Domain Packs;
+- navegación externa;
+- agentes autónomos;
+- sandboxes avanzados;
+- honeypots públicos;
+- gemelo adversarial;
+- beta pública;
+- respuesta ofensiva externa.
 
 ---
 
@@ -697,9 +735,10 @@ docs/project/sprints/SPRINT-7.5.md
 
 El PDP mínimo está implementado e integrado en Sprint 7.5, Incremento
 3. El PEP inicial está implementado e integrado como Incremento 4.
-Todavía no existe evidencia de auditoría de autorización. Los
-Incrementos 5 y 6 permanecen pendientes de diseño, revisión y
-aprobación humana independiente.
+La evidencia de auditoría de autorización y su integración fail-closed
+con el PEP fueron incorporadas mediante las PR #22 y #23. El Incremento 5
+queda integrado. El Incremento 6 — revisión integral y cierre — permanece
+pendiente y requiere aprobación humana independiente.
 
 ---
 
@@ -729,7 +768,7 @@ Propiedades verificadas:
 * los errores de la operación se propagan sin reintento;
 * no existe integración con operaciones reales;
 * Kernel, Planner, CLI y runtimes permanecen intactos;
-* la auditoría de autorización continúa pendiente.
+* la auditoría de autorización está integrada mediante las PR #22 y #23;
 
 Fuentes:
 

@@ -8,11 +8,11 @@ authority_level: approved_roadmap
 authority_rank: 7
 version: 1.1
 created: 2026-07-20
-last_reviewed: 2026-07-26
+last_reviewed: 2026-07-29
 source_of_truth: repository
 source_repository: Aranwill/jarvis
 source_branch: main
-source_commit: d1c90bf0bf55a7076d68c1f4830e89e0d843661c
+source_commit: 4a2f49a0007290ee6b290710e28946c40cee41ff
 derived: true
 operational_context: true
 retrieval_enabled: true
@@ -22,46 +22,40 @@ retrieval_scope: active
 # Malāk Implementation Roadmap
 
 <!-- MALAK_VAULT_SYNC:START -->
-## Proyección automática de sincronización
+## Proyección gobernada de sincronización
 
 > [!warning] Estado derivado pendiente de revisión
-> Este bloque fue generado de forma determinista a partir de
-> `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
-> sprints y no reemplaza la revisión humana del documento.
+> Esta proyección refleja cambios verificados en `Aranwill/jarvis/main`.
+> No aprueba implementaciones, no cierra sprints y no reemplaza la
+> revisión humana del documento.
 
-- **Run ID:** `20260728T213937172036Z_695179aa_379503f9`
-- **HEAD oficial observado:** `695179aa491baeaf93189f271e6af9c611d84ca8`
-- **Commit previamente observado:** `4afeed440a3bf2096035d0d458d2ef75c71689fd`
-- **Generado:** `2026-07-28T21:39:37.172036+00:00`
+- **Run ID:** `20260729T222434802365Z_4a2f49a_8cd4314`
+- **HEAD oficial observado:** `4a2f49a0007290ee6b290710e28946c40cee41ff`
+- **Commit previamente observado:** `38b0917c5b8dba5c5a4ef4db157e78ac428ab4bc`
+- **Generado:** `2026-07-29T22:24:34.802365+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
 ### Estado estructurado de la fuente oficial
 
-- **Ficha de sprint más reciente:** `docs/project/sprints/SPRINT-7.5.md`
-- **Título declarado:** Sprint 7.5 — Base del plano de control de seguridad
-- **Estado declarado:** `en progreso`
-- **`as_of_commit` declarado:** `af64b062aa1395ba7f7bdd59e5c1099ded68b683`
+- **Sprint vigente:** Sprint 7.5 — Base del plano de control de seguridad
+- **Estado:** `en progreso`
+- **Auditoría de autorización:** integrada mediante PR #22 y PR #23
+- **Cambio documental nuevo:** planificación futura incorporada mediante PR #24
+- **PR #24 modifica código:** `false`
+- **PR #24 cambia el baseline operativo:** `false`
 
 ### Commits oficiales observados
 
-- 695179aa491baeaf93189f271e6af9c611d84ca8	Merge pull request #21 from Aranwill/agent/record-high-value-evolution-ideas
-- cad60e8e7bff256458e06d69fc1dfd674075cb0f	docs(ideas): record validation and evolution foundations
-- d1c90bf0bf55a7076d68c1f4830e89e0d843661c	Merge pull request #20 from Aranwill/agent/sprint-7.5-pep-doc-reconciliation
-- 3c2acdbdadae84535b08c039243d4da405560d89	docs: reconcile sprint 7.5 PEP integration
-- af64b062aa1395ba7f7bdd59e5c1099ded68b683	Merge pull request #19 from Aranwill/agent/sprint-7.5-initial-pep
-- 30b05587839cdac914e7ee31755bb5c0540862c1	feat(security): add initial policy enforcement point
-- 83ceb96838df0770bb9309172a75e3dc79bff121	Merge pull request #18 from Aranwill/agent/sprint-7.5-pdp-doc-reconciliation
-- e26469eb422f6686850057de5c0d1ef57f7faaa9	docs: reconcile sprint 7.5 PDP integration
-- 78799deabba5009e66c219220349e8202f5464bb	Merge pull request #17 from Aranwill/agent/sprint-7.5-minimal-pdp
-- 5947f3b702477bb10a183a75b95efbe06e4681e6	feat(security): add minimal policy decision point
+- 4a2f49a0007290ee6b290710e28946c40cee41ff	Merge pull request #24 from Aranwill/agent/record-segmented-scaling-and-active-defense
+- 93689b903f28f61537d502b68785c5d3f6b37137	docs: record segmented scaling and governed active defense
+- 38b0917c5b8dba5c5a4ef4db157e78ac428ab4bc	Merge pull request #23 from Aranwill/agent/sprint-7.5-pep-audit-integration
 
 ### Evidencia que originó esta proyección
 
 - `baseline-source-change` por `docs/project/implementation_roadmap.md`
-- `baseline-source-change` por `docs/project/sprints/SPRINT-7.5.md`
-- `governance-change` por `docs/architecture/adr/ADR-002-policy-enforcement-boundary.md`
-- `governance-change` por `docs/architecture/decisions/decision-index.md`
+- `strategy-change` por `documents/projects/jarvis/ideas.md`
+- `verified-merge` por PR #24
 <!-- MALAK_VAULT_SYNC:END -->
 
 ## 1. Propósito
@@ -134,7 +128,7 @@ v0.6.0-alpha
 **Baseline operativo actual:**
 
 ```text
-main en d1c90bf0bf55a7076d68c1f4830e89e0d843661c
+main en 4a2f49a0007290ee6b290710e28946c40cee41ff
 Sprint 7.4 cerrado
 Sprint 7.5 aprobado y en progreso
 Incremento 1 integrado mediante PR #15
@@ -158,8 +152,8 @@ presenta la suite como reejecutada después del commit validado.
 
 ```text
 Sprint 7.5 en progreso
-Incrementos 1, 2, 3 y 4 completados
-Incremento 5 — evidencia de auditoría de autorización: pendiente y no autorizado
+Incrementos 1, 2, 3, 4 y 5 completados
+Incremento 6 — revisión integral y cierre: pendiente y no autorizado
 ```
 
 ---
@@ -298,15 +292,16 @@ Estado incremental:
 2. activación y reconciliación documental: completado;
 3. Policy Decision Point mínimo: completado e integrado;
 4. Policy Enforcement Point inicial: completado e integrado;
-5. evidencia de auditoría de autorización: pendiente;
+5. evidencia de auditoría de autorización: completada e integrada mediante PR #22 y PR #23;
 6. revisión integral y cierre: pendiente.
 
 La semántica de confirmación humana fue aprobada e implementada sin
 incorporar un tercer estado. La solicitud original se deniega y una
 confirmación verificable solo permite evaluar desde cero una solicitud
-nueva. El PEP inicial fue integrado sin operaciones reales ni
-auditoría. Los Incrementos 5 y 6 requieren diseño, revisión y
-aprobación humana independientes.
+nueva. El PEP inicial fue integrado sin operaciones reales. La auditoría de
+autorización fue incorporada posteriormente mediante las PR #22 y #23.
+El Incremento 6 — revisión integral y cierre — permanece pendiente y
+requiere aprobación humana independiente.
 
 ---
 
@@ -348,7 +343,7 @@ Sprint 7.5 aprobado y en progreso
 contratos fundamentales integrados;
 PDP mínimo integrado;
 PEP inicial integrado;
-auditoría de autorización pendiente
+auditoría de autorización integrada mediante PR #22 y PR #23
 ```
 
 Esta fundación deberá establecerse antes de capacidades externas o de alto riesgo.
@@ -1264,8 +1259,8 @@ Mientras el Sprint 7.5 permanezca abierto deberá indicar:
 
 ```text
 Sprint 7.5: aprobado y en progreso.
-Incrementos 1 a 4: completados e integrados.
-Incrementos 5 y 6: pendientes y no autorizados.
+Incrementos 1 a 5: completados e integrados.
+Incremento 6: pendiente y no autorizado.
 Sprint posterior: no aprobado.
 ```
 
@@ -1303,3 +1298,61 @@ Este documento deberá revisarse cuando ocurra:
 > La aprobación conceptual de una fundación no equivale a autorización para implementarla.
 
 > Ningún sprint comienza sin revisión, debate y aprobación explícita.
+
+
+---
+
+## Planificación futura aprobada por PR #24
+
+### Segmented Domain Governance Foundation
+
+- preserva a Malāk como control plane horizontal;
+- habilita Domain Packs subordinados;
+- define precedencia entre política global, dominio, jurisdicción,
+  organización y workflow;
+- impide ampliar autoridad desde capas inferiores.
+
+### Knowledge Intake & External Evidence Governance
+
+- gobierna libros, papers, informes y páginas;
+- conserva originales, procedencia, autoridad, licencias y vigencia;
+- trata Markdown, embeddings, índices y grafos como proyecciones;
+- integra búsqueda externa mediante autorización, sandbox y validación;
+- evita autocontaminación y promoción automática.
+
+### Security Learning, Adversarial Evaluation & Deception
+
+- habilita formación y CTF autorizados;
+- evalúa agentes mediante observación externa;
+- prepara gemelo adversarial, honeypots y deception defensiva aislada;
+- transforma evidencia validada en pruebas y propuestas;
+- permite defensa activa dentro de fronteras propias;
+- mantiene cualquier respuesta externa subordinada a autoridad legal,
+  atribución validada y supervisión humana.
+
+### Líneas relacionadas
+
+- `External Research & Assurance Review`;
+- `Malāk Public Presence & Controlled Beta Foundation`;
+- `Sovereign Agent Fleet Control & Vertical Scaling`.
+
+Estado común:
+
+```text
+planificación futura aprobada
+diseño detallado no aprobado
+implementación no aprobada
+sin número de sprint asignado
+```
+
+No quedan habilitados:
+
+- navegación;
+- Tor;
+- malware;
+- agentes operativos;
+- honeypots públicos;
+- pentesting real;
+- beta pública;
+- hack back;
+- operaciones ofensivas externas.
