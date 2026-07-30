@@ -21,41 +21,41 @@ retrieval_scope: active
 # Malāk Session Context
 
 <!-- MALAK_VAULT_SYNC:START -->
-## Proyección gobernada de sincronización
+## Proyección automática de sincronización
 
 > [!warning] Estado derivado pendiente de revisión
-> Esta proyección refleja cambios verificados en `Aranwill/jarvis/main`.
-> No aprueba implementaciones, no cierra sprints y no reemplaza la
-> revisión humana del documento.
+> Este bloque fue generado de forma determinista a partir de
+> `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
+> sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260729T222434802365Z_4a2f49a_8cd4314`
-- **HEAD oficial observado:** `4a2f49a0007290ee6b290710e28946c40cee41ff`
+- **Run ID:** `20260730T000340226601Z_b4d1d512_24e854e4`
+- **HEAD oficial observado:** `b4d1d512fe953d593608391390f82ab500fdc9d6`
 - **Commit previamente observado:** `38b0917c5b8dba5c5a4ef4db157e78ac428ab4bc`
-- **Generado:** `2026-07-29T22:24:34.802365+00:00`
+- **Generado:** `2026-07-30T00:03:40.226601+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
 ### Estado estructurado de la fuente oficial
 
-- **Sprint vigente:** Sprint 7.5 — Base del plano de control de seguridad
-- **Estado:** `en progreso`
-- **Auditoría de autorización:** integrada mediante PR #22 y PR #23
-- **Cambio documental nuevo:** planificación futura incorporada mediante PR #24
-- **PR #24 modifica código:** `false`
-- **PR #24 cambia el baseline operativo:** `false`
+- **Ficha de sprint más reciente:** `docs/project/sprints/SPRINT-7.5.md`
+- **Título declarado:** Sprint 7.5 — Base del plano de control de seguridad
+- **Estado declarado:** `en progreso`
+- **`as_of_commit` declarado:** `af64b062aa1395ba7f7bdd59e5c1099ded68b683`
 
 ### Commits oficiales observados
 
+- b4d1d512fe953d593608391390f82ab500fdc9d6	Merge pull request #27 from Aranwill/docs/strengthen-resource-governance-boundaries
+- 5c74c8641eab83ecf633e18fa9cdbd384bc968a2	docs(resources): strengthen resource governance boundaries
+- c9719e0aaf9fccbab5ca0e195861879c13338daf	Merge pull request #26 from Aranwill/docs/clarify-self-governance-wording
+- 998a90a9424a1cdb53639cd5c8f38e17d23defa3	docs(governance): clarify self-validation under human authority
+- b7d2ef92f75f72c1c173465676d87ebd68a259ea	Merge pull request #25 from Aranwill/docs/clarify-governed-defense-boundaries
+- 638effcec9057757edf0e5e9037029505190961e	docs(security): clarify governed defense boundaries
 - 4a2f49a0007290ee6b290710e28946c40cee41ff	Merge pull request #24 from Aranwill/agent/record-segmented-scaling-and-active-defense
 - 93689b903f28f61537d502b68785c5d3f6b37137	docs: record segmented scaling and governed active defense
-- 38b0917c5b8dba5c5a4ef4db157e78ac428ab4bc	Merge pull request #23 from Aranwill/agent/sprint-7.5-pep-audit-integration
 
 ### Evidencia que originó esta proyección
 
 - `baseline-source-change` por `docs/project/implementation_roadmap.md`
-- `strategy-change` por `documents/projects/jarvis/ideas.md`
-- `verified-merge` por PR #24
-- `reconciliation` del Sprint 7.5
 <!-- MALAK_VAULT_SYNC:END -->
 
 ## 1. Instrucción de uso
