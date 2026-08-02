@@ -179,8 +179,8 @@ Puede:
 - resolver documentos candidatos;
 - validar rutas;
 - validar Markdown;
-- validar YAML;
-- validar enlaces;
+- validar archivos YAML independientes;
+- validar enlaces Markdown relativos;
 - validar hashes;
 - validar metadatos;
 - detectar contradicciones;
@@ -195,6 +195,13 @@ Puede:
 - abrir únicamente una PR draft dirigida a `main`;
 - persistir la identidad de la propuesta pendiente después de completar
   el circuito remoto.
+
+En `main@0feed6e`, estas capacidades no incluyen todavía validación del
+frontmatter YAML de documentos Markdown, validación de wikilinks ni
+revalidación del contenido final después de insertar la proyección.
+Tampoco existe recuperación completa si la PR fue creada y falla la
+persistencia posterior de su identidad. Son brechas técnicas conocidas,
+no permisos implícitos ni controles verificados.
 
 No puede:
 
@@ -369,6 +376,23 @@ La Fase 1 deberá validar como mínimo:
 - informe de auditoría;
 - resultado end-to-end.
 
+### 12.1 Requisitos obligatorios de `controlled-proposal`
+
+Antes de declarar conformidad técnica completa, el modo deberá:
+
+- revalidar cada documento Markdown después de escribir la proyección;
+- validar el frontmatter YAML delimitado por `---`;
+- validar enlaces Markdown relativos y wikilinks de Obsidian;
+- bloquear explícitamente `09-repository-snapshots/**` en la denylist,
+  además de mantener esa ruta fuera del allowlist;
+- persistir o recuperar de forma inequívoca la identidad de una rama o
+  PR creada antes de cualquier fallo local posterior;
+- registrar `triggered_by: manual-on-demand` mientras ese sea el modo
+  operativo vigente.
+
+La corrección de estas brechas requiere un incremento técnico separado y
+aprobación humana explícita. Esta política no lo inicia automáticamente.
+
 ## 13. Uso del LLM
 
 Durante la Fase 1:
@@ -445,6 +469,8 @@ detectar
 
 ### 15.2 `controlled-proposal`
 
+Flujo normativo aprobado:
+
 ```text
 ejecutar manualmente
 → verificar repositorios, ramas, HEAD y working trees
@@ -460,6 +486,10 @@ ejecutar manualmente
 → detenerse para revisión humana
 ```
 
+El flujo anterior expresa el contrato obligatorio. El baseline
+`main@0feed6e` implementa el núcleo de propuesta, pero todavía no satisface
+todos los controles enumerados en 12.1.
+
 ## 16. Controles verificados al cierre
 
 ```text
@@ -474,7 +504,8 @@ git diff --check: correcto
 Resultado end-to-end: pass
 Configuración privada: válida y excluida de Git
 Ejecución manual: pass
-Controlled-proposal: implementado y validado
+Controlled-proposal: núcleo implementado y validado
+Conformidad técnica completa: pendiente
 Estado persistente: esquema v3 reconciliado
 Incremento 4: cerrado
 Scheduler final: eliminado
@@ -485,6 +516,11 @@ last_applied_commit: null
 Hashes SHA-256 verificados: sí
 Autoridad operativa: none
 ```
+
+`230 passed`, `compileall`, `git diff --check` y el resultado end-to-end
+son evidencia válida de su alcance probado. No acreditan validación de
+frontmatter, wikilinks, contenido final pos-escritura, denylist corregida
+ni recuperación posterior a la creación de una PR.
 
 Los comandos sobre Malāk permanecen read-only. Las operaciones de
 escritura autorizadas están limitadas a la rama aislada de propuesta del
@@ -610,6 +646,7 @@ HEAD del agente: 0feed6eae3d3919ea4867891c12eda5eea81c511
 Agente operativo: herramienta externa con propuesta controlada
 Modo operativo: manual-on-demand
 Modos autorizados: dry-run y controlled-proposal
+Conformidad de controlled-proposal: corrección técnica pendiente
 Scheduler activo: no
 Autoridad operativa: none
 Escritura sobre Malāk: no

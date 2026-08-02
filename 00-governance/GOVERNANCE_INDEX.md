@@ -71,7 +71,8 @@ Estado de implementación:
 
 ```text
 Fase 1 completada y cerrada
-Controlled-proposal aprobado y cerrado en su alcance vigente
+Controlled-proposal aprobado; núcleo operativo implementado
+Conformidad técnica completa: pendiente de incremento correctivo
 Modo manual-on-demand
 ```
 
@@ -113,5 +114,19 @@ y PR draft sobre documentos allowlisted del Vault. No autoriza:
 - integración con Kernel o runtime;
 - modificación de Malāk;
 - modificación de snapshots históricos.
+
+La suite vigente (`230 passed`) verifica el núcleo de ese flujo, pero no
+demuestra todavía conformidad completa con todos los controles normativos.
+Permanecen como requisitos correctivos no implementados:
+
+- revalidar el contenido final después de insertar la proyección;
+- validar frontmatter YAML y wikilinks de documentos Markdown;
+- corregir la denylist explícita a `09-repository-snapshots/**`;
+- recuperar de forma gobernada una rama o PR creada antes de persistir
+  su identidad local;
+- registrar el disparador real `manual-on-demand` en los informes.
+
+Estos requisitos no amplían autoridad ni autorizan por sí solos un nuevo
+incremento de implementación.
 
 Cualquier ampliación de alcance requiere una decisión independiente y aprobación humana explícita.

@@ -195,8 +195,8 @@ La arquitectura efectiva de la Fase 1 está compuesta por:
 - allowlist y denylist;
 - validadores de rutas;
 - validadores Markdown;
-- validadores YAML;
-- validadores de enlaces;
+- validadores de archivos YAML independientes;
+- validadores de enlaces Markdown relativos;
 - validadores de hashes;
 - validadores de metadatos;
 - controles TOCTOU;
@@ -219,6 +219,12 @@ La extensión `controlled-proposal` incorpora:
 - persistencia v3 de la identidad exacta de la propuesta;
 - aceptación y rechazo locales sujetos a decisión humana y verificación
   del estado remoto.
+
+En el baseline `main@0feed6e`, el núcleo anterior está implementado. No
+lo están todavía la revalidación de la proyección final, el parser de
+frontmatter YAML, el resolvedor de wikilinks, la denylist explícita
+`09-repository-snapshots/**` ni una recuperación completa si la PR se
+crea antes de fallar la persistencia local.
 
 La operacionalización posterior incorporó:
 
@@ -257,6 +263,8 @@ La Fase 1 no prepara cambios, no crea ramas, no crea commits y no abre pull requ
 
 ### 6.2 Extensión `controlled-proposal`
 
+Flujo arquitectónico objetivo aprobado:
+
 ```text
 ejecución manual
 → verificar Malāk y Vault
@@ -271,6 +279,11 @@ ejecución manual
 → persistir propuesta pendiente
 → esperar decisión humana
 ```
+
+El flujo efectivo actual crea y publica la propuesta, pero la validación
+documental ocurre antes de insertar la proyección y no vuelve a ejecutarse
+sobre el contenido final. Por ello, el flujo objetivo no debe presentarse
+todavía como completamente implementado.
 
 Este flujo nunca escribe en Malāk, nunca escribe directamente en `main`
 del Vault y nunca aprueba o mergea una PR.
@@ -354,7 +367,9 @@ En la extensión `controlled-proposal`:
 - Malāk conserva acceso estrictamente read-only;
 - el `main` remoto del Vault permanece sin escritura directa;
 - solo se modifican documentos allowlisted en una rama aislada;
-- no se modifican snapshots históricos;
+- los snapshots quedan fuera del allowlist y no fueron modificados;
+- la denylist explícita conserva por error `09-snapshots/**`; corregirla a
+  `09-repository-snapshots/**` permanece pendiente;
 - no se realiza force-push;
 - toda PR se abre como draft;
 - una propuesta pendiente bloquea nuevas propuestas;
@@ -457,6 +472,10 @@ cerrada formalmente
 
 El cierre de Gate 9 no autoriza una fase posterior.
 
+Los Gates 0 a 9 pertenecen al cierre histórico de Fase 1 read-only. No
+certifican los controles agregados posteriormente por
+`controlled-proposal`.
+
 ## 13. Componentes no implementados
 
 Los siguientes componentes permanecen fuera del alcance aprobado:
@@ -478,13 +497,24 @@ Los siguientes componentes permanecen fuera del alcance aprobado:
 
 Estos elementos no deben presentarse como arquitectura implementada.
 
+Los siguientes controles pertenecen al alcance aprobado de
+`controlled-proposal`, pero requieren un incremento correctivo todavía
+no autorizado para implementación:
+
+- validación del contenido final después de la escritura;
+- validación de frontmatter YAML en Markdown;
+- validación de wikilinks;
+- denylist explícita `09-repository-snapshots/**`;
+- recuperación de una rama o PR huérfana posterior a su creación;
+- evidencia `triggered_by: manual-on-demand`.
+
 ## 14. Fases futuras
 
 Secuencia conceptual:
 
 1. Fase 1 — Read-only Drift Detector: completada.
-2. Extensión gobernada `controlled-proposal`: aprobada y cerrada en su
-   alcance actual.
+2. Extensión gobernada `controlled-proposal`: aprobada, con núcleo
+   operativo y conformidad técnica pendiente de corrección.
 3. Fase 2 y ampliaciones funcionales posteriores: no aprobadas.
 4. Event-driven Detection: no aprobada.
 5. LLM-assisted Documentation: no aprobada.
@@ -635,7 +665,8 @@ Continúan vigentes:
 Fase 1: completada
 Operacionalización read-only: completada
 Modo operativo: manual-on-demand
-Controlled-proposal: aprobado y cerrado en su alcance vigente
+Controlled-proposal: aprobado; núcleo implementado
+Conformidad técnica completa: pendiente de corrección
 Scheduler activo: no
 Autoridad operativa: none
 Fases posteriores: no aprobadas

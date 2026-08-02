@@ -583,7 +583,7 @@ Avance aprobado de Malāk
 
 El cierre histórico de la Fase 1 permanece válido. El baseline
 operativo vigente añade el flujo `controlled-proposal` aprobado y
-validado, sin inferir aprobación de una Fase 2 ni conceder autoridad
+con núcleo validado, sin inferir aprobación de una Fase 2 ni conceder autoridad
 operativa al agente.
 
 La iniciativa:
@@ -602,11 +602,17 @@ La iniciativa:
 * reserva toda ampliación de alcance al propietario humano;
 * conserva `operational_authority: none`.
 
-La decisión correspondiente permanece resuelta y cerrada en:
+Las decisiones correspondientes permanecen resueltas y cerradas en:
 
 ```text
+DEC-PEND-013 — Aprobación y cierre fundacional de Fase 1
+DEC-RES-008 — Modo operativo manual-on-demand
 DEC-RES-009 — Extensión gobernada controlled-proposal
 ```
+
+`DEC-PEND-013` conserva la decisión fundacional de Fase 1,
+`DEC-RES-008` conserva el modo operativo y `DEC-RES-009` autoriza la
+extensión acotada; ninguna sustituye a las demás.
 
 El cierre técnico se documenta en:
 
@@ -861,6 +867,13 @@ La gobernanza vigente de `controlled-proposal` se registra en
 `DEC-RES-009`. La capacidad puede preparar ramas, commits, push y PR draft
 solo en el Vault y bajo controles deterministas. El merge y toda decisión
 material permanecen exclusivamente bajo autoridad humana.
+
+La auditoría integral del agente identificó brechas no cubiertas por las
+`230 passed`: revalidación final pos-escritura, frontmatter YAML,
+wikilinks, denylist exacta de snapshots, recuperación posterior a una PR
+creada y registro `manual-on-demand` en informes. El núcleo permanece
+operativo, pero la conformidad técnica completa requiere un incremento
+correctivo todavía no autorizado.
 
 ### 17.2 Registro histórico — 2026-07-26
 

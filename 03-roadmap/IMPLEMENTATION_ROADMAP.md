@@ -501,6 +501,7 @@ operacionalización manual completada
 modo manual-on-demand
 modos dry-run y controlled-proposal
 scheduler activo: no
+conformidad completa de controlled-proposal: pendiente
 ```
 
 **Autoridad operativa:**
@@ -558,6 +559,11 @@ Estado persistente: esquema v3 reconciliado
 Incremento 4: cerrado
 last_applied_commit: null
 ```
+
+El cierre del Incremento 4 y la suite de `230 passed` permanecen como
+evidencia histórica válida. Una auditoría posterior identificó controles
+del contrato aprobado que esa suite no cubre; por ello no deben
+interpretarse como conformidad técnica total.
 
 **Baseline histórico del cierre formal de la Fase 1:**
 
@@ -625,8 +631,8 @@ controlada aprobada posteriormente:
 * aplicación de allowlist y denylist;
 * validación de rutas;
 * validación de Markdown;
-* validación de YAML;
-* validación de enlaces;
+* validación de archivos YAML independientes;
+* validación de enlaces Markdown relativos;
 * validación de hashes;
 * validación de metadatos;
 * controles TOCTOU;
@@ -636,11 +642,25 @@ controlada aprobada posteriormente:
 * runner manual;
 * lock de ejecución;
 * polling externo;
-* validación final end-to-end.
+* validación end-to-end del alcance cubierto por la suite;
 * cursores independientes para observación y propuesta;
 * creación controlada de rama y commits en el Vault;
 * publicación y apertura de PR draft;
 * ausencia de aprobación o merge automático.
+
+**Trabajo correctivo identificado y no autorizado para implementación:**
+
+1. corregir el bootstrap inicial de `controlled-proposal`;
+2. revalidar el contenido final pos-escritura;
+3. validar frontmatter YAML y wikilinks;
+4. corregir la denylist a `09-repository-snapshots/**`;
+5. recuperar propuestas remotas cuya identidad no pudo persistirse;
+6. registrar `manual-on-demand` como disparador real;
+7. alinear versionado, documentación, cobertura de candidatos y CI según
+   el informe de auditoría integral.
+
+Este registro no abre Fase 2, no inicia un nuevo incremento y no autoriza
+cambios en el agente.
 
 **Modelo de autoridad:**
 

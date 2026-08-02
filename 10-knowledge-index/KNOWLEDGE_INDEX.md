@@ -296,7 +296,7 @@ Carpeta:
 
 Estado:
 
-`Índice de navegación activo con un modelo de amenazas aceptado para la Fase 1 del Vault Synchronization Agent.`
+`Índice de navegación activo con un modelo de amenazas aceptado para la Fase 1 y controlled-proposal, con brechas técnicas registradas.`
 
 El agente permanece fuera del Security Control Plane, del Kernel y del runtime.
 
@@ -306,7 +306,8 @@ Controles de Fase 1 verificados:
 - validación de repositorio, rama y `HEAD`;
 - allowlist y denylist;
 - controles TOCTOU;
-- validación de rutas, Markdown, YAML, enlaces y metadatos;
+- validación de rutas, Markdown básico, archivos YAML independientes,
+  enlaces Markdown relativos y metadatos cubiertos;
 - hashes SHA-256;
 - invariantes de no modificación;
 - `last_applied_commit: null`;
@@ -652,6 +653,7 @@ Estado:
 ```text
 Fase 1 aceptada, implementada y cerrada
 Extensión controlled-proposal aceptada
+Conformidad técnica completa pendiente
 ```
 
 ### Seguridad
@@ -714,6 +716,7 @@ Política de Fase 1: accepted
 Modelo de amenazas de Fase 1: accepted
 Fase 1: completed
 Controlled-proposal: approved
+Controlled-proposal conformance: corrective work required
 Gates 0 a 9: cerrados
 Agente operativo: herramienta externa determinista de propuesta controlada
 Autoridad operativa: none
@@ -723,13 +726,14 @@ Security Control Plane afectado: no
 Fase 2 y posteriores: no aprobadas
 ```
 
-La Fase 1:
+La Fase 1 y la extensión vigente:
 
 - observa y compara estados;
 - clasifica cambios;
 - resuelve documentos candidatos;
 - aplica allowlist y denylist;
-- valida rutas, Markdown, YAML, enlaces, hashes y metadatos;
+- valida rutas, Markdown básico, archivos YAML independientes, enlaces
+  Markdown relativos, hashes y metadatos cubiertos;
 - genera evidencia e informes locales;
 - no modifica `Aranwill/jarvis`;
 - escribe solo en una rama aislada y allowlisted del Vault;
@@ -737,6 +741,13 @@ La Fase 1:
 - no utiliza LLM;
 - no modifica snapshots históricos;
 - no cierra decisiones automáticamente.
+
+Permanecen pendientes la revalidación final, el frontmatter YAML, los
+wikilinks, la denylist exacta de snapshots, la recuperación de propuestas
+remotas no persistidas localmente y el disparador real de los informes.
+`DEC-PEND-013` conserva la decisión fundacional de Fase 1,
+`DEC-RES-008` conserva el modo manual y `DEC-RES-009` conserva el alcance
+autorizado de propuesta controlada.
 
 La implementación del agente no modifica el baseline operativo de Malāk y no lo convierte en parte del Kernel, del runtime ni del sistema cognitivo.
 

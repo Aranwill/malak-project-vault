@@ -53,8 +53,8 @@ Runtime afectado: no
 Security Control Plane afectado: no
 ```
 
-La aceptación de este modelo se limita a la Fase 1 cerrada y al alcance
-actual de `controlled-proposal`.
+La aceptación de este modelo cubre la Fase 1 cerrada y el alcance aprobado
+de `controlled-proposal`, incluidas sus brechas técnicas conocidas.
 
 Fase 2 y posteriores permanecen no aprobadas.
 
@@ -120,7 +120,7 @@ No forman parte de la superficie aprobada:
 - integración con Kernel;
 - integración con runtime.
 
-## 5. Amenazas y controles verificados
+## 5. Amenazas, controles vigentes y brechas conocidas
 
 ### 5.1 Confused deputy
 
@@ -229,8 +229,8 @@ un snapshot histórico.
 - `main` remoto tratado como base inmutable de la propuesta;
 - worktree temporal desde el `origin/main` verificado;
 - prefijo fijo de rama;
-- allowlist y denylist de rutas;
-- snapshots fuera del allowlist y bloqueados explícitamente;
+- allowlist de rutas y denylist parcial;
+- snapshots fuera del allowlist;
 - PR obligatoriamente draft;
 - ausencia de force-push, aprobación y merge;
 - `last_applied_commit: null`;
@@ -239,7 +239,8 @@ un snapshot histórico.
 **Estado:**
 
 ```text
-mitigado para el alcance controlado, con riesgo residual
+mitigado parcialmente; la denylist explícita usa `09-snapshots/**` y
+debe corregirse a `09-repository-snapshots/**`
 ```
 
 ### 5.7 Destrucción de historia
@@ -248,16 +249,15 @@ mitigado para el alcance controlado, con riesgo residual
 
 **Controles vigentes:**
 
-- snapshots en denylist;
+- snapshots fuera del allowlist;
 - inmutabilidad explícita;
 - validación de rutas;
-- bloqueo de actualización de snapshots existentes;
 - ningún snapshot modificado.
 
 **Estado:**
 
 ```text
-mitigado
+mitigado por allowlist, con corrección de denylist pendiente
 ```
 
 ### 5.8 Escalada mediante credenciales
@@ -334,6 +334,9 @@ mitigado para `dry-run` y `controlled-proposal`
 - límites de evidencia;
 - exclusión de secretos;
 - revisión humana requerida.
+
+La validación de contenido vigente no incluye frontmatter YAML, wikilinks
+ni una segunda validación después de insertar la proyección.
 
 **Estado:**
 
@@ -477,7 +480,8 @@ git diff --check: correcto
 Resultado end-to-end: pass
 Malāk intacto: sí
 Vault main intacto: sí
-Controlled-proposal: validado
+Controlled-proposal: núcleo validado
+Conformidad completa de controlled-proposal: pendiente
 Estado v3: reconciliado
 last_applied_commit: null
 Hashes SHA-256 verificados: sí
@@ -532,6 +536,14 @@ No están implementados ni aprobados:
 - integración con Security Control Plane;
 - integración con Kernel;
 - integración con runtime.
+
+Pertenecen al alcance aprobado, pero no están implementados todavía:
+
+- revalidación final pos-escritura;
+- validación de frontmatter YAML y wikilinks;
+- denylist explícita `09-repository-snapshots/**`;
+- recuperación completa posterior a una PR creada;
+- evidencia `triggered_by: manual-on-demand`.
 
 ## 10. Condiciones para una ampliación futura
 
@@ -597,4 +609,7 @@ Snapshots modificados: no
 Fase 2 y posteriores: no aprobadas
 ```
 
-La aceptación de este documento no concede autoridad adicional ni autoriza capacidades fuera del alcance cerrado de la Fase 1.
+La aceptación de este documento no concede autoridad adicional ni
+autoriza capacidades fuera de la Fase 1 cerrada y de la extensión
+`controlled-proposal` aprobada en `DEC-RES-009`. Tampoco autoriza por sí
+sola el incremento correctivo pendiente.

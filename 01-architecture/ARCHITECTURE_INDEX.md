@@ -206,6 +206,8 @@ Estado arquitectónico:
 ```text
 Fase 1 aceptada, implementada y cerrada
 Extensión controlled-proposal aceptada
+Núcleo de controlled-proposal implementado
+Conformidad técnica completa pendiente
 ```
 
 Estado operativo:
@@ -244,6 +246,12 @@ Resultado end-to-end: pass
 
 La extensión independiente se registra en `DEC-RES-009` y no constituye
 Fase 2.
+
+El baseline `0feed6e` no implementa aún revalidación final pos-escritura,
+frontmatter YAML, wikilinks, la denylist explícita correcta de snapshots
+ni recuperación completa tras crear una PR y fallar la persistencia
+local. Esos puntos permanecen como requisitos correctivos; no invalidan
+la decisión ni amplían la autoridad del agente.
 
 Fase 2 y posteriores permanecen no aprobadas.
 

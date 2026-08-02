@@ -45,7 +45,7 @@ determinista y sin autoridad operativa.
 
 La aceptación de ese modelo:
 
-- documenta amenazas y controles verificados;
+- documenta amenazas, controles verificados y brechas conocidas;
 - registra riesgos residuales;
 - no convierte al agente en un control de seguridad de Malāk;
 - no concede autoridad operativa;
@@ -122,8 +122,9 @@ Controles verificados durante la Fase 1:
 - allowlist y denylist;
 - controles TOCTOU;
 - validación de rutas;
-- validación de Markdown y YAML;
-- validación de enlaces y metadatos;
+- validación estructural básica de Markdown y de archivos YAML
+  independientes;
+- validación de enlaces Markdown relativos y metadatos cubiertos;
 - hashes SHA-256;
 - sanitización de evidencia;
 - límites de tamaño y alcance;
@@ -138,11 +139,23 @@ Controles verificados durante la Fase 1:
 Controles adicionales de `controlled-proposal`:
 
 - escritura limitada a una rama aislada del Vault;
-- allowlist de documentos y bloqueo de snapshots;
+- allowlist de documentos, que actualmente mantiene snapshots fuera del
+  alcance de escritura;
 - PR obligatoriamente draft;
 - ausencia de force-push, aprobación y merge;
 - identidad exacta de la propuesta pendiente;
 - reconciliación posterior a una decisión humana verificable.
+
+Brechas técnicas conocidas:
+
+- no existe revalidación del contenido final después de escribir;
+- no se validan frontmatter YAML ni wikilinks;
+- la denylist explícita usa `09-snapshots/**` en vez de
+  `09-repository-snapshots/**`;
+- una falla posterior a crear la PR puede dejar identidad remota sin
+  persistencia local;
+- los informes declaran `scheduled-detection` aunque el modo vigente es
+  `manual-on-demand`.
 
 Riesgos residuales documentados:
 
