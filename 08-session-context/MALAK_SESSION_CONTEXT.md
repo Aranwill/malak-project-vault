@@ -645,7 +645,25 @@ El Vault:
 **Repositorio remoto:** `Aranwill/malak-project-vault`
 **Rama oficial:** `main`
 
-Estado remoto vigente después de las sincronizaciones gobernadas:
+Estado correctivo verificado antes del ajuste final a la PR #21:
+
+```text
+Vault main — base verificada: 304d426c77bd631332b032d978810b7bd0cf3b30
+PR #21 al verificar: abierta y en borrador
+Rama de propuesta: agent/reconcile-baseline-metadata
+HEAD previo al ajuste final: 2b91e308018fb822fdbff1c988ebada028732df9
+Archivos modificados: 2
+Snapshots modificados: no
+Merge autorizado: no
+```
+
+La PR #21 reconcilia únicamente `CURRENT_BASELINE.md` y
+`MALAK_SESSION_CONTEXT.md`. No modifica roadmap, decisiones, snapshots
+ni el estado operativo de Malāk.
+
+### Registro histórico — sincronización gobernada cerrada mediante PR #13
+
+Estado remoto verificado después de aquella sincronización:
 
 ```text
 Vault main: 772991d4b1dfecd95d746398bbcd268f450bfe2c
@@ -656,7 +674,7 @@ PR abiertas: ninguna
 Rama de propuesta #13: eliminada después del merge
 ```
 
-Última evidencia del Vault Synchronization Agent:
+Evidencia histórica del Vault Synchronization Agent asociada a la PR #13:
 
 ```text
 run_id: 20260726T214149097509Z_d1c90bf0_70ffa813
@@ -675,7 +693,7 @@ Informe auditable integrado:
 07-audits/vault-synchronization/2026-07-26_VAULT_SYNC_20260726T214149097509Z_d1c90bf0_70ffa813.md
 ```
 
-Estado de la sincronización:
+Estado histórico de la sincronización:
 
 ```text
 end-to-end completado;
@@ -853,7 +871,8 @@ Al recibir este archivo, el asistente debe:
 
 ```text
 Malāk main: b4d1d512fe953d593608391390f82ab500fdc9d6
-Vault main: f433b9efc426ba52141a1a3daed81795fc666e6f
+Vault main — base verificada previa a PR #21: 304d426c77bd631332b032d978810b7bd0cf3b30
+Vault PR #21 — HEAD previo al ajuste final: 2b91e308018fb822fdbff1c988ebada028732df9
 Agente main: 0feed6eae3d3919ea4867891c12eda5eea81c511
 Suite del agente: 230 passed
 Incremento 4 del agente: cerrado

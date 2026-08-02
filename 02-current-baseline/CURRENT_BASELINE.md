@@ -1059,7 +1059,25 @@ Esta iniciativa:
 
 ## 15. Estado actual del Project Vault
 
-Estado base verificado para la propuesta de sincronización actual:
+Estado correctivo verificado antes del ajuste final a la PR #21:
+
+```text
+Repositorio: Aranwill/malak-project-vault
+Rama oficial: main
+HEAD base verificado: 304d426c77bd631332b032d978810b7bd0cf3b30
+Rama de propuesta: agent/reconcile-baseline-metadata
+PR draft: #21
+HEAD previo al ajuste final: 2b91e308018fb822fdbff1c988ebada028732df9
+Estado de la PR al verificar: abierta y en borrador
+Merge autorizado: no
+```
+
+La PR #21 reconcilia únicamente el baseline y el contexto de sesión. No
+modifica snapshots, roadmap, decisiones ni el estado operativo de Malāk.
+
+### Registro histórico — propuesta de sincronización PR #10
+
+Estado base verificado al preparar aquella propuesta:
 
 ```text
 Repositorio: Aranwill/malak-project-vault
@@ -1073,10 +1091,9 @@ Working tree inicial: limpio
 La navegación, gobernanza, índices, snapshots y respaldo remoto del
 Vault están operativos.
 
-La propuesta fue producida por una ejecución manual bajo demanda del
-agente, se mantiene en una rama aislada y requiere revisión y merge
-humanos. El HEAD resultante de `main` deberá verificarse después del
-merge; este documento no lo anticipa.
+La propuesta de la PR #10 fue producida por una ejecución manual bajo
+demanda del agente. Este bloque se conserva como evidencia histórica y
+no representa la propuesta ni el HEAD vigentes.
 
 ---
 
