@@ -8,10 +8,10 @@ authority_level: technical_documentation
 authority_rank: 6
 version: 1.1
 created: 2026-07-20
-last_reviewed: 2026-07-29
+last_reviewed: 2026-08-01
 source_repository: Aranwill/jarvis
 source_branch: main
-source_commit: 4a2f49a0007290ee6b290710e28946c40cee41ff
+source_commit: b4d1d512fe953d593608391390f82ab500fdc9d6
 derived: true
 operational_context: true
 retrieval_enabled: true
@@ -147,29 +147,30 @@ Sprint: en progreso
 **Última suite integral documentada:**
 
 ```text
-244 passed
+304 passed
 ```
 
 La validación integral fue ejecutada sobre:
 
 ```text
-30b05587839cdac914e7ee31755bb5c0540862c1
+b4d1d512fe953d593608391390f82ab500fdc9d6
 ```
 
-La implementación validada fue integrada mediante la PR #19. La PR #20
-reconcilió documentalmente el estado del Incremento 4. La suite no se
-presenta como reejecutada después de `30b0558`.
+La suite integral fue reejecutada sobre el HEAD verificado durante la
+auditoría de cierre del 2026-07-31 y registró `304 passed`. La validación
+anterior de `244 passed` sobre `30b0558` se conserva únicamente como
+evidencia histórica.
 
 **Último commit remoto verificado:**
 
 ```text
-4a2f49a0007290ee6b290710e28946c40cee41ff
+b4d1d512fe953d593608391390f82ab500fdc9d6
 ```
 
 Descripción:
 
 ```text
-Merge pull request #24 from Aranwill/agent/record-segmented-scaling-and-active-defense
+Merge pull request #27 from Aranwill/docs/strengthen-resource-governance-boundaries
 ```
 
 Estos datos deben volver a verificarse si cambia `HEAD`.
@@ -644,7 +645,25 @@ El Vault:
 **Repositorio remoto:** `Aranwill/malak-project-vault`
 **Rama oficial:** `main`
 
-Estado remoto vigente después de las sincronizaciones gobernadas:
+Estado correctivo verificado antes del ajuste final a la PR #21:
+
+```text
+Vault main — base verificada: 304d426c77bd631332b032d978810b7bd0cf3b30
+PR #21 al verificar: abierta y en borrador
+Rama de propuesta: agent/reconcile-baseline-metadata
+HEAD previo al ajuste final: 2b91e308018fb822fdbff1c988ebada028732df9
+Archivos modificados: 2
+Snapshots modificados: no
+Merge autorizado: no
+```
+
+La PR #21 reconcilia únicamente `CURRENT_BASELINE.md` y
+`MALAK_SESSION_CONTEXT.md`. No modifica roadmap, decisiones, snapshots
+ni el estado operativo de Malāk.
+
+### Registro histórico — sincronización gobernada cerrada mediante PR #13
+
+Estado remoto verificado después de aquella sincronización:
 
 ```text
 Vault main: 772991d4b1dfecd95d746398bbcd268f450bfe2c
@@ -655,7 +674,7 @@ PR abiertas: ninguna
 Rama de propuesta #13: eliminada después del merge
 ```
 
-Última evidencia del Vault Synchronization Agent:
+Evidencia histórica del Vault Synchronization Agent asociada a la PR #13:
 
 ```text
 run_id: 20260726T214149097509Z_d1c90bf0_70ffa813
@@ -674,7 +693,7 @@ Informe auditable integrado:
 07-audits/vault-synchronization/2026-07-26_VAULT_SYNC_20260726T214149097509Z_d1c90bf0_70ffa813.md
 ```
 
-Estado de la sincronización:
+Estado histórico de la sincronización:
 
 ```text
 end-to-end completado;
@@ -830,8 +849,8 @@ Al recibir este archivo, el asistente debe:
 * reconocer Sprint 7.4 como último sprint formalmente cerrado;
 * reconocer Sprint 7.5 como aprobado y en progreso;
 * reconocer los Incrementos 1, 2, 3 y 4 de Sprint 7.5 como completados;
-* utilizar 244 pruebas como última suite integral documentada, sin
-  presentarla como reejecutada después de `30b0558`;
+* utilizar 304 pruebas sobre `b4d1d512` como última suite integral
+  documentada;
 * diferenciar baseline, roadmap y propuestas;
 * no asumir que un incremento pendiente o sprint posterior está aprobado;
 * no modificar el Kernel sin necesidad arquitectónica;
@@ -852,7 +871,8 @@ Al recibir este archivo, el asistente debe:
 
 ```text
 Malāk main: b4d1d512fe953d593608391390f82ab500fdc9d6
-Vault main: f433b9efc426ba52141a1a3daed81795fc666e6f
+Vault main — base verificada previa a PR #21: 304d426c77bd631332b032d978810b7bd0cf3b30
+Vault PR #21 — HEAD previo al ajuste final: 2b91e308018fb822fdbff1c988ebada028732df9
 Agente main: 0feed6eae3d3919ea4867891c12eda5eea81c511
 Suite del agente: 230 passed
 Incremento 4 del agente: cerrado

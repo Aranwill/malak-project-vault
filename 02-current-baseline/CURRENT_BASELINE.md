@@ -8,16 +8,16 @@ authority_level: baseline
 authority_rank: 5
 version: 1.1
 created: 2026-07-20
-last_reviewed: 2026-07-29
+last_reviewed: 2026-08-01
 source_of_truth: repository
 source_repository: Aranwill/jarvis
 source_branch: main
-source_commit: 4a2f49a0007290ee6b290710e28946c40cee41ff
+source_commit: b4d1d512fe953d593608391390f82ab500fdc9d6
 derived: true
 operational_context: true
 retrieval_enabled: true
 retrieval_scope: active
------------------------
+---
 
 # Malāk Current Baseline
 
@@ -142,13 +142,13 @@ No debe utilizarse ninguna rama histórica como fuente del estado actual.
 **Último commit remoto verificado al revisar este documento:**
 
 ```text
-4a2f49a0007290ee6b290710e28946c40cee41ff
+b4d1d512fe953d593608391390f82ab500fdc9d6
 ```
 
 **Descripción:**
 
 ```text
-Merge pull request #24 from Aranwill/agent/record-segmented-scaling-and-active-defense
+Merge pull request #27 from Aranwill/docs/strengthen-resource-governance-boundaries
 ```
 
 El rango posterior a `7cd7fcc811df01555837319ec4cac0a93ef94fff`
@@ -160,7 +160,8 @@ la activación documental. El PDP se integró mediante la PR #17 en
 estado en la documentación oficial sin modificar código. El PEP se
 integró mediante la PR #19 en
 `af64b062aa1395ba7f7bdd59e5c1099ded68b683`; la PR #20 reconcilió su
-estado documental y produjo el HEAD verificado.
+estado documental. Las PR #25, #26 y #27 incorporaron aclaraciones
+documentales posteriores; la PR #27 produjo el HEAD verificado.
 
 El hash registrado aquí es una referencia temporal y deberá actualizarse cuando cambie materialmente `HEAD`.
 
@@ -241,7 +242,7 @@ No forman parte del baseline operativo:
 **Última suite integral documentada:**
 
 ```text
-244 passed
+304 passed
 ```
 
 Validaciones documentadas:
@@ -255,7 +256,7 @@ git diff --check
 Resultado registrado:
 
 * 19 pruebas específicas del Incremento 4 aprobadas;
-* 244 pruebas totales aprobadas;
+* 304 pruebas totales aprobadas;
 * compilación validada sin errores;
 * diff validado sin errores de formato;
 * Kernel, Planner y runtimes sin cambios;
@@ -264,15 +265,14 @@ Resultado registrado:
 La validación integral fue ejecutada sobre:
 
 ```text
-30b05587839cdac914e7ee31755bb5c0540862c1
+b4d1d512fe953d593608391390f82ab500fdc9d6
 ```
 
-El commit validado fue integrado mediante la PR #19. Los commits
-posteriores `af64b062aa1395ba7f7bdd59e5c1099ded68b683`,
-`3c2acdbdadae84535b08c039243d4da405560d89` y
-`d1c90bf0bf55a7076d68c1f4830e89e0d843661c` corresponden al merge y a
-la reconciliación documental. Las pruebas y `compileall` no se
-presentan como reejecutados después de `30b0558`.
+La suite integral fue reejecutada sobre el HEAD verificado durante la
+auditoría de cierre del 2026-07-31 y registró `304 passed`. La validación
+anterior de `244 passed` sobre
+`30b05587839cdac914e7ee31755bb5c0540862c1` se conserva únicamente como
+evidencia histórica.
 
 Antes de una nueva implementación deberá verificarse nuevamente en el entorno local:
 
@@ -1059,7 +1059,25 @@ Esta iniciativa:
 
 ## 15. Estado actual del Project Vault
 
-Estado base verificado para la propuesta de sincronización actual:
+Estado correctivo verificado antes del ajuste final a la PR #21:
+
+```text
+Repositorio: Aranwill/malak-project-vault
+Rama oficial: main
+HEAD base verificado: 304d426c77bd631332b032d978810b7bd0cf3b30
+Rama de propuesta: agent/reconcile-baseline-metadata
+PR draft: #21
+HEAD previo al ajuste final: 2b91e308018fb822fdbff1c988ebada028732df9
+Estado de la PR al verificar: abierta y en borrador
+Merge autorizado: no
+```
+
+La PR #21 reconcilia únicamente el baseline y el contexto de sesión. No
+modifica snapshots, roadmap, decisiones ni el estado operativo de Malāk.
+
+### Registro histórico — propuesta de sincronización PR #10
+
+Estado base verificado al preparar aquella propuesta:
 
 ```text
 Repositorio: Aranwill/malak-project-vault
@@ -1073,10 +1091,9 @@ Working tree inicial: limpio
 La navegación, gobernanza, índices, snapshots y respaldo remoto del
 Vault están operativos.
 
-La propuesta fue producida por una ejecución manual bajo demanda del
-agente, se mantiene en una rama aislada y requiere revisión y merge
-humanos. El HEAD resultante de `main` deberá verificarse después del
-merge; este documento no lo anticipa.
+La propuesta de la PR #10 fue producida por una ejecución manual bajo
+demanda del agente. Este bloque se conserva como evidencia histórica y
+no representa la propuesta ni el HEAD vigentes.
 
 ---
 
