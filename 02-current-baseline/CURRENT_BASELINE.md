@@ -8,16 +8,16 @@ authority_level: baseline
 authority_rank: 5
 version: 1.1
 created: 2026-07-20
-last_reviewed: 2026-07-29
+last_reviewed: 2026-08-01
 source_of_truth: repository
 source_repository: Aranwill/jarvis
 source_branch: main
-source_commit: 4a2f49a0007290ee6b290710e28946c40cee41ff
+source_commit: b4d1d512fe953d593608391390f82ab500fdc9d6
 derived: true
 operational_context: true
 retrieval_enabled: true
 retrieval_scope: active
------------------------
+---
 
 # Malāk Current Baseline
 
