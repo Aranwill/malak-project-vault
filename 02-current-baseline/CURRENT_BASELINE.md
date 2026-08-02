@@ -242,7 +242,7 @@ No forman parte del baseline operativo:
 **Última suite integral documentada:**
 
 ```text
-244 passed
+304 passed
 ```
 
 Validaciones documentadas:
@@ -256,7 +256,7 @@ git diff --check
 Resultado registrado:
 
 * 19 pruebas específicas del Incremento 4 aprobadas;
-* 244 pruebas totales aprobadas;
+* 304 pruebas totales aprobadas;
 * compilación validada sin errores;
 * diff validado sin errores de formato;
 * Kernel, Planner y runtimes sin cambios;
@@ -265,15 +265,14 @@ Resultado registrado:
 La validación integral fue ejecutada sobre:
 
 ```text
-30b05587839cdac914e7ee31755bb5c0540862c1
+b4d1d512fe953d593608391390f82ab500fdc9d6
 ```
 
-El commit validado fue integrado mediante la PR #19. Los commits
-posteriores `af64b062aa1395ba7f7bdd59e5c1099ded68b683`,
-`3c2acdbdadae84535b08c039243d4da405560d89` y
-`d1c90bf0bf55a7076d68c1f4830e89e0d843661c` corresponden al merge y a
-la reconciliación documental. Las pruebas y `compileall` no se
-presentan como reejecutados después de `30b0558`.
+La suite integral fue reejecutada sobre el HEAD verificado durante la
+auditoría de cierre del 2026-07-31 y registró `304 passed`. La validación
+anterior de `244 passed` sobre
+`30b05587839cdac914e7ee31755bb5c0540862c1` se conserva únicamente como
+evidencia histórica.
 
 Antes de una nueva implementación deberá verificarse nuevamente en el entorno local:
 

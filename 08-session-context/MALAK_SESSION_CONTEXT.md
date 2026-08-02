@@ -147,18 +147,19 @@ Sprint: en progreso
 **Última suite integral documentada:**
 
 ```text
-244 passed
+304 passed
 ```
 
 La validación integral fue ejecutada sobre:
 
 ```text
-30b05587839cdac914e7ee31755bb5c0540862c1
+b4d1d512fe953d593608391390f82ab500fdc9d6
 ```
 
-La implementación validada fue integrada mediante la PR #19. La PR #20
-reconcilió documentalmente el estado del Incremento 4. La suite no se
-presenta como reejecutada después de `30b0558`.
+La suite integral fue reejecutada sobre el HEAD verificado durante la
+auditoría de cierre del 2026-07-31 y registró `304 passed`. La validación
+anterior de `244 passed` sobre `30b0558` se conserva únicamente como
+evidencia histórica.
 
 **Último commit remoto verificado:**
 
@@ -830,8 +831,8 @@ Al recibir este archivo, el asistente debe:
 * reconocer Sprint 7.4 como último sprint formalmente cerrado;
 * reconocer Sprint 7.5 como aprobado y en progreso;
 * reconocer los Incrementos 1, 2, 3 y 4 de Sprint 7.5 como completados;
-* utilizar 244 pruebas como última suite integral documentada, sin
-  presentarla como reejecutada después de `30b0558`;
+* utilizar 304 pruebas sobre `b4d1d512` como última suite integral
+  documentada;
 * diferenciar baseline, roadmap y propuestas;
 * no asumir que un incremento pendiente o sprint posterior está aprobado;
 * no modificar el Kernel sin necesidad arquitectónica;
