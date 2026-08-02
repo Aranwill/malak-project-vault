@@ -142,13 +142,13 @@ No debe utilizarse ninguna rama histórica como fuente del estado actual.
 **Último commit remoto verificado al revisar este documento:**
 
 ```text
-4a2f49a0007290ee6b290710e28946c40cee41ff
+b4d1d512fe953d593608391390f82ab500fdc9d6
 ```
 
 **Descripción:**
 
 ```text
-Merge pull request #24 from Aranwill/agent/record-segmented-scaling-and-active-defense
+Merge pull request #27 from Aranwill/docs/strengthen-resource-governance-boundaries
 ```
 
 El rango posterior a `7cd7fcc811df01555837319ec4cac0a93ef94fff`
@@ -160,7 +160,8 @@ la activación documental. El PDP se integró mediante la PR #17 en
 estado en la documentación oficial sin modificar código. El PEP se
 integró mediante la PR #19 en
 `af64b062aa1395ba7f7bdd59e5c1099ded68b683`; la PR #20 reconcilió su
-estado documental y produjo el HEAD verificado.
+estado documental. Las PR #25, #26 y #27 incorporaron aclaraciones
+documentales posteriores; la PR #27 produjo el HEAD verificado.
 
 El hash registrado aquí es una referencia temporal y deberá actualizarse cuando cambie materialmente `HEAD`.
 

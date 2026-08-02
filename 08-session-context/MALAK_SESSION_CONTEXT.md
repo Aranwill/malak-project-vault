@@ -163,13 +163,13 @@ presenta como reejecutada después de `30b0558`.
 **Último commit remoto verificado:**
 
 ```text
-4a2f49a0007290ee6b290710e28946c40cee41ff
+b4d1d512fe953d593608391390f82ab500fdc9d6
 ```
 
 Descripción:
 
 ```text
-Merge pull request #24 from Aranwill/agent/record-segmented-scaling-and-active-defense
+Merge pull request #27 from Aranwill/docs/strengthen-resource-governance-boundaries
 ```
 
 Estos datos deben volver a verificarse si cambia `HEAD`.
