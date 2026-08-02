@@ -1419,7 +1419,178 @@ Autoridad operativa: none
 Fase 2 aprobada: no
 ```
 
-Esta decisión no autoriza escritura automática sobre el Vault ni ampliaciones de alcance.
+Esta decisión de modo operativo no autorizó por sí sola escritura sobre
+el Vault. La extensión posterior y acotada se registra de forma
+independiente en `DEC-RES-009`.
+
+---
+
+## DEC-RES-009 — Extensión gobernada `controlled-proposal`
+
+**Estado:**
+
+```text
+closed
+```
+
+**Fecha de resolución:**
+
+```text
+2026-08-01
+```
+
+**Contexto:**
+
+La Fase 1 read-only y su operacionalización permanecen cerradas. El
+propietario aprobó después una capacidad acotada para reducir la
+reconciliación manual repetitiva sin transferir autoridad al agente.
+
+El núcleo de la implementación fue integrado y validado en el repositorio
+independiente `Aranwill/malak-vault-sync-agent`, culminando en:
+
+```text
+Rama: main
+HEAD: 0feed6eae3d3919ea4867891c12eda5eea81c511
+PR documental de cierre: #6 integrada
+Suite completa: 230 passed
+Modo operativo: manual-on-demand
+Scheduler activo: no
+Autoridad operativa: none
+```
+
+Una auditoría posterior confirmó que esta evidencia no demuestra todavía
+conformidad completa con todos los controles obligatorios de la decisión.
+La autorización permanece vigente, pero los controles pendientes deben
+implementarse y validarse en un incremento correctivo separado.
+
+**Decisión:**
+
+Se aprueba `controlled-proposal` como extensión independiente, explícita
+y limitada del agente. Esta resolución no reabre la Fase 1 y no autoriza
+la Fase 2 ni una fase posterior.
+
+**Operaciones autorizadas:**
+
+- observar `Aranwill/jarvis/main` exclusivamente en modo read-only;
+- verificar `origin/main` del Vault y avanzar su `main` local limpio solo
+  mediante `fast-forward`;
+- resolver documentos derivados mediante allowlist y denylist;
+- crear un worktree temporal desde el `origin/main` verificado del Vault;
+- escribir la proyección determinista únicamente en documentos
+  allowlisted;
+- validar el contenido final antes de publicarlo;
+- crear commits documentales y de auditoría en una rama aislada;
+- publicar únicamente la rama con el prefijo autorizado;
+- abrir una PR draft contra `main`;
+- persistir la identidad exacta de la propuesta pendiente;
+- reconciliar localmente una aceptación o rechazo solo después de una
+  decisión humana y verificación remota.
+
+**Operaciones prohibidas:**
+
+- modificar archivos, ramas, commits o configuración de Malāk;
+- escribir directamente en `main` del Vault;
+- modificar archivos fuera del allowlist;
+- modificar snapshots históricos;
+- realizar force-push o reescribir historia;
+- aprobar, habilitar auto-merge o mergear una PR;
+- aceptar o rechazar por inferencia;
+- cerrar decisiones o sprints;
+- utilizar LLM;
+- ejecutar mediante scheduler activo, daemon, servicio o webhook;
+- iniciar otra propuesta mientras exista una pendiente;
+- ampliar permisos o alcance sin otra decisión humana explícita.
+
+**Modelo de autoridad:**
+
+```text
+Agente:
+observa, valida, genera evidencia y prepara una propuesta aislada
+
+Humano:
+invoca, revisa, decide, aprueba o rechaza y mergea
+
+Autoridad operativa del agente:
+none
+```
+
+Una rama, un commit, un informe o una PR draft son evidencia y propuesta;
+no constituyen una decisión ni una aplicación automática. Por esa razón,
+`last_applied_commit` permanece en `null`.
+
+**Controles obligatorios:**
+
+- identidad exacta de repositorios, remotos, ramas y SHAs;
+- working trees limpios;
+- creación desde el `origin/main` verificado;
+- allowlist, denylist correcta y bloqueo de snapshots;
+- límites de archivos y tamaño;
+- sanitización de evidencia;
+- validación del contenido final;
+- lock de ejecución;
+- PR obligatoriamente draft;
+- ausencia de force-push y auto-merge;
+- persistencia atómica del archivo de estado v3 y recuperación consistente
+  de la identidad remota;
+- propuesta pendiente bloqueante;
+- verificación remota para aceptar o rechazar;
+- revisión humana del diff y del informe.
+
+Los controles obligatorios describen el contrato autorizado. En
+`main@0feed6e` permanecen pendientes:
+
+- validación del contenido final pos-escritura;
+- frontmatter YAML y wikilinks;
+- denylist explícita `09-repository-snapshots/**`;
+- recuperación posterior a una PR creada cuya identidad local no pudo
+  persistirse;
+- evidencia del disparador real `manual-on-demand`.
+
+La suite de `230 passed` no cubre esas brechas. Corregirlas no requiere
+ampliar autoridad, pero sí una aprobación técnica independiente antes de
+modificar el agente.
+
+**Rollback:**
+
+Ante una propuesta no aprobada:
+
+1. detener nuevas ejecuciones;
+2. cerrar la PR sin merge;
+3. eliminar únicamente su rama de propuesta;
+4. conservar la evidencia y el estado previo;
+5. reconciliar el rechazo mediante decisión humana explícita;
+6. verificar que Malāk y `main` del Vault permanecen intactos.
+
+**Cuatro preguntas obligatorias:**
+
+1. Blueprint: aprobado; el agente permanece externo.
+2. Constitución Cognitiva: aprobado; no infiere decisiones.
+3. Gobernanza: aprobado; Human in Control y separación entre propuesta y
+   aplicación.
+4. Kernel: aprobado; no se modifica ni conoce al agente.
+
+**Fuera de alcance:**
+
+- Fase 2 o posteriores;
+- scheduler activo;
+- ejecución autónoma;
+- escritura directa en `main`;
+- modificación de documentos normativos por inferencia;
+- LLM;
+- integración con Kernel, runtime o Security Control Plane;
+- auto-merge;
+- ampliación de permisos.
+
+**Relación con decisiones previas:**
+
+- `DEC-PEND-013` conserva la aprobación y el cierre fundacional de la
+  Fase 1 read-only;
+- `DEC-RES-008` conserva la decisión fundacional del modo operativo
+  `manual-on-demand`, sin scheduler activo;
+- `DEC-RES-009` autoriza exclusivamente la extensión acotada
+  `controlled-proposal`.
+
+Ninguna sustituye a las demás.
 
 ---
 

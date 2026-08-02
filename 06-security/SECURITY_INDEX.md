@@ -39,11 +39,13 @@ Este índice no declara implementado ningún componente de seguridad de Malāk.
 
 El Vault Synchronization Agent permanece fuera del Security Control Plane, del Kernel y del runtime.
 
-Su modelo de amenazas de Fase 1 fue aceptado y cerrado exclusivamente para una herramienta externa, determinista y de solo lectura.
+Su modelo de amenazas cubre la Fase 1 read-only cerrada y la extensión
+gobernada `controlled-proposal`, siempre como tooling externo,
+determinista y sin autoridad operativa.
 
 La aceptación de ese modelo:
 
-- documenta amenazas y controles verificados;
+- documenta amenazas, controles verificados y brechas conocidas;
 - registra riesgos residuales;
 - no convierte al agente en un control de seguridad de Malāk;
 - no concede autoridad operativa;
@@ -104,6 +106,7 @@ Alcance:
 
 ```text
 Fase 1 completada y cerrada
+Controlled-proposal aprobado
 ```
 
 Autoridad operativa:
@@ -119,8 +122,9 @@ Controles verificados durante la Fase 1:
 - allowlist y denylist;
 - controles TOCTOU;
 - validación de rutas;
-- validación de Markdown y YAML;
-- validación de enlaces y metadatos;
+- validación estructural básica de Markdown y de archivos YAML
+  independientes;
+- validación de enlaces Markdown relativos y metadatos cubiertos;
 - hashes SHA-256;
 - sanitización de evidencia;
 - límites de tamaño y alcance;
@@ -132,6 +136,27 @@ Controles verificados durante la Fase 1:
 - Vault intacto;
 - cero modificaciones de snapshots históricos.
 
+Controles adicionales de `controlled-proposal`:
+
+- escritura limitada a una rama aislada del Vault;
+- allowlist de documentos, que actualmente mantiene snapshots fuera del
+  alcance de escritura;
+- PR obligatoriamente draft;
+- ausencia de force-push, aprobación y merge;
+- identidad exacta de la propuesta pendiente;
+- reconciliación posterior a una decisión humana verificable.
+
+Brechas técnicas conocidas:
+
+- no existe revalidación del contenido final después de escribir;
+- no se validan frontmatter YAML ni wikilinks;
+- la denylist explícita usa `09-snapshots/**` en vez de
+  `09-repository-snapshots/**`;
+- una falla posterior a crear la PR puede dejar identidad remota sin
+  persistencia local;
+- los informes declaran `scheduled-detection` aunque el modo vigente es
+  `manual-on-demand`.
+
 Riesgos residuales documentados:
 
 - error humano durante la revisión;
@@ -140,8 +165,11 @@ Riesgos residuales documentados:
 - respaldo remoto sin revisión previa;
 - falsos positivos y falsos negativos;
 - deriva futura de políticas;
-- TOCTOU en una eventual fase con escritura;
-- compromiso de credenciales en fases posteriores.
+- TOCTOU entre push, PR y persistencia local;
+- compromiso de credenciales con permiso sobre el Vault;
+- rama o PR huérfana ante un fallo remoto;
+- validadores documentales incompletos;
+- diferencias entre Windows y CI.
 
 El modelo no constituye un componente del Security Control Plane.
 

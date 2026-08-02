@@ -71,6 +71,9 @@ Estado de implementación:
 
 ```text
 Fase 1 completada y cerrada
+Controlled-proposal aprobado; núcleo operativo implementado
+Conformidad técnica completa: pendiente de incremento correctivo
+Modo manual-on-demand
 ```
 
 Autoridad operativa:
@@ -79,7 +82,9 @@ Autoridad operativa:
 none
 ```
 
-La política aprobada se limita exclusivamente al alcance cerrado de la Fase 1.
+La política conserva el cierre histórico de Fase 1 e incorpora la
+extensión independiente `controlled-proposal`, registrada en
+`DEC-RES-009`.
 
 La Fase 1:
 
@@ -93,12 +98,14 @@ La Fase 1:
 
 Fase 2 y posteriores permanecen no aprobadas.
 
-La aceptación de la política no autoriza:
+La extensión vigente permite únicamente una rama aislada, commits, push
+y PR draft sobre documentos allowlisted del Vault. No autoriza:
 
-- escritura automática en el Vault;
-- creación automática de ramas;
-- creación automática de commits;
-- apertura automática de PR;
+- escritura directa en `main` del Vault;
+- escritura fuera del allowlist;
+- force-push o reescritura de historia;
+- aprobación, auto-merge o merge de PR;
+- propuestas autónomas sin invocación manual;
 - scheduler operativo;
 - servicio permanente;
 - daemon;
@@ -107,5 +114,19 @@ La aceptación de la política no autoriza:
 - integración con Kernel o runtime;
 - modificación de Malāk;
 - modificación de snapshots históricos.
+
+La suite vigente (`230 passed`) verifica el núcleo de ese flujo, pero no
+demuestra todavía conformidad completa con todos los controles normativos.
+Permanecen como requisitos correctivos no implementados:
+
+- revalidar el contenido final después de insertar la proyección;
+- validar frontmatter YAML y wikilinks de documentos Markdown;
+- corregir la denylist explícita a `09-repository-snapshots/**`;
+- recuperar de forma gobernada una rama o PR creada antes de persistir
+  su identidad local;
+- registrar el disparador real `manual-on-demand` en los informes.
+
+Estos requisitos no amplían autoridad ni autorizan por sí solos un nuevo
+incremento de implementación.
 
 Cualquier ampliación de alcance requiere una decisión independiente y aprobación humana explícita.

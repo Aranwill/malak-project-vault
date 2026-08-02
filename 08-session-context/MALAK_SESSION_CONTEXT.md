@@ -16,7 +16,7 @@ derived: true
 operational_context: true
 retrieval_enabled: true
 retrieval_scope: active
------------------------
+---
 
 # Malāk Session Context
 
@@ -540,11 +540,11 @@ Baseline operativo vigente del agente:
 ```text
 Repositorio: Aranwill/malak-vault-sync-agent
 Rama: main
-HEAD: c54bfb0f4b1f6d715172d3dbb56704c639154019
-PR integradas: #1 y #3
+HEAD: 0feed6eae3d3919ea4867891c12eda5eea81c511
+PR integradas relevantes: #1, #3, #4, #5 y #6
 Working tree: limpio
 main local: alineada con origin/main
-Suite completa: 178 passed
+Suite completa: 230 passed
 Configuración privada: válida y excluida de Git
 Ejecución manual end-to-end: pass
 Scheduler final: eliminado
@@ -583,7 +583,7 @@ Avance aprobado de Malāk
 
 El cierre histórico de la Fase 1 permanece válido. El baseline
 operativo vigente añade el flujo `controlled-proposal` aprobado y
-validado, sin inferir aprobación de una Fase 2 ni conceder autoridad
+con núcleo validado, sin inferir aprobación de una Fase 2 ni conceder autoridad
 operativa al agente.
 
 La iniciativa:
@@ -602,11 +602,17 @@ La iniciativa:
 * reserva toda ampliación de alcance al propietario humano;
 * conserva `operational_authority: none`.
 
-La decisión correspondiente permanece resuelta y cerrada en:
+Las decisiones correspondientes permanecen resueltas y cerradas en:
 
 ```text
-DEC-PEND-013 — Aprobación e implementación del Vault Synchronization Agent
+DEC-PEND-013 — Aprobación y cierre fundacional de Fase 1
+DEC-RES-008 — Modo operativo manual-on-demand
+DEC-RES-009 — Extensión gobernada controlled-proposal
 ```
+
+`DEC-PEND-013` conserva la decisión fundacional de Fase 1,
+`DEC-RES-008` conserva el modo operativo y `DEC-RES-009` autoriza la
+extensión acotada; ninguna sustituye a las demás.
 
 El cierre técnico se documenta en:
 
@@ -721,7 +727,7 @@ Gates 0 a 9: cerrados
 Autoridad operativa: none
 Agente operativo: herramienta local determinista de propuesta controlada
 Repositorio del agente: Aranwill/malak-vault-sync-agent
-HEAD del agente: c54bfb0f4b1f6d715172d3dbb56704c639154019
+HEAD del agente: 0feed6eae3d3919ea4867891c12eda5eea81c511
 Modo operativo: manual-on-demand
 Modos: dry-run y controlled-proposal
 Scheduler activo: no
@@ -842,7 +848,34 @@ Al recibir este archivo, el asistente debe:
 
 ## 17. Resultado de la sesión actual
 
-### 17.1 Continuidad vigente — 2026-07-26
+### 17.1 Estado verificado — 2026-08-01
+
+```text
+Malāk main: b4d1d512fe953d593608391390f82ab500fdc9d6
+Vault main: f433b9efc426ba52141a1a3daed81795fc666e6f
+Agente main: 0feed6eae3d3919ea4867891c12eda5eea81c511
+Suite del agente: 230 passed
+Incremento 4 del agente: cerrado
+Modo operativo: manual-on-demand
+Modos autorizados: dry-run y controlled-proposal
+Scheduler activo: no
+Autoridad operativa: none
+Fase 2 o nuevo incremento: no autorizados
+```
+
+La gobernanza vigente de `controlled-proposal` se registra en
+`DEC-RES-009`. La capacidad puede preparar ramas, commits, push y PR draft
+solo en el Vault y bajo controles deterministas. El merge y toda decisión
+material permanecen exclusivamente bajo autoridad humana.
+
+La auditoría integral del agente identificó brechas no cubiertas por las
+`230 passed`: revalidación final pos-escritura, frontmatter YAML,
+wikilinks, denylist exacta de snapshots, recuperación posterior a una PR
+creada y registro `manual-on-demand` en informes. El núcleo permanece
+operativo, pero la conformidad técnica completa requiere un incremento
+correctivo todavía no autorizado.
+
+### 17.2 Registro histórico — 2026-07-26
 
 Objetivo:
 
@@ -879,7 +912,7 @@ Punto de continuidad:
 3. reconocer el Incremento 5 como integrado mediante las PR #22 y #23, sin declarar cerrado el Sprint 7.5;
 4. no cerrar Sprint 7.5 sin revisión integral y aprobación humana.
 
-### 17.2 Registro histórico anterior — 2026-07-24
+### 17.3 Registro histórico anterior — 2026-07-24
 
 **Fecha:** `2026-07-24`
 

@@ -501,6 +501,7 @@ operacionalización manual completada
 modo manual-on-demand
 modos dry-run y controlled-proposal
 scheduler activo: no
+conformidad completa de controlled-proposal: pendiente
 ```
 
 **Autoridad operativa:**
@@ -544,19 +545,25 @@ D:\Ollama\malak-project-vault
 ```text
 Repositorio: Aranwill/malak-vault-sync-agent
 Rama: main
-HEAD: c54bfb0f4b1f6d715172d3dbb56704c639154019
-PR de operacionalización: #1 integrada
-PR de corrección del flujo controlado: #3 integrada
+HEAD: 0feed6eae3d3919ea4867891c12eda5eea81c511
+PR integradas relevantes: #1, #3, #4, #5 y #6
 Working tree: limpio
 main local: alineada con origin/main
-Suite completa: 178 passed
+Suite completa: 230 passed
 Configuración privada: válida y excluida de Git
 Ejecución manual end-to-end: pass
 Scheduler final: eliminado
 Modo operativo: manual-on-demand
 Cursores de observación y propuesta: independientes
+Estado persistente: esquema v3 reconciliado
+Incremento 4: cerrado
 last_applied_commit: null
 ```
+
+El cierre del Incremento 4 y la suite de `230 passed` permanecen como
+evidencia histórica válida. Una auditoría posterior identificó controles
+del contrato aprobado que esa suite no cubre; por ello no deben
+interpretarse como conformidad técnica total.
 
 **Baseline histórico del cierre formal de la Fase 1:**
 
@@ -594,7 +601,7 @@ Fase 1: cerrada formalmente
 
 ```text
 Suite de cierre de Fase 1: 148 passed
-Suite operacional vigente: 178 passed
+Suite operacional vigente: 230 passed
 compileall: correcto
 git diff --check: correcto
 Resultado end-to-end: pass
@@ -624,8 +631,8 @@ controlada aprobada posteriormente:
 * aplicación de allowlist y denylist;
 * validación de rutas;
 * validación de Markdown;
-* validación de YAML;
-* validación de enlaces;
+* validación de archivos YAML independientes;
+* validación de enlaces Markdown relativos;
 * validación de hashes;
 * validación de metadatos;
 * controles TOCTOU;
@@ -635,11 +642,25 @@ controlada aprobada posteriormente:
 * runner manual;
 * lock de ejecución;
 * polling externo;
-* validación final end-to-end.
+* validación end-to-end del alcance cubierto por la suite;
 * cursores independientes para observación y propuesta;
 * creación controlada de rama y commits en el Vault;
 * publicación y apertura de PR draft;
 * ausencia de aprobación o merge automático.
+
+**Trabajo correctivo identificado y no autorizado para implementación:**
+
+1. corregir el bootstrap inicial de `controlled-proposal`;
+2. revalidar el contenido final pos-escritura;
+3. validar frontmatter YAML y wikilinks;
+4. corregir la denylist a `09-repository-snapshots/**`;
+5. recuperar propuestas remotas cuya identidad no pudo persistirse;
+6. registrar `manual-on-demand` como disparador real;
+7. alinear versionado, documentación, cobertura de candidatos y CI según
+   el informe de auditoría integral.
+
+Este registro no abre Fase 2, no inicia un nuevo incremento y no autoriza
+cambios en el agente.
 
 **Modelo de autoridad:**
 
@@ -656,6 +677,14 @@ revisa, aprueba y autoriza cualquier ampliación
 ```
 
 La finalización técnica no concede autoridad documental ni operativa al agente.
+
+La extensión vigente fue formalizada como decisión independiente en:
+
+```text
+DEC-RES-009 — Extensión gobernada controlled-proposal
+```
+
+No constituye Fase 2 ni autoriza una ampliación posterior.
 
 **Invariantes preservadas:**
 
@@ -723,6 +752,7 @@ Resultado: pass
 07-audits/vault-synchronization/2026-07-22_VAULT_SYNC_PHASE_1_CLOSURE.md
 07-audits/vault-synchronization/2026-07-24_VAULT_SYNC_OPERATIONALIZATION_CLOSURE.md
 07-audits/vault-synchronization/2026-07-26_VAULT_SYNC_20260726T191148713343Z_4afeed44_b20482cf.md
+Aranwill/malak-vault-sync-agent/docs/INCREMENT_4_CLOSURE.md
 ```
 
 **Fase 2 y posteriores:**
