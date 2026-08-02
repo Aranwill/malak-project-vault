@@ -544,17 +544,18 @@ D:\Ollama\malak-project-vault
 ```text
 Repositorio: Aranwill/malak-vault-sync-agent
 Rama: main
-HEAD: c54bfb0f4b1f6d715172d3dbb56704c639154019
-PR de operacionalización: #1 integrada
-PR de corrección del flujo controlado: #3 integrada
+HEAD: 0feed6eae3d3919ea4867891c12eda5eea81c511
+PR integradas relevantes: #1, #3, #4, #5 y #6
 Working tree: limpio
 main local: alineada con origin/main
-Suite completa: 178 passed
+Suite completa: 230 passed
 Configuración privada: válida y excluida de Git
 Ejecución manual end-to-end: pass
 Scheduler final: eliminado
 Modo operativo: manual-on-demand
 Cursores de observación y propuesta: independientes
+Estado persistente: esquema v3 reconciliado
+Incremento 4: cerrado
 last_applied_commit: null
 ```
 
@@ -594,7 +595,7 @@ Fase 1: cerrada formalmente
 
 ```text
 Suite de cierre de Fase 1: 148 passed
-Suite operacional vigente: 178 passed
+Suite operacional vigente: 230 passed
 compileall: correcto
 git diff --check: correcto
 Resultado end-to-end: pass
@@ -656,6 +657,14 @@ revisa, aprueba y autoriza cualquier ampliación
 ```
 
 La finalización técnica no concede autoridad documental ni operativa al agente.
+
+La extensión vigente fue formalizada como decisión independiente en:
+
+```text
+DEC-RES-009 — Extensión gobernada controlled-proposal
+```
+
+No constituye Fase 2 ni autoriza una ampliación posterior.
 
 **Invariantes preservadas:**
 
@@ -723,6 +732,7 @@ Resultado: pass
 07-audits/vault-synchronization/2026-07-22_VAULT_SYNC_PHASE_1_CLOSURE.md
 07-audits/vault-synchronization/2026-07-24_VAULT_SYNC_OPERATIONALIZATION_CLOSURE.md
 07-audits/vault-synchronization/2026-07-26_VAULT_SYNC_20260726T191148713343Z_4afeed44_b20482cf.md
+Aranwill/malak-vault-sync-agent/docs/INCREMENT_4_CLOSURE.md
 ```
 
 **Fase 2 y posteriores:**

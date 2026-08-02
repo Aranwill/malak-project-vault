@@ -71,6 +71,8 @@ Estado de implementación:
 
 ```text
 Fase 1 completada y cerrada
+Controlled-proposal aprobado y cerrado en su alcance vigente
+Modo manual-on-demand
 ```
 
 Autoridad operativa:
@@ -79,7 +81,9 @@ Autoridad operativa:
 none
 ```
 
-La política aprobada se limita exclusivamente al alcance cerrado de la Fase 1.
+La política conserva el cierre histórico de Fase 1 e incorpora la
+extensión independiente `controlled-proposal`, registrada en
+`DEC-RES-009`.
 
 La Fase 1:
 
@@ -93,12 +97,14 @@ La Fase 1:
 
 Fase 2 y posteriores permanecen no aprobadas.
 
-La aceptación de la política no autoriza:
+La extensión vigente permite únicamente una rama aislada, commits, push
+y PR draft sobre documentos allowlisted del Vault. No autoriza:
 
-- escritura automática en el Vault;
-- creación automática de ramas;
-- creación automática de commits;
-- apertura automática de PR;
+- escritura directa en `main` del Vault;
+- escritura fuera del allowlist;
+- force-push o reescritura de historia;
+- aprobación, auto-merge o merge de PR;
+- propuestas autónomas sin invocación manual;
 - scheduler operativo;
 - servicio permanente;
 - daemon;

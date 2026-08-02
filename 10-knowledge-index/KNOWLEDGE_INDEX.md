@@ -617,6 +617,9 @@ Todavía no incluye:
 
 Capacidad externa de observación, comparación, validación y generación de evidencia para el Malāk Project Vault.
 
+El alcance vigente añade la preparación de propuestas deterministas en
+ramas aisladas del Vault, sin autoridad de aprobación o merge.
+
 La fundación documental fue integrada en `Aranwill/malak-project-vault/main` mediante:
 
 ```text
@@ -648,6 +651,7 @@ Estado:
 
 ```text
 Fase 1 aceptada, implementada y cerrada
+Extensión controlled-proposal aceptada
 ```
 
 ### Seguridad
@@ -673,18 +677,19 @@ accepted
 ### Decisión cerrada
 
 - [[05-decisions/PENDING_DECISIONS#DEC-PEND-013 — Aprobación e implementación del Vault Synchronization Agent|DEC-PEND-013 — Aprobación e implementación del Vault Synchronization Agent]]
+- [[05-decisions/PENDING_DECISIONS#DEC-RES-009 — Extensión gobernada controlled-proposal|DEC-RES-009 — Extensión gobernada controlled-proposal]]
 
 `DEC-PEND-013` permanece `closed`.
+`DEC-RES-009` formaliza el alcance operativo controlado vigente.
 
-### Baseline final del agente
+### Baseline vigente del agente
 
 ```text
 Workspace: D:\Ollama\malak-vault-sync-agent
 Rama: main
-HEAD: 954659b
-Último commit: docs(baseline): record phase 1 completion
+HEAD: 0feed6eae3d3919ea4867891c12eda5eea81c511
 Working tree: limpio
-Suite completa: 148 passed
+Suite completa: 230 passed
 compileall: correcto
 git diff --check: correcto
 Resultado end-to-end: pass
@@ -694,11 +699,10 @@ last_applied_commit: null
 ### Estado remoto
 
 ```text
-Remoto configurado: no
-URL remota: ninguna
-Upstream de main: no
-Respaldo remoto: pendiente de decisión humana
-Push ejecutado: no
+Remoto configurado: sí
+URL remota: Aranwill/malak-vault-sync-agent
+Upstream de main: origin/main
+Respaldo remoto: completado
 ```
 
 ### Estado general
@@ -709,8 +713,9 @@ Arquitectura de Fase 1: accepted
 Política de Fase 1: accepted
 Modelo de amenazas de Fase 1: accepted
 Fase 1: completed
+Controlled-proposal: approved
 Gates 0 a 9: cerrados
-Agente operativo: herramienta local determinista de solo lectura
+Agente operativo: herramienta externa determinista de propuesta controlada
 Autoridad operativa: none
 Kernel afectado: no
 Runtime afectado: no
@@ -727,8 +732,8 @@ La Fase 1:
 - valida rutas, Markdown, YAML, enlaces, hashes y metadatos;
 - genera evidencia e informes locales;
 - no modifica `Aranwill/jarvis`;
-- no modifica automáticamente el Vault;
-- no crea ramas, commits, push ni pull requests;
+- escribe solo en una rama aislada y allowlisted del Vault;
+- crea commits, push y PR draft sin aprobar ni mergear;
 - no utiliza LLM;
 - no modifica snapshots históricos;
 - no cierra decisiones automáticamente.
@@ -738,4 +743,3 @@ La implementación del agente no modifica el baseline operativo de Malāk y no l
 Fase 2 y posteriores permanecen no aprobadas.
 
 Cualquier ampliación requerirá una decisión independiente y aprobación humana explícita.
-

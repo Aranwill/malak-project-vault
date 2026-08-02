@@ -5,11 +5,12 @@ document_type: threat-model
 status: accepted
 authority: approved_security_documentation
 operational_authority: none
-version: 1.0
+version: 1.1
 created: 2026-07-21
-last_reviewed: 2026-07-22
+last_reviewed: 2026-08-01
 implementation_approved: true
 phase_1_status: completed
+controlled_proposal_status: approved
 runtime_component: false
 kernel_component: false
 tags:
@@ -24,7 +25,9 @@ tags:
 
 ## 1. Propósito
 
-Documentar las amenazas, controles, validaciones y riesgos residuales del Vault Synchronization Agent en su Fase 1.
+Documentar las amenazas, controles, validaciones y riesgos residuales del
+Vault Synchronization Agent en la Fase 1 read-only y en la extensión
+gobernada `controlled-proposal`.
 
 Este documento no convierte al agente en un componente de seguridad de Malāk.
 
@@ -35,20 +38,23 @@ El agente permanece:
 - fuera del Security Control Plane;
 - sin autoridad operativa;
 - sin autoridad documental;
-- limitado a observación, validación y generación de evidencia.
+- limitado a observación, validación, generación de evidencia y
+  preparación de propuestas documentales aisladas.
 
 ## 2. Estado
 
 ```text
 Estado del documento: accepted
 Fase 1: completed
+Controlled-proposal: approved
 Autoridad operativa: none
 Kernel afectado: no
 Runtime afectado: no
 Security Control Plane afectado: no
 ```
 
-La aceptación de este modelo se limita a los controles implementados y verificados durante la Fase 1.
+La aceptación de este modelo se limita a la Fase 1 cerrada y al alcance
+actual de `controlled-proposal`.
 
 Fase 2 y posteriores permanecen no aprobadas.
 
@@ -72,7 +78,7 @@ Fase 2 y posteriores permanecen no aprobadas.
 - trazabilidad de ejecuciones;
 - revisión humana.
 
-## 4. Superficie de ataque de la Fase 1
+## 4. Superficie de ataque vigente
 
 La superficie de ataque considerada incluye:
 
@@ -92,14 +98,20 @@ La superficie de ataque considerada incluye:
 - lock de ejecución;
 - polling externo;
 - contenido documental potencialmente hostil.
+- worktrees temporales;
+- ramas y commits de propuesta del Vault;
+- GitHub CLI autenticado;
+- push de ramas;
+- PR draft;
+- estado local v3 y reconciliación humana.
 
 No forman parte de la superficie aprobada:
 
 - escritura en Malāk;
-- escritura en el Vault;
-- ramas automáticas;
-- commits automáticos;
-- PR automáticas;
+- escritura directa en `main` del Vault;
+- escritura fuera del allowlist;
+- force-push o reescritura de historia;
+- aprobación o auto-merge;
 - merge;
 - webhooks;
 - servidor HTTP;
@@ -207,32 +219,34 @@ mitigado para ejecución de solo lectura
 mitigado
 ```
 
-### 5.6 Escritura accidental en el Vault
+### 5.6 Escritura fuera de la rama controlada del Vault
 
-**Riesgo:** modificación automática del Vault durante la Fase 1.
+**Riesgo:** escribir en `main`, en otra rama, fuera del allowlist o sobre
+un snapshot histórico.
 
 **Controles verificados:**
 
-- permisos de solo lectura;
-- ausencia de writer;
-- ausencia de creación de ramas;
-- ausencia de commits;
-- ausencia de push;
-- ausencia de PR;
+- `main` remoto tratado como base inmutable de la propuesta;
+- worktree temporal desde el `origin/main` verificado;
+- prefijo fijo de rama;
+- allowlist y denylist de rutas;
+- snapshots fuera del allowlist y bloqueados explícitamente;
+- PR obligatoriamente draft;
+- ausencia de force-push, aprobación y merge;
 - `last_applied_commit: null`;
-- Vault intacto.
+- verificación de identidad y limpieza antes de escribir.
 
 **Estado:**
 
 ```text
-mitigado
+mitigado para el alcance controlado, con riesgo residual
 ```
 
 ### 5.7 Destrucción de historia
 
 **Riesgo:** modificación o reemplazo de snapshots históricos.
 
-**Controles verificados:**
+**Controles vigentes:**
 
 - snapshots en denylist;
 - inmutabilidad explícita;
@@ -252,17 +266,19 @@ mitigado
 
 **Controles verificados:**
 
-- Fase 1 sin credenciales de escritura;
-- agente sin remoto configurado;
-- sin upstream;
-- sin push;
-- sin integración de escritura con GitHub;
-- permisos mínimos.
+- credenciales externas al repositorio;
+- GitHub CLI autenticado requerido;
+- identidad exacta de ambos repositorios;
+- permisos limitados al Vault;
+- Malāk conserva acceso read-only;
+- sanitización de credenciales en evidencia e informes;
+- rama y PR draft como frontera de revisión humana.
 
 **Estado:**
 
 ```text
-mitigado para el entorno verificado
+mitigado parcialmente; el compromiso de credenciales permanece como
+riesgo residual
 ```
 
 ### 5.9 Falsa evidencia de pruebas
@@ -272,7 +288,8 @@ mitigado para el entorno verificado
 **Controles verificados:**
 
 - separación entre suite del agente y suite oficial;
-- suite del agente registrada como `148 passed`;
+- suite histórica de Fase 1 registrada como `148 passed`;
+- suite vigente del agente registrada como `230 passed`;
 - baseline oficial de Malāk preservado;
 - evidencia vinculada al repositorio correspondiente;
 - informes separados.
@@ -295,11 +312,14 @@ mitigado
 - denylist;
 - ausencia de escritura;
 - bloqueo de operaciones no autorizadas.
+- presupuesto de archivos y tamaño;
+- escritura limitada a candidatos allowlisted;
+- revisión humana del diff completo.
 
 **Estado:**
 
 ```text
-mitigado en Fase 1
+mitigado para `dry-run` y `controlled-proposal`
 ```
 
 ### 5.11 Exposición de secretos
@@ -375,16 +395,57 @@ mitigado
 mitigado
 ```
 
+### 5.15 Rama o PR huérfana
+
+**Riesgo:** que un fallo después del push deje una rama o PR sin identidad
+persistida o bloquee ejecuciones posteriores.
+
+**Controles vigentes:**
+
+- persistencia del estado solo después de completar el circuito;
+- rollback de la rama cuando falla la creación de la PR;
+- propuesta pendiente con URL y commit de cabecera exactos;
+- bloqueo ante estado incompleto;
+- reconciliación humana antes de una nueva propuesta.
+
+**Estado:**
+
+```text
+mitigado parcialmente; la recuperación ante fallos posteriores a la PR
+requiere fortalecimiento técnico
+```
+
+### 5.16 TOCTOU con escritura controlada
+
+**Riesgo:** cambio de `origin/main`, de la rama o de la PR entre la
+validación, el commit, el push y la reconciliación.
+
+**Controles vigentes:**
+
+- SHAs exactos de Malāk y Vault;
+- creación desde el `origin/main` verificado;
+- cabecera exacta de la PR persistida;
+- verificación remota para aceptar o rechazar;
+- lock de ejecución;
+- aborto ante identidad ambigua.
+
+**Estado:**
+
+```text
+mitigado para el alcance actual, con riesgo residual remoto
+```
+
 ## 6. Reglas de bloqueo verificadas
 
 La ejecución deberá bloquearse ante:
 
 - intento de escritura en `Aranwill/jarvis`;
-- intento de escritura en el Vault;
-- intento de crear ramas;
-- intento de crear commits;
-- intento de ejecutar push;
-- intento de abrir PR;
+- intento de escritura directa en `main` del Vault;
+- intento de crear una rama fuera del prefijo autorizado;
+- intento de escribir fuera del allowlist;
+- intento de force-push o reescritura de historia;
+- intento de abrir una PR que no sea draft;
+- intento de aprobar, habilitar auto-merge o mergear;
 - intento de modificar un snapshot existente;
 - contradicción crítica sin resolver;
 - tipo documental desconocido;
@@ -398,23 +459,29 @@ La ejecución deberá bloquearse ante:
 - pérdida del lock;
 - ejecución concurrente no controlada;
 - ampliación de alcance no aprobada.
+- propuesta pendiente no reconciliada;
+- identidad incompleta o contradictoria de una PR;
 
-## 7. Controles verificados al cierre de Fase 1
+## 7. Controles históricos y vigentes verificados
 
 ```text
 Workspace: D:\Ollama\malak-vault-sync-agent
 Rama: main
-HEAD: 954659b
+HEAD histórico Fase 1: 954659b
+HEAD vigente: 0feed6eae3d3919ea4867891c12eda5eea81c511
 Gate 0 a Gate 9: cerrados
-Suite completa: 148 passed
+Suite histórica Fase 1: 148 passed
+Suite vigente: 230 passed
 compileall: correcto
 git diff --check: correcto
 Resultado end-to-end: pass
 Malāk intacto: sí
-Vault intacto: sí
+Vault main intacto: sí
+Controlled-proposal: validado
+Estado v3: reconciliado
 last_applied_commit: null
 Hashes SHA-256 verificados: sí
-Comandos Git auditados como read-only: sí
+Comandos Git de Fase 1 auditados como read-only: sí
 Autoridad operativa: none
 ```
 
@@ -430,7 +497,7 @@ Permanecen los siguientes riesgos:
 - interpretación incorrecta de `pass`;
 - confusión entre detección y autorización;
 - uso futuro de LLM sin controles adicionales;
-- incorporación de escritura sin un modelo de amenazas nuevo;
+- ampliación de escritura fuera de controlled-proposal sin un modelo de amenazas nuevo;
 - dependencia excesiva de validadores incompletos;
 - falsos positivos;
 - falsos negativos;
@@ -438,18 +505,20 @@ Permanecen los siguientes riesgos:
 - cambios de versiones de Git o Python;
 - configuración futura no auditada;
 - fuga de información mediante logs o artefactos;
-- TOCTOU en una futura fase con escritura;
-- compromiso de credenciales en una fase posterior.
+- TOCTOU entre push, PR y persistencia local;
+- compromiso de credenciales con permiso sobre el Vault;
+- rama o PR huérfana ante fallos posteriores a la creación;
+- validadores documentales incompletos frente a lo declarado;
+- diferencias de plataforma entre Windows y CI.
 
 ## 9. Controles no implementados
 
 No están implementados ni aprobados:
 
-- writer sobre el Vault;
-- branch writer;
-- commit generator;
-- PR draft preparer;
-- integración GitHub con permisos de escritura;
+- escritura directa en `main` del Vault;
+- writer fuera del allowlist;
+- force-push o reescritura de historia;
+- aprobación o merge automático;
 - scheduler operativo;
 - servicio permanente;
 - daemon;
@@ -464,9 +533,10 @@ No están implementados ni aprobados:
 - integración con Kernel;
 - integración con runtime.
 
-## 10. Condiciones para una fase futura
+## 10. Condiciones para una ampliación futura
 
-Antes de cualquier fase con escritura deberá existir un nuevo análisis que incluya:
+Antes de ampliar la escritura más allá de `controlled-proposal` deberá
+existir un nuevo análisis que incluya:
 
 1. modelo de amenazas actualizado;
 2. permisos efectivos;
@@ -498,27 +568,31 @@ docs/PHASE_1_FINAL_BASELINE.md
 ## 12. Estado remoto del agente
 
 ```text
-Remoto configurado: no
-URL remota: ninguna
-Upstream de main: no
+Remoto configurado: sí
+URL remota: Aranwill/malak-vault-sync-agent
+Upstream de main: origin/main
 Working tree: limpio
-HEAD: 954659b
-Respaldo remoto: pendiente de decisión humana
-Push ejecutado: no
+HEAD: 0feed6eae3d3919ea4867891c12eda5eea81c511
+Respaldo remoto: completado
+Suite vigente: 230 passed
 ```
 
-La creación de un remoto y cualquier push futuro requieren una tarea administrativa separada.
+El remoto respalda el código del agente. Los permisos de escritura usados
+por `controlled-proposal` se limitan al Vault y no conceden autoridad
+sobre Malāk.
 
 ## 13. Resultado final
 
 ```text
 Modelo de amenazas: accepted
 Fase 1: completed
+Controlled-proposal: approved
 Controles verificados: sí
 Riesgos residuales: documentados
 Autoridad operativa: none
 Malāk modificado: no
-Vault modificado automáticamente: no
+Vault main modificado directamente: no
+Ramas de propuesta permitidas: sí, bajo controles
 Snapshots modificados: no
 Fase 2 y posteriores: no aprobadas
 ```

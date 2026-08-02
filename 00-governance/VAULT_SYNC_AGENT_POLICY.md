@@ -5,22 +5,23 @@ document_type: governance-policy
 status: accepted
 authority: approved_policy
 operational_authority: none
-version: 1.1
+version: 1.2
 created: 2026-07-21
-last_reviewed: 2026-07-24
+last_reviewed: 2026-08-01
 source_repository: Aranwill/jarvis
 source_branch: main
-source_commit: fd4da3d371d07b6aa91cc9f1c4d4bac3838ad627
+source_commit: b4d1d512fe953d593608391390f82ab500fdc9d6
 vault_repository: Aranwill/malak-project-vault
 vault_branch: main
-vault_base_commit: 03032a7b2aaecb47c27c2e8e5bff3a2c04179bd2
+vault_base_commit: f433b9efc426ba52141a1a3daed81795fc666e6f
 agent_repository: Aranwill/malak-vault-sync-agent
 agent_branch: main
-agent_commit: ade622b99eaaed0a6342400db743d472aa30a3ae
+agent_commit: 0feed6eae3d3919ea4867891c12eda5eea81c511
 implementation_approved: true
 phase_1_status: completed
 operationalization_status: completed
 execution_mode: manual-on-demand
+controlled_proposal_status: approved
 scheduler_enabled: false
 phase_2_approved: false
 human_review_required: true
@@ -35,15 +36,21 @@ tags:
 # Política obligatoria del Vault Synchronization Agent
 
 > [!important] Estado
-> Esta política fue aprobada originalmente para el alcance de la Fase 1 y continúa rigiendo la operacionalización read-only sin ampliar permisos ni autoridad.
+> Esta política fue aprobada originalmente para la Fase 1 read-only y
+> ahora incorpora la extensión independiente y gobernada
+> `controlled-proposal`.
 >
 > La Fase 1 fue implementada, validada y cerrada.
 >
-> La operacionalización read-only fue integrada y validada. El modo vigente es la ejecución manual bajo demanda después de cada sesión aprobada de Malāk.
+> El modo vigente es manual bajo demanda. `dry-run` conserva el alcance
+> read-only; `controlled-proposal` puede preparar una propuesta únicamente
+> en una rama aislada del Vault.
 >
 > No existe un scheduler activo, un servicio permanente ni un proceso del agente en segundo plano.
 >
-> La política no concede autoridad operativa al agente, no autoriza escritura sobre Malāk ni sobre el Vault y no aprueba fases posteriores.
+> La política no concede autoridad operativa, no autoriza escritura sobre
+> Malāk ni sobre `main` del Vault y no aprueba Fase 2 ni fases posteriores.
+> La revisión, aceptación, rechazo y merge continúan bajo autoridad humana.
 
 ## 1. Propósito principal
 
@@ -57,6 +64,7 @@ La política busca permitir:
 - validación de evidencia;
 - generación de informes;
 - trazabilidad reproducible;
+- preparación determinista de propuestas documentales aisladas;
 
 sin otorgar autoridad operativa al agente ni convertir el Vault en fuente de verdad.
 
@@ -86,6 +94,7 @@ Fase 1: completada
 Operacionalización read-only: completada
 Repositorio: Aranwill/malak-vault-sync-agent
 Modo operativo: manual-on-demand
+Modos autorizados: dry-run y controlled-proposal
 Scheduler activo: no
 Autoridad operativa: none
 Autoridad documental: none
@@ -101,13 +110,21 @@ El agente puede:
 - validar;
 - generar evidencia;
 - generar informes locales.
+- preparar cambios deterministas en documentos allowlisted del Vault;
+- crear una rama aislada de propuesta;
+- crear commits trazables en esa rama;
+- publicar la rama;
+- abrir una PR draft.
 
 El agente no puede:
 
 - decidir;
 - aprobar;
 - modificar Malāk;
-- modificar el Vault;
+- escribir directamente en `main` del Vault;
+- modificar documentos fuera del allowlist;
+- modificar snapshots históricos;
+- aprobar, habilitar auto-merge o mergear PR;
 - cerrar decisiones;
 - iniciar nuevas fases;
 - ampliar sus permisos;
@@ -144,9 +161,15 @@ No puede:
 - modificar configuración;
 - ejecutar acciones operativas sobre Malāk.
 
-## 5. Permisos sobre el Vault durante la Fase 1
+## 5. Permisos sobre el Vault
 
-Durante la Fase 1, sobre `Aranwill/malak-project-vault`, el agente tuvo exclusivamente permisos de lectura.
+Durante la Fase 1 histórica, el agente tuvo exclusivamente permisos de
+lectura sobre `Aranwill/malak-project-vault`.
+
+En el modo vigente `controlled-proposal`, la extensión aprobada permite
+escritura técnica limitada a una rama aislada creada desde el `main`
+remoto verificado. Esta capacidad prepara una propuesta; no constituye
+autoridad documental ni aplicación automática.
 
 Puede:
 
@@ -163,14 +186,23 @@ Puede:
 - detectar contradicciones;
 - generar evidencia local;
 - generar informes locales.
+- avanzar el `main` local limpio únicamente mediante `fast-forward` hacia
+  `origin/main`;
+- crear un worktree temporal desde el `origin/main` verificado;
+- modificar únicamente documentos derivados allowlisted;
+- crear commits de contenido y auditoría;
+- publicar únicamente una rama con el prefijo autorizado;
+- abrir únicamente una PR draft dirigida a `main`;
+- persistir la identidad de la propuesta pendiente después de completar
+  el circuito remoto.
 
 No puede:
 
-- modificar archivos del Vault;
-- crear ramas;
-- crear commits;
-- ejecutar push;
-- abrir PR;
+- escribir directamente en `main` local o remoto del Vault;
+- realizar `push --force` o reescribir historia;
+- crear ramas fuera del prefijo autorizado;
+- modificar documentos fuera del allowlist;
+- modificar documentos normativos por inferencia;
 - aprobar PR;
 - habilitar auto-merge;
 - mergear;
@@ -181,6 +213,9 @@ No puede:
 - elevar permisos;
 - modificar sus propias políticas.
 
+Una configuración que omita el push, la PR draft, el prefijo de rama o
+la identidad exacta de los repositorios deberá ser rechazada.
+
 ## 6. Exclusividad humana
 
 Toda decisión material permanece bajo control humano.
@@ -190,10 +225,9 @@ El propietario humano conserva exclusivamente la autoridad para:
 - aprobar una nueva fase;
 - aprobar un cambio de alcance;
 - conceder permisos;
-- aprobar escritura documental;
-- crear o autorizar ramas;
-- aprobar commits;
-- abrir o autorizar PR;
+- autorizar la ejecución del modo `controlled-proposal`;
+- revisar el contenido y la auditoría de cada propuesta;
+- aceptar o rechazar la propuesta;
 - aprobar y mergear;
 - cerrar decisiones;
 - modificar políticas;
@@ -229,9 +263,12 @@ La evidencia mínima deberá incluir:
 - rollback;
 - hashes cuando corresponda.
 
-Durante la Fase 1, el informe permanece local y no modifica automáticamente el Vault.
+Durante la Fase 1, el informe permaneció local y no modificó el Vault.
 
-En el modo operativo vigente, la evidencia y el informe continúan siendo artefactos locales del agente. Su revisión puede originar una propuesta humana de actualización documental, pero nunca una modificación automática ni una aprobación.
+En `dry-run`, la evidencia y el informe continúan siendo artefactos
+locales. En `controlled-proposal`, el informe auditable puede incorporarse
+a la misma rama aislada después del commit de contenido. Su presencia en
+la rama o en la PR no constituye aprobación ni merge.
 
 ## 8. Trazabilidad
 
@@ -375,14 +412,22 @@ El uso futuro de LLM requerirá una decisión independiente y aprobación humana
 - `POL-016` — El agente no podrá modificar sus propias políticas.
 - `POL-017` — El agente no podrá otorgarse permisos.
 - `POL-018` — La evidencia no constituye aprobación.
-- `POL-019` — `last_applied_commit` permanecerá en `null` mientras no exista escritura aprobada.
+- `POL-019` — `last_applied_commit` permanecerá siempre en `null`; una propuesta no equivale a aplicación.
 - `POL-020` — El agente permanecerá fuera del Kernel y del runtime.
 - `POL-021` — La ejecución operativa vigente será manual y bajo demanda.
 - `POL-022` — El agente deberá ejecutarse después de que los cambios aprobados hayan sido publicados o fusionados en `Aranwill/jarvis/main`.
 - `POL-023` — No existirá scheduler activo, servicio permanente ni daemon sin una decisión independiente y aprobación humana explícita.
 - `POL-024` — El repositorio remoto del agente no le concede autoridad sobre Malāk ni sobre el Vault.
+- `POL-025` — `controlled-proposal` solo escribirá en una rama aislada del Vault creada desde el `origin/main` verificado.
+- `POL-026` — Toda PR creada por el agente permanecerá en draft hasta una decisión humana.
+- `POL-027` — El agente no aprobará, habilitará auto-merge ni mergeará una PR.
+- `POL-028` — El agente no realizará force-push ni reescribirá historia.
+- `POL-029` — Una propuesta pendiente bloqueará la creación de otra propuesta hasta su reconciliación humana.
+- `POL-030` — Aceptar o rechazar una propuesta exigirá identidad remota verificable y una decisión humana explícita.
 
-## 15. Flujo obligatorio de Fase 1
+## 15. Flujos obligatorios
+
+### 15.1 `dry-run`
 
 ```text
 detectar
@@ -398,31 +443,52 @@ detectar
 → finalizar sin aplicar cambios
 ```
 
+### 15.2 `controlled-proposal`
+
+```text
+ejecutar manualmente
+→ verificar repositorios, ramas, HEAD y working trees
+→ detectar y validar candidatos allowlisted
+→ crear worktree y rama aislada desde origin/main del Vault
+→ escribir y validar la proyección final
+→ crear commit documental
+→ generar y validar informe auditable
+→ crear commit de auditoría
+→ publicar la rama sin force-push
+→ abrir PR draft
+→ persistir la identidad exacta de la propuesta pendiente
+→ detenerse para revisión humana
+```
+
 ## 16. Controles verificados al cierre
 
 ```text
 Workspace: D:\Ollama\malak-vault-sync-agent
 Repositorio: Aranwill/malak-vault-sync-agent
 Rama: main
-HEAD: ade622b99eaaed0a6342400db743d472aa30a3ae
+HEAD: 0feed6eae3d3919ea4867891c12eda5eea81c511
 Gate 0 a Gate 9: cerrados
-Suite completa: 165 passed
+Suite completa: 230 passed
 compileall: correcto
 git diff --check: correcto
 Resultado end-to-end: pass
 Configuración privada: válida y excluida de Git
 Ejecución manual: pass
-Ejecución programada de validación: pass
+Controlled-proposal: implementado y validado
+Estado persistente: esquema v3 reconciliado
+Incremento 4: cerrado
 Scheduler final: eliminado
 Modo operativo: manual-on-demand
 Malāk intacto: sí
-Vault intacto: sí
+Vault main intacto: sí
 last_applied_commit: null
 Hashes SHA-256 verificados: sí
 Autoridad operativa: none
 ```
 
-Todos los comandos Git operativos auditados fueron clasificados como read-only.
+Los comandos sobre Malāk permanecen read-only. Las operaciones de
+escritura autorizadas están limitadas a la rama aislada de propuesta del
+Vault y a la persistencia local del estado.
 
 ## 17. Estado remoto y operacionalización del agente
 
@@ -432,7 +498,7 @@ Repositorio remoto: Aranwill/malak-vault-sync-agent
 Rama remota: main
 Upstream de main: origin/main
 Working tree: limpio
-HEAD: ade622b99eaaed0a6342400db743d472aa30a3ae
+HEAD: 0feed6eae3d3919ea4867891c12eda5eea81c511
 HEAD local y remoto: coincidentes
 Respaldo remoto: completado
 PR de operacionalización: #1 integrada
@@ -460,21 +526,23 @@ avance aprobado de Malāk
 → merge o push a Aranwill/jarvis/main
 → ejecución manual de run-once
 → revisión humana de evidencia e informe
-→ propuesta de actualización del Vault
-→ aprobación del propietario
-→ actualización documental gobernada
+→ rama y PR draft de actualización del Vault
+→ revisión y decisión humanas
+→ merge exclusivamente humano o cierre sin merge
+→ reconciliación local explícita de la propuesta
 ```
 
 Los cambios exclusivamente locales y todavía no publicados en `origin/main` no constituyen el estado remoto que debe observar el agente.
 
-## 18. Capacidades futuras no aprobadas
+## 18. Capacidades no aprobadas
 
 No están aprobadas:
 
-- escritura documental;
-- creación automática de ramas;
-- creación automática de commits;
-- apertura automática de PR draft;
+- escritura directa en `main` del Vault;
+- escritura fuera del allowlist documental;
+- creación autónoma de propuestas sin invocación manual;
+- force-push o reescritura de historia;
+- aprobación, auto-merge o merge de PR;
 - modificación automática del baseline;
 - modificación de documentos normativos;
 - modificación de snapshots;
@@ -482,7 +550,7 @@ No están aprobadas:
 - servicio permanente;
 - daemon;
 - webhooks;
-- integración con GitHub para escritura;
+- integración con GitHub distinta de la rama y PR draft autorizadas;
 - uso de LLM;
 - automatización completa;
 - integración con Kernel;
@@ -516,6 +584,15 @@ El cierre de la operacionalización read-only está documentado en:
 
 - [[07-audits/vault-synchronization/2026-07-24_VAULT_SYNC_OPERATIONALIZATION_CLOSURE|Informe de cierre de la operacionalización read-only del Vault Synchronization Agent]].
 
+El cierre técnico y operativo del estado v3 está documentado en el
+repositorio del agente:
+
+```text
+docs/INCREMENT_4_CLOSURE.md
+PR #6
+merge commit: 0feed6eae3d3919ea4867891c12eda5eea81c511
+```
+
 El baseline final del agente se encuentra en:
 
 ```text
@@ -529,16 +606,18 @@ Política: accepted
 Fase 1: completed
 Operacionalización read-only: completed
 Repositorio del agente: Aranwill/malak-vault-sync-agent
-HEAD del agente: ade622b99eaaed0a6342400db743d472aa30a3ae
-Agente operativo: herramienta externa de solo lectura
+HEAD del agente: 0feed6eae3d3919ea4867891c12eda5eea81c511
+Agente operativo: herramienta externa con propuesta controlada
 Modo operativo: manual-on-demand
+Modos autorizados: dry-run y controlled-proposal
 Scheduler activo: no
 Autoridad operativa: none
 Escritura sobre Malāk: no
-Escritura sobre el Vault: no
+Escritura sobre el Vault: solo rama aislada de propuesta
 Fase 2 y posteriores: no aprobadas
 Próximo sprint de Malāk: no definido
 ```
 
-La aprobación de esta política no concede autorización para ninguna capacidad fuera del alcance cerrado de la Fase 1.
-
+La aprobación de esta política no concede autorización para ninguna
+capacidad fuera de la Fase 1 histórica y de la extensión
+`controlled-proposal` delimitada en `DEC-RES-009`.

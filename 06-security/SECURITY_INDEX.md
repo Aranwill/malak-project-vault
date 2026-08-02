@@ -39,7 +39,9 @@ Este índice no declara implementado ningún componente de seguridad de Malāk.
 
 El Vault Synchronization Agent permanece fuera del Security Control Plane, del Kernel y del runtime.
 
-Su modelo de amenazas de Fase 1 fue aceptado y cerrado exclusivamente para una herramienta externa, determinista y de solo lectura.
+Su modelo de amenazas cubre la Fase 1 read-only cerrada y la extensión
+gobernada `controlled-proposal`, siempre como tooling externo,
+determinista y sin autoridad operativa.
 
 La aceptación de ese modelo:
 
@@ -104,6 +106,7 @@ Alcance:
 
 ```text
 Fase 1 completada y cerrada
+Controlled-proposal aprobado
 ```
 
 Autoridad operativa:
@@ -132,6 +135,15 @@ Controles verificados durante la Fase 1:
 - Vault intacto;
 - cero modificaciones de snapshots históricos.
 
+Controles adicionales de `controlled-proposal`:
+
+- escritura limitada a una rama aislada del Vault;
+- allowlist de documentos y bloqueo de snapshots;
+- PR obligatoriamente draft;
+- ausencia de force-push, aprobación y merge;
+- identidad exacta de la propuesta pendiente;
+- reconciliación posterior a una decisión humana verificable.
+
 Riesgos residuales documentados:
 
 - error humano durante la revisión;
@@ -140,8 +152,11 @@ Riesgos residuales documentados:
 - respaldo remoto sin revisión previa;
 - falsos positivos y falsos negativos;
 - deriva futura de políticas;
-- TOCTOU en una eventual fase con escritura;
-- compromiso de credenciales en fases posteriores.
+- TOCTOU entre push, PR y persistencia local;
+- compromiso de credenciales con permiso sobre el Vault;
+- rama o PR huérfana ante un fallo remoto;
+- validadores documentales incompletos;
+- diferencias entre Windows y CI.
 
 El modelo no constituye un componente del Security Control Plane.
 

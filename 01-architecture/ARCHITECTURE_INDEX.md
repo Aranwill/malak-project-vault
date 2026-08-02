@@ -205,12 +205,13 @@ Estado arquitectónico:
 
 ```text
 Fase 1 aceptada, implementada y cerrada
+Extensión controlled-proposal aceptada
 ```
 
 Estado operativo:
 
 ```text
-tooling documental externo en modo dry-run
+tooling documental externo en modos dry-run y controlled-proposal
 ```
 
 Autoridad operativa:
@@ -225,9 +226,10 @@ La arquitectura implementada:
 - permanece fuera del runtime;
 - permanece fuera del Security Control Plane;
 - no modifica `Aranwill/jarvis`;
-- no modifica automáticamente el Vault;
+- no escribe directamente en `main` del Vault;
+- prepara propuestas solo en ramas aisladas y allowlisted;
 - no utiliza LLM;
-- no crea ramas, commits, push ni pull requests mediante el agente;
+- no aprueba ni mergea pull requests;
 - no modifica snapshots históricos;
 - mantiene `last_applied_commit: null`.
 
@@ -235,12 +237,13 @@ Baseline final del agente:
 
 ```text
 Rama: main
-HEAD: 954659b
-Suite completa: 148 passed
+HEAD: 0feed6eae3d3919ea4867891c12eda5eea81c511
+Suite completa: 230 passed
 Resultado end-to-end: pass
 ```
 
-La arquitectura aprobada se limita exclusivamente a la Fase 1.
+La extensión independiente se registra en `DEC-RES-009` y no constituye
+Fase 2.
 
 Fase 2 y posteriores permanecen no aprobadas.
 
