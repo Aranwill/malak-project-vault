@@ -1450,18 +1450,22 @@ independiente `Aranwill/malak-vault-sync-agent`, culminando en:
 
 ```text
 Rama: main
-HEAD: 0feed6eae3d3919ea4867891c12eda5eea81c511
-PR documental de cierre: #6 integrada
-Suite completa: 230 passed
+HEAD del baseline al resolver DEC-RES-009: 0feed6eae3d3919ea4867891c12eda5eea81c511
+PR documental de cierre del Incremento 4: #6 integrada
+Suite del baseline al resolver la decisión: 230 passed
 Modo operativo: manual-on-demand
 Scheduler activo: no
 Autoridad operativa: none
 ```
 
-Una auditoría posterior confirmó que esta evidencia no demuestra todavía
-conformidad completa con todos los controles obligatorios de la decisión.
-La autorización permanece vigente, pero los controles pendientes deben
-implementarse y validarse en un incremento correctivo separado.
+Una auditoría posterior confirmó que aquella evidencia no demostraba
+todavía conformidad completa con todos los controles obligatorios de la
+decisión.
+
+Los controles pendientes fueron posteriormente implementados y
+certificados mediante el Incremento Correctivo Integral 5, sin modificar
+el alcance, la autoridad ni las operaciones autorizadas por esta
+resolución.
 
 **Decisión:**
 
@@ -1536,8 +1540,9 @@ no constituyen una decisión ni una aplicación automática. Por esa razón,
 - verificación remota para aceptar o rechazar;
 - revisión humana del diff y del informe.
 
-Los controles obligatorios describen el contrato autorizado. En
-`main@0feed6e` permanecen pendientes:
+Los controles obligatorios describen el contrato autorizado.
+
+Al momento del baseline `main@0feed6e`, permanecían pendientes:
 
 - validación del contenido final pos-escritura;
 - frontmatter YAML y wikilinks;
@@ -1546,9 +1551,36 @@ Los controles obligatorios describen el contrato autorizado. En
   persistirse;
 - evidencia del disparador real `manual-on-demand`.
 
-La suite de `230 passed` no cubre esas brechas. Corregirlas no requiere
-ampliar autoridad, pero sí una aprobación técnica independiente antes de
-modificar el agente.
+Estos controles fueron implementados y certificados posteriormente en el
+Incremento Correctivo Integral 5.
+
+Baseline de certificación posterior:
+
+```text
+Repositorio: Aranwill/malak-vault-sync-agent
+Rama: main
+HEAD: 5afd03e1697e4820b8b62ff3db23109fdfde8bcb
+Versión: 0.3.0
+PR #8: integrada
+Suite completa: 260 passed
+compileall: PASS
+git diff --check: PASS
+GitHub Actions Ubuntu: PASS
+GitHub Actions Windows: PASS
+Validación nativa Windows: PASS
+GitHub CLI real: PASS
+Recovery negativo real: PASS
+Recovery positivo real: PASS
+Estado persistente: esquema v3 intacto
+last_applied_commit: null
+pending_proposal_*: null
+Scheduler activo: no
+Modo operativo: manual-on-demand
+Autoridad operativa: none
+
+La suite histórica de `230 passed` no cubría esos controles. Su
+implementación requirió y recibió aprobación técnica independiente y fue
+certificada posteriormente en el Incremento Correctivo Integral 5.
 
 **Rollback:**
 

@@ -5,18 +5,18 @@ document_type: architecture
 status: accepted
 authority: approved_architecture
 operational_authority: none
-version: 1.2
+version: 1.3
 created: 2026-07-21
-last_reviewed: 2026-08-01
+last_reviewed: 2026-08-09
 source_repository: Aranwill/jarvis
 source_branch: main
 source_commit: b4d1d512fe953d593608391390f82ab500fdc9d6
 vault_repository: Aranwill/malak-project-vault
 vault_branch: main
-vault_base_commit_before_update: f433b9efc426ba52141a1a3daed81795fc666e6f
+vault_base_commit_before_update: 46672bcb971dbcdfcf25b1a4c7359aec9f047980
 agent_repository: Aranwill/malak-vault-sync-agent
 agent_branch: main
-agent_head: 0feed6eae3d3919ea4867891c12eda5eea81c511
+agent_head: 5afd03e1697e4820b8b62ff3db23109fdfde8bcb
 implementation_approved: true
 phase_1_status: completed
 operationalization_status: completed
@@ -133,20 +133,29 @@ Baseline operacional vigente:
 ```text
 Repositorio: Aranwill/malak-vault-sync-agent
 Rama: main
-HEAD: 0feed6eae3d3919ea4867891c12eda5eea81c511
-PR integradas relevantes: #1, #3, #4, #5 y #6
-Working tree: limpio
-main local: alineada con origin/main
-Suite completa: 230 passed
+HEAD: 5afd03e1697e4820b8b62ff3db23109fdfde8bcb
+Versión: 0.3.0
+PR integradas relevantes: #1, #3, #4, #5, #6, #7 y #8
+Working tree: limpio al cierre operativo
+main local: alineada con origin/main al cierre operativo
+Suite completa: 260 passed
+compileall: PASS
+git diff --check: PASS
+GitHub Actions Ubuntu: PASS
+GitHub Actions Windows: PASS
+Validación nativa Windows: PASS
+GitHub CLI real: PASS
+Recovery negativo real: PASS
+Recovery positivo real: PASS
 Configuración privada: válida y excluida de Git
-Ejecución manual: pass
-Scheduler final: eliminado
+Scheduler activo: no
 Modo operativo: manual-on-demand
 Modos autorizados: dry-run y controlled-proposal
-Estado persistente: esquema v3 reconciliado
-Incremento 4: cerrado
+Estado persistente: esquema v3 intacto
+Incremento Correctivo Integral 5: cerrado técnica y operativamente
 last_applied_commit: null
-```
+pending_proposal_*: null
+Autoridad operativa: none
 
 El baseline formal e histórico del cierre técnico de la Fase 1 permanece registrado en:
 
@@ -220,11 +229,23 @@ La extensión `controlled-proposal` incorpora:
 - aceptación y rechazo locales sujetos a decisión humana y verificación
   del estado remoto.
 
-En el baseline `main@0feed6e`, el núcleo anterior está implementado. No
-lo están todavía la revalidación de la proyección final, el parser de
-frontmatter YAML, el resolvedor de wikilinks, la denylist explícita
-`09-repository-snapshots/**` ni una recuperación completa si la PR se
-crea antes de fallar la persistencia local.
+En el baseline `main@5afd03e`, los controles correctivos aprobados para
+`controlled-proposal` se encuentran implementados y certificados.
+
+El alcance vigente incluye:
+
+- revalidación de la proyección final;
+- validación de frontmatter YAML en documentos Markdown;
+- validación de wikilinks;
+- protección explícita de `09-repository-snapshots/**`;
+- recuperación remota de propuestas si la PR existe y la persistencia
+  local no quedó completada;
+- registro del modo `manual-on-demand`;
+- normalización de finales de línea CRLF provenientes de GitHub CLI
+  antes de interpretar identidad remota.
+
+Estos controles no modifican la autoridad del agente ni amplían el
+alcance de escritura.
 
 La operacionalización posterior incorporó:
 
@@ -280,10 +301,12 @@ ejecución manual
 → esperar decisión humana
 ```
 
-El flujo efectivo actual crea y publica la propuesta, pero la validación
-documental ocurre antes de insertar la proyección y no vuelve a ejecutarse
-sobre el contenido final. Por ello, el flujo objetivo no debe presentarse
-todavía como completamente implementado.
+El flujo efectivo vigente implementa la validación final de la proyección
+antes de publicar la propuesta y conserva los controles deterministas
+definidos para `controlled-proposal`.
+
+El circuito de recuperación remota también fue certificado contra una PR
+draft real mediante GitHub CLI en Windows.
 
 Este flujo nunca escribe en Malāk, nunca escribe directamente en `main`
 del Vault y nunca aprueba o mergea una PR.
@@ -368,8 +391,7 @@ En la extensión `controlled-proposal`:
 - el `main` remoto del Vault permanece sin escritura directa;
 - solo se modifican documentos allowlisted en una rama aislada;
 - los snapshots quedan fuera del allowlist y no fueron modificados;
-- la denylist explícita conserva por error `09-snapshots/**`; corregirla a
-  `09-repository-snapshots/**` permanece pendiente;
+- `09-repository-snapshots/**` se encuentra protegido explícitamente y permanece fuera del alcance de escritura;
 - no se realiza force-push;
 - toda PR se abre como draft;
 - una propuesta pendiente bloquea nuevas propuestas;
@@ -501,20 +523,19 @@ Los siguientes controles pertenecen al alcance aprobado de
 `controlled-proposal`, pero requieren un incremento correctivo todavía
 no autorizado para implementación:
 
-- validación del contenido final después de la escritura;
-- validación de frontmatter YAML en Markdown;
-- validación de wikilinks;
-- denylist explícita `09-repository-snapshots/**`;
-- recuperación de una rama o PR huérfana posterior a su creación;
-- evidencia `triggered_by: manual-on-demand`.
+Los controles correctivos anteriormente pendientes para
+`controlled-proposal` fueron implementados y certificados durante el
+Incremento Correctivo Integral 5.
+
+Su cierre no habilita capacidades adicionales ni modifica los elementos
+que permanecen explícitamente fuera de alcance.
 
 ## 14. Fases futuras
 
 Secuencia conceptual:
 
 1. Fase 1 — Read-only Drift Detector: completada.
-2. Extensión gobernada `controlled-proposal`: aprobada, con núcleo
-   operativo y conformidad técnica pendiente de corrección.
+2. Extensión gobernada `controlled-proposal`: aprobada, implementada y certificada dentro del alcance correctivo autorizado.
 3. Fase 2 y ampliaciones funcionales posteriores: no aprobadas.
 4. Event-driven Detection: no aprobada.
 5. LLM-assisted Documentation: no aprobada.
@@ -541,11 +562,11 @@ Remoto configurado: sí
 Repositorio remoto: Aranwill/malak-vault-sync-agent
 Rama remota: main
 Upstream de main: origin/main
-Working tree: limpio
-HEAD: 0feed6eae3d3919ea4867891c12eda5eea81c511
-HEAD local y remoto: coincidentes
+Working tree: limpio al cierre operativo
+HEAD: 5afd03e1697e4820b8b62ff3db23109fdfde8bcb
+HEAD local y remoto: coincidentes al cierre operativo
 Respaldo remoto: completado
-PR de operacionalización: #1 integrada
+PR de cierre operativo: #8 integrada
 ```
 
 El remoto respalda el código del agente, pero no le concede autoridad sobre Malāk ni sobre el Vault.
@@ -609,6 +630,16 @@ merge commit: 0feed6eae3d3919ea4867891c12eda5eea81c511
 suite completa: 230 passed
 ```
 
+El cierre técnico y operativo del Incremento Correctivo Integral 5 está
+documentado en el repositorio del agente:
+
+```text
+docs/INCREMENT_5_OPERATIONAL_CLOSURE.md
+versión: 0.3.0
+PR #8
+merge commit: 5afd03e1697e4820b8b62ff3db23109fdfde8bcb
+suite completa: 260 passed
+
 ## 17. Criterios de aceptación cumplidos
 
 - arquitectura externa al runtime;
@@ -635,9 +666,14 @@ suite completa: 230 passed
 - ejecución mediante Programador de tareas validada;
 - scheduler eliminado después de la validación;
 - modo operativo `manual-on-demand` aprobado;
-- suite operacional de `230 passed`;
 - estado v3 reconciliado;
-- Incremento 4 cerrado;
+- suite operacional de `260 passed`;
+- GitHub Actions Ubuntu y Windows aprobadas;
+- validación nativa Windows aprobada;
+- GitHub CLI real validado;
+- recovery negativo y positivo certificados;
+- estado v3 preservado;
+- Incremento Correctivo Integral 5 cerrado técnica y operativamente;
 - Fase 2 preservada como no aprobada.
 
 ## 18. Riesgos residuales
@@ -649,7 +685,6 @@ Continúan vigentes:
 - iniciar una fase posterior por continuidad;
 - conceder permisos de escritura prematuramente;
 - confundir propuesta técnica con aplicación documental;
-- dejar una rama o PR huérfana ante un fallo remoto;
 - publicar evidencia sensible;
 - olvidar ejecutar manualmente el agente después de una sesión aprobada;
 - ejecutar el agente antes de publicar los cambios en `origin/main`;
@@ -665,8 +700,11 @@ Continúan vigentes:
 Fase 1: completada
 Operacionalización read-only: completada
 Modo operativo: manual-on-demand
-Controlled-proposal: aprobado; núcleo implementado
-Conformidad técnica completa: pendiente de corrección
+Controlled-proposal: aprobado e implementado
+Conformidad del alcance correctivo aprobado: completada
+Incremento Correctivo Integral 5: cerrado técnica y operativamente
+Versión: 0.3.0
+HEAD vigente: 5afd03e1697e4820b8b62ff3db23109fdfde8bcb
 Scheduler activo: no
 Autoridad operativa: none
 Fases posteriores: no aprobadas

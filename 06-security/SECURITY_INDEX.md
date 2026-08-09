@@ -148,14 +148,23 @@ Controles adicionales de `controlled-proposal`:
 
 Brechas técnicas conocidas:
 
-- no existe revalidación del contenido final después de escribir;
-- no se validan frontmatter YAML ni wikilinks;
-- la denylist explícita usa `09-snapshots/**` en vez de
-  `09-repository-snapshots/**`;
-- una falla posterior a crear la PR puede dejar identidad remota sin
-  persistencia local;
-- los informes declaran `scheduled-detection` aunque el modo vigente es
-  `manual-on-demand`.
+Controles correctivos certificados:
+
+- revalidación del contenido final después de escribir;
+- validación de frontmatter YAML en documentos Markdown;
+- validación de wikilinks;
+- denylist explícita correcta para `09-repository-snapshots/**`;
+- recuperación remota de propuestas cuando la PR existe y la
+  persistencia local no quedó completada;
+- registro explícito del modo operativo `manual-on-demand`;
+- normalización de finales de línea CRLF obtenidos mediante GitHub CLI
+  antes de interpretar la identidad remota de una propuesta.
+
+Estos controles fueron implementados y certificados durante el
+Incremento Correctivo Integral 5.
+
+Su cierre no elimina los riesgos residuales del sistema ni modifica la
+autoridad del agente.
 
 Riesgos residuales documentados:
 

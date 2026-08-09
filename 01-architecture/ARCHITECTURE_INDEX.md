@@ -205,15 +205,17 @@ Estado arquitectónico:
 
 ```text
 Fase 1 aceptada, implementada y cerrada
-Extensión controlled-proposal aceptada
-Núcleo de controlled-proposal implementado
-Conformidad técnica completa pendiente
+Extensión controlled-proposal aceptada, implementada y certificada
+Incremento Correctivo Integral 5 cerrado técnica y operativamente
+Conformidad del alcance correctivo aprobado completada
 ```
 
 Estado operativo:
 
 ```text
 tooling documental externo en modos dry-run y controlled-proposal
+Modo operativo: manual-on-demand
+Scheduler activo: no
 ```
 
 Autoridad operativa:
@@ -239,19 +241,33 @@ Baseline final del agente:
 
 ```text
 Rama: main
-HEAD: 0feed6eae3d3919ea4867891c12eda5eea81c511
-Suite completa: 230 passed
-Resultado end-to-end: pass
+HEAD: 5afd03e1697e4820b8b62ff3db23109fdfde8bcb
+Versión: 0.3.0
+Suite completa: 260 passed
+compileall: PASS
+git diff --check: PASS
+GitHub Actions Ubuntu: PASS
+GitHub Actions Windows: PASS
+Validación nativa Windows: PASS
+GitHub CLI real: PASS
+Recovery negativo real: PASS
+Recovery positivo real: PASS
+Modo operativo: manual-on-demand
+Scheduler activo: no
+Autoridad operativa: none
 ```
 
 La extensión independiente se registra en `DEC-RES-009` y no constituye
 Fase 2.
 
-El baseline `0feed6e` no implementa aún revalidación final pos-escritura,
-frontmatter YAML, wikilinks, la denylist explícita correcta de snapshots
-ni recuperación completa tras crear una PR y fallar la persistencia
-local. Esos puntos permanecen como requisitos correctivos; no invalidan
-la decisión ni amplían la autoridad del agente.
+El baseline `5afd03e` incorpora y certifica los controles correctivos
+aprobados para `controlled-proposal`, incluyendo revalidación final,
+frontmatter YAML, wikilinks, protección explícita de
+`09-repository-snapshots/**`, recuperación remota de propuestas y
+normalización CRLF de cuerpos obtenidos mediante GitHub CLI.
+
+Estos controles no modifican el modelo de autoridad del agente, no
+habilitan scheduler, no conceden auto-merge y no autorizan Fase 2.
 
 Fase 2 y posteriores permanecen no aprobadas.
 

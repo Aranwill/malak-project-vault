@@ -545,25 +545,38 @@ D:\Ollama\malak-project-vault
 ```text
 Repositorio: Aranwill/malak-vault-sync-agent
 Rama: main
-HEAD: 0feed6eae3d3919ea4867891c12eda5eea81c511
-PR integradas relevantes: #1, #3, #4, #5 y #6
-Working tree: limpio
-main local: alineada con origin/main
-Suite completa: 230 passed
+HEAD: 5afd03e1697e4820b8b62ff3db23109fdfde8bcb
+Versión: 0.3.0
+PR integradas relevantes: #1, #3, #4, #5, #6, #7 y #8
+Working tree: limpio al cierre operativo
+main local: alineada con origin/main al cierre operativo
+Suite completa: 260 passed
+compileall: PASS
+git diff --check: PASS
+GitHub Actions Ubuntu: PASS
+GitHub Actions Windows: PASS
+Validación nativa Windows: PASS
+GitHub CLI real: PASS
+Recovery negativo real: PASS
+Recovery positivo real: PASS
 Configuración privada: válida y excluida de Git
-Ejecución manual end-to-end: pass
-Scheduler final: eliminado
+Scheduler activo: no
 Modo operativo: manual-on-demand
 Cursores de observación y propuesta: independientes
-Estado persistente: esquema v3 reconciliado
-Incremento 4: cerrado
+Estado persistente: esquema v3 intacto
+Incremento Correctivo Integral 5: cerrado técnica y operativamente
 last_applied_commit: null
+pending_proposal_*: null
+Autoridad operativa: none
 ```
 
 El cierre del Incremento 4 y la suite de `230 passed` permanecen como
-evidencia histórica válida. Una auditoría posterior identificó controles
-del contrato aprobado que esa suite no cubre; por ello no deben
-interpretarse como conformidad técnica total.
+evidencia histórica válida del baseline anterior.
+
+Una auditoría posterior identificó controles del contrato aprobado que
+esa suite no cubría. Esos controles fueron implementados y certificados
+durante el Incremento Correctivo Integral 5, por lo que `230 passed` no
+representa el baseline operativo vigente.
 
 **Baseline histórico del cierre formal de la Fase 1:**
 
@@ -601,7 +614,8 @@ Fase 1: cerrada formalmente
 
 ```text
 Suite de cierre de Fase 1: 148 passed
-Suite operacional vigente: 230 passed
+Suite operacional del baseline posterior de Incremento 4: 230 passed
+Suite operacional vigente del agente: 260 passed
 compileall: correcto
 git diff --check: correcto
 Resultado end-to-end: pass

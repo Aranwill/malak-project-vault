@@ -5,18 +5,18 @@ document_type: governance-policy
 status: accepted
 authority: approved_policy
 operational_authority: none
-version: 1.2
+version: 1.3
 created: 2026-07-21
-last_reviewed: 2026-08-01
+last_reviewed: 2026-08-09
 source_repository: Aranwill/jarvis
 source_branch: main
 source_commit: b4d1d512fe953d593608391390f82ab500fdc9d6
 vault_repository: Aranwill/malak-project-vault
 vault_branch: main
-vault_base_commit: f433b9efc426ba52141a1a3daed81795fc666e6f
+vault_base_commit: 46672bcb971dbcdfcf25b1a4c7359aec9f047980
 agent_repository: Aranwill/malak-vault-sync-agent
 agent_branch: main
-agent_commit: 0feed6eae3d3919ea4867891c12eda5eea81c511
+agent_commit: 5afd03e1697e4820b8b62ff3db23109fdfde8bcb
 implementation_approved: true
 phase_1_status: completed
 operationalization_status: completed
@@ -196,12 +196,22 @@ Puede:
 - persistir la identidad de la propuesta pendiente después de completar
   el circuito remoto.
 
-En `main@0feed6e`, estas capacidades no incluyen todavía validación del
-frontmatter YAML de documentos Markdown, validación de wikilinks ni
-revalidación del contenido final después de insertar la proyección.
-Tampoco existe recuperación completa si la PR fue creada y falla la
-persistencia posterior de su identidad. Son brechas técnicas conocidas,
-no permisos implícitos ni controles verificados.
+En el baseline `main@5afd03e`, los controles correctivos aprobados para
+`controlled-proposal` fueron implementados y validados, incluyendo:
+
+- revalidación de la proyección final;
+- validación de frontmatter YAML en documentos Markdown;
+- validación de wikilinks de Obsidian;
+- protección explícita de `09-repository-snapshots/**`;
+- recuperación remota de propuestas cuando la PR existe pero la
+  persistencia local no quedó completada;
+- registro del modo operativo `manual-on-demand`;
+- normalización de finales de línea CRLF provenientes de GitHub CLI
+  antes de interpretar la identidad remota de una propuesta.
+
+Estos controles no amplían permisos ni autoridad. El agente continúa
+limitado a preparar propuestas en ramas aisladas del Vault y requiere
+decisión humana para aceptación, rechazo y merge.
 
 No puede:
 
@@ -376,9 +386,9 @@ La Fase 1 deberá validar como mínimo:
 - informe de auditoría;
 - resultado end-to-end.
 
-### 12.1 Requisitos obligatorios de `controlled-proposal`
+### 12.1 Controles obligatorios de `controlled-proposal`
 
-Antes de declarar conformidad técnica completa, el modo deberá:
+El modo deberá:
 
 - revalidar cada documento Markdown después de escribir la proyección;
 - validar el frontmatter YAML delimitado por `---`;
@@ -388,10 +398,15 @@ Antes de declarar conformidad técnica completa, el modo deberá:
 - persistir o recuperar de forma inequívoca la identidad de una rama o
   PR creada antes de cualquier fallo local posterior;
 - registrar `triggered_by: manual-on-demand` mientras ese sea el modo
-  operativo vigente.
+  operativo vigente;
+- normalizar contenido remoto antes de interpretar campos gobernados
+  cuando la plataforma introduzca finales de línea CRLF.
 
-La corrección de estas brechas requiere un incremento técnico separado y
-aprobación humana explícita. Esta política no lo inicia automáticamente.
+Estos controles fueron implementados y certificados en el Incremento
+Correctivo Integral 5 del Vault Synchronization Agent.
+
+La certificación técnica no modifica el modelo de autoridad, no concede
+permisos adicionales y no autoriza Fase 2 ni ninguna ampliación posterior.
 
 ## 13. Uso del LLM
 
@@ -487,8 +502,11 @@ ejecutar manualmente
 ```
 
 El flujo anterior expresa el contrato obligatorio. El baseline
-`main@0feed6e` implementa el núcleo de propuesta, pero todavía no satisface
-todos los controles enumerados en 12.1.
+`main@5afd03e` satisface los controles correctivos definidos en 12.1
+dentro del alcance aprobado y certificado del Incremento Correctivo
+Integral 5.
+
+Esta conformidad técnica no concede autoridad operativa adicional.
 
 ## 16. Controles verificados al cierre
 
@@ -496,35 +514,38 @@ todos los controles enumerados en 12.1.
 Workspace: D:\Ollama\malak-vault-sync-agent
 Repositorio: Aranwill/malak-vault-sync-agent
 Rama: main
-HEAD: 0feed6eae3d3919ea4867891c12eda5eea81c511
-Gate 0 a Gate 9: cerrados
-Suite completa: 230 passed
-compileall: correcto
-git diff --check: correcto
-Resultado end-to-end: pass
-Configuración privada: válida y excluida de Git
-Ejecución manual: pass
-Controlled-proposal: núcleo implementado y validado
-Conformidad técnica completa: pendiente
-Estado persistente: esquema v3 reconciliado
-Incremento 4: cerrado
-Scheduler final: eliminado
+HEAD: 5afd03e1697e4820b8b62ff3db23109fdfde8bcb
+Versión: 0.3.0
+Gate 0 a Gate 9: cierre histórico preservado
+Suite completa: 260 passed
+compileall: PASS
+git diff --check: PASS
+GitHub Actions Ubuntu: PASS
+GitHub Actions Windows: PASS
+Validación nativa Windows: PASS
+GitHub CLI real: PASS
+Recovery negativo real: PASS
+Recovery positivo real: PASS
+Controlled-proposal: controles correctivos certificados
+Conformidad técnica del alcance aprobado: completada
+Estado persistente: esquema v3 intacto
+Incremento Correctivo Integral 5: cierre técnico y operativo completado
+Scheduler activo: no
 Modo operativo: manual-on-demand
 Malāk intacto: sí
-Vault main intacto: sí
+Vault main sin escritura directa durante la certificación: sí
 last_applied_commit: null
-Hashes SHA-256 verificados: sí
+pending_proposal_*: null
 Autoridad operativa: none
 ```
 
-`230 passed`, `compileall`, `git diff --check` y el resultado end-to-end
-son evidencia válida de su alcance probado. No acreditan validación de
-frontmatter, wikilinks, contenido final pos-escritura, denylist corregida
-ni recuperación posterior a la creación de una PR.
+`260 passed`, `compileall`, `git diff --check`, la validación
+multiplataforma de GitHub Actions y las pruebas nativas de recuperación
+constituyen evidencia del alcance certificado del Incremento Correctivo
+Integral 5.
 
-Los comandos sobre Malāk permanecen read-only. Las operaciones de
-escritura autorizadas están limitadas a la rama aislada de propuesta del
-Vault y a la persistencia local del estado.
+La certificación confirma los controles correctivos aprobados; no
+constituye autorización para capacidades fuera de ese alcance.
 
 ## 17. Estado remoto y operacionalización del agente
 
@@ -534,10 +555,10 @@ Repositorio remoto: Aranwill/malak-vault-sync-agent
 Rama remota: main
 Upstream de main: origin/main
 Working tree: limpio
-HEAD: 0feed6eae3d3919ea4867891c12eda5eea81c511
-HEAD local y remoto: coincidentes
+HEAD: 5afd03e1697e4820b8b62ff3db23109fdfde8bcb
+HEAD local y remoto: coincidentes al cierre operativo
 Respaldo remoto: completado
-PR de operacionalización: #1 integrada
+PR de cierre operativo: #8 integrada
 ```
 
 La existencia del repositorio remoto del agente constituye respaldo y trazabilidad de su propio código. No modifica su autoridad, no lo convierte en parte de Malāk y no le concede permisos de escritura sobre los repositorios observados.
@@ -635,6 +656,16 @@ El baseline final del agente se encuentra en:
 docs/PHASE_1_FINAL_BASELINE.md
 ```
 
+El cierre técnico y operativo del Incremento Correctivo Integral 5 está
+documentado en el repositorio del agente:
+
+```text
+docs/INCREMENT_5_OPERATIONAL_CLOSURE.md
+versión: 0.3.0
+PR #8
+merge commit: 5afd03e1697e4820b8b62ff3db23109fdfde8bcb
+suite completa: 260 passed
+
 ## 21. Estado final
 
 ```text
@@ -642,11 +673,25 @@ Política: accepted
 Fase 1: completed
 Operacionalización read-only: completed
 Repositorio del agente: Aranwill/malak-vault-sync-agent
-HEAD del agente: 0feed6eae3d3919ea4867891c12eda5eea81c511
+Política: accepted
+Fase 1: completed
+Operacionalización read-only: completed
+Repositorio del agente: Aranwill/malak-vault-sync-agent
+HEAD del agente: 5afd03e1697e4820b8b62ff3db23109fdfde8bcb
+Versión del agente: 0.3.0
 Agente operativo: herramienta externa con propuesta controlada
 Modo operativo: manual-on-demand
 Modos autorizados: dry-run y controlled-proposal
-Conformidad de controlled-proposal: corrección técnica pendiente
+Conformidad del alcance correctivo aprobado: completada
+Incremento Correctivo Integral 5: cerrado técnica y operativamente
+Scheduler activo: no
+Autoridad operativa: none
+Escritura sobre Malāk: no
+Escritura sobre el Vault: solo rama aislada de propuesta
+Auto-merge: no
+LLM: no
+Fase 2 y posteriores: no aprobadas
+Próximo sprint de Malāk: no definido
 Scheduler activo: no
 Autoridad operativa: none
 Escritura sobre Malāk: no
