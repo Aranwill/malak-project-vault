@@ -239,8 +239,9 @@ un snapshot histórico.
 **Estado:**
 
 ```text
-mitigado parcialmente; la denylist explícita usa `09-snapshots/**` y
-debe corregirse a `09-repository-snapshots/**`
+mitigado y verificado dentro del alcance certificado; la denylist
+explícita protege `09-repository-snapshots/**` y esa ruta permanece
+fuera del alcance de escritura.
 ```
 
 ### 5.7 Destrucción de historia
@@ -257,7 +258,8 @@ debe corregirse a `09-repository-snapshots/**`
 **Estado:**
 
 ```text
-mitigado por allowlist, con corrección de denylist pendiente
+mitigado y verificado mediante allowlist y denylist explícita para
+`09-repository-snapshots/**`
 ```
 
 ### 5.8 Escalada mediante credenciales
@@ -289,7 +291,9 @@ riesgo residual
 
 - separación entre suite del agente y suite oficial;
 - suite histórica de Fase 1 registrada como `148 passed`;
-- suite vigente del agente registrada como `230 passed`;
+- suite vigente del agente registrada como `260 passed`;
+- validación multiplataforma en GitHub Actions Ubuntu y Windows;
+- validación nativa Windows y GitHub CLI real registradas por separado;
 - baseline oficial de Malāk preservado;
 - evidencia vinculada al repositorio correspondiente;
 - informes separados.
@@ -471,21 +475,28 @@ La ejecución deberá bloquearse ante:
 Workspace: D:\Ollama\malak-vault-sync-agent
 Rama: main
 HEAD histórico Fase 1: 954659b
-HEAD vigente: 0feed6eae3d3919ea4867891c12eda5eea81c511
-Gate 0 a Gate 9: cerrados
+HEAD vigente: 5afd03e1697e4820b8b62ff3db23109fdfde8bcb
+Versión vigente: 0.3.0
+Gate 0 a Gate 9: cierre histórico preservado
 Suite histórica Fase 1: 148 passed
-Suite vigente: 230 passed
-compileall: correcto
-git diff --check: correcto
-Resultado end-to-end: pass
+Suite vigente: 260 passed
+compileall: PASS
+git diff --check: PASS
+GitHub Actions Ubuntu: PASS
+GitHub Actions Windows: PASS
+Validación nativa Windows: PASS
+GitHub CLI real: PASS
+Recovery negativo real: PASS
+Recovery positivo real: PASS
 Malāk intacto: sí
-Vault main intacto: sí
-Controlled-proposal: núcleo validado
-Conformidad completa de controlled-proposal: pendiente
-Estado v3: reconciliado
+Vault main sin escritura directa durante la certificación: sí
+Controlled-proposal: controles correctivos certificados
+Conformidad del alcance correctivo aprobado: completada
+Estado v3: intacto
 last_applied_commit: null
-Hashes SHA-256 verificados: sí
-Comandos Git de Fase 1 auditados como read-only: sí
+pending_proposal_*: null
+Scheduler activo: no
+Modo operativo: manual-on-demand
 Autoridad operativa: none
 ```
 
@@ -583,10 +594,12 @@ docs/PHASE_1_FINAL_BASELINE.md
 Remoto configurado: sí
 URL remota: Aranwill/malak-vault-sync-agent
 Upstream de main: origin/main
-Working tree: limpio
-HEAD: 0feed6eae3d3919ea4867891c12eda5eea81c511
+Working tree: limpio al cierre operativo
+HEAD: 5afd03e1697e4820b8b62ff3db23109fdfde8bcb
+Versión: 0.3.0
 Respaldo remoto: completado
-Suite vigente: 230 passed
+Suite vigente: 260 passed
+PR de cierre operativo: #8 integrada
 ```
 
 El remoto respalda el código del agente. Los permisos de escritura usados
