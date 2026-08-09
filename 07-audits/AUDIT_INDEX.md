@@ -5,7 +5,7 @@ document_type: navigation
 status: active
 authority: derived
 operational_authority: none
-last_reviewed: 2026-07-24
+last_reviewed: 2026-08-09
 tags:
   - malak
   - vault
@@ -44,6 +44,7 @@ Estos informes documentan etapas históricas distintas:
 - cierre posterior al merge humano;
 - cierre técnico y validación final de la Fase 1.
 - cierre de la operacionalización read-only y adopción del modo manual bajo demanda.
+- cierre técnico y operativo del Incremento Correctivo Integral 5.
 
 La existencia de estos informes no modifica automáticamente el repositorio, el roadmap, el baseline ni las decisiones del proyecto.
 
@@ -103,6 +104,7 @@ Toda auditoría deberá incluir:
 - [[07-audits/vault-synchronization/2026-07-22_VAULT_SYNC_PHASE_1_CLOSURE|Cierre técnico y validación final de la Fase 1]]
 - [[07-audits/vault-synchronization/2026-07-24_VAULT_SYNC_OPERATIONALIZATION_CLOSURE|Cierre de la operacionalización read-only del Vault Synchronization Agent]]
 - [[07-audits/vault-synchronization/2026-07-26_VAULT_SYNC_20260725T032607612120Z_7cd7fcc8_49858c60|Registro retrospectivo de la sincronización gobernada de Sprint 7.4]]
+- [[07-audits/vault-synchronization/2026-08-09_VAULT_SYNC_INCREMENT_5_OPERATIONAL_CLOSURE|Cierre técnico y operativo del Incremento Correctivo Integral 5]]
 
 ### Estado de los informes
 
@@ -111,6 +113,7 @@ Toda auditoría deberá incluir:
 - cierre técnico de la Fase 1: `completed`;
 - cierre de la operacionalización read-only: `completed`.
 - registro retrospectivo de Sprint 7.4: `completed`.
+- cierre técnico y operativo del Incremento Correctivo Integral 5: `completed`.
 
 El primer informe conserva la evidencia previa al merge y la revisión humana pendiente de ese momento.
 
@@ -135,3 +138,7 @@ Ninguno de estos informes aprueba la Fase 2, concede autoridad de escritura ni m
 - [[07-audits/vault-synchronization/2026-07-29_VAULT_SYNC_20260729T222434802365Z_4a2f49a_8cd4314|Sincronización 20260729T222434802365Z_4a2f49a_8cd4314]]
 
 - [[07-audits/vault-synchronization/2026-07-30_VAULT_SYNC_20260730T000340226601Z_b4d1d512_24e854e4|Sincronización 20260730T000340226601Z_b4d1d512_24e854e4]]
+El informe del Incremento Correctivo Integral 5 registra la certificación
+del baseline `5afd03e`, versión `0.3.0`, la suite de `260 passed`, la
+validación multiplataforma, el recovery operativo y la preservación de
+`manual-on-demand`, scheduler deshabilitado y autoridad operativa `none`.
