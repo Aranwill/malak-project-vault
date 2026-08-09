@@ -296,7 +296,13 @@ Carpeta:
 
 Estado:
 
-`Índice de navegación activo con un modelo de amenazas aceptado para la Fase 1 y controlled-proposal, con brechas técnicas registradas.`
+Índice de navegación activo con un modelo de amenazas aceptado para la
+Fase 1 y `controlled-proposal`, con los controles correctivos del
+Incremento Correctivo Integral 5 implementados y certificados.
+
+Los riesgos residuales de gobernanza, autoridad y operación permanecen
+documentados; la certificación técnica no elimina esos riesgos ni amplía
+la autoridad del agente.
 
 El agente permanece fuera del Security Control Plane, del Kernel y del runtime.
 
@@ -652,8 +658,9 @@ Estado:
 
 ```text
 Fase 1 aceptada, implementada y cerrada
-Extensión controlled-proposal aceptada
-Conformidad técnica completa pendiente
+Extensión controlled-proposal aceptada, implementada y certificada
+Incremento Correctivo Integral 5 cerrado técnica y operativamente
+Conformidad del alcance correctivo aprobado completada
 ```
 
 ### Seguridad
@@ -689,14 +696,31 @@ accepted
 ```text
 Workspace: D:\Ollama\malak-vault-sync-agent
 Rama: main
-HEAD: 0feed6eae3d3919ea4867891c12eda5eea81c511
-Working tree: limpio
-Suite completa: 230 passed
-compileall: correcto
-git diff --check: correcto
-Resultado end-to-end: pass
+HEAD: 5afd03e1697e4820b8b62ff3db23109fdfde8bcb
+Versión: 0.3.0
+Working tree: limpio al cierre operativo
+Suite completa: 260 passed
+compileall: PASS
+git diff --check: PASS
+GitHub Actions Ubuntu: PASS
+GitHub Actions Windows: PASS
+Validación nativa Windows: PASS
+GitHub CLI real: PASS
+Recovery negativo real: PASS
+Recovery positivo real: PASS
+Estado persistente: esquema v3 intacto
 last_applied_commit: null
+pending_proposal_*: null
+Modo operativo: manual-on-demand
+Scheduler activo: no
+Autoridad operativa: none
 ```
+
+El Incremento Correctivo Integral 5 cerró técnica y operativamente el
+alcance correctivo aprobado de `controlled-proposal`.
+
+Este estado no autoriza Fase 2, scheduler, auto-merge, uso de LLM ni
+ninguna ampliación de autoridad.
 
 ### Estado remoto
 
