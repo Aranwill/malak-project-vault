@@ -29,10 +29,10 @@ retrieval_scope: active
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260730T000340226601Z_b4d1d512_24e854e4`
-- **HEAD oficial observado:** `b4d1d512fe953d593608391390f82ab500fdc9d6`
-- **Commit previamente observado:** `38b0917c5b8dba5c5a4ef4db157e78ac428ab4bc`
-- **Generado:** `2026-07-30T00:03:40.226601+00:00`
+- **Run ID:** `20260809T203826202587Z_2a28dcfd_76083517`
+- **HEAD oficial observado:** `2a28dcfd459a2bf1af19b3a6fee5cddefaac7f75`
+- **Commit previamente observado:** `b4d1d512fe953d593608391390f82ab500fdc9d6`
+- **Generado:** `2026-08-09T20:38:26.202587+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
@@ -40,23 +40,24 @@ retrieval_scope: active
 
 - **Ficha de sprint más reciente:** `docs/project/sprints/SPRINT-7.5.md`
 - **Título declarado:** Sprint 7.5 — Base del plano de control de seguridad
-- **Estado declarado:** `en progreso`
-- **`as_of_commit` declarado:** `af64b062aa1395ba7f7bdd59e5c1099ded68b683`
+- **Estado declarado:** `cerrado`
+- **`as_of_commit` declarado:** `62bdc11c3ce16cb2cb54bb61bddfab4e39d689a8`
 
 ### Commits oficiales observados
 
-- b4d1d512fe953d593608391390f82ab500fdc9d6	Merge pull request #27 from Aranwill/docs/strengthen-resource-governance-boundaries
-- 5c74c8641eab83ecf633e18fa9cdbd384bc968a2	docs(resources): strengthen resource governance boundaries
-- c9719e0aaf9fccbab5ca0e195861879c13338daf	Merge pull request #26 from Aranwill/docs/clarify-self-governance-wording
-- 998a90a9424a1cdb53639cd5c8f38e17d23defa3	docs(governance): clarify self-validation under human authority
-- b7d2ef92f75f72c1c173465676d87ebd68a259ea	Merge pull request #25 from Aranwill/docs/clarify-governed-defense-boundaries
-- 638effcec9057757edf0e5e9037029505190961e	docs(security): clarify governed defense boundaries
-- 4a2f49a0007290ee6b290710e28946c40cee41ff	Merge pull request #24 from Aranwill/agent/record-segmented-scaling-and-active-defense
-- 93689b903f28f61537d502b68785c5d3f6b37137	docs: record segmented scaling and governed active defense
+- 2a28dcfd459a2bf1af19b3a6fee5cddefaac7f75	Merge pull request #30 from Aranwill/docs/reconcile-sprint-7.5-final-state
+- 9c0109de156a2eb1cfc84da50815537539a35a1c	docs(project): reconcile Sprint 7.5 final state
+- d5a67e591bb793fbe6631425943e955e8784c1a0	Merge pull request #29 from Aranwill/agent/sprint-7.5-integral-review-closure
+- 4e2b3d4c9599e98f0918780e194448eb9adba3f1	docs(security): close Sprint 7.5 integral review
+- 62bdc11c3ce16cb2cb54bb61bddfab4e39d689a8	Merge pull request #28 from Aranwill/agent/sprint-7.5-audit-reconciliation
+- 9b328939f04bcc2b1d1ed7f7d410237b77604eeb	docs: reconcile sprint 7.5 authorization audit
 
 ### Evidencia que originó esta proyección
 
+- `architecture-change` por `docs/architecture/adr/ADR-002-policy-enforcement-boundary.md`
+- `baseline-source-change` por `README.md`
 - `baseline-source-change` por `docs/project/implementation_roadmap.md`
+- `baseline-source-change` por `docs/project/sprints/SPRINT-7.5.md`
 <!-- MALAK_VAULT_SYNC:END -->
 
 ## 1. Propósito
@@ -142,28 +143,26 @@ No debe utilizarse ninguna rama histórica como fuente del estado actual.
 **Último commit remoto verificado al revisar este documento:**
 
 ```text
-b4d1d512fe953d593608391390f82ab500fdc9d6
+2a28dcfd459a2bf1af19b3a6fee5cddefaac7f75
 ```
 
 **Descripción:**
 
 ```text
-Merge pull request #27 from Aranwill/docs/strengthen-resource-governance-boundaries
+Merge pull request #30 from Aranwill/docs/reconcile-sprint-7.5-final-state
 ```
 
-El rango posterior a `7cd7fcc811df01555837319ec4cac0a93ef94fff`
-cerró formalmente el Sprint 7.4, activó el Sprint 7.5 e incorporó sus
-cuatro contratos fundamentales de autorización, el PDP mínimo y el PEP
-inicial. Los contratos fueron integrados mediante la PR #15; la PR #16 reconcilió
-la activación documental. El PDP se integró mediante la PR #17 en
-`78799deabba5009e66c219220349e8202f5464bb`; la PR #18 reconcilió su
-estado en la documentación oficial sin modificar código. El PEP se
-integró mediante la PR #19 en
-`af64b062aa1395ba7f7bdd59e5c1099ded68b683`; la PR #20 reconcilió su
-estado documental. Las PR #25, #26 y #27 incorporaron aclaraciones
-documentales posteriores; la PR #27 produjo el HEAD verificado.
+El rango posterior a `b4d1d512fe953d593608391390f82ab500fdc9d6`
+completó la reconciliación final del Sprint 7.5.
 
-El hash registrado aquí es una referencia temporal y deberá actualizarse cuando cambie materialmente `HEAD`.
+El cierre integral fue incorporado mediante la PR #29 y posteriormente
+reconciliado en la documentación oficial mediante la PR #30.
+
+El Sprint 7.5 quedó cerrado después de completar sus seis incrementos,
+sin requerir cambios funcionales durante el Incremento 6.
+
+El hash registrado aquí es una referencia temporal y deberá actualizarse
+cuando cambie materialmente `HEAD`.
 
 ---
 
@@ -172,13 +171,13 @@ El hash registrado aquí es una referencia temporal y deberá actualizarse cuand
 **Último sprint formalmente cerrado:**
 
 ```text
-Sprint 7.4 — Consolidación de logs, métricas y auditoría
+Sprint 7.5 — Security Control Plane Foundation
 ```
 
-**Sprint aprobado en progreso:**
+**Sprint actualmente autorizado:**
 
 ```text
-Sprint 7.5 — Base del plano de control de seguridad
+Ninguno.
 ```
 
 El bloque 7.x presenta el siguiente estado:
@@ -190,17 +189,36 @@ El bloque 7.x presenta el siguiente estado:
 | 7.2    | Cerrado | Contrato estructural `RuntimeMetricSink` de solo escritura            |
 | 7.3    | Cerrado | Estabilización de la frontera `ConversationService`–Provider–Runtime  |
 | 7.4    | Cerrado | Eventos operativos, correlación desde la CLI y sincronización gobernada del Vault |
-| 7.5    | En progreso | Contratos, PDP, PEP y auditoría de autorización integrados; revisión integral y cierre pendientes |
+| 7.5    | Cerrado | Security Control Plane Foundation; autorización, PDP, PEP, auditoría y revisión integral completados |
 
-El Sprint 7.5 fue aprobado por el propietario. Los contratos de auditoría
-de autorización y su integración fail-closed con el PEP fueron incorporados
-mediante las PR #22 y #23. La revisión integral y el cierre permanecen
-pendientes y requieren aprobación humana independiente.
+El Sprint 7.5 fue aprobado explícitamente por el propietario y quedó
+cerrado después de completar seis incrementos pequeños, revisables y
+reversibles.
 
-La PR #24 es exclusivamente documental: registra visión y planificación
-futura, pero no incorpora componentes operativos ni modifica el baseline.
+El cierre integral confirmó:
 
-El cierre de un sprint no autoriza el inicio del siguiente.
+- contratos de autorización estables;
+- Policy Decision Point mínimo, determinista y fail-closed;
+- Policy Enforcement Point separado de la lógica de negocio del Kernel;
+- evidencia de auditoría estructurada e integrada de forma fail-closed;
+- separación entre decisión, enforcement, auditoría y operación protegida;
+- control humano y denegación por defecto preservados;
+- ausencia de rutas operativas reales habilitadas por este sprint;
+- ausencia de defectos bloqueantes durante la revisión integral;
+- 183 pruebas específicas de seguridad aprobadas;
+- 304 pruebas totales aprobadas;
+- `compileall`: PASS;
+- `git diff --check`: PASS;
+- Kernel, Planner, CLI, runtimes y Capability Registry intactos.
+
+El Incremento 6 no requirió cambios funcionales.
+
+No existe ningún sprint posterior autorizado automáticamente por el
+cierre del Sprint 7.5.
+
+El Secure Context Manager, persistencia de auditoría, identidad
+criptográfica, TTL, nonce, prevención persistente de replay, agentes,
+navegación y rutas operativas reales permanecen fuera de alcance.
 
 ---
 
@@ -736,9 +754,9 @@ docs/project/sprints/SPRINT-7.5.md
 El PDP mínimo está implementado e integrado en Sprint 7.5, Incremento
 3. El PEP inicial está implementado e integrado como Incremento 4.
 La evidencia de auditoría de autorización y su integración fail-closed
-con el PEP fueron incorporadas mediante las PR #22 y #23. El Incremento 5
-queda integrado. El Incremento 6 — revisión integral y cierre — permanece
-pendiente y requiere aprobación humana independiente.
+con el PEP fueron incorporadas mediante las PR #22 y #23. El Incremento 5 quedó integrado. El Incremento 6 completó la revisión
+integral y el cierre del Sprint 7.5 sin requerir cambios funcionales.
+El cierre no autoriza automáticamente ningún sprint posterior.
 
 ---
 
@@ -968,8 +986,6 @@ Todavía no forman parte del baseline operativo:
 * campañas formales de calibración;
 * comparación automática de modelos;
 * autoajuste.
-* Policy Enforcement Point;
-* auditoría de decisiones de autorización;
 * Secure Context Manager;
 
 ---
@@ -989,13 +1005,13 @@ Estado vigente:
 | Línea                                       | Estado      |
 | ------------------------------------------- | ----------- |
 | Consolidación de logs, métricas y auditoría | Sprint 7.4 cerrado |
-| Security Control Plane Foundation           | Sprint 7.5 aprobado y en progreso |
+| Security Control Plane Foundation | Sprint 7.5 cerrado |
 | Preparación del AKS para GraphRAG           | No aprobada |
 | Validación de baseline y release interna    | No aprobada |
 
-El Incremento 1 del Sprint 7.5 fue integrado mediante la PR #15. El
-Incremento 2 reconcilió la documentación oficial mediante la PR #16.
-Los incrementos 3 a 6 no están autorizados automáticamente.
+El Sprint 7.5 quedó cerrado después de completar y validar sus seis
+incrementos. El cierre del sprint no autoriza automáticamente ningún
+sprint posterior.
 
 Las líneas marcadas como no aprobadas no poseen autorización de
 implementación.

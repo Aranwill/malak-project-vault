@@ -8,11 +8,11 @@ authority_level: approved_roadmap
 authority_rank: 7
 version: 1.1
 created: 2026-07-20
-last_reviewed: 2026-07-29
+last_reviewed: 2026-08-09
 source_of_truth: repository
 source_repository: Aranwill/jarvis
 source_branch: main
-source_commit: 4a2f49a0007290ee6b290710e28946c40cee41ff
+source_commit: 2a28dcfd459a2bf1af19b3a6fee5cddefaac7f75
 derived: true
 operational_context: true
 retrieval_enabled: true
@@ -29,10 +29,10 @@ retrieval_scope: active
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260730T000340226601Z_b4d1d512_24e854e4`
-- **HEAD oficial observado:** `b4d1d512fe953d593608391390f82ab500fdc9d6`
-- **Commit previamente observado:** `38b0917c5b8dba5c5a4ef4db157e78ac428ab4bc`
-- **Generado:** `2026-07-30T00:03:40.226601+00:00`
+- **Run ID:** `20260809T203826202587Z_2a28dcfd_76083517`
+- **HEAD oficial observado:** `2a28dcfd459a2bf1af19b3a6fee5cddefaac7f75`
+- **Commit previamente observado:** `b4d1d512fe953d593608391390f82ab500fdc9d6`
+- **Generado:** `2026-08-09T20:38:26.202587+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
@@ -40,23 +40,24 @@ retrieval_scope: active
 
 - **Ficha de sprint más reciente:** `docs/project/sprints/SPRINT-7.5.md`
 - **Título declarado:** Sprint 7.5 — Base del plano de control de seguridad
-- **Estado declarado:** `en progreso`
-- **`as_of_commit` declarado:** `af64b062aa1395ba7f7bdd59e5c1099ded68b683`
+- **Estado declarado:** `cerrado`
+- **`as_of_commit` declarado:** `62bdc11c3ce16cb2cb54bb61bddfab4e39d689a8`
 
 ### Commits oficiales observados
 
-- b4d1d512fe953d593608391390f82ab500fdc9d6	Merge pull request #27 from Aranwill/docs/strengthen-resource-governance-boundaries
-- 5c74c8641eab83ecf633e18fa9cdbd384bc968a2	docs(resources): strengthen resource governance boundaries
-- c9719e0aaf9fccbab5ca0e195861879c13338daf	Merge pull request #26 from Aranwill/docs/clarify-self-governance-wording
-- 998a90a9424a1cdb53639cd5c8f38e17d23defa3	docs(governance): clarify self-validation under human authority
-- b7d2ef92f75f72c1c173465676d87ebd68a259ea	Merge pull request #25 from Aranwill/docs/clarify-governed-defense-boundaries
-- 638effcec9057757edf0e5e9037029505190961e	docs(security): clarify governed defense boundaries
-- 4a2f49a0007290ee6b290710e28946c40cee41ff	Merge pull request #24 from Aranwill/agent/record-segmented-scaling-and-active-defense
-- 93689b903f28f61537d502b68785c5d3f6b37137	docs: record segmented scaling and governed active defense
+- 2a28dcfd459a2bf1af19b3a6fee5cddefaac7f75	Merge pull request #30 from Aranwill/docs/reconcile-sprint-7.5-final-state
+- 9c0109de156a2eb1cfc84da50815537539a35a1c	docs(project): reconcile Sprint 7.5 final state
+- d5a67e591bb793fbe6631425943e955e8784c1a0	Merge pull request #29 from Aranwill/agent/sprint-7.5-integral-review-closure
+- 4e2b3d4c9599e98f0918780e194448eb9adba3f1	docs(security): close Sprint 7.5 integral review
+- 62bdc11c3ce16cb2cb54bb61bddfab4e39d689a8	Merge pull request #28 from Aranwill/agent/sprint-7.5-audit-reconciliation
+- 9b328939f04bcc2b1d1ed7f7d410237b77604eeb	docs: reconcile sprint 7.5 authorization audit
 
 ### Evidencia que originó esta proyección
 
+- `baseline-source-change` por `README.md`
 - `baseline-source-change` por `docs/project/implementation_roadmap.md`
+- `baseline-source-change` por `docs/project/sprints/SPRINT-7.5.md`
+- `governance-change` por `docs/architecture/adr/ADR-002-policy-enforcement-boundary.md`
 <!-- MALAK_VAULT_SYNC:END -->
 
 ## 1. Propósito
@@ -129,32 +130,36 @@ v0.6.0-alpha
 **Baseline operativo actual:**
 
 ```text
-main en 4a2f49a0007290ee6b290710e28946c40cee41ff
-Sprint 7.4 cerrado
-Sprint 7.5 aprobado y en progreso
-Incremento 1 integrado mediante PR #15
-Incremento 2 reconciliado mediante PR #16
-Incremento 3 integrado mediante PR #17 y reconciliado mediante PR #18
-Incremento 4 integrado mediante PR #19 y reconciliado mediante PR #20
+main en 2a28dcfd459a2bf1af19b3a6fee5cddefaac7f75
+Sprint 7.5 cerrado — Security Control Plane Foundation
+Incrementos 1 a 6 completados
+Ningún sprint posterior autorizado
 ```
 
 **Suite documentada:**
 
 ```text
-244 passed
+304 passed
 ```
 
-La suite corresponde a la validación integral ejecutada sobre
-`30b05587839cdac914e7ee31755bb5c0540862c1`. El commit fue integrado
-mediante la PR #19. La PR #20 fue exclusivamente documental y no se
-presenta la suite como reejecutada después del commit validado.
+Validación final documentada del cierre:
+
+```text
+183 security-specific passed
+304 total passed
+compileall: PASS
+git diff --check: PASS
+```
+
+La revisión integral del Incremento 6 no detectó defectos bloqueantes ni
+requirió cambios funcionales. Kernel, Planner, CLI, runtimes y Capability
+Registry permanecieron intactos.
 
 **Estado del trabajo vigente:**
 
 ```text
-Sprint 7.5 en progreso
-Incrementos 1, 2, 3, 4 y 5 completados
-Incremento 6 — revisión integral y cierre: pendiente y no autorizado
+Sprint 7.5 cerrado
+No existe un sprint posterior autorizado
 ```
 
 ---
@@ -266,43 +271,53 @@ Resultado:
 | 7.2    | Cerrado   | Implementado |
 | 7.3    | Cerrado   | Implementado |
 | 7.4    | Cerrado   | Implementado y sincronizado |
-| 7.5    | En progreso | Aprobado; Incrementos 1, 2, 3 y 4 completados |
+| 7.5    | Cerrado   | Implementado y validado |
 | 7.6    | Propuesta | No aprobado  |
 | 7.7    | Propuesta | No aprobado  |
 
 El Sprint 7.4 fue cerrado formalmente. El Sprint 7.5 fue aprobado por
-el propietario y activado en la documentación oficial.
+el propietario, completado mediante seis incrementos y cerrado después
+de su revisión integral.
 
-La numeración histórica se conserva como referencia.
+La numeración histórica se conserva como referencia y no establece una
+secuencia obligatoria.
 
-No establece una secuencia obligatoria.
-
-Las fichas de Sprint 7.6 y 7.7 deben tratarse como propuestas hasta que
-el propietario las apruebe expresamente.
+Las fichas de Sprint 7.6 y 7.7 deben tratarse exclusivamente como
+propuestas hasta que el propietario las apruebe expresamente.
 
 ---
 
 ## 6. Trabajo vigente
 
-El trabajo vigente es el Sprint 7.5 — Base del plano de control de
-seguridad.
+No existe actualmente un sprint posterior autorizado.
 
-Estado incremental:
+El Sprint 7.5 — Security Control Plane Foundation — quedó cerrado después
+de completar los seis incrementos aprobados:
 
 1. contratos fundamentales de autorización: completado e integrado;
 2. activación y reconciliación documental: completado;
 3. Policy Decision Point mínimo: completado e integrado;
 4. Policy Enforcement Point inicial: completado e integrado;
-5. evidencia de auditoría de autorización: completada e integrada mediante PR #22 y PR #23;
-6. revisión integral y cierre: pendiente.
+5. evidencia de auditoría de autorización: completada e integrada;
+6. revisión integral y cierre: completado.
 
-La semántica de confirmación humana fue aprobada e implementada sin
-incorporar un tercer estado. La solicitud original se deniega y una
-confirmación verificable solo permite evaluar desde cero una solicitud
-nueva. El PEP inicial fue integrado sin operaciones reales. La auditoría de
-autorización fue incorporada posteriormente mediante las PR #22 y #23.
-El Incremento 6 — revisión integral y cierre — permanece pendiente y
-requiere aprobación humana independiente.
+La revisión integral confirmó comportamiento fail-closed, separación entre
+decisión, enforcement, auditoría y operación protegida, control humano y
+denegación por defecto.
+
+Validación final:
+
+```text
+183 security-specific passed
+304 total passed
+compileall: PASS
+git diff --check: PASS
+```
+
+El Incremento 6 no requirió cambios funcionales.
+
+El cierre del Sprint 7.5 no autoriza automáticamente Sprint 7.6 ni ningún
+otro sprint posterior.
 
 ---
 
@@ -335,7 +350,7 @@ Resultado:
 **Estado:**
 
 ```text
-Sprint 7.5 aprobado y en progreso
+Sprint 7.5 cerrado
 ```
 
 **Implementación:**
@@ -344,7 +359,8 @@ Sprint 7.5 aprobado y en progreso
 contratos fundamentales integrados;
 PDP mínimo integrado;
 PEP inicial integrado;
-auditoría de autorización integrada mediante PR #22 y PR #23
+auditoría de autorización integrada;
+revisión integral y cierre completados
 ```
 
 Esta fundación deberá establecerse antes de capacidades externas o de alto riesgo.
@@ -364,11 +380,24 @@ Estado verificado:
 
 Los cuatro contratos públicos fueron integrados mediante la PR #15.
 El PDP mínimo fue integrado mediante la PR #17 y reconciliado
-documentalmente mediante la PR #18. El PEP inicial fue integrado
-mediante la PR #19 y reconciliado documentalmente mediante la PR #20.
-Su validación registró 19 pruebas específicas, 244 pruebas totales,
-`compileall` y `git diff --check` aprobados. La aprobación del sprint
-no autoriza automáticamente sus incrementos pendientes.
+documentalmente mediante la PR #18. El PEP inicial fue integrado mediante
+la PR #19 y reconciliado mediante la PR #20. La auditoría de autorización
+fue incorporada mediante las PR #22 y #23.
+
+La revisión integral y el cierre del Sprint 7.5 se completaron mediante
+las PR #29 y #30.
+
+Validación final:
+
+- 183 pruebas específicas de seguridad aprobadas;
+- 304 pruebas totales aprobadas;
+- `compileall`: PASS;
+- `git diff --check`: PASS;
+- sin defectos bloqueantes;
+- sin cambios funcionales requeridos durante el Incremento 6.
+
+El cierre del Sprint 7.5 no autoriza automáticamente ningún sprint
+posterior.
 
 ---
 
@@ -501,7 +530,8 @@ operacionalización manual completada
 modo manual-on-demand
 modos dry-run y controlled-proposal
 scheduler activo: no
-conformidad completa de controlled-proposal: pendiente
+controlled-proposal validado end-to-end hasta creación de PR draft
+reconciliación y merge de la propuesta actual: pendientes de acción humana
 ```
 
 **Autoridad operativa:**
@@ -545,12 +575,13 @@ D:\Ollama\malak-project-vault
 ```text
 Repositorio: Aranwill/malak-vault-sync-agent
 Rama: main
-HEAD: 5afd03e1697e4820b8b62ff3db23109fdfde8bcb
+HEAD: 3d71246
 Versión: 0.3.0
-PR integradas relevantes: #1, #3, #4, #5, #6, #7 y #8
-Working tree: limpio al cierre operativo
-main local: alineada con origin/main al cierre operativo
-Suite completa: 260 passed
+PR integradas relevantes: #1, #3, #4, #5, #6, #7, #8 y #9
+Working tree: limpio
+main local: alineada con origin/main
+Suite completa: PASS
+Conteo exacto de la suite actual: no registrado en esta reconciliación
 compileall: PASS
 git diff --check: PASS
 GitHub Actions Ubuntu: PASS
@@ -559,6 +590,7 @@ Validación nativa Windows: PASS
 GitHub CLI real: PASS
 Recovery negativo real: PASS
 Recovery positivo real: PASS
+Recovery de propuesta histórica no-op: corregido mediante PR #9
 Configuración privada: válida y excluida de Git
 Scheduler activo: no
 Modo operativo: manual-on-demand
@@ -566,7 +598,7 @@ Cursores de observación y propuesta: independientes
 Estado persistente: esquema v3 intacto
 Incremento Correctivo Integral 5: cerrado técnica y operativamente
 last_applied_commit: null
-pending_proposal_*: null
+Propuesta controlada actual: Vault PR #25
 Autoridad operativa: none
 ```
 
@@ -615,11 +647,13 @@ Fase 1: cerrada formalmente
 ```text
 Suite de cierre de Fase 1: 148 passed
 Suite operacional del baseline posterior de Incremento 4: 230 passed
-Suite operacional vigente del agente: 260 passed
+Último conteo explícito documentado antes de PR #9: 260 passed
+Suite vigente posterior a PR #9: PASS
 compileall: correcto
 git diff --check: correcto
 Resultado end-to-end: pass
 Ejecución manual controlled-proposal: pass
+Recovery histórico no-op: corregido y validado operacionalmente
 Malāk intacto: sí
 Vault main intacto: sí
 last_applied_commit: null
@@ -662,7 +696,9 @@ controlada aprobada posteriormente:
 * publicación y apertura de PR draft;
 * ausencia de aprobación o merge automático.
 
-**Trabajo correctivo identificado y no autorizado para implementación:**
+**Registro histórico de trabajo correctivo:**
+
+La auditoría integral identificó previamente los siguientes controles:
 
 1. corregir el bootstrap inicial de `controlled-proposal`;
 2. revalidar el contenido final pos-escritura;
@@ -673,8 +709,16 @@ controlada aprobada posteriormente:
 7. alinear versionado, documentación, cobertura de candidatos y CI según
    el informe de auditoría integral.
 
+Estos controles fueron implementados y certificados posteriormente durante
+el Incremento Correctivo Integral 5.
+
+Durante la validación operacional posterior se detectó además un defecto de
+liveness: una propuesta histórica cerrada y no-op podía ser redescubierta
+después de haber sido rechazada. El defecto fue corregido mediante la PR #9,
+añadiendo cobertura de regresión y validación end-to-end real.
+
 Este registro no abre Fase 2, no inicia un nuevo incremento y no autoriza
-cambios en el agente.
+ampliaciones adicionales del agente.
 
 **Modelo de autoridad:**
 
@@ -750,7 +794,7 @@ Avance aprobado de Malāk
 → merge exclusivamente humano
 ```
 
-La ejecución end-to-end del flujo controlado quedó demostrada mediante:
+La ejecución end-to-end del flujo controlado quedó demostrada históricamente mediante:
 
 ```text
 Run ID: 20260726T191148713343Z_4afeed44_b20482cf
@@ -759,6 +803,21 @@ Rango: 7cd7fcc811df01555837319ec4cac0a93ef94fff
 PR draft del Vault: #10
 Resultado: pass
 ```
+
+La validación operacional más reciente confirmó además el flujo sobre el
+cierre real del Sprint 7.5:
+
+```text
+Run ID: 20260809T203826202587Z_2a28dcfd_76083517
+Rango: b4d1d512fe953d593608391390f82ab500fdc9d6
+       → 2a28dcfd459a2bf1af19b3a6fee5cddefaac7f75
+PR draft del Vault: #25
+Resultado: pass
+Recovery histórico no-op: corregido mediante PR #9 del agente
+```
+
+La PR #25 permanece sujeta a reconciliación, revisión y merge exclusivamente
+humanos.
 
 **Evidencia de cierre:**
 
@@ -1300,12 +1359,11 @@ deberá incluir únicamente:
 * restricciones;
 * objetivo de la sesión.
 
-Mientras el Sprint 7.5 permanezca abierto deberá indicar:
+Mientras no exista un sprint posterior autorizado deberá indicar:
 
 ```text
-Sprint 7.5: aprobado y en progreso.
-Incrementos 1 a 5: completados e integrados.
-Incremento 6: pendiente y no autorizado.
+Sprint 7.5: cerrado.
+Incrementos 1 a 6: completados y validados.
 Sprint posterior: no aprobado.
 ```
 

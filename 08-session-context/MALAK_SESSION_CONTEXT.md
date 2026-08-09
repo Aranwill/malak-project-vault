@@ -11,7 +11,7 @@ created: 2026-07-20
 last_reviewed: 2026-08-09
 source_repository: Aranwill/jarvis
 source_branch: main
-source_commit: b4d1d512fe953d593608391390f82ab500fdc9d6
+source_commit: 2a28dcfd459a2bf1af19b3a6fee5cddefaac7f75
 derived: true
 operational_context: true
 retrieval_enabled: true
@@ -28,10 +28,10 @@ retrieval_scope: active
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260730T000340226601Z_b4d1d512_24e854e4`
-- **HEAD oficial observado:** `b4d1d512fe953d593608391390f82ab500fdc9d6`
-- **Commit previamente observado:** `38b0917c5b8dba5c5a4ef4db157e78ac428ab4bc`
-- **Generado:** `2026-07-30T00:03:40.226601+00:00`
+- **Run ID:** `20260809T203826202587Z_2a28dcfd_76083517`
+- **HEAD oficial observado:** `2a28dcfd459a2bf1af19b3a6fee5cddefaac7f75`
+- **Commit previamente observado:** `b4d1d512fe953d593608391390f82ab500fdc9d6`
+- **Generado:** `2026-08-09T20:38:26.202587+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
@@ -39,23 +39,25 @@ retrieval_scope: active
 
 - **Ficha de sprint más reciente:** `docs/project/sprints/SPRINT-7.5.md`
 - **Título declarado:** Sprint 7.5 — Base del plano de control de seguridad
-- **Estado declarado:** `en progreso`
-- **`as_of_commit` declarado:** `af64b062aa1395ba7f7bdd59e5c1099ded68b683`
+- **Estado declarado:** `cerrado`
+- **`as_of_commit` declarado:** `62bdc11c3ce16cb2cb54bb61bddfab4e39d689a8`
 
 ### Commits oficiales observados
 
-- b4d1d512fe953d593608391390f82ab500fdc9d6	Merge pull request #27 from Aranwill/docs/strengthen-resource-governance-boundaries
-- 5c74c8641eab83ecf633e18fa9cdbd384bc968a2	docs(resources): strengthen resource governance boundaries
-- c9719e0aaf9fccbab5ca0e195861879c13338daf	Merge pull request #26 from Aranwill/docs/clarify-self-governance-wording
-- 998a90a9424a1cdb53639cd5c8f38e17d23defa3	docs(governance): clarify self-validation under human authority
-- b7d2ef92f75f72c1c173465676d87ebd68a259ea	Merge pull request #25 from Aranwill/docs/clarify-governed-defense-boundaries
-- 638effcec9057757edf0e5e9037029505190961e	docs(security): clarify governed defense boundaries
-- 4a2f49a0007290ee6b290710e28946c40cee41ff	Merge pull request #24 from Aranwill/agent/record-segmented-scaling-and-active-defense
-- 93689b903f28f61537d502b68785c5d3f6b37137	docs: record segmented scaling and governed active defense
+- 2a28dcfd459a2bf1af19b3a6fee5cddefaac7f75	Merge pull request #30 from Aranwill/docs/reconcile-sprint-7.5-final-state
+- 9c0109de156a2eb1cfc84da50815537539a35a1c	docs(project): reconcile Sprint 7.5 final state
+- d5a67e591bb793fbe6631425943e955e8784c1a0	Merge pull request #29 from Aranwill/agent/sprint-7.5-integral-review-closure
+- 4e2b3d4c9599e98f0918780e194448eb9adba3f1	docs(security): close Sprint 7.5 integral review
+- 62bdc11c3ce16cb2cb54bb61bddfab4e39d689a8	Merge pull request #28 from Aranwill/agent/sprint-7.5-audit-reconciliation
+- 9b328939f04bcc2b1d1ed7f7d410237b77604eeb	docs: reconcile sprint 7.5 authorization audit
 
 ### Evidencia que originó esta proyección
 
+- `architecture-change` por `docs/architecture/adr/ADR-002-policy-enforcement-boundary.md`
+- `baseline-source-change` por `README.md`
 - `baseline-source-change` por `docs/project/implementation_roadmap.md`
+- `baseline-source-change` por `docs/project/sprints/SPRINT-7.5.md`
+- `governance-change` por `docs/architecture/adr/ADR-002-policy-enforcement-boundary.md`
 <!-- MALAK_VAULT_SYNC:END -->
 
 ## 1. Instrucción de uso
@@ -112,13 +114,13 @@ Malāk es una plataforma cognitiva personal ejecutada localmente, diseñada para
 **Último sprint formalmente cerrado:**
 
 ```text
-Sprint 7.4 — Consolidación de logs, métricas y auditoría
+Sprint 7.5 — Security Control Plane Foundation
 ```
 
-**Sprint aprobado en progreso:**
+**Sprint actualmente autorizado:**
 
 ```text
-Sprint 7.5 — Base del plano de control de seguridad
+Ninguno.
 ```
 
 **Estado de Sprint 7.5:**
@@ -129,8 +131,8 @@ Incremento 2: activación y reconciliación documental completada
 Incremento 3: PDP mínimo completado e integrado
 Incremento 4: PEP inicial completado e integrado
 Incremento 5: auditoría de autorización integrada mediante PR #22 y PR #23
-Incremento 6: revisión integral y cierre pendientes y no autorizados
-Sprint: en progreso
+Incremento 6: revisión integral y cierre completados
+Sprint: cerrado
 ```
 
 **Estado del bloque 7.x:**
@@ -142,7 +144,7 @@ Sprint: en progreso
 | 7.2    | Contrato estructural `RuntimeMetricSink` de solo escritura |
 | 7.3    | Estabilización de la frontera `ConversationService`–Provider–Runtime |
 | 7.4    | Eventos operativos y correlación desde la CLI; sprint cerrado |
-| 7.5    | Contratos, PDP, PEP y auditoría integrados; revisión integral y cierre pendientes |
+| 7.5    | Security Control Plane Foundation cerrada; seis incrementos completados y validados |
 
 **Última suite integral documentada:**
 
@@ -150,28 +152,33 @@ Sprint: en progreso
 304 passed
 ```
 
-La validación integral fue ejecutada sobre:
+**Validación final documentada del cierre:**
 
 ```text
-b4d1d512fe953d593608391390f82ab500fdc9d6
+183 security-specific passed
+304 total passed
+compileall: PASS
+git diff --check: PASS
 ```
 
-La suite integral fue reejecutada sobre el HEAD verificado durante la
-auditoría de cierre del 2026-07-31 y registró `304 passed`. La validación
-anterior de `244 passed` sobre `30b0558` se conserva únicamente como
-evidencia histórica.
+La revisión integral del Incremento 6 no detectó defectos bloqueantes ni
+requirió cambios funcionales. Kernel, Planner, CLI, runtimes y Capability
+Registry permanecieron intactos.
 
 **Último commit remoto verificado:**
 
 ```text
-b4d1d512fe953d593608391390f82ab500fdc9d6
+2a28dcfd459a2bf1af19b3a6fee5cddefaac7f75
 ```
 
 Descripción:
 
 ```text
-Merge pull request #27 from Aranwill/docs/strengthen-resource-governance-boundaries
+Merge pull request #30 from Aranwill/docs/reconcile-sprint-7.5-final-state
 ```
+
+No existe ningún sprint posterior autorizado automáticamente por el cierre
+del Sprint 7.5.
 
 Estos datos deben volver a verificarse si cambia `HEAD`.
 
@@ -401,7 +408,6 @@ Todavía no forman parte del baseline:
 * modificación automática de timeout;
 * modificación automática de `keep_alive`;
 * aplicación automática de recomendaciones;
-* auditoría de autorización implementada;
 * Secure Context Manager implementado;
 * RAG externo;
 * auditor externo.
@@ -412,24 +418,28 @@ Todavía no forman parte del baseline:
 
 ```text
 Sprint 7.4: cerrado.
-Sprint 7.5: aprobado y en progreso.
-Incrementos 1, 2, 3, 4 y 5: completados e integrados.
-Incremento 6: pendiente y no autorizado.
+Sprint 7.5: cerrado.
+Incrementos 1 a 6: completados e integrados.
+Sprint posterior: no aprobado.
 ```
 
-El Sprint 7.4 fue cerrado después de completar su sincronización
-gobernada. El Sprint 7.5 incorporó mediante la PR #15 los cuatro
-contratos fundamentales de autorización y reconcilió su activación
-documental mediante la PR #16. El PDP mínimo fue integrado mediante la
-PR #17 y reconciliado documentalmente mediante la PR #18.
-El PEP inicial fue integrado mediante la PR #19 y reconciliado
-documentalmente mediante la PR #20.
+El Sprint 7.5 quedó cerrado después de completar sus seis incrementos.
 
-La semántica de confirmación humana fue aprobada e implementada con
-decisión pública binaria, solicitud nueva y verificación inyectable. La
-auditoría de autorización fue integrada mediante las PR #22 y #23. El
-Incremento 6 requiere revisión y aprobación humana separada; no existe un
-sprint posterior aprobado.
+Los contratos fundamentales de autorización fueron integrados mediante la
+PR #15; la activación documental fue reconciliada mediante la PR #16; el
+PDP mínimo se integró mediante la PR #17 y fue reconciliado mediante la
+PR #18; el PEP inicial se integró mediante la PR #19 y fue reconciliado
+mediante la PR #20; la auditoría de autorización fue incorporada mediante
+las PR #22 y #23.
+
+La revisión integral y el cierre se completaron posteriormente mediante las
+PR #29 y #30.
+
+La validación final registró 183 pruebas específicas de seguridad y 304
+pruebas totales, con `compileall` y `git diff --check` en PASS. El
+Incremento 6 no requirió cambios funcionales.
+
+No existe un sprint posterior aprobado.
 
 ---
 
@@ -437,16 +447,16 @@ sprint posterior aprobado.
 
 ### Alta prioridad
 
-* diseño y aprobación incremental de la evidencia de auditoría de
-  autorización;
+No se registra una decisión abierta de alta prioridad derivada del cierre
+del Sprint 7.5.
 
 ### Prioridad media
 
 * política de sincronización con Obsidian;
 * esquema de metadatos del Vault.
 
-El cierre de Sprint 7.4 y la activación de Sprint 7.5 quedaron
-registrados en la documentación oficial.
+El cierre de Sprint 7.5 quedó registrado en la documentación oficial.
+No existe un sprint posterior autorizado.
 
 ### Diferidas
 
@@ -511,6 +521,7 @@ Operacionalización read-only: completed
 Repositorio independiente del agente: Aranwill/malak-vault-sync-agent
 PR de operacionalización del agente: #1 integrada
 PR de corrección del flujo controlado: #3 integrada
+PR de corrección del recovery histórico no-op: #9 integrada
 Modo operativo elegido: manual-on-demand
 Scheduler activo: no
 Autoridad operativa: none
@@ -541,12 +552,13 @@ Baseline operativo vigente del agente:
 ```text
 Repositorio: Aranwill/malak-vault-sync-agent
 Rama: main
-HEAD: 5afd03e1697e4820b8b62ff3db23109fdfde8bcb
+HEAD: 3d71246
 Versión: 0.3.0
-PR integradas relevantes: #1, #3, #4, #5, #6, #7 y #8
-Working tree: limpio al cierre operativo
-main local: alineada con origin/main al cierre operativo
-Suite completa: 260 passed
+PR integradas relevantes: #1, #3, #4, #5, #6, #7, #8 y #9
+Working tree: limpio
+main local: alineada con origin/main
+Suite completa: PASS
+Último conteo explícito documentado antes de PR #9: 260 passed
 compileall: PASS
 git diff --check: PASS
 GitHub Actions Ubuntu: PASS
@@ -555,6 +567,7 @@ Validación nativa Windows: PASS
 GitHub CLI real: PASS
 Recovery negativo real: PASS
 Recovery positivo real: PASS
+Recovery de propuesta histórica no-op: corregido mediante PR #9
 Configuración privada: válida y excluida de Git
 Scheduler activo: no
 Modo operativo: manual-on-demand
@@ -562,7 +575,7 @@ Modos disponibles: dry-run y controlled-proposal
 Cursores de observación y propuesta: independientes
 Estado persistente: esquema v3 intacto
 last_applied_commit: null
-pending_proposal_*: null
+Propuesta controlada actual: Vault PR #25
 Autoridad operativa: none
 ```
 
@@ -597,6 +610,21 @@ El cierre histórico de la Fase 1 permanece válido. El baseline
 operativo vigente incorpora `controlled-proposal` implementado y
 certificado dentro del alcance correctivo aprobado, sin inferir
 aprobación de una Fase 2 ni conceder autoridad operativa al agente.
+
+La validación operacional más reciente confirmó el flujo controlado sobre
+el cierre real del Sprint 7.5:
+
+```text
+Run ID: 20260809T203826202587Z_2a28dcfd_76083517
+Rango: b4d1d512fe953d593608391390f82ab500fdc9d6
+       → 2a28dcfd459a2bf1af19b3a6fee5cddefaac7f75
+PR draft del Vault: #25
+Resultado: pass
+Recovery histórico no-op: corregido mediante PR #9 del agente
+```
+
+La PR #25 permanece sujeta a reconciliación, revisión y merge exclusivamente
+humanos.
 
 La iniciativa:
 
@@ -671,21 +699,22 @@ El Vault:
 **Repositorio remoto:** `Aranwill/malak-project-vault`
 **Rama oficial:** `main`
 
-Estado correctivo verificado antes del ajuste final a la PR #21:
+Estado actual de sincronización gobernada:
 
 ```text
-Vault main — base verificada: 304d426c77bd631332b032d978810b7bd0cf3b30
-PR #21 al verificar: abierta y en borrador
-Rama de propuesta: agent/reconcile-baseline-metadata
-HEAD previo al ajuste final: 2b91e308018fb822fdbff1c988ebada028732df9
-Archivos modificados: 2
-Snapshots modificados: no
-Merge autorizado: no
+Vault main base de la propuesta: 760835178ef89b2a2404e09e2a5d6c95295b34fe
+PR actual: #25
+Estado de la PR: abierta y en borrador
+Rama de propuesta: agent/vault-sync-2a28dcfd
+Malāk observado: 2a28dcfd459a2bf1af19b3a6fee5cddefaac7f75
+Run ID: 20260809T203826202587Z_2a28dcfd_76083517
+Resultado del agente: pass
+Merge autorizado automáticamente: no
 ```
 
-La PR #21 reconcilia únicamente `CURRENT_BASELINE.md` y
-`MALAK_SESSION_CONTEXT.md`. No modifica roadmap, decisiones, snapshots
-ni el estado operativo de Malāk.
+La PR #25 fue creada por el Vault Synchronization Agent mediante el modo
+`controlled-proposal`. La reconciliación semántica, revisión y merge
+permanecen exclusivamente bajo autoridad humana.
 
 ### Registro histórico — sincronización gobernada cerrada mediante PR #13
 
@@ -810,9 +839,9 @@ El Vault permanece como una capa documental externa, derivada y sin autoridad op
 
 ## 14. Iniciativas futuras y línea vigente
 
-Línea vigente aprobada:
+Línea operativa recientemente cerrada:
 
-* Security Control Plane Foundation — Sprint 7.5 en progreso.
+* Security Control Plane Foundation — Sprint 7.5 cerrado.
 
 Sin sprint aprobado:
 
@@ -872,11 +901,11 @@ Al recibir este archivo, el asistente debe:
 
 * responder en español;
 * tratar `main` como única rama oficial;
-* reconocer Sprint 7.4 como último sprint formalmente cerrado;
-* reconocer Sprint 7.5 como aprobado y en progreso;
-* reconocer los Incrementos 1, 2, 3 y 4 de Sprint 7.5 como completados;
-* utilizar 304 pruebas sobre `b4d1d512` como última suite integral
-  documentada;
+* reconocer Sprint 7.5 como último sprint formalmente cerrado;
+* reconocer los Incrementos 1 a 6 de Sprint 7.5 como completados y validados;
+* reconocer que no existe un sprint posterior autorizado;
+* utilizar 304 pruebas totales y 183 pruebas específicas de seguridad como
+  validación final documentada del cierre;
 * diferenciar baseline, roadmap y propuestas;
 * no asumir que un incremento pendiente o sprint posterior está aprobado;
 * no modificar el Kernel sin necesidad arquitectónica;
@@ -896,26 +925,33 @@ Al recibir este archivo, el asistente debe:
 ### 17.1 Estado verificado — 2026-08-09
 
 ```text
-Malāk main: b4d1d512fe953d593608391390f82ab500fdc9d6
-Vault main: 46672bcb971dbcdfcf25b1a4c7359aec9f047980
-Agente main: 5afd03e1697e4820b8b62ff3db23109fdfde8bcb
+Malāk main: 2a28dcfd459a2bf1af19b3a6fee5cddefaac7f75
+Sprint 7.5: cerrado
+Incrementos 1 a 6: completados y validados
+Validación Malāk: 183 security-specific passed / 304 total passed
+compileall Malāk: PASS
+git diff --check Malāk: PASS
+Sprint posterior autorizado: ninguno
+
+Vault main base de la propuesta actual: 760835178ef89b2a2404e09e2a5d6c95295b34fe
+Vault PR actual: #25
+Vault PR estado: abierta y en borrador
+Vault propuesta: agent/vault-sync-2a28dcfd
+Vault reconciliación y merge: pendientes de acción humana
+
+Agente main: 3d71246
 Versión del agente: 0.3.0
-Suite del agente: 260 passed
-compileall: PASS
-git diff --check: PASS
-GitHub Actions Ubuntu: PASS
-GitHub Actions Windows: PASS
-Validación nativa Windows: PASS
-GitHub CLI real: PASS
-Recovery negativo real: PASS
-Recovery positivo real: PASS
-Incremento Correctivo Integral 5: cerrado técnica y operativamente
+Suite vigente del agente: PASS
+Último conteo explícito previo a PR #9: 260 passed
+compileall agente: PASS
+git diff --check agente: PASS
+PR #9: integrada
+Recovery histórico no-op: corregido y validado operacionalmente
 Modo operativo: manual-on-demand
 Modos autorizados: dry-run y controlled-proposal
 Scheduler activo: no
 Autoridad operativa: none
 last_applied_commit: null
-pending_proposal_*: null
 Estado persistente: esquema v3 intacto
 Fase 2 o ampliaciones posteriores: no autorizadas
 ```
@@ -926,16 +962,12 @@ draft exclusivamente en el Vault y bajo controles deterministas. El
 merge y toda decisión material permanecen exclusivamente bajo autoridad
 humana.
 
-El Incremento Correctivo Integral 5 cerró las brechas técnicas
-identificadas en la auditoría anterior: revalidación final
-pos-escritura, frontmatter YAML, wikilinks, protección exacta de
-snapshots, recuperación remota posterior a la creación de una PR,
-registro `manual-on-demand` y compatibilidad con cuerpos CRLF obtenidos
-mediante GitHub CLI.
+La validación end-to-end reciente confirmó que el agente procesó el rango
+`b4d1d512... → 2a28dcfd...`, dejó de redescubrir la propuesta histórica
+no-op después de la corrección de PR #9 y creó la PR draft #25 del Vault.
 
 El cierre técnico no amplía autoridad, no habilita scheduler, no
-introduce LLM, no modifica Kernel, Planner o runtime y no autoriza
-Fase 2.
+introduce LLM, no modifica Kernel, Planner o runtime y no autoriza Fase 2.
 
 ### 17.2 Registro histórico — 2026-08-01
 

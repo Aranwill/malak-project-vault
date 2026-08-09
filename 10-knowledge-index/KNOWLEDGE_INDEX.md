@@ -25,10 +25,10 @@ retrieval_scope: active
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260728T213937172036Z_695179aa_379503f9`
-- **HEAD oficial observado:** `695179aa491baeaf93189f271e6af9c611d84ca8`
-- **Commit previamente observado:** `4afeed440a3bf2096035d0d458d2ef75c71689fd`
-- **Generado:** `2026-07-28T21:39:37.172036+00:00`
+- **Run ID:** `20260809T203826202587Z_2a28dcfd_76083517`
+- **HEAD oficial observado:** `2a28dcfd459a2bf1af19b3a6fee5cddefaac7f75`
+- **Commit previamente observado:** `b4d1d512fe953d593608391390f82ab500fdc9d6`
+- **Generado:** `2026-08-09T20:38:26.202587+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
@@ -36,26 +36,21 @@ retrieval_scope: active
 
 - **Ficha de sprint más reciente:** `docs/project/sprints/SPRINT-7.5.md`
 - **Título declarado:** Sprint 7.5 — Base del plano de control de seguridad
-- **Estado declarado:** `en progreso`
-- **`as_of_commit` declarado:** `af64b062aa1395ba7f7bdd59e5c1099ded68b683`
+- **Estado declarado:** `cerrado`
+- **`as_of_commit` declarado:** `62bdc11c3ce16cb2cb54bb61bddfab4e39d689a8`
 
 ### Commits oficiales observados
 
-- 695179aa491baeaf93189f271e6af9c611d84ca8	Merge pull request #21 from Aranwill/agent/record-high-value-evolution-ideas
-- cad60e8e7bff256458e06d69fc1dfd674075cb0f	docs(ideas): record validation and evolution foundations
-- d1c90bf0bf55a7076d68c1f4830e89e0d843661c	Merge pull request #20 from Aranwill/agent/sprint-7.5-pep-doc-reconciliation
-- 3c2acdbdadae84535b08c039243d4da405560d89	docs: reconcile sprint 7.5 PEP integration
-- af64b062aa1395ba7f7bdd59e5c1099ded68b683	Merge pull request #19 from Aranwill/agent/sprint-7.5-initial-pep
-- 30b05587839cdac914e7ee31755bb5c0540862c1	feat(security): add initial policy enforcement point
-- 83ceb96838df0770bb9309172a75e3dc79bff121	Merge pull request #18 from Aranwill/agent/sprint-7.5-pdp-doc-reconciliation
-- e26469eb422f6686850057de5c0d1ef57f7faaa9	docs: reconcile sprint 7.5 PDP integration
-- 78799deabba5009e66c219220349e8202f5464bb	Merge pull request #17 from Aranwill/agent/sprint-7.5-minimal-pdp
-- 5947f3b702477bb10a183a75b95efbe06e4681e6	feat(security): add minimal policy decision point
+- 2a28dcfd459a2bf1af19b3a6fee5cddefaac7f75	Merge pull request #30 from Aranwill/docs/reconcile-sprint-7.5-final-state
+- 9c0109de156a2eb1cfc84da50815537539a35a1c	docs(project): reconcile Sprint 7.5 final state
+- d5a67e591bb793fbe6631425943e955e8784c1a0	Merge pull request #29 from Aranwill/agent/sprint-7.5-integral-review-closure
+- 4e2b3d4c9599e98f0918780e194448eb9adba3f1	docs(security): close Sprint 7.5 integral review
+- 62bdc11c3ce16cb2cb54bb61bddfab4e39d689a8	Merge pull request #28 from Aranwill/agent/sprint-7.5-audit-reconciliation
+- 9b328939f04bcc2b1d1ed7f7d410237b77604eeb	docs: reconcile sprint 7.5 authorization audit
 
 ### Evidencia que originó esta proyección
 
 - `governance-change` por `docs/architecture/adr/ADR-002-policy-enforcement-boundary.md`
-- `governance-change` por `docs/architecture/decisions/decision-index.md`
 <!-- MALAK_VAULT_SYNC:END -->
 
 ## 1. Propósito
