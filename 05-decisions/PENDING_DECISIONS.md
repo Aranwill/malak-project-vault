@@ -1577,7 +1577,7 @@ pending_proposal_*: null
 Scheduler activo: no
 Modo operativo: manual-on-demand
 Autoridad operativa: none
-
+```
 La suite histórica de `230 passed` no cubría esos controles. Su
 implementación requirió y recibió aprobación técnica independiente y fue
 certificada posteriormente en el Incremento Correctivo Integral 5.
