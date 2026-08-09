@@ -6,9 +6,9 @@ type: session-context
 status: active
 authority_level: technical_documentation
 authority_rank: 6
-version: 1.1
+version: 1.2
 created: 2026-07-20
-last_reviewed: 2026-08-01
+last_reviewed: 2026-08-09
 source_repository: Aranwill/jarvis
 source_branch: main
 source_commit: b4d1d512fe953d593608391390f82ab500fdc9d6
@@ -541,18 +541,29 @@ Baseline operativo vigente del agente:
 ```text
 Repositorio: Aranwill/malak-vault-sync-agent
 Rama: main
-HEAD: 0feed6eae3d3919ea4867891c12eda5eea81c511
-PR integradas relevantes: #1, #3, #4, #5 y #6
-Working tree: limpio
-main local: alineada con origin/main
-Suite completa: 230 passed
+HEAD: 5afd03e1697e4820b8b62ff3db23109fdfde8bcb
+Versión: 0.3.0
+PR integradas relevantes: #1, #3, #4, #5, #6, #7 y #8
+Working tree: limpio al cierre operativo
+main local: alineada con origin/main al cierre operativo
+Suite completa: 260 passed
+compileall: PASS
+git diff --check: PASS
+GitHub Actions Ubuntu: PASS
+GitHub Actions Windows: PASS
+Validación nativa Windows: PASS
+GitHub CLI real: PASS
+Recovery negativo real: PASS
+Recovery positivo real: PASS
 Configuración privada: válida y excluida de Git
-Ejecución manual end-to-end: pass
-Scheduler final: eliminado
+Scheduler activo: no
 Modo operativo: manual-on-demand
 Modos disponibles: dry-run y controlled-proposal
 Cursores de observación y propuesta: independientes
+Estado persistente: esquema v3 intacto
 last_applied_commit: null
+pending_proposal_*: null
+Autoridad operativa: none
 ```
 
 Estado remoto verificado:
@@ -583,9 +594,9 @@ Avance aprobado de Malāk
 ```
 
 El cierre histórico de la Fase 1 permanece válido. El baseline
-operativo vigente añade el flujo `controlled-proposal` aprobado y
-con núcleo validado, sin inferir aprobación de una Fase 2 ni conceder autoridad
-operativa al agente.
+operativo vigente incorpora `controlled-proposal` implementado y
+certificado dentro del alcance correctivo aprobado, sin inferir
+aprobación de una Fase 2 ni conceder autoridad operativa al agente.
 
 La iniciativa:
 
@@ -626,6 +637,21 @@ El cierre de la operacionalización read-only se documenta en:
 ```text
 07-audits/vault-synchronization/2026-07-24_VAULT_SYNC_OPERATIONALIZATION_CLOSURE.md
 ```
+
+El cierre técnico y operativo del Incremento Correctivo Integral 5 se
+documenta en el repositorio del agente:
+
+```text
+docs/INCREMENT_5_OPERATIONAL_CLOSURE.md
+versión: 0.3.0
+PR #8
+merge commit: 5afd03e1697e4820b8b62ff3db23109fdfde8bcb
+suite completa: 260 passed
+```
+
+La certificación incluyó GitHub Actions en Ubuntu y Windows, validación
+nativa Windows, GitHub CLI real, recovery negativo y positivo,
+normalización CRLF y cleanup gobernado.
 
 El Vault:
 
@@ -867,35 +893,59 @@ Al recibir este archivo, el asistente debe:
 
 ## 17. Resultado de la sesión actual
 
-### 17.1 Estado verificado — 2026-08-01
+### 17.1 Estado verificado — 2026-08-09
 
 ```text
 Malāk main: b4d1d512fe953d593608391390f82ab500fdc9d6
-Vault main — base verificada previa a PR #21: 304d426c77bd631332b032d978810b7bd0cf3b30
-Vault PR #21 — HEAD previo al ajuste final: 2b91e308018fb822fdbff1c988ebada028732df9
-Agente main: 0feed6eae3d3919ea4867891c12eda5eea81c511
-Suite del agente: 230 passed
-Incremento 4 del agente: cerrado
+Vault main: 46672bcb971dbcdfcf25b1a4c7359aec9f047980
+Agente main: 5afd03e1697e4820b8b62ff3db23109fdfde8bcb
+Versión del agente: 0.3.0
+Suite del agente: 260 passed
+compileall: PASS
+git diff --check: PASS
+GitHub Actions Ubuntu: PASS
+GitHub Actions Windows: PASS
+Validación nativa Windows: PASS
+GitHub CLI real: PASS
+Recovery negativo real: PASS
+Recovery positivo real: PASS
+Incremento Correctivo Integral 5: cerrado técnica y operativamente
 Modo operativo: manual-on-demand
 Modos autorizados: dry-run y controlled-proposal
 Scheduler activo: no
 Autoridad operativa: none
-Fase 2 o nuevo incremento: no autorizados
+last_applied_commit: null
+pending_proposal_*: null
+Estado persistente: esquema v3 intacto
+Fase 2 o ampliaciones posteriores: no autorizadas
 ```
 
 La gobernanza vigente de `controlled-proposal` se registra en
-`DEC-RES-009`. La capacidad puede preparar ramas, commits, push y PR draft
-solo en el Vault y bajo controles deterministas. El merge y toda decisión
-material permanecen exclusivamente bajo autoridad humana.
+`DEC-RES-009`. La capacidad puede preparar ramas, commits, push y PR
+draft exclusivamente en el Vault y bajo controles deterministas. El
+merge y toda decisión material permanecen exclusivamente bajo autoridad
+humana.
 
-La auditoría integral del agente identificó brechas no cubiertas por las
-`230 passed`: revalidación final pos-escritura, frontmatter YAML,
-wikilinks, denylist exacta de snapshots, recuperación posterior a una PR
-creada y registro `manual-on-demand` en informes. El núcleo permanece
-operativo, pero la conformidad técnica completa requiere un incremento
-correctivo todavía no autorizado.
+El Incremento Correctivo Integral 5 cerró las brechas técnicas
+identificadas en la auditoría anterior: revalidación final
+pos-escritura, frontmatter YAML, wikilinks, protección exacta de
+snapshots, recuperación remota posterior a la creación de una PR,
+registro `manual-on-demand` y compatibilidad con cuerpos CRLF obtenidos
+mediante GitHub CLI.
 
-### 17.2 Registro histórico — 2026-07-26
+El cierre técnico no amplía autoridad, no habilita scheduler, no
+introduce LLM, no modifica Kernel, Planner o runtime y no autoriza
+Fase 2.
+
+### 17.2 Registro histórico — 2026-08-01
+
+El estado anterior registraba al agente en `0feed6e`, con `230 passed`,
+Incremento 4 cerrado y las brechas correctivas todavía pendientes.
+
+Ese estado permanece como evidencia histórica previa al Incremento
+Correctivo Integral 5 y no representa el baseline vigente.
+
+### 17.3 Registro histórico — 2026-07-26
 
 Objetivo:
 
@@ -932,7 +982,7 @@ Punto de continuidad:
 3. reconocer el Incremento 5 como integrado mediante las PR #22 y #23, sin declarar cerrado el Sprint 7.5;
 4. no cerrar Sprint 7.5 sin revisión integral y aprobación humana.
 
-### 17.3 Registro histórico anterior — 2026-07-24
+### 17.4 Registro histórico anterior — 2026-07-24
 
 **Fecha:** `2026-07-24`
 
