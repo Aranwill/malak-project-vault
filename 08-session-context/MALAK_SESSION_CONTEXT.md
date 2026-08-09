@@ -28,10 +28,10 @@ retrieval_scope: active
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260730T000340226601Z_b4d1d512_24e854e4`
-- **HEAD oficial observado:** `b4d1d512fe953d593608391390f82ab500fdc9d6`
-- **Commit previamente observado:** `38b0917c5b8dba5c5a4ef4db157e78ac428ab4bc`
-- **Generado:** `2026-07-30T00:03:40.226601+00:00`
+- **Run ID:** `20260809T203826202587Z_2a28dcfd_76083517`
+- **HEAD oficial observado:** `2a28dcfd459a2bf1af19b3a6fee5cddefaac7f75`
+- **Commit previamente observado:** `b4d1d512fe953d593608391390f82ab500fdc9d6`
+- **Generado:** `2026-08-09T20:38:26.202587+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
@@ -39,23 +39,25 @@ retrieval_scope: active
 
 - **Ficha de sprint más reciente:** `docs/project/sprints/SPRINT-7.5.md`
 - **Título declarado:** Sprint 7.5 — Base del plano de control de seguridad
-- **Estado declarado:** `en progreso`
-- **`as_of_commit` declarado:** `af64b062aa1395ba7f7bdd59e5c1099ded68b683`
+- **Estado declarado:** `cerrado`
+- **`as_of_commit` declarado:** `62bdc11c3ce16cb2cb54bb61bddfab4e39d689a8`
 
 ### Commits oficiales observados
 
-- b4d1d512fe953d593608391390f82ab500fdc9d6	Merge pull request #27 from Aranwill/docs/strengthen-resource-governance-boundaries
-- 5c74c8641eab83ecf633e18fa9cdbd384bc968a2	docs(resources): strengthen resource governance boundaries
-- c9719e0aaf9fccbab5ca0e195861879c13338daf	Merge pull request #26 from Aranwill/docs/clarify-self-governance-wording
-- 998a90a9424a1cdb53639cd5c8f38e17d23defa3	docs(governance): clarify self-validation under human authority
-- b7d2ef92f75f72c1c173465676d87ebd68a259ea	Merge pull request #25 from Aranwill/docs/clarify-governed-defense-boundaries
-- 638effcec9057757edf0e5e9037029505190961e	docs(security): clarify governed defense boundaries
-- 4a2f49a0007290ee6b290710e28946c40cee41ff	Merge pull request #24 from Aranwill/agent/record-segmented-scaling-and-active-defense
-- 93689b903f28f61537d502b68785c5d3f6b37137	docs: record segmented scaling and governed active defense
+- 2a28dcfd459a2bf1af19b3a6fee5cddefaac7f75	Merge pull request #30 from Aranwill/docs/reconcile-sprint-7.5-final-state
+- 9c0109de156a2eb1cfc84da50815537539a35a1c	docs(project): reconcile Sprint 7.5 final state
+- d5a67e591bb793fbe6631425943e955e8784c1a0	Merge pull request #29 from Aranwill/agent/sprint-7.5-integral-review-closure
+- 4e2b3d4c9599e98f0918780e194448eb9adba3f1	docs(security): close Sprint 7.5 integral review
+- 62bdc11c3ce16cb2cb54bb61bddfab4e39d689a8	Merge pull request #28 from Aranwill/agent/sprint-7.5-audit-reconciliation
+- 9b328939f04bcc2b1d1ed7f7d410237b77604eeb	docs: reconcile sprint 7.5 authorization audit
 
 ### Evidencia que originó esta proyección
 
+- `architecture-change` por `docs/architecture/adr/ADR-002-policy-enforcement-boundary.md`
+- `baseline-source-change` por `README.md`
 - `baseline-source-change` por `docs/project/implementation_roadmap.md`
+- `baseline-source-change` por `docs/project/sprints/SPRINT-7.5.md`
+- `governance-change` por `docs/architecture/adr/ADR-002-policy-enforcement-boundary.md`
 <!-- MALAK_VAULT_SYNC:END -->
 
 ## 1. Instrucción de uso

@@ -21,40 +21,39 @@ retrieval_scope: proposals
 # Malāk Pending Decisions
 
 <!-- MALAK_VAULT_SYNC:START -->
-## Proyección gobernada de sincronización
+## Proyección automática de sincronización
 
 > [!warning] Estado derivado pendiente de revisión
-> Esta proyección refleja cambios verificados en `Aranwill/jarvis/main`.
-> No aprueba implementaciones, no cierra sprints y no reemplaza la
-> revisión humana del documento.
+> Este bloque fue generado de forma determinista a partir de
+> `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
+> sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260729T222434802365Z_4a2f49a_8cd4314`
-- **HEAD oficial observado:** `4a2f49a0007290ee6b290710e28946c40cee41ff`
-- **Commit previamente observado:** `38b0917c5b8dba5c5a4ef4db157e78ac428ab4bc`
-- **Generado:** `2026-07-29T22:24:34.802365+00:00`
+- **Run ID:** `20260809T203826202587Z_2a28dcfd_76083517`
+- **HEAD oficial observado:** `2a28dcfd459a2bf1af19b3a6fee5cddefaac7f75`
+- **Commit previamente observado:** `b4d1d512fe953d593608391390f82ab500fdc9d6`
+- **Generado:** `2026-08-09T20:38:26.202587+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
 ### Estado estructurado de la fuente oficial
 
-- **Sprint vigente:** Sprint 7.5 — Base del plano de control de seguridad
-- **Estado:** `en progreso`
-- **Auditoría de autorización:** integrada mediante PR #22 y PR #23
-- **Cambio documental nuevo:** planificación futura incorporada mediante PR #24
-- **PR #24 modifica código:** `false`
-- **PR #24 cambia el baseline operativo:** `false`
+- **Ficha de sprint más reciente:** `docs/project/sprints/SPRINT-7.5.md`
+- **Título declarado:** Sprint 7.5 — Base del plano de control de seguridad
+- **Estado declarado:** `cerrado`
+- **`as_of_commit` declarado:** `62bdc11c3ce16cb2cb54bb61bddfab4e39d689a8`
 
 ### Commits oficiales observados
 
-- 4a2f49a0007290ee6b290710e28946c40cee41ff	Merge pull request #24 from Aranwill/agent/record-segmented-scaling-and-active-defense
-- 93689b903f28f61537d502b68785c5d3f6b37137	docs: record segmented scaling and governed active defense
-- 38b0917c5b8dba5c5a4ef4db157e78ac428ab4bc	Merge pull request #23 from Aranwill/agent/sprint-7.5-pep-audit-integration
+- 2a28dcfd459a2bf1af19b3a6fee5cddefaac7f75	Merge pull request #30 from Aranwill/docs/reconcile-sprint-7.5-final-state
+- 9c0109de156a2eb1cfc84da50815537539a35a1c	docs(project): reconcile Sprint 7.5 final state
+- d5a67e591bb793fbe6631425943e955e8784c1a0	Merge pull request #29 from Aranwill/agent/sprint-7.5-integral-review-closure
+- 4e2b3d4c9599e98f0918780e194448eb9adba3f1	docs(security): close Sprint 7.5 integral review
+- 62bdc11c3ce16cb2cb54bb61bddfab4e39d689a8	Merge pull request #28 from Aranwill/agent/sprint-7.5-audit-reconciliation
+- 9b328939f04bcc2b1d1ed7f7d410237b77604eeb	docs: reconcile sprint 7.5 authorization audit
 
 ### Evidencia que originó esta proyección
 
-- `governance-context-change` por `documents/projects/jarvis/ideas.md`
-- `roadmap-change` por `docs/project/implementation_roadmap.md`
-- `verified-merge` por PR #24
+- `governance-change` por `docs/architecture/adr/ADR-002-policy-enforcement-boundary.md`
 <!-- MALAK_VAULT_SYNC:END -->
 
 ## 1. Propósito
