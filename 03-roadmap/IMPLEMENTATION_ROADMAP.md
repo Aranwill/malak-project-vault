@@ -8,11 +8,11 @@ authority_level: approved_roadmap
 authority_rank: 7
 version: 1.1
 created: 2026-07-20
-last_reviewed: 2026-08-09
+last_reviewed: 2026-08-11
 source_of_truth: repository
 source_repository: Aranwill/jarvis
 source_branch: main
-source_commit: 2a28dcfd459a2bf1af19b3a6fee5cddefaac7f75
+source_commit: 7d6feaaaebb53b3c12bc2d1a170be85008ba9e5e
 derived: true
 operational_context: true
 retrieval_enabled: true
@@ -123,7 +123,7 @@ v0.6.0-alpha
 **Baseline operativo actual:**
 
 ```text
-main en 2a28dcfd459a2bf1af19b3a6fee5cddefaac7f75
+main en 7d6feaaaebb53b3c12bc2d1a170be85008ba9e5e
 Sprint 7.5 cerrado — Security Control Plane Foundation
 Incrementos 1 a 6 completados
 Ningún sprint posterior autorizado
@@ -524,7 +524,7 @@ modo manual-on-demand
 modos dry-run y controlled-proposal
 scheduler activo: no
 controlled-proposal validado end-to-end hasta creación de PR draft
-reconciliación y merge de la propuesta actual: pendientes de acción humana
+reconciliación y merge de la propuesta #27: completados por acción humana
 ```
 
 **Autoridad operativa:**
@@ -568,9 +568,9 @@ D:\Ollama\malak-project-vault
 ```text
 Repositorio: Aranwill/malak-vault-sync-agent
 Rama: main
-HEAD: 3d71246
+HEAD: fbbdb99
 Versión: 0.3.0
-PR integradas relevantes: #1, #3, #4, #5, #6, #7, #8 y #9
+PR integradas relevantes: #1, #3, #4, #5, #6, #7, #8, #9 y #10
 Working tree: limpio
 main local: alineada con origin/main
 Suite completa: PASS
@@ -591,7 +591,7 @@ Cursores de observación y propuesta: independientes
 Estado persistente: esquema v3 intacto
 Incremento Correctivo Integral 5: cerrado técnica y operativamente
 last_applied_commit: null
-Propuesta controlada actual: Vault PR #25
+Última propuesta controlada reconciliada: Vault PR #27
 Autoridad operativa: none
 ```
 
@@ -797,20 +797,22 @@ PR draft del Vault: #10
 Resultado: pass
 ```
 
-La validación operacional más reciente confirmó además el flujo sobre el
-cierre real del Sprint 7.5:
+La validación operacional más reciente confirmó el flujo sobre la
+reconciliación documental posterior al cierre del Sprint 7.5:
 
 ```text
-Run ID: 20260809T203826202587Z_2a28dcfd_76083517
-Rango: b4d1d512fe953d593608391390f82ab500fdc9d6
-       → 2a28dcfd459a2bf1af19b3a6fee5cddefaac7f75
-PR draft del Vault: #25
-Resultado: pass
-Recovery histórico no-op: corregido mediante PR #9 del agente
+Run ID: 20260811T224720142010Z_7d6feaaa_c38c6b28
+Rango: 09c6057f7ae1eaa4bbf9388df8554a44995e9e40
+       → 7d6feaaaebb53b3c12bc2d1a170be85008ba9e5e
+PR del Vault: #27
+Estado: integrada
+Resultado del agente: pass
+Reconciliación humana: completada
+accept-proposal: completado
 ```
 
-La PR #25 permanece sujeta a reconciliación, revisión y merge exclusivamente
-humanos.
+La PR #27 fue revisada y mergeada exclusivamente por decisión humana. El
+agente conserva `operational_authority: none`.
 
 **Evidencia de cierre:**
 
