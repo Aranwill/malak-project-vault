@@ -8,11 +8,11 @@ authority_level: baseline
 authority_rank: 5
 version: 1.1
 created: 2026-07-20
-last_reviewed: 2026-08-01
+last_reviewed: 2026-08-11
 source_of_truth: repository
 source_repository: Aranwill/jarvis
 source_branch: main
-source_commit: b4d1d512fe953d593608391390f82ab500fdc9d6
+source_commit: 7d6feaaaebb53b3c12bc2d1a170be85008ba9e5e
 derived: true
 operational_context: true
 retrieval_enabled: true
@@ -136,23 +136,21 @@ No debe utilizarse ninguna rama histórica como fuente del estado actual.
 **Último commit remoto verificado al revisar este documento:**
 
 ```text
-2a28dcfd459a2bf1af19b3a6fee5cddefaac7f75
+7d6feaaaebb53b3c12bc2d1a170be85008ba9e5e
 ```
 
 **Descripción:**
 
 ```text
-Merge pull request #30 from Aranwill/docs/reconcile-sprint-7.5-final-state
+Merge pull request #32 from Aranwill/docs/reconcile-project-context-2026-08-11
 ```
 
-El rango posterior a `b4d1d512fe953d593608391390f82ab500fdc9d6`
-completó la reconciliación final del Sprint 7.5.
+La PR #32 reconcilió `docs/project/project_context.md` con el baseline
+vigente después del cierre del Sprint 7.5. No introdujo cambios de código,
+contratos, Kernel, Planner, runtime ni comportamiento de seguridad.
 
-El cierre integral fue incorporado mediante la PR #29 y posteriormente
-reconciliado en la documentación oficial mediante la PR #30.
-
-El Sprint 7.5 quedó cerrado después de completar sus seis incrementos,
-sin requerir cambios funcionales durante el Incremento 6.
+El Sprint 7.5 permanece cerrado después de completar sus seis incrementos
+y no existe ningún sprint posterior autorizado.
 
 El hash registrado aquí es una referencia temporal y deberá actualizarse
 cuando cambie materialmente `HEAD`.
@@ -1068,21 +1066,32 @@ Esta iniciativa:
 
 ## 15. Estado actual del Project Vault
 
-Estado correctivo verificado antes del ajuste final a la PR #21:
+Estado verificado después de la reconciliación gobernada de la PR #27:
 
 ```text
 Repositorio: Aranwill/malak-project-vault
 Rama oficial: main
-HEAD base verificado: 304d426c77bd631332b032d978810b7bd0cf3b30
-Rama de propuesta: agent/reconcile-baseline-metadata
-PR draft: #21
-HEAD previo al ajuste final: 2b91e308018fb822fdbff1c988ebada028732df9
-Estado de la PR al verificar: abierta y en borrador
-Merge autorizado: no
+HEAD verificado: 9de74cccf78da7d9b02efda20efd336bb743addd
+PR de sincronización: #27
+Estado de la PR: integrada
+Rama de propuesta: agent/vault-sync-7d6feaaa
+Rama remota de propuesta: eliminada después del merge
+Malāk observado: 7d6feaaaebb53b3c12bc2d1a170be85008ba9e5e
+Run ID: 20260811T224720142010Z_7d6feaaa_c38c6b28
+Resultado del agente: pass
+Propuesta reconciliada por humano: sí
+accept-proposal: completado
+Merge automático autorizado: no
 ```
 
-La PR #21 reconcilia únicamente el baseline y el contexto de sesión. No
-modifica snapshots, roadmap, decisiones ni el estado operativo de Malāk.
+La PR #27 fue producida mediante `controlled-proposal`, revisada y mergeada
+exclusivamente bajo autoridad humana. El agente no escribió directamente
+sobre `main` del Vault ni modificó `Aranwill/jarvis`.
+
+La reconciliación automática actualizó únicamente la proyección gestionada
+de los documentos candidatos y preservó el frontmatter y el contenido humano.
+La presente revisión manual corrige los metadatos y referencias operativas
+activas que quedaron fuera de la autoridad del agente.
 
 ### Registro histórico — propuesta de sincronización PR #10
 

@@ -8,7 +8,7 @@ authority_level: technical_documentation
 authority_rank: 6
 version: 1.0
 created: 2026-07-20
-last_reviewed: 2026-07-21
+last_reviewed: 2026-08-11
 source_of_truth: project-vault
 derived: false
 operational_context: true
@@ -111,36 +111,31 @@ Datos verificados al revisar este Vault:
 Repositorio: Aranwill/jarvis
 Rama permanente: main
 Versión nominal: v0.6.0-alpha
-Último sprint cerrado: Sprint 7.3 — Conversation Provider Boundary Stabilization
-Pull request integrado: PR #13
-Suite documentada: 74 passed
+Último sprint cerrado: Sprint 7.5 — Security Control Plane Foundation
+Pull request de reconciliación más reciente: PR #32
+Suite documentada: 304 passed
 Próximo sprint aprobado: ninguno
 ```
 
 Último commit remoto verificado:
 
 ```text
-fd4da3d371d07b6aa91cc9f1c4d4bac3838ad627
+7d6feaaaebb53b3c12bc2d1a170be85008ba9e5e
 ```
 
 Descripción:
 
 ```text
-Merge pull request #13 from Aranwill/feature/sprint-7.3-conversation-provider-boundary
+Merge pull request #32 from Aranwill/docs/reconcile-project-context-2026-08-11
 ```
 
-El Sprint 7.3 estabilizó la frontera:
+El baseline vigente tiene cerrado Sprint 7.5 — Security Control Plane
+Foundation. El bloque 7.x completado comprende los sprints 7.0 a 7.5.
 
-```text
-ConversationService
-→ ConversationProviderRegistry
-→ RuntimeConversationProvider
-→ LLMRuntime
-```
+No existe un sprint posterior autorizado.
 
-No existe integración formal entre `Kernel.receive` y `ConversationService`.
-
-El cierre del Sprint 7.3 no autoriza ni propone dicha integración.
+La frontera entre `Kernel.receive` y `ConversationService` continúa sin
+integración formal aprobada.
 
 Estos datos deben revalidarse cuando cambie `HEAD`.
 
@@ -292,12 +287,16 @@ Podrá contener:
 
 No debe reemplazar las fichas oficiales de sprint.
 
-Registro vigente:
+Registros históricos disponibles incluyen:
 
 * `SPRINT_INDEX.md`;
-* `SPRINT-7.3-CLOSURE.md`.
+* `SPRINT-7.3-CLOSURE.md`;
+* `SPRINT-7.4-CLOSURE.md`.
 
-El último sprint documentado como cerrado es Sprint 7.3.
+El baseline operativo vigente reconoce Sprint 7.5 como último sprint
+formalmente cerrado a partir de la documentación oficial del repositorio
+principal. La ausencia de una ficha de cierre específica del Vault no debe
+reinterpretarse como un estado anterior del proyecto.
 
 ---
 
@@ -787,18 +786,18 @@ no implementada
 
 Próximos pasos sujetos a revisión y aprobación:
 
-1. completar la sincronización documental del Sprint 7.3;
-2. crear un snapshot nuevo del baseline `fd4da3d`;
-3. actualizar el índice de snapshots;
-4. verificar referencias desfasadas restantes;
-5. revisar el modelo de versionado y respaldo;
-6. revisar la política de sincronización con Obsidian;
-7. revisar el esquema de metadatos;
-8. mantener diferido el Session Context Generator;
-9. mantener no implementado el RAG externo;
-10. mantener no implementado el auditor externo.
+1. mantener sincronizados los documentos activos después de cambios materiales;
+2. detectar referencias operativas desfasadas sin alterar registros históricos;
+3. evaluar un control determinista de frescura documental;
+4. revisar el modelo de versionado y respaldo cuando exista una necesidad concreta;
+5. revisar la política de sincronización con Obsidian;
+6. revisar el esquema de metadatos;
+7. mantener diferido el Session Context Generator;
+8. mantener no implementado el RAG externo;
+9. mantener no implementado el auditor externo.
 
 Esta lista no autoriza implementaciones automáticas.
+
 ---
 
 ## 22. Reglas para asistentes

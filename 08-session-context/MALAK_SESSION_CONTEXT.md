@@ -8,10 +8,10 @@ authority_level: technical_documentation
 authority_rank: 6
 version: 1.2
 created: 2026-07-20
-last_reviewed: 2026-08-09
+last_reviewed: 2026-08-11
 source_repository: Aranwill/jarvis
 source_branch: main
-source_commit: 2a28dcfd459a2bf1af19b3a6fee5cddefaac7f75
+source_commit: 7d6feaaaebb53b3c12bc2d1a170be85008ba9e5e
 derived: true
 operational_context: true
 retrieval_enabled: true
@@ -160,13 +160,13 @@ Registry permanecieron intactos.
 **Último commit remoto verificado:**
 
 ```text
-2a28dcfd459a2bf1af19b3a6fee5cddefaac7f75
+7d6feaaaebb53b3c12bc2d1a170be85008ba9e5e
 ```
 
 Descripción:
 
 ```text
-Merge pull request #30 from Aranwill/docs/reconcile-sprint-7.5-final-state
+Merge pull request #32 from Aranwill/docs/reconcile-project-context-2026-08-11
 ```
 
 No existe ningún sprint posterior autorizado automáticamente por el cierre
@@ -544,9 +544,9 @@ Baseline operativo vigente del agente:
 ```text
 Repositorio: Aranwill/malak-vault-sync-agent
 Rama: main
-HEAD: 3d71246
+HEAD: fbbdb99
 Versión: 0.3.0
-PR integradas relevantes: #1, #3, #4, #5, #6, #7, #8 y #9
+PR integradas relevantes: #1, #3, #4, #5, #6, #7, #8, #9 y #10
 Working tree: limpio
 main local: alineada con origin/main
 Suite completa: PASS
@@ -567,7 +567,7 @@ Modos disponibles: dry-run y controlled-proposal
 Cursores de observación y propuesta: independientes
 Estado persistente: esquema v3 intacto
 last_applied_commit: null
-Propuesta controlada actual: Vault PR #25
+Última propuesta controlada reconciliada: Vault PR #27
 Autoridad operativa: none
 ```
 
@@ -694,19 +694,22 @@ El Vault:
 Estado actual de sincronización gobernada:
 
 ```text
-Vault main base de la propuesta: 760835178ef89b2a2404e09e2a5d6c95295b34fe
-PR actual: #25
-Estado de la PR: abierta y en borrador
-Rama de propuesta: agent/vault-sync-2a28dcfd
-Malāk observado: 2a28dcfd459a2bf1af19b3a6fee5cddefaac7f75
-Run ID: 20260809T203826202587Z_2a28dcfd_76083517
+Vault main: 9de74cccf78da7d9b02efda20efd336bb743addd
+PR de sincronización más reciente: #27
+Estado de la PR: integrada
+Rama de propuesta: agent/vault-sync-7d6feaaa
+Rama remota de propuesta: eliminada después del merge
+Malāk observado: 7d6feaaaebb53b3c12bc2d1a170be85008ba9e5e
+Run ID: 20260811T224720142010Z_7d6feaaa_c38c6b28
 Resultado del agente: pass
+Reconciliación humana: completada
+accept-proposal: completado
 Merge autorizado automáticamente: no
 ```
 
-La PR #25 fue creada por el Vault Synchronization Agent mediante el modo
-`controlled-proposal`. La reconciliación semántica, revisión y merge
-permanecen exclusivamente bajo autoridad humana.
+La PR #27 fue creada por el Vault Synchronization Agent mediante
+`controlled-proposal`, revisada y mergeada exclusivamente por decisión humana.
+El agente continúa sin autoridad para aprobar o mergear cambios por sí mismo.
 
 ### Registro histórico — sincronización gobernada cerrada mediante PR #13
 
@@ -914,10 +917,10 @@ Al recibir este archivo, el asistente debe:
 
 ## 17. Resultado de la sesión actual
 
-### 17.1 Estado verificado — 2026-08-09
+### 17.1 Estado verificado — 2026-08-11
 
 ```text
-Malāk main: 2a28dcfd459a2bf1af19b3a6fee5cddefaac7f75
+Malāk main: 7d6feaaaebb53b3c12bc2d1a170be85008ba9e5e
 Sprint 7.5: cerrado
 Incrementos 1 a 6: completados y validados
 Validación Malāk: 183 security-specific passed / 304 total passed
@@ -925,41 +928,38 @@ compileall Malāk: PASS
 git diff --check Malāk: PASS
 Sprint posterior autorizado: ninguno
 
-Vault main base de la propuesta actual: 760835178ef89b2a2404e09e2a5d6c95295b34fe
-Vault PR actual: #25
-Vault PR estado: abierta y en borrador
-Vault propuesta: agent/vault-sync-2a28dcfd
-Vault reconciliación y merge: pendientes de acción humana
+Vault main: 9de74cccf78da7d9b02efda20efd336bb743addd
+Vault PR de sincronización más reciente: #27
+Vault PR estado: integrada
+Vault propuesta: agent/vault-sync-7d6feaaa
+Vault reconciliación y merge: completados por acción humana
+Vault accept-proposal: completado
 
-Agente main: 3d71246
+Agente main: fbbdb99
 Versión del agente: 0.3.0
 Suite vigente del agente: PASS
-Último conteo explícito previo a PR #9: 260 passed
+Último conteo explícito documentado previo: 260 passed
 compileall agente: PASS
 git diff --check agente: PASS
-PR #9: integrada
-Recovery histórico no-op: corregido y validado operacionalmente
+PR #10: integrada
 Modo operativo: manual-on-demand
 Modos autorizados: dry-run y controlled-proposal
 Scheduler activo: no
 Autoridad operativa: none
-last_applied_commit: null
-Estado persistente: esquema v3 intacto
 Fase 2 o ampliaciones posteriores: no autorizadas
 ```
 
-La gobernanza vigente de `controlled-proposal` se registra en
-`DEC-RES-009`. La capacidad puede preparar ramas, commits, push y PR
-draft exclusivamente en el Vault y bajo controles deterministas. El
-merge y toda decisión material permanecen exclusivamente bajo autoridad
-humana.
+La gobernanza vigente de `controlled-proposal` se registra en `DEC-RES-009`.
+La capacidad puede preparar ramas, commits, push y PR draft exclusivamente
+en el Vault y bajo controles deterministas. El merge y toda decisión material
+permanecen exclusivamente bajo autoridad humana.
 
-La validación end-to-end reciente confirmó que el agente procesó el rango
-`b4d1d512... → 2a28dcfd...`, dejó de redescubrir la propuesta histórica
-no-op después de la corrección de PR #9 y creó la PR draft #25 del Vault.
+La ejecución más reciente procesó el rango
+`09c6057f... → 7d6feaaa...`, generó la PR #27, fue revisada y mergeada por
+el propietario y posteriormente aceptada mediante `accept-proposal`.
 
-El cierre técnico no amplía autoridad, no habilita scheduler, no
-introduce LLM, no modifica Kernel, Planner o runtime y no autoriza Fase 2.
+El cierre técnico no amplía autoridad, no habilita scheduler, no introduce
+LLM, no modifica Kernel, Planner o runtime y no autoriza Fase 2.
 
 ### 17.2 Registro histórico — 2026-08-01
 
