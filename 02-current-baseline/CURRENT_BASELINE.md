@@ -29,10 +29,10 @@ retrieval_scope: active
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260809T203826202587Z_2a28dcfd_76083517`
-- **HEAD oficial observado:** `2a28dcfd459a2bf1af19b3a6fee5cddefaac7f75`
-- **Commit previamente observado:** `b4d1d512fe953d593608391390f82ab500fdc9d6`
-- **Generado:** `2026-08-09T20:38:26.202587+00:00`
+- **Run ID:** `20260811T221458668486Z_09c6057f_785c3eef`
+- **HEAD oficial observado:** `09c6057f7ae1eaa4bbf9388df8554a44995e9e40`
+- **Commit previamente observado:** `2a28dcfd459a2bf1af19b3a6fee5cddefaac7f75`
+- **Generado:** `2026-08-11T22:14:58.668486+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
@@ -45,19 +45,12 @@ retrieval_scope: active
 
 ### Commits oficiales observados
 
-- 2a28dcfd459a2bf1af19b3a6fee5cddefaac7f75	Merge pull request #30 from Aranwill/docs/reconcile-sprint-7.5-final-state
-- 9c0109de156a2eb1cfc84da50815537539a35a1c	docs(project): reconcile Sprint 7.5 final state
-- d5a67e591bb793fbe6631425943e955e8784c1a0	Merge pull request #29 from Aranwill/agent/sprint-7.5-integral-review-closure
-- 4e2b3d4c9599e98f0918780e194448eb9adba3f1	docs(security): close Sprint 7.5 integral review
-- 62bdc11c3ce16cb2cb54bb61bddfab4e39d689a8	Merge pull request #28 from Aranwill/agent/sprint-7.5-audit-reconciliation
-- 9b328939f04bcc2b1d1ed7f7d410237b77604eeb	docs: reconcile sprint 7.5 authorization audit
+- 09c6057f7ae1eaa4bbf9388df8554a44995e9e40	Merge pull request #31 from Aranwill/agent/reconcile-ideas-security-expansion
+- 5b3581386b4d356d3a2715953345697d2ac2eed7	docs(ideas): reconcile security and research expansion
 
 ### Evidencia que originó esta proyección
 
-- `architecture-change` por `docs/architecture/adr/ADR-002-policy-enforcement-boundary.md`
-- `baseline-source-change` por `README.md`
-- `baseline-source-change` por `docs/project/implementation_roadmap.md`
-- `baseline-source-change` por `docs/project/sprints/SPRINT-7.5.md`
+- `baseline-source-change` por `documents/projects/jarvis/ideas.md`
 <!-- MALAK_VAULT_SYNC:END -->
 
 ## 1. Propósito

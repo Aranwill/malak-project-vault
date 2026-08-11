@@ -144,3 +144,5 @@ validación multiplataforma, el recovery operativo y la preservación de
 `manual-on-demand`, scheduler deshabilitado y autoridad operativa `none`.
 
 - [[07-audits/vault-synchronization/2026-08-09_VAULT_SYNC_20260809T203826202587Z_2a28dcfd_76083517|Sincronización 20260809T203826202587Z_2a28dcfd_76083517]]
+
+- [[07-audits/vault-synchronization/2026-08-11_VAULT_SYNC_20260811T221458668486Z_09c6057f_785c3eef|Sincronización 20260811T221458668486Z_09c6057f_785c3eef]]
