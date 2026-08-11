@@ -29,10 +29,10 @@ retrieval_scope: active
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260811T221458668486Z_09c6057f_785c3eef`
-- **HEAD oficial observado:** `09c6057f7ae1eaa4bbf9388df8554a44995e9e40`
-- **Commit previamente observado:** `2a28dcfd459a2bf1af19b3a6fee5cddefaac7f75`
-- **Generado:** `2026-08-11T22:14:58.668486+00:00`
+- **Run ID:** `20260811T224720142010Z_7d6feaaa_c38c6b28`
+- **HEAD oficial observado:** `7d6feaaaebb53b3c12bc2d1a170be85008ba9e5e`
+- **Commit previamente observado:** `09c6057f7ae1eaa4bbf9388df8554a44995e9e40`
+- **Generado:** `2026-08-11T22:47:20.142010+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
@@ -45,12 +45,12 @@ retrieval_scope: active
 
 ### Commits oficiales observados
 
-- 09c6057f7ae1eaa4bbf9388df8554a44995e9e40	Merge pull request #31 from Aranwill/agent/reconcile-ideas-security-expansion
-- 5b3581386b4d356d3a2715953345697d2ac2eed7	docs(ideas): reconcile security and research expansion
+- 7d6feaaaebb53b3c12bc2d1a170be85008ba9e5e	Merge pull request #32 from Aranwill/docs/reconcile-project-context-2026-08-11
+- 39945352e535223dfabdba2ae1502fcc3de3763e	docs(project): reconcile current project context
 
 ### Evidencia que originó esta proyección
 
-- `baseline-source-change` por `documents/projects/jarvis/ideas.md`
+- `baseline-source-change` por `docs/project/project_context.md`
 <!-- MALAK_VAULT_SYNC:END -->
 
 ## 1. Propósito
