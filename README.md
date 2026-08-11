@@ -798,6 +798,8 @@ Próximos pasos sujetos a revisión y aprobación:
 
 Esta lista no autoriza implementaciones automáticas.
 
+---
+
 ## 22. Reglas para asistentes
 
 Todo asistente que utilice este Vault deberá:
