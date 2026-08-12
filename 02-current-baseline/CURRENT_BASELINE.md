@@ -29,10 +29,10 @@ retrieval_scope: active
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260811T224720142010Z_7d6feaaa_c38c6b28`
-- **HEAD oficial observado:** `7d6feaaaebb53b3c12bc2d1a170be85008ba9e5e`
-- **Commit previamente observado:** `09c6057f7ae1eaa4bbf9388df8554a44995e9e40`
-- **Generado:** `2026-08-11T22:47:20.142010+00:00`
+- **Run ID:** `20260812T230820718673Z_cdc0f1d7_d28990bd`
+- **HEAD oficial observado:** `cdc0f1d78d1e896400f81a609df16aaa90d25313`
+- **Commit previamente observado:** `7d6feaaaebb53b3c12bc2d1a170be85008ba9e5e`
+- **Generado:** `2026-08-12T23:08:20.718673+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
@@ -45,12 +45,15 @@ retrieval_scope: active
 
 ### Commits oficiales observados
 
-- 7d6feaaaebb53b3c12bc2d1a170be85008ba9e5e	Merge pull request #32 from Aranwill/docs/reconcile-project-context-2026-08-11
-- 39945352e535223dfabdba2ae1502fcc3de3763e	docs(project): reconcile current project context
+- cdc0f1d78d1e896400f81a609df16aaa90d25313	Merge pull request #34 from Aranwill/docs/reconcile-project-context-after-idea-024
+- 167f3d8fb86671cbd119fd17e3ed27da8f7d740f	docs(project): reconcile context after idea 024
+- 48d6ea2de9d7bd60495208b77d81175415bc3350	Merge pull request #33 from Aranwill/docs/add-governed-mission-orchestration-idea
+- 170dd31e67c3199ed6f43c114ff9b45cc1778ee8	docs(ideas): add governed mission orchestration foundation
 
 ### Evidencia que originó esta proyección
 
 - `baseline-source-change` por `docs/project/project_context.md`
+- `baseline-source-change` por `documents/projects/jarvis/ideas.md`
 <!-- MALAK_VAULT_SYNC:END -->
 
 ## 1. Propósito

@@ -7,7 +7,7 @@ authority_level: technical_documentation
 authority_rank: 6
 version: 1.0
 created: 2026-07-20
-last_reviewed: 2026-07-25
+last_reviewed: 2026-08-12
 source_of_truth: project-vault
 derived: true
 operational_context: true
@@ -25,10 +25,10 @@ retrieval_scope: active
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260811T221458668486Z_09c6057f_785c3eef`
-- **HEAD oficial observado:** `09c6057f7ae1eaa4bbf9388df8554a44995e9e40`
-- **Commit previamente observado:** `2a28dcfd459a2bf1af19b3a6fee5cddefaac7f75`
-- **Generado:** `2026-08-11T22:14:58.668486+00:00`
+- **Run ID:** `20260812T230820718673Z_cdc0f1d7_d28990bd`
+- **HEAD oficial observado:** `cdc0f1d78d1e896400f81a609df16aaa90d25313`
+- **Commit previamente observado:** `7d6feaaaebb53b3c12bc2d1a170be85008ba9e5e`
+- **Generado:** `2026-08-12T23:08:20.718673+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
@@ -41,8 +41,10 @@ retrieval_scope: active
 
 ### Commits oficiales observados
 
-- 09c6057f7ae1eaa4bbf9388df8554a44995e9e40	Merge pull request #31 from Aranwill/agent/reconcile-ideas-security-expansion
-- 5b3581386b4d356d3a2715953345697d2ac2eed7	docs(ideas): reconcile security and research expansion
+- cdc0f1d78d1e896400f81a609df16aaa90d25313	Merge pull request #34 from Aranwill/docs/reconcile-project-context-after-idea-024
+- 167f3d8fb86671cbd119fd17e3ed27da8f7d740f	docs(project): reconcile context after idea 024
+- 48d6ea2de9d7bd60495208b77d81175415bc3350	Merge pull request #33 from Aranwill/docs/add-governed-mission-orchestration-idea
+- 170dd31e67c3199ed6f43c114ff9b45cc1778ee8	docs(ideas): add governed mission orchestration foundation
 
 ### Evidencia que originó esta proyección
 
@@ -110,13 +112,15 @@ Estado documentado al revisar este índice:
 Repositorio: Aranwill/jarvis
 Rama permanente: main
 Versión nominal: v0.6.0-alpha
-Último sprint formalmente cerrado: Sprint 7.3 — Conversation Provider Boundary Stabilization
-Sprint integrado en progreso: Sprint 7.4 — Consolidación de logs, métricas y auditoría
-Pull request integrado: PR #14
-Baseline técnico: 7cd7fcc811df01555837319ec4cac0a93ef94fff
-Suite integral documentada: 121 passed sobre 5b951918006c464745e1eb1e3816bde619fad8b1
-Incremento 8: en ejecución documental gobernada
-Sprint posterior aprobado: ninguno
+Último sprint formalmente cerrado: Sprint 7.5 — Security Control Plane Foundation
+Último cambio documental integrado: PR #34 — reconciliación de contexto posterior a IDEA-024
+Baseline técnico observado: cdc0f1d78d1e896400f81a609df16aaa90d25313
+Versión nominal: v0.6.0-alpha
+Suite integral documentada del cierre de Sprint 7.5: 304 passed
+Validación de seguridad documentada: 183 security-specific passed
+compileall: PASS
+git diff --check: PASS
+Sprint posterior autorizado: ninguno
 ```
 
 ## 5. Roadmap
@@ -129,14 +133,13 @@ Regla:
 
 Actualmente:
 
-- los Sprints 7.0, 7.1, 7.2 y 7.3 están formalmente cerrados;
-- Sprint 7.4 está mergeado y continúa en progreso;
-- los Incrementos 1 a 7 de Sprint 7.4 están completados;
-- el Incremento 8 está en ejecución documental gobernada;
-- no existe un sprint posterior aprobado;
+- los Sprints 7.0, 7.1, 7.2, 7.3, 7.4 y 7.5 están formalmente cerrados;
+- Sprint 7.5 cerró la Security Control Plane Foundation;
+- no existe un sprint posterior autorizado;
+- IDEA-024 — Governed Agent Composition & Mission Orchestration Foundation permanece en estado `capturada` y no forma parte del roadmap aprobado;
 - las iniciativas futuras requieren revisión y aprobación explícita;
 - el cierre de un sprint no autoriza automáticamente el siguiente;
-- Sprint 7.3 no aprobó una integración entre `Kernel.receive` y `ConversationService`.
+- no existe una integración formal aprobada entre `Kernel.receive` y `ConversationService`.
 
 ---
 ## 6. Registro de decisiones
@@ -147,8 +150,7 @@ Categorías actuales:
 
 ### Prioridad alta
 
-- cierre formal de Sprint 7.4 después del Incremento 8;
-- momento de implementación del Security Control Plane;
+No se registra una decisión abierta de alta prioridad derivada del cierre del Sprint 7.5.
 
 ### Prioridad media
 
@@ -159,9 +161,10 @@ Categorías actuales:
 
 - redefinición del Sprint 7.3;
 - relación entre Kernel y `ConversationService`;
+- selección y cierre formal de Sprint 7.4;
+- aprobación, implementación y cierre de Sprint 7.5 — Security Control Plane Foundation;
 - aprobación e implementación de la Fase 1 del Vault Synchronization Agent (`DEC-PEND-013`);
-- cierre técnico y validación final de la Fase 1.
-- selección de Sprint 7.4 (`DEC-PEND-001`);
+- cierre técnico y validación final de la Fase 1;
 - separación entre métricas, eventos operativos y auditoría (`DEC-PEND-003`).
 
 ### Diferidas
@@ -275,7 +278,8 @@ Sprints cerrados conocidos:
 | 7.1 | Composición de CLI con `OllamaRuntime` |
 | 7.2 | Contrato estructural `RuntimeMetricSink` |
 | 7.3 | Conversation Provider Boundary Stabilization |
-| 7.4 | Eventos operativos y correlación CLI; cierre formal pendiente |
+| 7.4 | Logs, métricas, eventos operativos y sincronización gobernada; cerrado |
+| 7.5 | Security Control Plane Foundation; cerrado |
 
 ---
 
@@ -333,7 +337,7 @@ No se almacenarán:
 - credenciales;
 - dumps sensibles no sanitizados.
 
-La existencia de esta carpeta no implica que el Security Control Plane esté implementado.
+La existencia de esta carpeta no concede autoridad adicional. El Security Control Plane Foundation está implementado y Sprint 7.5 está cerrado, pero sus capacidades permanecen sujetas a las fronteras de autoridad y seguridad vigentes.
 
 ---
 
@@ -415,9 +419,9 @@ Estado registrado en el snapshot:
 - `git diff --check`: correcto;
 - estado documental: histórico e inmutable.
 
-Cada cambio material del repositorio deberá producir un snapshot nuevo.
+Los snapshots históricos permanecen inmutables y no deben editarse para representar estados posteriores.
 
-Los snapshots anteriores no deben editarse para representar estados posteriores.
+La creación de un snapshot nuevo debe realizarse mediante el proceso gobernado correspondiente cuando el cambio material del baseline justifique conservar una nueva referencia histórica.
 
 ---
 
@@ -470,6 +474,21 @@ Futuro auditor externo
 
 ---
 ```
+
+## 14.1 Ideas y visión futura
+
+El registro no normativo de ideas permanece en el repositorio oficial:
+
+`documents/projects/jarvis/ideas.md`
+
+Estado relevante observado:
+
+- `IDEA-024 — Governed Agent Composition & Mission Orchestration Foundation`: `capturada`;
+- su incorporación no modifica Blueprint, Constituciones, Gobernanza ni roadmap;
+- no autoriza un nuevo sprint ni implementación;
+- cualquier promoción futura deberá pasar por evaluación arquitectónica y aprobación humana.
+
+---
 
 ## 15. Índices futuros
 
