@@ -8,10 +8,10 @@ authority_level: technical_documentation
 authority_rank: 6
 version: 1.2
 created: 2026-07-20
-last_reviewed: 2026-08-11
+last_reviewed: 2026-08-14
 source_repository: Aranwill/jarvis
 source_branch: main
-source_commit: 7d6feaaaebb53b3c12bc2d1a170be85008ba9e5e
+source_commit: c65bff257f877460c153583bfcd9819224ca0f5c
 derived: true
 operational_context: true
 retrieval_enabled: true
@@ -164,13 +164,13 @@ Registry permanecieron intactos.
 **Último commit remoto verificado:**
 
 ```text
-7d6feaaaebb53b3c12bc2d1a170be85008ba9e5e
+c65bff257f877460c153583bfcd9819224ca0f5c
 ```
 
 Descripción:
 
 ```text
-Merge pull request #32 from Aranwill/docs/reconcile-project-context-2026-08-11
+Merge pull request #36 from Aranwill/docs/concept-governance-clarification
 ```
 
 No existe ningún sprint posterior autorizado automáticamente por el cierre
@@ -548,7 +548,7 @@ Baseline operativo vigente del agente:
 ```text
 Repositorio: Aranwill/malak-vault-sync-agent
 Rama: main
-HEAD: fbbdb99
+HEAD: b064e89baa183fecdeed414fc7970c55631c8034
 Versión: 0.3.0
 PR integradas relevantes: #1, #3, #4, #5, #6, #7, #8, #9 y #10
 Working tree: limpio
@@ -571,7 +571,7 @@ Modos disponibles: dry-run y controlled-proposal
 Cursores de observación y propuesta: independientes
 Estado persistente: esquema v3 intacto
 last_applied_commit: null
-Última propuesta controlada reconciliada: Vault PR #27
+Última propuesta controlada reconciliada: Vault PR #31
 Autoridad operativa: none
 ```
 
@@ -607,20 +607,39 @@ operativo vigente incorpora `controlled-proposal` implementado y
 certificado dentro del alcance correctivo aprobado, sin inferir
 aprobación de una Fase 2 ni conceder autoridad operativa al agente.
 
-La validación operacional más reciente confirmó el flujo controlado sobre
-el cierre real del Sprint 7.5:
+La validación operacional real más reciente confirmó end-to-end
+`controlled-proposal` sobre el baseline real:
 
 ```text
-Run ID: 20260809T203826202587Z_2a28dcfd_76083517
-Rango: b4d1d512fe953d593608391390f82ab500fdc9d6
-       → 2a28dcfd459a2bf1af19b3a6fee5cddefaac7f75
-PR draft del Vault: #25
+Malāk base: 223b0c3794f4a857ff3ce5c3556a59445b995831
+Malāk HEAD: c65bff257f877460c153583bfcd9819224ca0f5c
+Vault base: 30336572ad098af9cc35b054d16950a97cf44ce2
+Vault final: e9165357160386fea59706d9af4cd7504f539219
+Run ID: 20260815T010848675956Z_c65bff25_30336572
+Vault PR: #31
 Resultado: pass
-Recovery histórico no-op: corregido mediante PR #9 del agente
+
+Mapping:
+docs/project/concepts/
+→ 10-knowledge-index/CONCEPTUAL_FOUNDATIONS.md
+→ 10-knowledge-index/KNOWLEDGE_INDEX.md
+
+Commit documental:
+c21e92b19c5a7705c289bb9f2d0d60eb15a5b3dc
+
+Commit de auditoría / PR HEAD:
+7adafab01b614603ee248e8374887677e1a7981e
+
+controlled-proposal E2E: PASS
+separación content/audit: PASS
+fail-closed ante expected-commit incorrecto: PASS
+reconciliación humana: PASS
+accept-proposal: PASS
+steady state posterior: PASS
+pending_proposal_*: null
+
 ```
 
-La PR #25 permanece sujeta a reconciliación, revisión y merge exclusivamente
-humanos.
 
 La iniciativa:
 
@@ -698,20 +717,21 @@ El Vault:
 Estado actual de sincronización gobernada:
 
 ```text
-Vault main: 9de74cccf78da7d9b02efda20efd336bb743addd
-PR de sincronización más reciente: #27
+Vault main: e9165357160386fea59706d9af4cd7504f539219
+PR de sincronización más reciente: #31
 Estado de la PR: integrada
-Rama de propuesta: agent/vault-sync-7d6feaaa
+Rama de propuesta: agent/vault-sync-c65bff25
 Rama remota de propuesta: eliminada después del merge
-Malāk observado: 7d6feaaaebb53b3c12bc2d1a170be85008ba9e5e
-Run ID: 20260811T224720142010Z_7d6feaaa_c38c6b28
+Malāk observado: c65bff257f877460c153583bfcd9819224ca0f5c
+Run ID: 20260815T010848675956Z_c65bff25_30336572
 Resultado del agente: pass
 Reconciliación humana: completada
 accept-proposal: completado
+Steady state posterior: pass
 Merge autorizado automáticamente: no
 ```
 
-La PR #27 fue creada por el Vault Synchronization Agent mediante
+La PR #31 fue creada por el Vault Synchronization Agent mediante
 `controlled-proposal`, revisada y mergeada exclusivamente por decisión humana.
 El agente continúa sin autoridad para aprobar o mergear cambios por sí mismo.
 
@@ -921,46 +941,47 @@ Al recibir este archivo, el asistente debe:
 
 ## 17. Resultado de la sesión actual
 
-### 17.1 Estado verificado — 2026-08-11
+### 17.1 Estado verificado — 2026-08-14
 
 ```text
-Malāk main: 7d6feaaaebb53b3c12bc2d1a170be85008ba9e5e
+Malāk main: c65bff257f877460c153583bfcd9819224ca0f5c
 Sprint 7.5: cerrado
-Incrementos 1 a 6: completados y validados
-Validación Malāk: 183 security-specific passed / 304 total passed
+Validación Malāk: 304 total passed
 compileall Malāk: PASS
 git diff --check Malāk: PASS
 Sprint posterior autorizado: ninguno
 
-Vault main: 9de74cccf78da7d9b02efda20efd336bb743addd
-Vault PR de sincronización más reciente: #27
+Vault main: e9165357160386fea59706d9af4cd7504f539219
+Vault PR de sincronización más reciente: #31
 Vault PR estado: integrada
-Vault propuesta: agent/vault-sync-7d6feaaa
+Vault propuesta: agent/vault-sync-c65bff25
 Vault reconciliación y merge: completados por acción humana
 Vault accept-proposal: completado
 
-Agente main: fbbdb99
+Agente main: b064e89baa183fecdeed414fc7970c55631c8034
 Versión del agente: 0.3.0
-Suite vigente del agente: PASS
-Último conteo explícito documentado previo: 260 passed
-compileall agente: PASS
-git diff --check agente: PASS
-PR #10: integrada
 Modo operativo: manual-on-demand
 Modos autorizados: dry-run y controlled-proposal
 Scheduler activo: no
 Autoridad operativa: none
+controlled-proposal E2E real: PASS
+Fail-closed ante SHA incorrecto: PASS
+Steady state posterior: PASS
 Fase 2 o ampliaciones posteriores: no autorizadas
 ```
+
+El próximo paso no está autorizado automáticamente.
+Debe revisarse el roadmap y seleccionarse un nuevo incremento únicamente
+mediante decisión explícita del propietario.
 
 La gobernanza vigente de `controlled-proposal` se registra en `DEC-RES-009`.
 La capacidad puede preparar ramas, commits, push y PR draft exclusivamente
 en el Vault y bajo controles deterministas. El merge y toda decisión material
 permanecen exclusivamente bajo autoridad humana.
 
-La ejecución más reciente procesó el rango
-`09c6057f... → 7d6feaaa...`, generó la PR #27, fue revisada y mergeada por
-el propietario y posteriormente aceptada mediante `accept-proposal`.
+La ejecución operacional real más reciente procesó el rango
+`223b0c37... → c65bff25...`, generó la PR #31, fue revisada y mergeada
+por el propietario y posteriormente reconciliada mediante `accept-proposal`.
 
 El cierre técnico no amplía autoridad, no habilita scheduler, no introduce
 LLM, no modifica Kernel, Planner o runtime y no autoriza Fase 2.
