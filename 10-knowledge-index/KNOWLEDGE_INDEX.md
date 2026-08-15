@@ -25,11 +25,11 @@ retrieval_scope: active
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260812T230820718673Z_cdc0f1d7_d28990bd`
-- **HEAD oficial observado:** `cdc0f1d78d1e896400f81a609df16aaa90d25313`
-- **Commit previamente observado:** `7d6feaaaebb53b3c12bc2d1a170be85008ba9e5e`
-- **Generado:** `2026-08-12T23:08:20.718673+00:00`
-- **Prioridad:** `high`
+- **Run ID:** `20260815T010848675956Z_c65bff25_30336572`
+- **HEAD oficial observado:** `c65bff257f877460c153583bfcd9819224ca0f5c`
+- **Commit previamente observado:** `223b0c3794f4a857ff3ce5c3556a59445b995831`
+- **Generado:** `2026-08-15T01:08:48.675956+00:00`
+- **Prioridad:** `medium`
 - **Disposición:** `review_required`
 
 ### Estado estructurado de la fuente oficial
@@ -41,14 +41,12 @@ retrieval_scope: active
 
 ### Commits oficiales observados
 
-- cdc0f1d78d1e896400f81a609df16aaa90d25313	Merge pull request #34 from Aranwill/docs/reconcile-project-context-after-idea-024
-- 167f3d8fb86671cbd119fd17e3ed27da8f7d740f	docs(project): reconcile context after idea 024
-- 48d6ea2de9d7bd60495208b77d81175415bc3350	Merge pull request #33 from Aranwill/docs/add-governed-mission-orchestration-idea
-- 170dd31e67c3199ed6f43c114ff9b45cc1778ee8	docs(ideas): add governed mission orchestration foundation
+- c65bff257f877460c153583bfcd9819224ca0f5c	Merge pull request #36 from Aranwill/docs/concept-governance-clarification
+- e42c94e486f6d811d8f9ca09e0575d3a933b1b90	docs(concepts): clarify vault projection authority
 
 ### Evidencia que originó esta proyección
 
-- `governance-change` por `documents/projects/jarvis/ideas.md`
+- `conceptual-foundation-change` por `docs/project/concepts/README.md`
 <!-- MALAK_VAULT_SYNC:END -->
 
 ## 1. Propósito
