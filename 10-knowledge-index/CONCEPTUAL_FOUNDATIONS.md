@@ -17,6 +17,38 @@ retrieval_scope: active
 
 # Conceptual Foundations Index
 
+<!-- MALAK_VAULT_SYNC:START -->
+## Proyección automática de sincronización
+
+> [!warning] Estado derivado pendiente de revisión
+> Este bloque fue generado de forma determinista a partir de
+> `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
+> sprints y no reemplaza la revisión humana del documento.
+
+- **Run ID:** `20260815T010848675956Z_c65bff25_30336572`
+- **HEAD oficial observado:** `c65bff257f877460c153583bfcd9819224ca0f5c`
+- **Commit previamente observado:** `223b0c3794f4a857ff3ce5c3556a59445b995831`
+- **Generado:** `2026-08-15T01:08:48.675956+00:00`
+- **Prioridad:** `medium`
+- **Disposición:** `review_required`
+
+### Estado estructurado de la fuente oficial
+
+- **Ficha de sprint más reciente:** `docs/project/sprints/SPRINT-7.5.md`
+- **Título declarado:** Sprint 7.5 — Base del plano de control de seguridad
+- **Estado declarado:** `cerrado`
+- **`as_of_commit` declarado:** `62bdc11c3ce16cb2cb54bb61bddfab4e39d689a8`
+
+### Commits oficiales observados
+
+- c65bff257f877460c153583bfcd9819224ca0f5c	Merge pull request #36 from Aranwill/docs/concept-governance-clarification
+- e42c94e486f6d811d8f9ca09e0575d3a933b1b90	docs(concepts): clarify vault projection authority
+
+### Evidencia que originó esta proyección
+
+- `conceptual-foundation-change` por `docs/project/concepts/README.md`
+<!-- MALAK_VAULT_SYNC:END -->
+
 ## 1. Propósito
 
 Este documento mantiene una vista derivada y compacta de referencias

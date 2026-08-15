@@ -150,3 +150,5 @@ validación multiplataforma, el recovery operativo y la preservación de
 - [[07-audits/vault-synchronization/2026-08-11_VAULT_SYNC_20260811T224720142010Z_7d6feaaa_c38c6b28|Sincronización 20260811T224720142010Z_7d6feaaa_c38c6b28]]
 
 - [[07-audits/vault-synchronization/2026-08-12_VAULT_SYNC_20260812T230820718673Z_cdc0f1d7_d28990bd|Sincronización 20260812T230820718673Z_cdc0f1d7_d28990bd]]
+
+- [[07-audits/vault-synchronization/2026-08-15_VAULT_SYNC_20260815T010848675956Z_c65bff25_30336572|Sincronización 20260815T010848675956Z_c65bff25_30336572]]
