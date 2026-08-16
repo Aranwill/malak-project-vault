@@ -296,6 +296,7 @@ otro sprint posterior.
 
 El estado operativo vigente del proyecto debe obtenerse de
 MALAK_OPERATIONAL_STATE y de la evidencia oficial correspondiente.
+```
 ---
 
 ## 7. Estado de líneas del roadmap oficial
