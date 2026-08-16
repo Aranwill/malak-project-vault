@@ -8,7 +8,7 @@ authority_level: proposal
 authority_rank: 9
 version: 1.0
 created: 2026-07-20
-last_reviewed: 2026-07-29
+last_reviewed: 2026-08-16
 source_of_truth: repository-and-owner-decisions
 source_repository: Aranwill/jarvis
 source_branch: main
@@ -95,6 +95,33 @@ No representa:
 * una aceptación arquitectónica automática.
 
 Toda decisión deberá resolverse mediante aprobación explícita del propietario o mediante el proceso formal correspondiente.
+
+### 2.1 Ownership del estado operativo
+
+Este registro no es owner del estado operativo mutable de Malāk, del Project
+Vault ni del Vault Synchronization Agent.
+
+El cuerpo humano no debe mantener manualmente como estado vigente:
+
+* HEAD o commit operativo actual;
+* sprint estructurado vigente;
+* conteo vigente de tests;
+* estado actual del working tree;
+* baseline operativo mutable;
+* scheduler, cursores, propuesta pendiente u otros datos operativos
+  deterministas.
+
+Cuando esos datos deban representarse dentro del Project Vault, su owner
+exclusivo es el bloque machine-managed `MALAK_OPERATIONAL_STATE`.
+
+Las decisiones pueden conservar hashes, conteos de tests, estados de ramas,
+resultados de validación y otros valores concretos como evidencia histórica
+de una resolución, siempre que queden vinculados explícitamente al momento
+o baseline al que pertenecen y no se presenten como estado operativo actual.
+
+La existencia de una decisión `accepted`, `closed` o históricamente
+implementada no autoriza por sí sola trabajo posterior ni modifica el estado
+operativo vigente.
 
 ---
 
@@ -363,8 +390,8 @@ activada como:
 Sprint 7.5 — Base del plano de control de seguridad
 ```
 
-El Sprint 7.5 permanece en progreso y conserva una secuencia
-incremental con aprobación humana independiente:
+La siguiente secuencia conserva el estado documentado durante la
+ejecución histórica del Sprint 7.5. No representa el estado operativo actual:
 
 1. contratos fundamentales de autorización: completados mediante la
    PR #15;
@@ -376,7 +403,11 @@ incremental con aprobación humana independiente:
    reconciliado documentalmente mediante la PR #20;
 5. contratos y evidencia de auditoría de autorización: completados mediante
    las PR #22 y #23;
-6. revisión integral y cierre: pendiente.
+6. revisión integral y cierre: posteriormente completados.
+
+El estado operativo vigente del sprint no se mantiene manualmente en esta
+decisión. Cuando corresponda representarlo en el Vault, pertenece a
+`MALAK_OPERATIONAL_STATE`.
 
 **Evidencia:**
 
@@ -399,9 +430,12 @@ incremental con aprobación humana independiente:
 
 **Resultado:**
 
-La decisión sobre el momento de implementación queda resuelta. Este
-cierre no completa el Sprint 7.5, no autoriza los Incrementos 5 y 6 y
-no autoriza capacidades sensibles posteriores.
+La decisión sobre el momento de implementación queda resuelta. La evidencia
+posterior de cierre del Sprint 7.5 pertenece a sus artefactos oficiales y a
+los registros históricos correspondientes.
+
+Esta decisión cerrada no autoriza por sí sola ningún sprint, incremento o
+capacidad sensible posterior.
 
 ---
 
@@ -473,7 +507,7 @@ Modificar prematuramente el límite arquitectónico del Kernel o convertirlo en 
 
 **Resultado:**
 
-La separación actual se mantiene como baseline.
+La separación definida por esta resolución se conserva como decisión arquitectónica.
 
 Esta decisión no autoriza una futura integración automática.
 
@@ -530,13 +564,16 @@ Rama oficial:
 main
 ```
 
-Estado verificado antes de la actualización documental vigente:
+Registro histórico de verificación anterior:
 
 ```text
 HEAD: 03032a7b2aaecb47c27c2e8e5bff3a2c04179bd2
 Working tree: limpio
 main local: alineada con origin/main
 ```
+
+Este bloque conserva evidencia de aquella verificación y no representa el
+estado operativo actual del Project Vault.
 
 El repositorio privado remoto proporciona respaldo, portabilidad y trazabilidad sin modificar la jerarquía de autoridad.
 
@@ -660,7 +697,6 @@ last_reviewed:
 source_of_truth:
 source_repository:
 source_branch:
-source_commit:
 derived:
 operational_context:
 retrieval_enabled:
@@ -703,7 +739,12 @@ media después de estabilizar el Vault
 
 **Contexto:**
 
-El futuro Session Context Generator debería obtener evidencia directamente del repositorio.
+El futuro Session Context Generator debería obtener evidencia directamente del
+repositorio y producir únicamente artefactos derivados.
+
+Los datos operativos deterministas que deban representarse en documentos del
+Project Vault no deben adquirir un segundo owner manual: su proyección
+corresponde a `MALAK_OPERATIONAL_STATE` cuando aplique.
 
 **Decisión requerida:**
 
@@ -1105,7 +1146,7 @@ La decisión se considera resuelta porque:
 
 La autorización se limita a la Fase 1 y no aprueba ninguna fase posterior.
 
-**Resultado posterior de implementación — cierre formal de Fase 1:**
+**Registro histórico posterior — cierre formal de Fase 1:**
 
 La implementación autorizada fue completada y cerrada formalmente en el workspace externo:
 
@@ -1113,7 +1154,7 @@ La implementación autorizada fue completada y cerrada formalmente en el workspa
 D:\Ollama\malak-vault-sync-agent
 ```
 
-Estado final verificado:
+Estado verificado al cierre histórico de la Fase 1:
 
 ```text
 Rama: main
@@ -1158,11 +1199,11 @@ docs/PHASE_1_FINAL_BASELINE.md
 
 Este baseline se conserva como evidencia histórica del cierre técnico de la Fase 1.
 
-**Resultado posterior de operacionalización read-only:**
+**Registro histórico posterior — operacionalización read-only:**
 
 Después del cierre formal de la Fase 1, el agente fue respaldado en un repositorio remoto independiente y operacionalizado en Windows sin ampliar su autoridad ni habilitar escritura sobre los repositorios observados.
 
-Baseline operacional vigente:
+Baseline histórico observado durante la operacionalización:
 
 ```text
 Repositorio: Aranwill/malak-vault-sync-agent
@@ -1179,7 +1220,7 @@ last_applied_commit: null
 Autoridad operativa: none
 ```
 
-Estado remoto vigente del agente:
+Registro histórico del estado remoto del agente:
 
 ```text
 Remoto configurado: sí
@@ -1192,13 +1233,19 @@ HEAD local y remoto: coincidentes
 
 La ejecución mediante el Programador de tareas de Windows fue utilizada únicamente para validar que el mismo comando `run-once` podía ejecutarse correctamente. La tarea programada fue eliminada posteriormente por decisión humana.
 
-Modo operativo elegido:
+Los valores concretos de HEAD, suite, working tree, upstream, scheduler,
+estado persistente y otros datos operativos de esos bloques se conservan
+exclusivamente como evidencia histórica. Esta decisión no mantiene una copia
+manual del estado operativo actual del agente.
+
+
+Modo operativo adoptado en esa etapa:
 
 ```text
 manual-on-demand
 ```
 
-Flujo vigente:
+Flujo operacional validado en esa etapa:
 
 ```text
 Avance aprobado de Malāk
@@ -1322,7 +1369,7 @@ El Vault es derivado y no reemplaza esas fuentes.
 
 ---
 
-## DEC-RES-005 — Número de tests del baseline
+## DEC-RES-005 — Registro histórico del número de tests del baseline
 
 **Estado:**
 
@@ -1330,19 +1377,19 @@ El Vault es derivado y no reemplaza esas fuentes.
 closed
 ```
 
-**Decisión verificada:**
+**Registro histórico de validación:**
 
 ```text
 74 passed
 ```
 
-El valor corresponde al estado documentado al cierre del Sprint 7.3.
+El valor corresponde exclusivamente al estado documentado al cierre del Sprint 7.3.
 
 No debe reutilizarse automáticamente después de cambios futuros sin ejecutar nuevamente la suite.
 
 ---
 
-## DEC-RES-006 — Último sprint cerrado
+## DEC-RES-006 — Registro histórico del sprint cerrado representado
 
 **Estado:**
 
@@ -1350,7 +1397,7 @@ No debe reutilizarse automáticamente después de cambios futuros sin ejecutar n
 closed
 ```
 
-**Decisión verificada:**
+**Registro histórico:**
 
 ```text
 Sprint 7.3 — Conversation Provider Boundary Stabilization
@@ -1369,6 +1416,10 @@ PR #13
 ```
 
 No debe registrarse el baseline únicamente como “Sprint 7”.
+
+Este registro no determina cuál es el sprint cerrado vigente. El estado
+estructurado actual, cuando corresponda representarlo en el Project Vault,
+pertenece a `MALAK_OPERATIONAL_STATE`.
 
 ---
 
@@ -1415,15 +1466,15 @@ una vez publicados o fusionados los cambios en Aranwill/jarvis/main
 
 La ejecución programada fue validada técnicamente y la tarea del Programador de tareas de Windows fue eliminada por decisión humana.
 
-Estado final:
+Condiciones decididas para ese modo operativo:
 
 ```text
 Modo operativo: manual-on-demand
-Scheduler configurado: no
-Servicio permanente: no
-Daemon: no
-Autoridad operativa: none
-Fase 2 aprobada: no
+Scheduler permanente autorizado: no
+Servicio permanente autorizado: no
+Daemon autorizado: no
+Autoridad operativa del agente: none
+Fase 2 autorizada por esta decisión: no
 ```
 
 Esta decisión de modo operativo no autorizó por sí sola escritura sobre
@@ -1452,8 +1503,9 @@ La Fase 1 read-only y su operacionalización permanecen cerradas. El
 propietario aprobó después una capacidad acotada para reducir la
 reconciliación manual repetitiva sin transferir autoridad al agente.
 
-El núcleo de la implementación fue integrado y validado en el repositorio
-independiente `Aranwill/malak-vault-sync-agent`, culminando en:
+El núcleo de la implementación fue integrado y validado históricamente en el
+repositorio independiente `Aranwill/malak-vault-sync-agent`. La evidencia de
+ese momento fue:
 
 ```text
 Rama: main
@@ -1561,7 +1613,7 @@ Al momento del baseline `main@0feed6e`, permanecían pendientes:
 Estos controles fueron implementados y certificados posteriormente en el
 Incremento Correctivo Integral 5.
 
-Baseline de certificación posterior:
+Registro histórico del baseline de certificación posterior:
 
 ```text
 Repositorio: Aranwill/malak-vault-sync-agent
@@ -1588,6 +1640,12 @@ Autoridad operativa: none
 La suite histórica de `230 passed` no cubría esos controles. Su
 implementación requirió y recibió aprobación técnica independiente y fue
 certificada posteriormente en el Incremento Correctivo Integral 5.
+
+Los valores concretos de HEAD, versión, suite, scheduler, estado persistente
+y propuesta pendiente incluidos en esta resolución son evidencia histórica
+de certificación. No representan ni duplican el estado operativo actual del
+agente; cualquier proyección vigente corresponde a `MALAK_OPERATIONAL_STATE`
+cuando aplique.
 
 **Rollback:**
 
@@ -1699,9 +1757,13 @@ Este documento deberá actualizarse cuando:
 * exista rechazo;
 * una decisión sea formalizada;
 * una decisión sea reemplazada;
-* cambie el baseline;
-* cambie el roadmap;
-* se cierre un sprint.
+* cambie una regla de gobernanza que afecte una decisión;
+* cambie materialmente el roadmap de una decisión;
+* una nueva evidencia histórica requiera quedar vinculada a una resolución.
+
+Los cambios de HEAD, conteo de tests, working tree, sprint estructurado o
+baseline operativo no requieren por sí solos editar manualmente este cuerpo.
+Cuando deban proyectarse en el Vault, pertenecen a `MALAK_OPERATIONAL_STATE`.
 
 Las decisiones resueltas podrán trasladarse posteriormente a un registro histórico.
 
