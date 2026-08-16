@@ -7,11 +7,9 @@ authority: derived
 operational_authority: none
 version: 1.2
 created: 2026-07-20
-last_reviewed: 2026-07-26
+last_reviewed: 2026-08-16
 source_repository: Aranwill/jarvis
 source_branch: main
-source_commit: d1c90bf0bf55a7076d68c1f4830e89e0d843661c
-baseline_reference: d1c90bf0bf55a7076d68c1f4830e89e0d843661c
 tags:
   - malak
   - vault
@@ -104,18 +102,23 @@ modificar el flujo Kernel–Planner–Capability.
 
 No existe integración formal entre `Kernel.receive` y `ConversationService`, y este mapa no propone ni autoriza dicha integración.
 
-## 2. Baseline representado
+## 2. Referencia operativa del mapa
+
+Este mapa deriva del repositorio oficial:
 
 - **Repositorio:** `Aranwill/jarvis`
 - **Rama:** `main`
-- **Commit:** `d1c90bf0bf55a7076d68c1f4830e89e0d843661c`
-- **Versión nominal:** `v0.6.0-alpha`
-- **Último sprint formalmente cerrado:** Sprint 7.4 — Consolidación de logs, métricas y auditoría
-- **Sprint aprobado en progreso:** Sprint 7.5 — Base del plano de control de seguridad
-- **Pull requests integrados en el rango:** PR #15, PR #16, PR #17, PR #18, PR #19 y PR #20
-- **Suite integral documentada:** 244 pruebas aprobadas sobre `30b05587839cdac914e7ee31755bb5c0540862c1`
-- **Incremento vigente:** Sprint 7.5, Incremento 4 completado e integrado
 
+El HEAD oficial, el sprint estructurado vigente y los demás datos operativos
+que puedan derivarse de forma determinista pertenecen exclusivamente al bloque
+`MALAK_OPERATIONAL_STATE`.
+
+El cuerpo humano de este documento describe componentes, responsabilidades y
+relaciones verificadas. No mantiene manualmente una copia del baseline
+operativo vigente.
+
+Las referencias a sprints que aparecen en las secciones de componentes se
+conservan únicamente como provenance histórica de su incorporación.
 ## 3. Componentes verificados
 
 ### `Request`
