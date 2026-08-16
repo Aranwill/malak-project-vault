@@ -30,32 +30,53 @@ tags:
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260809T203826202587Z_2a28dcfd_76083517`
-- **HEAD oficial observado:** `2a28dcfd459a2bf1af19b3a6fee5cddefaac7f75`
-- **Commit previamente observado:** `b4d1d512fe953d593608391390f82ab500fdc9d6`
-- **Generado:** `2026-08-09T20:38:26.202587+00:00`
+- **Run ID:** `20260816T002114666009Z_089255e2_b9fbb7e7`
+- **HEAD oficial observado:** `089255e23bd2b686436140ca569edf09c08819a7`
+- **Commit previamente observado:** `c65bff257f877460c153583bfcd9819224ca0f5c`
+- **Generado:** `2026-08-16T00:21:14.666009+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
 ### Estado estructurado de la fuente oficial
 
-- **Ficha de sprint más reciente:** `docs/project/sprints/SPRINT-7.5.md`
-- **Título declarado:** Sprint 7.5 — Base del plano de control de seguridad
+- **Ficha de sprint más reciente:** `docs/project/sprints/SPRINT-7.6.md`
+- **Título declarado:** Sprint 7.6 — Secure Context Lifecycle Foundation
 - **Estado declarado:** `cerrado`
-- **`as_of_commit` declarado:** `62bdc11c3ce16cb2cb54bb61bddfab4e39d689a8`
+- **`as_of_commit` declarado:** `821497485f1b861cafa97cc5720616c3314b35bf`
 
 ### Commits oficiales observados
 
-- 2a28dcfd459a2bf1af19b3a6fee5cddefaac7f75	Merge pull request #30 from Aranwill/docs/reconcile-sprint-7.5-final-state
-- 9c0109de156a2eb1cfc84da50815537539a35a1c	docs(project): reconcile Sprint 7.5 final state
-- d5a67e591bb793fbe6631425943e955e8784c1a0	Merge pull request #29 from Aranwill/agent/sprint-7.5-integral-review-closure
-- 4e2b3d4c9599e98f0918780e194448eb9adba3f1	docs(security): close Sprint 7.5 integral review
-- 62bdc11c3ce16cb2cb54bb61bddfab4e39d689a8	Merge pull request #28 from Aranwill/agent/sprint-7.5-audit-reconciliation
-- 9b328939f04bcc2b1d1ed7f7d410237b77604eeb	docs: reconcile sprint 7.5 authorization audit
+- 089255e23bd2b686436140ca569edf09c08819a7	Merge pull request #43 from Aranwill/docs/sprint-7.6-final-reconciliation
+- 145f4f96b06429b95725b189d88865270d4efce9	docs(project): reconcile Sprint 7.6 closure
+- 821497485f1b861cafa97cc5720616c3314b35bf	Merge pull request #42 from Aranwill/sprint/7.6-h-context-propagation-contract
+- a481f0b1cff36c737feaef3a39c8962e1c31f5fd	Merge pull request #41 from Aranwill/sprint/7.6-g-context-validity-window
+- 5e3273329a9c7517f1f61bf25d84f084fe6c4828	Merge pull request #40 from Aranwill/sprint/7.6-f-pdp-context-lifecycle
+- aa06e98a2e1e20a5d81007bac83920a79f23092d	feat(security): establish SecurityContext propagation contract
+- 47ac4f68b3eb7df64a53b3faac38b37e991849a3	feat(security): enforce SecurityContext validity window
+- 1733e1791897f9fa1524e2d9c8f0c5e42e2cbe6b	feat(security): enforce SecurityContext lifecycle in PDP
+- 3945fd0b664ab5b56b15fa3ce3485abf16d8d990	feat(security): establish SecurityContextRenewer boundary
+- e674567a8aa6db3eccfb06ef2f91097517614097	feat(security): establish SecurityContextIssuer boundary
+- 5dceb2b998ad07093eef2565e8daaebe70ca6af9	feat(security): establish SecurityContextValidator boundary
+- c9769b63afc0b1aa72f9dd023b205e2762f0029f	feat(security): establish Clock boundary
+- 92e2911199f836d7c83d3d87c9739ccfbfaa0785	Merge pull request #39 from Aranwill/sprint/7.6-a-security-context-contract
+- 9833a33e5daf360baf2412b0df116f722ca237cd	feat(security): establish SecurityContext lifecycle contract
+- a11617e4056325d593e3b1999baf07570cebd0d6	Merge pull request #38 from Aranwill/agent/directional-communication-rule
+- 502a80775ba3383f5e5161516975109208f11c17	docs: formalize directional communication and authority flow
+- 7b1cd23470b8ab2b44ad58ce8ab885b4d9d82f64	Merge pull request #37 from Aranwill/agent/engineering-method-sdd-tdd
+- 2bfb357792aa5fc836f28b9ed431660f80513137	docs: establish SDD TDD and risk-based engineering method
 
 ### Evidencia que originó esta proyección
 
-- `architecture-change` por `docs/architecture/adr/ADR-002-policy-enforcement-boundary.md`
+- `architecture-change` por `docs/architecture/adr/ADR-003-directional-communication-and-authority-flow.md`
+- `architecture-change` por `docs/architecture/blueprint.md`
+- `architecture-change` por `docs/architecture/decisions/decision-index.md`
+- `architecture-change` por `src/malak/security/clock.py`
+- `architecture-change` por `src/malak/security/context_issuer.py`
+- `architecture-change` por `src/malak/security/context_propagation.py`
+- `architecture-change` por `src/malak/security/context_renewer.py`
+- `architecture-change` por `src/malak/security/context_validator.py`
+- `architecture-change` por `src/malak/security/contracts.py`
+- `architecture-change` por `src/malak/security/pdp.py`
 <!-- MALAK_VAULT_SYNC:END -->
 
 > [!warning] Naturaleza derivada
