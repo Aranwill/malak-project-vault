@@ -5,7 +5,7 @@ document_type: navigation
 status: active
 authority: derived
 operational_authority: none
-last_reviewed: 2026-07-25
+last_reviewed: 2026-08-16
 tags:
   - malak
   - vault
@@ -20,26 +20,22 @@ tags:
 >
 > Un sprint solamente puede considerarse aprobado, activo o cerrado cuando exista evidencia suficiente en las fuentes correspondientes y una decisión humana explícita.
 
-## Estado actual
+## Referencia operativa
 
-- **Último sprint cerrado:** Sprint 7.3 — Conversation Provider Boundary Stabilization
-- **Sprint integrado en progreso:** Sprint 7.4 — Consolidación de logs, métricas y auditoría
-- **Pull request integrado:** PR #14
-- **HEAD oficial:** `7cd7fcc811df01555837319ec4cac0a93ef94fff`
-- **Suite integral documentada:** 121 pruebas aprobadas sobre `5b951918006c464745e1eb1e3816bde619fad8b1`
-- **Incremento 7:** completado, validado y mergeado
-- **Incremento 8:** en ejecución documental gobernada
-- **Sprint posterior aprobado:** ninguno
 - **Repositorio oficial:** `Aranwill/jarvis`
 - **Rama oficial:** `main`
 
-Sprint 7.4 no debe declararse formalmente cerrado mientras la ficha
-oficial permanezca `en progreso` y el Incremento 8 no haya completado
-su actualización, commit y merge en el Vault.
+Este índice no mantiene manualmente cuál es el último sprint cerrado, cuál está
+activo, HEAD, suite, incremento actual ni autorización del sprint posterior.
 
+Cuando esos datos deban representarse en el Vault, pertenecen a
+`MALAK_OPERATIONAL_STATE`.
+
+El cierre, aprobación o activación de un sprint sólo puede establecerse mediante
+las fuentes oficiales y la gobernanza humana correspondiente.
 ## Navegación
 
-- [[02-current-baseline/CURRENT_BASELINE|Baseline vigente]]
+- [[02-current-baseline/CURRENT_BASELINE|Referencia de baseline]]
 - [[03-roadmap/IMPLEMENTATION_ROADMAP|Roadmap de implementación]]
 - [[05-decisions/PENDING_DECISIONS|Decisiones pendientes]]
 - [[08-session-context/MALAK_SESSION_CONTEXT|Contexto de sesión]]
@@ -101,9 +97,13 @@ Un sprint cerrado debe registrar:
 - No modificar snapshots históricos para reflejar estados posteriores.
 - El cierre de un sprint no autoriza automáticamente el siguiente.
 
-## Sprints registrados
+## Registros históricos de sprint
 
-### Sprint 7.3 — Conversation Provider Boundary Stabilization
+Los siguientes bloques conservan el estado documentado en sus respectivas
+etapas. No representan el estado operativo vigente del proyecto.
+
+
+### Registro histórico — Sprint 7.3 — Conversation Provider Boundary Stabilization
 
 - **Estado:** cerrado
 - **Repositorio:** `Aranwill/jarvis`
@@ -121,9 +121,9 @@ Resultado principal:
 - `ConversationService` mantiene una responsabilidad mínima;
 - Kernel, Planner y `Capability` no fueron modificados;
 - no existe integración formal entre `Kernel.receive` y `ConversationService`;
-- no existe un próximo sprint aprobado.
+- este registro histórico no autoriza un sprint posterior.
 
-### Sprint 7.4 — Consolidación de logs, métricas y auditoría
+### Registro histórico — Sprint 7.4 — Consolidación de logs, métricas y auditoría
 
 - **Estado:** en progreso — implementación técnica mergeada
 - **Repositorio:** `Aranwill/jarvis`
@@ -160,6 +160,6 @@ No se agregan retrospectivamente otros sprints cerrados sin una tarea documental
 La incorporación futura de registros anteriores deberá:
 
 - verificarse contra el repositorio oficial;
-- distinguir evidencia histórica de estado vigente;
+- distinguir evidencia histórica de estado operativo mutable;
 - evitar reconstrucciones inferidas;
 - contar con aprobación explícita.

@@ -7,7 +7,7 @@ authority: approved_security_documentation
 operational_authority: none
 version: 1.1
 created: 2026-07-21
-last_reviewed: 2026-08-01
+last_reviewed: 2026-08-16
 implementation_approved: true
 phase_1_status: completed
 controlled_proposal_status: approved
@@ -78,7 +78,7 @@ Fase 2 y posteriores permanecen no aprobadas.
 - trazabilidad de ejecuciones;
 - revisión humana.
 
-## 4. Superficie de ataque vigente
+## 4. Superficie de ataque modelada
 
 La superficie de ataque considerada incluye:
 
@@ -120,7 +120,7 @@ No forman parte de la superficie aprobada:
 - integración con Kernel;
 - integración con runtime.
 
-## 5. Amenazas, controles vigentes y brechas conocidas
+## 5. Amenazas, controles y riesgos residuales
 
 ### 5.1 Confused deputy
 
@@ -248,7 +248,7 @@ fuera del alcance de escritura.
 
 **Riesgo:** modificación o reemplazo de snapshots históricos.
 
-**Controles vigentes:**
+**Controles documentados:**
 
 - snapshots fuera del allowlist;
 - inmutabilidad explícita;
@@ -291,7 +291,7 @@ riesgo residual
 
 - separación entre suite del agente y suite oficial;
 - suite histórica de Fase 1 registrada como `148 passed`;
-- suite vigente del agente registrada como `260 passed`;
+- certificación histórica del Incremento Correctivo Integral 5 registrada como `260 passed`;
 - validación multiplataforma en GitHub Actions Ubuntu y Windows;
 - validación nativa Windows y GitHub CLI real registradas por separado;
 - baseline oficial de Malāk preservado;
@@ -339,8 +339,7 @@ mitigado para `dry-run` y `controlled-proposal`
 - exclusión de secretos;
 - revisión humana requerida.
 
-La validación de contenido vigente no incluye frontmatter YAML, wikilinks
-ni una segunda validación después de insertar la proyección.
+Las brechas de validación documental identificadas en una revisión anterior fueron tratadas posteriormente dentro del Incremento Correctivo Integral 5. La evidencia histórica de esa corrección debe consultarse en los artefactos de certificación.
 
 **Estado:**
 
@@ -407,7 +406,7 @@ mitigado
 **Riesgo:** que un fallo después del push deje una rama o PR sin identidad
 persistida o bloquee ejecuciones posteriores.
 
-**Controles vigentes:**
+**Controles documentados:**
 
 - persistencia del estado solo después de completar el circuito;
 - rollback de la rama cuando falla la creación de la PR;
@@ -418,8 +417,7 @@ persistida o bloquee ejecuciones posteriores.
 **Estado:**
 
 ```text
-mitigado parcialmente; la recuperación ante fallos posteriores a la PR
-requiere fortalecimiento técnico
+mitigado dentro del alcance certificado; permanece riesgo residual ante fallos remotos o pérdida de identidad fuera de los supuestos validados
 ```
 
 ### 5.16 TOCTOU con escritura controlada
@@ -427,7 +425,7 @@ requiere fortalecimiento técnico
 **Riesgo:** cambio de `origin/main`, de la rama o de la PR entre la
 validación, el commit, el push y la reconciliación.
 
-**Controles vigentes:**
+**Controles documentados:**
 
 - SHAs exactos de Malāk y Vault;
 - creación desde el `origin/main` verificado;
@@ -439,7 +437,7 @@ validación, el commit, el push y la reconciliación.
 **Estado:**
 
 ```text
-mitigado para el alcance actual, con riesgo residual remoto
+mitigado para el alcance documentado, con riesgo residual remoto
 ```
 
 ## 6. Reglas de bloqueo verificadas
@@ -469,17 +467,22 @@ La ejecución deberá bloquearse ante:
 - propuesta pendiente no reconciliada;
 - identidad incompleta o contradictoria de una PR;
 
-## 7. Controles históricos y vigentes verificados
+## 7. Registros históricos de controles verificados
+
+### Cierre histórico de Fase 1
 
 ```text
-Workspace: D:\Ollama\malak-vault-sync-agent
-Rama: main
-HEAD histórico Fase 1: 954659b
-HEAD vigente: 5afd03e1697e4820b8b62ff3db23109fdfde8bcb
-Versión vigente: 0.3.0
-Gate 0 a Gate 9: cierre histórico preservado
-Suite histórica Fase 1: 148 passed
-Suite vigente: 260 passed
+HEAD: 954659b
+Suite: 148 passed
+Gate 0 a Gate 9: cierre preservado
+```
+
+### Certificación histórica del Incremento Correctivo Integral 5
+
+```text
+HEAD: 5afd03e1697e4820b8b62ff3db23109fdfde8bcb
+Versión: 0.3.0
+Suite: 260 passed
 compileall: PASS
 git diff --check: PASS
 GitHub Actions Ubuntu: PASS
@@ -488,18 +491,12 @@ Validación nativa Windows: PASS
 GitHub CLI real: PASS
 Recovery negativo real: PASS
 Recovery positivo real: PASS
-Malāk intacto: sí
-Vault main sin escritura directa durante la certificación: sí
-Controlled-proposal: controles correctivos certificados
-Conformidad del alcance correctivo aprobado: completada
-Estado v3: intacto
-last_applied_commit: null
-pending_proposal_*: null
-Scheduler activo: no
-Modo operativo: manual-on-demand
-Autoridad operativa: none
 ```
 
+Estos bloques son evidencia histórica de controles certificados. El modelo de
+amenazas no mantiene manualmente el estado operativo actual del agente; cuando
+deba representarse en el Project Vault, pertenece a
+`MALAK_OPERATIONAL_STATE`.
 ## 8. Riesgos residuales
 
 Permanecen los siguientes riesgos:
@@ -548,13 +545,12 @@ No están implementados ni aprobados:
 - integración con Kernel;
 - integración con runtime.
 
-Pertenecen al alcance aprobado, pero no están implementados todavía:
+Los controles correctivos anteriormente pendientes —revalidación final
+pos-escritura, frontmatter YAML, wikilinks, protección explícita de snapshots,
+recuperación posterior a PR y evidencia del disparador manual— fueron
+implementados y certificados en el Incremento Correctivo Integral 5.
 
-- revalidación final pos-escritura;
-- validación de frontmatter YAML y wikilinks;
-- denylist explícita `09-repository-snapshots/**`;
-- recuperación completa posterior a una PR creada;
-- evidencia `triggered_by: manual-on-demand`.
+Su cierre no autoriza capacidades adicionales fuera del alcance aprobado.
 
 ## 10. Condiciones para una ampliación futura
 
@@ -588,7 +584,7 @@ El baseline final del agente se encuentra en:
 docs/PHASE_1_FINAL_BASELINE.md
 ```
 
-## 12. Estado remoto del agente
+## 12. Registro histórico del estado remoto del agente
 
 ```text
 Remoto configurado: sí
@@ -598,7 +594,7 @@ Working tree: limpio al cierre operativo
 HEAD: 5afd03e1697e4820b8b62ff3db23109fdfde8bcb
 Versión: 0.3.0
 Respaldo remoto: completado
-Suite vigente: 260 passed
+Suite certificada en ese cierre: 260 passed
 PR de cierre operativo: #8 integrada
 ```
 
@@ -622,7 +618,4 @@ Snapshots modificados: no
 Fase 2 y posteriores: no aprobadas
 ```
 
-La aceptación de este documento no concede autoridad adicional ni
-autoriza capacidades fuera de la Fase 1 cerrada y de la extensión
-`controlled-proposal` aprobada en `DEC-RES-009`. Tampoco autoriza por sí
-sola el incremento correctivo pendiente.
+La aceptación de este documento no concede autoridad adicional ni autoriza capacidades fuera de la Fase 1 cerrada y de la extensión `controlled-proposal` aprobada en `DEC-RES-009`. El Incremento Correctivo Integral 5 fue posteriormente implementado y certificado; ese cierre no amplía por sí solo el modelo de autoridad.

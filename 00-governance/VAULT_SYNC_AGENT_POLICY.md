@@ -7,16 +7,13 @@ authority: approved_policy
 operational_authority: none
 version: 1.3
 created: 2026-07-21
-last_reviewed: 2026-08-09
+last_reviewed: 2026-08-16
 source_repository: Aranwill/jarvis
 source_branch: main
-source_commit: b4d1d512fe953d593608391390f82ab500fdc9d6
 vault_repository: Aranwill/malak-project-vault
 vault_branch: main
-vault_base_commit: 46672bcb971dbcdfcf25b1a4c7359aec9f047980
 agent_repository: Aranwill/malak-vault-sync-agent
 agent_branch: main
-agent_commit: 5afd03e1697e4820b8b62ff3db23109fdfde8bcb
 implementation_approved: true
 phase_1_status: completed
 operationalization_status: completed
@@ -42,9 +39,7 @@ tags:
 >
 > La Fase 1 fue implementada, validada y cerrada.
 >
-> El modo vigente es manual bajo demanda. `dry-run` conserva el alcance
-> read-only; `controlled-proposal` puede preparar una propuesta únicamente
-> en una rama aislada del Vault.
+> El modo operativo autorizado por esta política es manual bajo demanda. `dry-run` conserva el alcance read-only; `controlled-proposal` puede preparar una propuesta únicamente en una rama aislada del Vault.
 >
 > No existe un scheduler activo, un servicio permanente ni un proceso del agente en segundo plano.
 >
@@ -67,6 +62,11 @@ La política busca permitir:
 - preparación determinista de propuestas documentales aisladas;
 
 sin otorgar autoridad operativa al agente ni convertir el Vault en fuente de verdad.
+
+El estado operativo mutable del agente representado dentro del Project Vault no
+es propiedad de esta política. Cuando deba proyectarse, pertenece a
+`MALAK_OPERATIONAL_STATE`. Esta política conserva autoridad, permisos,
+prohibiciones y condiciones de operación.
 
 ## 2. Fuente de verdad
 
@@ -166,7 +166,7 @@ No puede:
 Durante la Fase 1 histórica, el agente tuvo exclusivamente permisos de
 lectura sobre `Aranwill/malak-project-vault`.
 
-En el modo vigente `controlled-proposal`, la extensión aprobada permite
+En el modo autorizado `controlled-proposal`, la extensión aprobada permite
 escritura técnica limitada a una rama aislada creada desde el `main`
 remoto verificado. Esta capacidad prepara una propuesta; no constituye
 autoridad documental ni aplicación automática.
@@ -196,7 +196,7 @@ Puede:
 - persistir la identidad de la propuesta pendiente después de completar
   el circuito remoto.
 
-En el baseline `main@5afd03e`, los controles correctivos aprobados para
+En la certificación histórica `main@5afd03e`, los controles correctivos aprobados para
 `controlled-proposal` fueron implementados y validados, incluyendo:
 
 - revalidación de la proyección final;
@@ -398,7 +398,7 @@ El modo deberá:
 - persistir o recuperar de forma inequívoca la identidad de una rama o
   PR creada antes de cualquier fallo local posterior;
 - registrar `triggered_by: manual-on-demand` mientras ese sea el modo
-  operativo vigente;
+  operativo autorizado;
 - normalizar contenido remoto antes de interpretar campos gobernados
   cuando la plataforma introduzca finales de línea CRLF.
 
@@ -453,7 +453,7 @@ El uso futuro de LLM requerirá una decisión independiente y aprobación humana
 - `POL-018` — La evidencia no constituye aprobación.
 - `POL-019` — `last_applied_commit` permanecerá siempre en `null`; una propuesta no equivale a aplicación.
 - `POL-020` — El agente permanecerá fuera del Kernel y del runtime.
-- `POL-021` — La ejecución operativa vigente será manual y bajo demanda.
+- `POL-021` — La ejecución operativa autorizada por esta política será manual y bajo demanda.
 - `POL-022` — El agente deberá ejecutarse después de que los cambios aprobados hayan sido publicados o fusionados en `Aranwill/jarvis/main`.
 - `POL-023` — No existirá scheduler activo, servicio permanente ni daemon sin una decisión independiente y aprobación humana explícita.
 - `POL-024` — El repositorio remoto del agente no le concede autoridad sobre Malāk ni sobre el Vault.
@@ -501,14 +501,14 @@ ejecutar manualmente
 → detenerse para revisión humana
 ```
 
-El flujo anterior expresa el contrato obligatorio. El baseline
+El flujo anterior expresa el contrato obligatorio. La certificación histórica
 `main@5afd03e` satisface los controles correctivos definidos en 12.1
 dentro del alcance aprobado y certificado del Incremento Correctivo
 Integral 5.
 
 Esta conformidad técnica no concede autoridad operativa adicional.
 
-## 16. Controles verificados al cierre
+## 16. Registro histórico de controles verificados al cierre
 
 ```text
 Workspace: D:\Ollama\malak-vault-sync-agent
@@ -547,7 +547,7 @@ Integral 5.
 La certificación confirma los controles correctivos aprobados; no
 constituye autorización para capacidades fuera de ese alcance.
 
-## 17. Estado remoto y operacionalización del agente
+## 17. Registro histórico de estado remoto y operacionalización
 
 ```text
 Remoto configurado: sí
@@ -565,7 +565,7 @@ La existencia del repositorio remoto del agente constituye respaldo y trazabilid
 
 Se validaron tanto la ejecución manual como una ejecución temporal mediante el Programador de tareas de Windows. Después de la validación, la tarea programada fue eliminada por decisión humana.
 
-Estado operativo vigente:
+Condiciones operativas autorizadas:
 
 ```text
 Modo: manual-on-demand
@@ -665,40 +665,29 @@ versión: 0.3.0
 PR #8
 merge commit: 5afd03e1697e4820b8b62ff3db23109fdfde8bcb
 suite completa: 260 passed
+```
 
-## 21. Estado final
+## 21. Estado normativo y registro histórico de cierre
 
 ```text
 Política: accepted
 Fase 1: completed
 Operacionalización read-only: completed
-Repositorio del agente: Aranwill/malak-vault-sync-agent
-Política: accepted
-Fase 1: completed
-Operacionalización read-only: completed
-Repositorio del agente: Aranwill/malak-vault-sync-agent
-HEAD del agente: 5afd03e1697e4820b8b62ff3db23109fdfde8bcb
-Versión del agente: 0.3.0
-Agente operativo: herramienta externa con propuesta controlada
-Modo operativo: manual-on-demand
-Modos autorizados: dry-run y controlled-proposal
-Conformidad del alcance correctivo aprobado: completada
+Controlled-proposal: approved
 Incremento Correctivo Integral 5: cerrado técnica y operativamente
-Scheduler activo: no
-Autoridad operativa: none
+Modo autorizado: manual-on-demand
+Autoridad operativa del agente: none
 Escritura sobre Malāk: no
-Escritura sobre el Vault: solo rama aislada de propuesta
+Escritura sobre el Vault: sólo rama aislada de propuesta
 Auto-merge: no
 LLM: no
 Fase 2 y posteriores: no aprobadas
-Próximo sprint de Malāk: no definido
-Scheduler activo: no
-Autoridad operativa: none
-Escritura sobre Malāk: no
-Escritura sobre el Vault: solo rama aislada de propuesta
-Fase 2 y posteriores: no aprobadas
-Próximo sprint de Malāk: no definido
 ```
+
+Los HEAD, suites, working tree, estado persistente y demás valores concretos de
+las certificaciones permanecen como evidencia histórica en las secciones y
+artefactos de cierre correspondientes. Esta política no mantiene una copia
+manual de su estado operativo vigente.
 
 La aprobación de esta política no concede autorización para ninguna
 capacidad fuera de la Fase 1 histórica y de la extensión

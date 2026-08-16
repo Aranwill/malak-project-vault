@@ -8,11 +8,10 @@ authority_level: baseline
 authority_rank: 5
 version: 1.1
 created: 2026-07-20
-last_reviewed: 2026-08-14
+last_reviewed: 2026-08-16
 source_of_truth: repository
 source_repository: Aranwill/jarvis
 source_branch: main
-source_commit: c65bff257f877460c153583bfcd9819224ca0f5c
 derived: true
 operational_context: true
 retrieval_enabled: true
@@ -145,47 +144,39 @@ No debe utilizarse ninguna rama histórica como fuente del estado actual.
 
 ---
 
-## 4. Referencia Git verificada
+## 4. Referencia operativa al repositorio
 
-**Último commit remoto verificado al revisar este documento:**
+El estado Git vigente de Malāk no se mantiene manualmente en esta sección.
 
-```text
-c65bff257f877460c153583bfcd9819224ca0f5c
-```
+Los datos operativos derivados que el Vault pueda representar de forma
+determinista —incluyendo el HEAD oficial observado y el estado estructurado
+del sprint— pertenecen exclusivamente al bloque
+`MALAK_OPERATIONAL_STATE`.
 
-**Descripción:**
+Ese bloque es una proyección machine-owned del repositorio oficial y debe ser
+regenerado por el Vault Synchronization Agent a partir de evidencia verificada.
 
-```text
-Merge pull request #36 from Aranwill/docs/concept-governance-clarification
-```
+El cuerpo humano de este documento no debe duplicar esos valores como estado
+vigente.
 
-La PR #36 incorporó una aclaración documental en
-docs/project/concepts/README.md sobre la naturaleza derivada de las
-proyecciones del Project Vault. No introdujo cambios de código, contratos,
-Kernel, Planner, runtime ni comportamiento de seguridad.
-
-El Sprint 7.5 permanece cerrado y no existe ningún sprint posterior autorizado.
-
-El hash registrado aquí es una referencia temporal y deberá actualizarse
-cuando cambie materialmente `HEAD`.
-
+La fuente de verdad continúa siendo `Aranwill/jarvis`, rama `main`.
 ---
 
-## 5. Baseline operativo actual
+## 5. Registro histórico — cierre del Sprint 7.5
 
-**Último sprint formalmente cerrado:**
+**Sprint cerrado en este baseline histórico:**
 
 ```text
 Sprint 7.5 — Security Control Plane Foundation
 ```
 
-**Sprint actualmente autorizado:**
+**Autorización posterior registrada al producir este cierre:**
 
 ```text
 Ninguno.
 ```
 
-El bloque 7.x presenta el siguiente estado:
+Al cierre del Sprint 7.5, el bloque 7.x presentaba el siguiente estado:
 
 | Sprint | Estado  | Resultado                                                             |
 | ------ | ------- | --------------------------------------------------------------------- |
@@ -196,7 +187,7 @@ El bloque 7.x presenta el siguiente estado:
 | 7.4    | Cerrado | Eventos operativos, correlación desde la CLI y sincronización gobernada del Vault |
 | 7.5    | Cerrado | Security Control Plane Foundation; autorización, PDP, PEP, auditoría y revisión integral completados |
 
-El Sprint 7.5 fue aprobado explícitamente por el propietario y quedó
+El Sprint 7.5 había sido aprobado explícitamente por el propietario y quedó
 cerrado después de completar seis incrementos pequeños, revisables y
 reversibles.
 
@@ -218,12 +209,9 @@ El cierre integral confirmó:
 
 El Incremento 6 no requirió cambios funcionales.
 
-No existe ningún sprint posterior autorizado automáticamente por el
-cierre del Sprint 7.5.
+El cierre del Sprint 7.5 no autorizó automáticamente ningún sprint posterior.
 
-El Secure Context Manager, persistencia de auditoría, identidad
-criptográfica, TTL, nonce, prevención persistente de replay, agentes,
-navegación y rutas operativas reales permanecen fuera de alcance.
+En ese cierre permanecían fuera de alcance el Secure Context Manager, la persistencia de auditoría, la identidad criptográfica, TTL, nonce, la prevención persistente de replay, agentes, navegación y rutas operativas reales.
 
 ---
 
@@ -260,15 +248,15 @@ No forman parte del baseline operativo:
 
 ---
 
-## 6. Estado de validación
+## 6. Registro histórico de validación — cierre del Sprint 7.5
 
-**Última suite integral documentada:**
+**Suite integral documentada para este cierre:**
 
 ```text
 304 passed
 ```
 
-Validaciones documentadas:
+Validaciones ejecutadas para este cierre:
 
 ```powershell
 python -m pytest -q
@@ -276,7 +264,7 @@ python -m compileall src tests
 git diff --check
 ```
 
-Resultado registrado:
+Resultado registrado en este baseline histórico:
 
 * 19 pruebas específicas del Incremento 4 aprobadas;
 * 304 pruebas totales aprobadas;
@@ -291,7 +279,7 @@ La validación integral fue ejecutada sobre:
 b4d1d512fe953d593608391390f82ab500fdc9d6
 ```
 
-La suite integral fue reejecutada sobre el HEAD verificado durante la
+Para este cierre, la suite integral fue reejecutada sobre el HEAD verificado durante la
 auditoría de cierre del 2026-07-31 y registró `304 passed`. La validación
 anterior de `244 passed` sobre
 `30b05587839cdac914e7ee31755bb5c0540862c1` se conserva únicamente como
@@ -995,46 +983,32 @@ Todavía no forman parte del baseline operativo:
 
 ---
 
-## 13. Estado del roadmap
+## 13. Relación con el roadmap
 
-La hoja de ruta oficial se encuentra clasificada como:
+El roadmap oficial organiza líneas de evolución, propuestas y planificación,
+pero no constituye por sí mismo una autorización de implementación.
 
-```text
-activa, derivada, informativa y no normativa
-```
+Este documento no mantiene manualmente una copia del estado vigente de los
+sprints ni de las líneas activas del roadmap.
 
-No aprueba arquitectura ni autoriza implementaciones.
+El estado estructurado del sprint que pueda derivarse de forma determinista
+desde el repositorio oficial pertenece a `MALAK_OPERATIONAL_STATE`.
 
-Estado vigente:
+Las decisiones de autorización, priorización y selección del próximo sprint
+continúan bajo gobernanza y requieren aprobación explícita del propietario.
 
-| Línea                                       | Estado      |
-| ------------------------------------------- | ----------- |
-| Consolidación de logs, métricas y auditoría | Sprint 7.4 cerrado |
-| Security Control Plane Foundation | Sprint 7.5 cerrado |
-| Preparación del AKS para GraphRAG           | No aprobada |
-| Validación de baseline y release interna    | No aprobada |
+El cierre de un sprint no autoriza automáticamente el siguiente.
 
-El Sprint 7.5 quedó cerrado después de completar y validar sus seis
-incrementos. El cierre del sprint no autoriza automáticamente ningún
-sprint posterior.
+Antes de iniciar cualquier nuevo sprint deberá:
 
-Las líneas marcadas como no aprobadas no poseen autorización de
-implementación.
-
-La tabla no establece una secuencia obligatoria.
-
-El próximo sprint deberá seleccionarse únicamente después de:
-
-1. inspeccionar el baseline;
-2. revisar código, tests y documentación;
-3. identificar una necesidad real;
-4. justificar utilidad;
-5. definir alcance y fuera de alcance;
-6. evaluar riesgos, dependencias y rollback;
-7. responder las cuatro preguntas obligatorias;
-8. debatir el plan;
-9. obtener aprobación explícita del propietario.
-
+1. inspeccionarse el baseline vigente;
+2. revisarse código, tests y documentación;
+3. identificarse una necesidad real;
+4. definirse alcance y fuera de alcance;
+5. evaluarse riesgo, dependencias y rollback;
+6. responderse las cuatro preguntas obligatorias;
+7. debatirse el plan;
+8. obtenerse aprobación explícita del propietario.
 ---
 
 ## 14. Project Context & Knowledge Governance Foundation
@@ -1078,9 +1052,9 @@ Esta iniciativa:
 
 ---
 
-## 15. Estado actual del Project Vault
+## 15. Registro histórico de reconciliación del Project Vault
 
-Estado verificado después de la reconciliación gobernada de la PR #31:
+Estado registrado después de la reconciliación gobernada de la PR #31:
 
 ```text
 Repositorio: Aranwill/malak-project-vault
@@ -1103,10 +1077,9 @@ La PR #31 fue producida mediante `controlled-proposal`, revisada y mergeada
 exclusivamente bajo autoridad humana. El agente no escribió directamente
 sobre `main` del Vault ni modificó `Aranwill/jarvis`.
 
-La reconciliación automática actualizó únicamente la proyección gestionada
+En esa reconciliación, el agente actualizó únicamente la proyección gestionada
 de los documentos candidatos y preservó el frontmatter y el contenido humano.
-La presente revisión manual corrige los metadatos y referencias operativas
-activas que quedaron fuera de la autoridad del agente.
+Esta evidencia se conserva como registro histórico de aquella reconciliación y no representa el estado operativo vigente del Vault.
 
 ### Registro histórico — propuesta de sincronización PR #10
 

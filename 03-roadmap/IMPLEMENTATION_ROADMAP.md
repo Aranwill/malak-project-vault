@@ -8,11 +8,10 @@ authority_level: approved_roadmap
 authority_rank: 7
 version: 1.1
 created: 2026-07-20
-last_reviewed: 2026-08-11
+last_reviewed: 2026-08-16
 source_of_truth: repository
 source_repository: Aranwill/jarvis
 source_branch: main
-source_commit: 7d6feaaaebb53b3c12bc2d1a170be85008ba9e5e
 derived: true
 operational_context: true
 retrieval_enabled: true
@@ -118,7 +117,7 @@ El cierre de un sprint no autoriza automáticamente el siguiente.
 
 ---
 
-## 3. Estado general
+## 3. Referencia operativa del roadmap
 
 **Rama permanente:**
 
@@ -132,40 +131,19 @@ main
 v0.6.0-alpha
 ```
 
-**Baseline operativo actual:**
+El HEAD oficial, el sprint estructurado vigente y los demás datos operativos
+que puedan derivarse de forma determinista pertenecen exclusivamente al bloque
+`MALAK_OPERATIONAL_STATE`.
 
-```text
-main en 7d6feaaaebb53b3c12bc2d1a170be85008ba9e5e
-Sprint 7.5 cerrado — Security Control Plane Foundation
-Incrementos 1 a 6 completados
-Ningún sprint posterior autorizado
-```
+Este cuerpo no mantiene manualmente una copia del baseline operativo, del
+conteo vigente de tests ni del sprint actual.
 
-**Suite documentada:**
+Los resultados concretos de validaciones anteriores se conservan únicamente
+en sus registros históricos o en la evidencia oficial correspondiente.
 
-```text
-304 passed
-```
-
-Validación final documentada del cierre:
-
-```text
-183 security-specific passed
-304 total passed
-compileall: PASS
-git diff --check: PASS
-```
-
-La revisión integral del Incremento 6 no detectó defectos bloqueantes ni
-requirió cambios funcionales. Kernel, Planner, CLI, runtimes y Capability
-Registry permanecieron intactos.
-
-**Estado del trabajo vigente:**
-
-```text
-Sprint 7.5 cerrado
-No existe un sprint posterior autorizado
-```
+La selección o autorización del próximo sprint no se infiere del estado
+operativo ni del cierre de un sprint anterior. Continúa siendo una decisión
+de gobernanza que requiere aprobación explícita del propietario.
 
 ---
 
@@ -267,34 +245,28 @@ Resultado:
 
 ---
 
-## 5. Estado del bloque 7.x
+## 5. Registro histórico del bloque 7.x
 
-| Sprint | Estado    | Autorización |
-| ------ | --------- | ------------ |
-| 7.0    | Cerrado   | Implementado |
-| 7.1    | Cerrado   | Implementado |
-| 7.2    | Cerrado   | Implementado |
-| 7.3    | Cerrado   | Implementado |
-| 7.4    | Cerrado   | Implementado y sincronizado |
-| 7.5    | Cerrado   | Implementado y validado |
-| 7.6    | Propuesta | No aprobado  |
-| 7.7    | Propuesta | No aprobado  |
+La siguiente información conserva el estado documentado del bloque 7.x en una
+etapa anterior del roadmap y no representa el estado operativo vigente.
 
-El Sprint 7.4 fue cerrado formalmente. El Sprint 7.5 fue aprobado por
-el propietario, completado mediante seis incrementos y cerrado después
-de su revisión integral.
+Los sprints cerrados y las propuestas que aparecen en este registro deben
+interpretarse únicamente dentro de su contexto histórico.
+
+El estado estructurado vigente del sprint pertenece a
+`MALAK_OPERATIONAL_STATE`.
 
 La numeración histórica se conserva como referencia y no establece una
 secuencia obligatoria.
 
-Las fichas de Sprint 7.6 y 7.7 deben tratarse exclusivamente como
-propuestas hasta que el propietario las apruebe expresamente.
-
+La autorización de cualquier sprint posterior continúa dependiendo de una
+decisión explícita del propietario.
 ---
 
-## 6. Trabajo vigente
+## 6. Registro histórico del cierre del Sprint 7.5
 
-No existe actualmente un sprint posterior autorizado.
+Esta sección conserva la evidencia del cierre del Sprint 7.5 y no representa
+el trabajo operativo vigente.
 
 El Sprint 7.5 — Security Control Plane Foundation — quedó cerrado después
 de completar los seis incrementos aprobados:
@@ -310,20 +282,20 @@ La revisión integral confirmó comportamiento fail-closed, separación entre
 decisión, enforcement, auditoría y operación protegida, control humano y
 denegación por defecto.
 
-Validación final:
+Validación registrada para ese cierre:
 
 ```text
 183 security-specific passed
 304 total passed
 compileall: PASS
 git diff --check: PASS
-```
-
 El Incremento 6 no requirió cambios funcionales.
 
-El cierre del Sprint 7.5 no autoriza automáticamente Sprint 7.6 ni ningún
+El cierre del Sprint 7.5 no autorizó automáticamente Sprint 7.6 ni ningún
 otro sprint posterior.
 
+El estado operativo vigente del proyecto debe obtenerse de
+MALAK_OPERATIONAL_STATE y de la evidencia oficial correspondiente.
 ---
 
 ## 7. Estado de líneas del roadmap oficial
@@ -435,22 +407,29 @@ GraphRAG no debe implementarse únicamente por disponibilidad tecnológica.
 
 ### 7.4 Validación de baseline y release interna
 
-**Estado:**
+**Registro histórico:**
 
-```text
-no aprobada
-```
+Esta línea del roadmap fue posteriormente materializada mediante el
+Sprint 7.7 — Validación de baseline y release interna.
 
-Solo podrá realizarse cuando:
+Su estado operativo vigente no se mantiene manualmente en esta sección.
 
-* los bloques previos estén cerrados;
-* el código esté sincronizado;
-* la documentación esté alineada;
-* las pruebas estén en verde;
-* los contratos estén estabilizados;
-* no existan desviaciones conocidas;
-* se defina formalmente el contenido de la release.
+La evidencia estructurada del sprint corresponde a
+`MALAK_OPERATIONAL_STATE` y a la ficha oficial del sprint en el repositorio
+de Malāk.
 
+Los criterios que motivaron originalmente esta línea fueron:
+
+* los bloques previos debían estar cerrados;
+* el código debía estar sincronizado;
+* la documentación debía estar alineada;
+* las pruebas debían estar en verde;
+* los contratos debían estar estabilizados;
+* no debían existir desviaciones bloqueantes conocidas;
+* debía existir evidencia suficiente para una decisión explícita de release.
+
+La existencia de este registro no autoriza ninguna release futura ni un nuevo
+sprint.
 
 ## 8. Iniciativas arquitectónicas aceptadas conceptualmente
 
@@ -510,33 +489,22 @@ Esta iniciativa debe permanecer separada del Kernel y del runtime de Malāk.
 tooling documental externo
 ```
 
-**Estado documental:**
+**Estado documental histórico:**
 
 ```text
 integrado en el Malāk Project Vault mediante las PR #2, #3 y #4
 ```
 
-**Estado arquitectónico:**
+**Estado arquitectónico de la Fase 1:**
 
 ```text
 Fase 1 aprobada, implementada y cerrada
 ```
 
-**Implementación:**
+**Implementación histórica:**
 
 ```text
 Fase 1 completada mediante Gates 0 a 9
-```
-
-**Estado operativo:**
-
-```text
-operacionalización manual completada
-modo manual-on-demand
-modos dry-run y controlled-proposal
-scheduler activo: no
-controlled-proposal validado end-to-end hasta creación de PR draft
-reconciliación y merge de la propuesta #27: completados por acción humana
 ```
 
 **Autoridad operativa:**
@@ -562,7 +530,7 @@ No forma parte de:
 * runtime de Malāk;
 * Security Control Plane.
 
-**Ubicación verificada:**
+**Ubicación del componente:**
 
 ```text
 D:\Ollama\malak-vault-sync-agent
@@ -575,7 +543,22 @@ D:\Ollama\jarvis
 D:\Ollama\malak-project-vault
 ```
 
-**Baseline operativo vigente del agente:**
+**Ownership del estado operativo:**
+
+Este roadmap no mantiene manualmente el HEAD del agente, working tree,
+resultado vigente de suites, cursores, scheduler, modo de ejecución,
+última propuesta reconciliada ni otros datos operativos mutables.
+
+Dentro del Project Vault, cualquier estado operativo mutable que deba
+proyectarse pertenece exclusivamente al bloque machine-managed
+`MALAK_OPERATIONAL_STATE`. El cuerpo humano conserva arquitectura,
+gobernanza, contexto y evidencia histórica, pero no una segunda copia del
+baseline operativo.
+
+**Registro histórico de una reconciliación del agente:**
+
+El siguiente bloque conserva evidencia de una reconciliación anterior.
+No representa el estado operativo actual del agente:
 
 ```text
 Repositorio: Aranwill/malak-vault-sync-agent
@@ -586,7 +569,7 @@ PR integradas relevantes: #1, #3, #4, #5, #6, #7, #8, #9 y #10
 Working tree: limpio
 main local: alineada con origin/main
 Suite completa: PASS
-Conteo exacto de la suite actual: no registrado en esta reconciliación
+Conteo exacto de la suite en esa reconciliación: no registrado
 compileall: PASS
 git diff --check: PASS
 GitHub Actions Ubuntu: PASS
@@ -612,8 +595,8 @@ evidencia histórica válida del baseline anterior.
 
 Una auditoría posterior identificó controles del contrato aprobado que
 esa suite no cubría. Esos controles fueron implementados y certificados
-durante el Incremento Correctivo Integral 5, por lo que `230 passed` no
-representa el baseline operativo vigente.
+durante el Incremento Correctivo Integral 5, por lo que `230 passed`
+tampoco debe interpretarse como representación del estado operativo actual.
 
 **Baseline histórico del cierre formal de la Fase 1:**
 
@@ -631,7 +614,7 @@ El baseline histórico de cierre se encuentra en:
 docs/PHASE_1_FINAL_BASELINE.md
 ```
 
-**Estado de gates:**
+**Estado histórico de gates al cierre de la Fase 1:**
 
 ```text
 Gate 0: cerrado
@@ -647,13 +630,13 @@ Gate 9: cerrado
 Fase 1: cerrada formalmente
 ```
 
-**Resultado de validación:**
+**Registro histórico de validación:**
 
 ```text
 Suite de cierre de Fase 1: 148 passed
 Suite operacional del baseline posterior de Incremento 4: 230 passed
 Último conteo explícito documentado antes de PR #9: 260 passed
-Suite vigente posterior a PR #9: PASS
+Suite posterior a PR #9: PASS
 compileall: correcto
 git diff --check: correcto
 Resultado end-to-end: pass
@@ -666,14 +649,14 @@ Hashes SHA-256 verificados: sí
 ```
 
 Todos los comandos Git operativos auditados durante el cierre histórico
-de la Fase 1 fueron clasificados como operaciones de solo lectura. El
-alcance controlado vigente añade escritura únicamente sobre una rama de
-propuesta del Vault.
+de la Fase 1 fueron clasificados como operaciones de solo lectura. La
+extensión `controlled-proposal`, aprobada posteriormente, añadió escritura
+únicamente sobre una rama de propuesta del Vault.
 
-**Capacidades operativas vigentes:**
+**Capacidades documentadas al cierre del alcance controlado:**
 
-La lista incluye la base read-only de la Fase 1 y la extensión
-controlada aprobada posteriormente:
+La siguiente lista conserva el alcance funcional validado en esa etapa.
+No constituye un inventario machine-managed del estado actual del agente:
 
 * detección determinista de cambios en `Aranwill/jarvis/main`;
 * comparación entre el HEAD remoto y el último commit observado;
@@ -741,7 +724,7 @@ revisa, aprueba y autoriza cualquier ampliación
 
 La finalización técnica no concede autoridad documental ni operativa al agente.
 
-La extensión vigente fue formalizada como decisión independiente en:
+La extensión `controlled-proposal` fue formalizada como decisión independiente en:
 
 ```text
 DEC-RES-009 — Extensión gobernada controlled-proposal
@@ -749,22 +732,24 @@ DEC-RES-009 — Extensión gobernada controlled-proposal
 
 No constituye Fase 2 ni autoriza una ampliación posterior.
 
-**Invariantes preservadas:**
+**Invariantes de autoridad y separación:**
 
-* `Aranwill/jarvis` permaneció en modo de solo lectura;
-* no se modificaron archivos de Malāk;
-* no se ejecutó configuración de Malāk;
-* no se crearon ramas, commits ni push sobre Malāk;
-* no se escribió directamente sobre `main` del Vault;
-* las modificaciones del Vault quedaron limitadas a una rama de propuesta;
-* no se aprobaron ni mergearon PR;
-* no se cerraron decisiones automáticamente;
-* no se modificaron snapshots históricos;
-* no se utilizó LLM;
-* no se incorporó el agente al Kernel ni al runtime;
-* `last_applied_commit` permaneció en `null`.
+* `Aranwill/jarvis` es fuente de verdad y permanece fuera de la autoridad de escritura del agente;
+* el agente no modifica archivos ni configuración de Malāk;
+* el agente no crea ramas, commits ni push sobre Malāk;
+* el agente no escribe directamente sobre `main` del Vault;
+* cualquier modificación propuesta del Vault queda limitada a una rama de propuesta;
+* el agente no aprueba ni mergea PR;
+* el agente no cierra decisiones automáticamente;
+* el agente no modifica snapshots históricos;
+* el agente no se incorpora al Kernel ni al runtime;
+* la revisión, aprobación, reconciliación y promoción permanecen bajo control humano.
 
-**Estado remoto del agente:**
+El uso de LLM, `last_applied_commit`, scheduler, cursores y otros detalles de
+ejecución observados durante validaciones anteriores pertenecen a sus registros
+históricos o al estado machine-managed cuando corresponda; no definen autoridad.
+
+**Registro histórico del estado remoto:**
 
 ```text
 Remoto configurado: sí
@@ -775,19 +760,19 @@ Respaldo remoto: completado
 HEAD local y remoto: coincidentes
 ```
 
-La existencia del repositorio remoto no concede autoridad operativa ni documental al agente.
+Este bloque documenta una comprobación pasada. La existencia del repositorio
+remoto no concede autoridad operativa ni documental al agente.
 
-**Modo operativo vigente:**
+**Registro histórico del modo y flujo operacional:**
 
-```text
-Ejecución manual posterior a cada sesión aprobada de Malāk
-```
+La ejecución manual posterior a una sesión aprobada de Malāk fue el modo
+operativo validado durante esta etapa.
 
-La ejecución programada se utilizó únicamente para validar la operacionalización en Windows. La tarea programada fue eliminada posteriormente por decisión humana.
+La ejecución programada se utilizó únicamente para validar la
+operacionalización en Windows. La tarea programada fue eliminada
+posteriormente por decisión humana.
 
-El agente deberá ejecutarse después de que los cambios legítimos de Malāk hayan sido publicados o fusionados en `Aranwill/jarvis/main`.
-
-Flujo vigente:
+El flujo controlado validado fue:
 
 ```text
 Avance aprobado de Malāk
@@ -809,7 +794,7 @@ PR draft del Vault: #10
 Resultado: pass
 ```
 
-La validación operacional más reciente confirmó el flujo sobre la
+Una validación operacional posterior confirmó el flujo sobre la
 reconciliación documental posterior al cierre del Sprint 7.5:
 
 ```text
@@ -824,7 +809,7 @@ accept-proposal: completado
 ```
 
 La PR #27 fue revisada y mergeada exclusivamente por decisión humana. El
-agente conserva `operational_authority: none`.
+modelo de autoridad del agente permaneció sin autoridad operativa propia.
 
 **Evidencia de cierre:**
 
@@ -841,16 +826,19 @@ Aranwill/malak-vault-sync-agent/docs/INCREMENT_4_CLOSURE.md
 no aprobadas
 ```
 
-El baseline operativo vigente no autoriza:
+**Límites de autoridad:**
+
+El modelo de autoridad del agente no autoriza:
 
 * escritura directa en `main` del Vault;
 * aprobación o merge automático;
 * actualización automática de baseline;
-* modificación de documentos normativos;
+* modificación de documentos normativos fuera del flujo gobernado;
 * modificación de snapshots;
+* modificación de Malāk;
 * integración con Kernel, Planner, Capability Registry, ConversationService, LLMRuntime o CLI;
-* uso de LLM;
-* scheduler operativo;
+* uso de LLM sin una decisión futura explícita;
+* scheduler operativo permanente;
 * servicio permanente;
 * daemon;
 * webhooks;
@@ -867,8 +855,6 @@ Cualquier ampliación requerirá:
 6. validación arquitectónica;
 7. decisión independiente;
 8. aprobación humana explícita.
-
-
 ---
 
 ### 8.2 Resource Governance Foundation
@@ -1356,24 +1342,37 @@ El archivo:
 08-session-context\MALAK_SESSION_CONTEXT.md
 ```
 
-deberá incluir únicamente:
+es un artefacto derivado de continuidad entre sesiones. No constituye una
+fuente independiente del estado operativo de Malāk.
 
-* baseline actual;
-* último sprint cerrado;
-* estado de tests;
-* próxima iniciativa aprobada, si existe;
+El estado operativo mutable no debe duplicarse manualmente en su cuerpo.
+Cuando deba representarse en el Project Vault, su owner exclusivo es el
+bloque machine-managed `MALAK_OPERATIONAL_STATE`.
+
+Esto incluye, cuando corresponda:
+
+* HEAD oficial observado;
+* sprint estructurado representado;
+* estado vigente de validaciones y tests;
+* baseline operativo mutable;
+* otros datos deterministas de estado que el proceso de sincronización pueda proyectar.
+
+El cuerpo humano del contexto de sesión debe concentrarse en:
+
+* objetivo y contexto de la sesión;
 * decisiones pendientes;
 * restricciones;
-* objetivo de la sesión.
+* arquitectura y gobernanza relevantes;
+* hechos históricos necesarios para continuidad;
+* propuestas o iniciativas, indicando explícitamente su nivel de aprobación.
 
-Mientras no exista un sprint posterior autorizado deberá indicar:
+Un sprint cerrado puede conservarse como hecho histórico, pero no debe
+utilizarse como sustituto del estado operativo machine-managed.
 
-```text
-Sprint 7.5: cerrado.
-Incrementos 1 a 6: completados y validados.
-Sprint posterior: no aprobado.
-```
-
+La ausencia o presencia de un sprint posterior en el roadmap, en el contexto
+de sesión o en `MALAK_OPERATIONAL_STATE` no concede autorización para
+implementarlo. La selección y aprobación del siguiente sprint continúan
+siendo decisiones humanas sujetas a gobernanza.
 ---
 
 ## 15. Regla de actualización

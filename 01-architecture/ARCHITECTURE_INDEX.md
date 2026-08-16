@@ -7,10 +7,9 @@ authority: derived
 operational_authority: none
 version: 1.0
 created: 2026-07-20
-last_reviewed: 2026-07-25
+last_reviewed: 2026-08-16
 source_repository: Aranwill/jarvis
 source_branch: main
-baseline_reference: 7cd7fcc811df01555837319ec4cac0a93ef94fff
 tags:
   - malak
   - vault
@@ -25,28 +24,31 @@ tags:
 >
 > No reemplaza la documentación oficial del repositorio, no redefine la arquitectura y no posee autoridad operativa.
 
-## Estado de referencia
+> [!important] Ownership operativo
+> El estado operativo mutable representado en el Vault pertenece a
+> `MALAK_OPERATIONAL_STATE`; este índice conserva navegación, arquitectura y
+> evidencia histórica.
+
+## Referencia operativa
 
 - **Repositorio oficial:** `Aranwill/jarvis`
 - **Rama oficial:** `main`
-- **Baseline:** `7cd7fcc811df01555837319ec4cac0a93ef94fff`
 - **Versión nominal:** `v0.6.0-alpha`
-- **Último sprint formalmente cerrado:** Sprint 7.3 — Conversation Provider Boundary Stabilization
-- **Sprint integrado en progreso:** Sprint 7.4 — Consolidación de logs, métricas y auditoría
-- **Pull request integrado:** PR #14
-- **Suite integral documentada:** 121 pruebas sobre `5b951918006c464745e1eb1e3816bde619fad8b1`
-- **Incremento 8:** en ejecución documental gobernada
-- **Sprint posterior aprobado:** ninguno
 
-La representación completa del estado vigente se encuentra en:
+Este índice organiza arquitectura derivada y no mantiene manualmente HEAD,
+sprint vigente, suite, incremento, PR reciente ni baseline mutable.
 
-- [[02-current-baseline/CURRENT_BASELINE|Current Baseline]]
-- [[08-session-context/MALAK_SESSION_CONTEXT|Contexto vigente de sesión]]
-- [[09-repository-snapshots/SNAPSHOT_INDEX|Índice de snapshots del repositorio]]
+Cuando esos datos deban representarse en el Project Vault, pertenecen a
+`MALAK_OPERATIONAL_STATE`.
 
-## Arquitectura actualmente documentada
+Referencias:
 
-Según el baseline vigente, Malāk dispone de fundamentos implementados relacionados con:
+- [[02-current-baseline/CURRENT_BASELINE|Referencia de baseline]]
+- [[08-session-context/MALAK_SESSION_CONTEXT|Contexto de sesión]]
+- [[09-repository-snapshots/SNAPSHOT_INDEX|Índice de snapshots históricos]]
+## Arquitectura documentada
+
+La documentación arquitectónica representada incluye fundamentos relacionados con:
 
 - Kernel;
 - contratos conversacionales;
@@ -71,7 +73,7 @@ Según el baseline vigente, Malāk dispone de fundamentos implementados relacion
 
 ## Relaciones principales conocidas
 
-El baseline documenta actualmente relaciones generales entre:
+La documentación arquitectónica representa relaciones generales entre:
 
 - Kernel;
 - Planner;
@@ -84,7 +86,7 @@ El baseline documenta actualmente relaciones generales entre:
 
 Existe un primer mapa arquitectónico derivado:
 
-- [[01-architecture/CURRENT_COMPONENTS_MAP|Mapa de componentes actuales]]
+- [[01-architecture/CURRENT_COMPONENTS_MAP|Mapa de componentes]]
 
 El mapa distingue:
 
@@ -93,7 +95,7 @@ El mapa distingue:
 - la frontera de eventos operativos;
 - los stores operativos separados de las métricas;
 - los contratos y runtimes implementados;
-- los límites entre estado actual y arquitectura futura.
+- los límites entre implementación documentada y arquitectura futura.
 
 Las rutas permanecen separadas. Sprint 7.4 no incorporó una
 integración entre `Kernel.receive` y `ConversationService`.
@@ -101,7 +103,7 @@ integración entre `Kernel.receive` y `ConversationService`.
 La observabilidad operativa no implementa auditoría de seguridad ni
 semántica de autorización.
 
-Toda relación representada debe continuar verificándose contra el repositorio oficial y su baseline vigente.
+Toda relación representada debe verificarse contra el repositorio oficial y la evidencia correspondiente.
 
 ## Principios arquitectónicos aplicables
 
@@ -123,9 +125,9 @@ Toda relación representada debe continuar verificándose contra el repositorio 
 - [[00-governance/DOCUMENT_AUTHORITY_MODEL|Modelo de autoridad documental]]
 - [[00-governance/METADATA_SCHEMA|Esquema de metadatos]]
 
-### Estado vigente
+### Referencias operativas
 
-- [[02-current-baseline/CURRENT_BASELINE|Baseline actual]]
+- [[02-current-baseline/CURRENT_BASELINE|Referencia de baseline]]
 - [[03-roadmap/IMPLEMENTATION_ROADMAP|Roadmap de implementación]]
 - [[05-decisions/PENDING_DECISIONS|Decisiones pendientes]]
 - [[08-session-context/MALAK_SESSION_CONTEXT|Contexto de sesión]]
@@ -163,10 +165,10 @@ Cada mapa deberá:
 
 - identificar su baseline;
 - citar sus fuentes;
-- distinguir estado actual y arquitectura futura;
+- distinguir implementación documentada y arquitectura futura;
 - evitar inferencias no aprobadas;
 - declarar su naturaleza derivada;
-- someterse a revisión humana antes de considerarse vigente.
+- someterse a revisión humana antes de considerarse aceptado como representación.
 
 ## Restricciones
 
@@ -183,9 +185,7 @@ Esta sección no debe:
 
 ## Estado de evolución documental
 
-El mapa de componentes fue revalidado para el baseline `7cd7fcc` e
-incorpora la frontera mínima de eventos operativos agregada por Sprint
-7.4.
+Registro histórico: el mapa de componentes fue revalidado para el baseline `7cd7fcc` e incorporó la frontera mínima de eventos operativos documentada en aquella etapa.
 
 Cualquier mapa adicional requiere:
 
@@ -195,7 +195,7 @@ Cualquier mapa adicional requiere:
 - revisión humana;
 - aprobación antes de su incorporación.
 
-No existe actualmente un nuevo mapa arquitectónico aprobado.
+La creación de nuevos mapas requiere necesidad concreta y aprobación humana.
 
 ## Arquitectura externa documentada
 
@@ -210,7 +210,7 @@ Incremento Correctivo Integral 5 cerrado técnica y operativamente
 Conformidad del alcance correctivo aprobado completada
 ```
 
-Estado operativo:
+Modelo operativo autorizado:
 
 ```text
 tooling documental externo en modos dry-run y controlled-proposal
@@ -237,7 +237,7 @@ La arquitectura implementada:
 - no modifica snapshots históricos;
 - mantiene `last_applied_commit: null`.
 
-Baseline final del agente:
+Registro histórico de certificación del agente:
 
 ```text
 Rama: main
@@ -260,11 +260,7 @@ Autoridad operativa: none
 La extensión independiente se registra en `DEC-RES-009` y no constituye
 Fase 2.
 
-El baseline `5afd03e` incorpora y certifica los controles correctivos
-aprobados para `controlled-proposal`, incluyendo revalidación final,
-frontmatter YAML, wikilinks, protección explícita de
-`09-repository-snapshots/**`, recuperación remota de propuestas y
-normalización CRLF de cuerpos obtenidos mediante GitHub CLI.
+El registro histórico `5afd03e` certificó los controles correctivos aprobados para `controlled-proposal`, incluyendo revalidación final, frontmatter YAML, wikilinks, protección explícita de `09-repository-snapshots/**`, recuperación remota de propuestas y normalización CRLF de cuerpos obtenidos mediante GitHub CLI.
 
 Estos controles no modifican el modelo de autoridad del agente, no
 habilitan scheduler, no conceden auto-merge y no autorizan Fase 2.

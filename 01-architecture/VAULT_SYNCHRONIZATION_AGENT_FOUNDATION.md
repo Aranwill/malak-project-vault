@@ -7,16 +7,13 @@ authority: approved_architecture
 operational_authority: none
 version: 1.3
 created: 2026-07-21
-last_reviewed: 2026-08-09
+last_reviewed: 2026-08-16
 source_repository: Aranwill/jarvis
 source_branch: main
-source_commit: b4d1d512fe953d593608391390f82ab500fdc9d6
 vault_repository: Aranwill/malak-project-vault
 vault_branch: main
-vault_base_commit_before_update: 46672bcb971dbcdfcf25b1a4c7359aec9f047980
 agent_repository: Aranwill/malak-vault-sync-agent
 agent_branch: main
-agent_head: 5afd03e1697e4820b8b62ff3db23109fdfde8bcb
 implementation_approved: true
 phase_1_status: completed
 operationalization_status: completed
@@ -45,7 +42,7 @@ en Windows. Posteriormente se aprobó de forma independiente la extensión
 acotada `controlled-proposal` para preparar propuestas documentales en
 ramas aisladas del Vault.
 
-El modo vigente es manual bajo demanda, posterior a cada sesión aprobada de Malāk y una vez publicados o fusionados los cambios legítimos en `Aranwill/jarvis/main`.
+El modo operativo autorizado documentado es manual bajo demanda, posterior a cada sesión aprobada de Malāk y una vez publicados o fusionados los cambios legítimos en `Aranwill/jarvis/main`.
 
 La iniciativa busca reducir:
 
@@ -126,18 +123,29 @@ La separación física y lógica preserva:
 - aislamiento de fallos;
 - ausencia de autoridad sobre los repositorios observados.
 
-## 4. Baseline vigente del agente
+## 4. Referencia operativa y registros históricos del agente
 
-Baseline operacional vigente:
+Esta arquitectura no mantiene manualmente HEAD, working tree, suite, estado
+persistente, propuesta pendiente ni otros datos operativos mutables del agente.
+
+Cuando deban representarse en el Project Vault, pertenecen a
+`MALAK_OPERATIONAL_STATE`.
+
+### Registro histórico — cierre técnico de Fase 1
 
 ```text
-Repositorio: Aranwill/malak-vault-sync-agent
-Rama: main
-HEAD: 5afd03e1697e4820b8b62ff3db23109fdfde8bcb
+HEAD de cierre: 954659b
+Suite de cierre: 148 passed
+Documento: docs/PHASE_1_FINAL_BASELINE.md
+```
+
+Ese registro conserva la evidencia del cierre formal de los Gates 0 a 9.
+
+### Registro histórico — Incremento Correctivo Integral 5
+
+```text
+HEAD de certificación: 5afd03e1697e4820b8b62ff3db23109fdfde8bcb
 Versión: 0.3.0
-PR integradas relevantes: #1, #3, #4, #5, #6, #7 y #8
-Working tree: limpio al cierre operativo
-main local: alineada con origin/main al cierre operativo
 Suite completa: 260 passed
 compileall: PASS
 git diff --check: PASS
@@ -147,42 +155,10 @@ Validación nativa Windows: PASS
 GitHub CLI real: PASS
 Recovery negativo real: PASS
 Recovery positivo real: PASS
-Configuración privada: válida y excluida de Git
-Scheduler activo: no
-Modo operativo: manual-on-demand
-Modos autorizados: dry-run y controlled-proposal
-Estado persistente: esquema v3 intacto
-Incremento Correctivo Integral 5: cerrado técnica y operativamente
-last_applied_commit: null
-pending_proposal_*: null
-Autoridad operativa: none
-
-El baseline formal e histórico del cierre técnico de la Fase 1 permanece registrado en:
-
-```text
-HEAD de cierre: 954659b
-Suite de cierre: 148 passed
-Documento: docs/PHASE_1_FINAL_BASELINE.md
 ```
 
-Ese baseline conserva la evidencia del cierre formal de los Gates 0 a 9.
-Los commits posteriores incorporaron la operacionalización read-only, la
-propuesta controlada y la reconciliación gobernada del estado v3 sin
-modificar la autoridad operativa `none`.
-
-Validaciones del cierre técnico:
-
-```text
-Suite completa: 148 passed
-compileall: correcto
-git diff --check: correcto
-Resultado end-to-end: pass
-Malāk intacto: sí
-Vault intacto: sí
-last_applied_commit: null
-Hashes SHA-256 verificados: sí
-```
-
+Los commits posteriores pueden modificar el estado operativo sin alterar estas
+evidencias históricas ni el modelo de autoridad `none`.
 ## 5. Arquitectura implementada y operacionalizada
 
 La arquitectura efectiva de la Fase 1 está compuesta por:
@@ -229,10 +205,10 @@ La extensión `controlled-proposal` incorpora:
 - aceptación y rechazo locales sujetos a decisión humana y verificación
   del estado remoto.
 
-En el baseline `main@5afd03e`, los controles correctivos aprobados para
+En la certificación histórica `main@5afd03e`, los controles correctivos aprobados para
 `controlled-proposal` se encuentran implementados y certificados.
 
-El alcance vigente incluye:
+El alcance autorizado incluye:
 
 - revalidación de la proyección final;
 - validación de frontmatter YAML en documentos Markdown;
@@ -301,7 +277,7 @@ ejecución manual
 → esperar decisión humana
 ```
 
-El flujo efectivo vigente implementa la validación final de la proyección
+El flujo implementado documentado incorpora la validación final de la proyección
 antes de publicar la propuesta y conserva los controles deterministas
 definidos para `controlled-proposal`.
 
@@ -311,7 +287,7 @@ draft real mediante GitHub CLI en Windows.
 Este flujo nunca escribe en Malāk, nunca escribe directamente en `main`
 del Vault y nunca aprueba o mergea una PR.
 
-Flujo operativo vigente:
+Flujo operativo autorizado:
 
 ```text
 Avance aprobado de Malāk
@@ -519,10 +495,6 @@ Los siguientes componentes permanecen fuera del alcance aprobado:
 
 Estos elementos no deben presentarse como arquitectura implementada.
 
-Los siguientes controles pertenecen al alcance aprobado de
-`controlled-proposal`, pero requieren un incremento correctivo todavía
-no autorizado para implementación:
-
 Los controles correctivos anteriormente pendientes para
 `controlled-proposal` fueron implementados y certificados durante el
 Incremento Correctivo Integral 5.
@@ -555,7 +527,7 @@ Cualquier fase posterior requerirá:
 9. validación arquitectónica;
 10. aprobación humana explícita.
 
-## 15. Estado remoto del agente
+## 15. Registro histórico del estado remoto del agente
 
 ```text
 Remoto configurado: sí
@@ -571,7 +543,7 @@ PR de cierre operativo: #8 integrada
 
 El remoto respalda el código del agente, pero no le concede autoridad sobre Malāk ni sobre el Vault.
 
-Estado operativo:
+Condiciones operativas documentadas en ese cierre:
 
 ```text
 Operacionalización read-only: completed
@@ -639,6 +611,7 @@ versión: 0.3.0
 PR #8
 merge commit: 5afd03e1697e4820b8b62ff3db23109fdfde8bcb
 suite completa: 260 passed
+```
 
 ## 17. Criterios de aceptación cumplidos
 
@@ -699,16 +672,16 @@ Continúan vigentes:
 ```text
 Fase 1: completada
 Operacionalización read-only: completada
-Modo operativo: manual-on-demand
+Modo operativo autorizado: manual-on-demand
 Controlled-proposal: aprobado e implementado
 Conformidad del alcance correctivo aprobado: completada
 Incremento Correctivo Integral 5: cerrado técnica y operativamente
-Versión: 0.3.0
-HEAD vigente: 5afd03e1697e4820b8b62ff3db23109fdfde8bcb
-Scheduler activo: no
 Autoridad operativa: none
 Fases posteriores: no aprobadas
 ```
+
+Los valores operativos variables posteriores al cierre no se mantienen
+manualmente en esta arquitectura; pertenecen a `MALAK_OPERATIONAL_STATE`.
 
 La arquitectura aprobada de Fase 1 y su operacionalización read-only quedan cerradas.
 

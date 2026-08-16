@@ -8,7 +8,7 @@ authority: derived
 operational_authority: none
 repository_source: Aranwill/jarvis
 repository_branch: main
-last_reviewed: 2026-07-25
+last_reviewed: 2026-08-16
 tags:
 
 * malak
@@ -27,28 +27,24 @@ tags:
 >
 > Ningún contenido de este Vault puede modificar Malāk automáticamente.
 
-## Estado actual
-
-## Estado actual
+## Referencia operativa
 
 * **Repositorio oficial:** `Aranwill/jarvis`
 * **Rama oficial y única:** `main`
-* **Baseline técnico verificado:** `7cd7fcc811df01555837319ec4cac0a93ef94fff`
 * **Versión nominal:** `v0.6.0-alpha`
-* **Último sprint formalmente cerrado:** Sprint 7.3 — Conversation Provider Boundary Stabilization
-* **Sprint integrado en progreso:** Sprint 7.4 — Consolidación de logs, métricas y auditoría
-* **Pull request integrado:** PR #14
-* **Pruebas documentadas:** 121 aprobadas sobre `5b951918006c464745e1eb1e3816bde619fad8b1`
-* **Incremento 8:** en ejecución documental gobernada
-* **Sprint posterior:** no aprobado
 * **Control de decisiones:** Human in Control
 
-Abrir el estado completo:
+`HOME.md` es un punto de navegación y no mantiene manualmente HEAD, sprint
+vigente, conteo de tests, incremento actual, PR reciente ni baseline mutable.
 
-* [[02-current-baseline/CURRENT_BASELINE|Current Baseline]]
-* [[08-session-context/MALAK_SESSION_CONTEXT|Contexto vigente de sesión]]
-* [[09-repository-snapshots/2026-07-25_MAIN_7CD7FCC|Snapshot vigente del repositorio]]
+Cuando esos datos deban representarse dentro del Project Vault, pertenecen
+exclusivamente al bloque machine-managed `MALAK_OPERATIONAL_STATE`.
 
+Abrir las fuentes de contexto y evidencia:
+
+* [[02-current-baseline/CURRENT_BASELINE|Referencia de baseline]]
+* [[08-session-context/MALAK_SESSION_CONTEXT|Contexto de sesión]]
+* [[09-repository-snapshots/SNAPSHOT_INDEX|Snapshots históricos]]
 ---
 
 ## Navegación principal
@@ -68,11 +64,11 @@ Contexto arquitectónico derivado y referencias hacia las fuentes oficiales corr
 
 * [[01-architecture/ARCHITECTURE_INDEX|Arquitectura]]
 
-### Baseline vigente
+### Referencia de baseline
 
-Representación derivada del estado oficialmente verificado del proyecto.
+Referencia derivada hacia el baseline y su evidencia oficial.
 
-* [[02-current-baseline/CURRENT_BASELINE|Baseline actual]]
+* [[02-current-baseline/CURRENT_BASELINE|Referencia de baseline]]
 
 ### Roadmap
 
@@ -85,7 +81,7 @@ Planificación consolidada y líneas futuras registradas.
 
 ### Sprints
 
-Registro documental de sprints propuestos, activos y cerrados.
+Navegación documental hacia fichas, cierres y registros históricos de sprint.
 
 * [[04-sprints/SPRINT_INDEX|Sprints]]
 * [[04-sprints/SPRINT-7.3-CLOSURE|Cierre del Sprint 7.3]]
@@ -143,7 +139,7 @@ Estructuras controladas para documentar sesiones y cierres de sprint.
 ## Flujo recomendado de trabajo
 
 1. Abrir [[08-session-context/MALAK_SESSION_CONTEXT|MALAK_SESSION_CONTEXT]].
-2. Confirmar el estado representado en [[02-current-baseline/CURRENT_BASELINE|CURRENT_BASELINE]].
+2. Consultar [[02-current-baseline/CURRENT_BASELINE|CURRENT_BASELINE]] y el estado machine-managed cuando corresponda.
 3. Consultar [[05-decisions/PENDING_DECISIONS|PENDING_DECISIONS]].
 4. Definir explícitamente el objetivo de la sesión.
 5. Trabajar sobre el repositorio oficial cuando exista implementación.
@@ -165,6 +161,7 @@ Estructuras controladas para documentar sesiones y cierres de sprint.
 * Una propuesta no es una decisión.
 * Un documento derivado no puede reemplazar una fuente oficial.
 * Ningún mecanismo del Vault puede ejecutar cambios automáticos sobre Malāk.
+* `MALAK_OPERATIONAL_STATE` es el único owner machine-managed del estado operativo mutable representado en el Vault.
 * Ante contradicción, prevalece la fuente con mayor autoridad documental.
 
 ---
@@ -173,8 +170,8 @@ Estructuras controladas para documentar sesiones y cierres de sprint.
 
 ### Antes de comenzar una sesión
 
-* [ ] Leer el contexto vigente.
-* [ ] Confirmar el baseline referenciado.
+* [ ] Leer el contexto de sesión.
+* [ ] Confirmar la referencia de baseline y la evidencia oficial.
 * [ ] Revisar decisiones pendientes.
 * [ ] Definir el alcance de trabajo.
 * [ ] Confirmar si la tarea es documental o afecta el repositorio oficial.
@@ -184,7 +181,7 @@ Estructuras controladas para documentar sesiones y cierres de sprint.
 * [ ] Registrar las decisiones efectivamente aprobadas.
 * [ ] Diferenciar hechos, propuestas y pendientes.
 * [ ] Actualizar el contexto de sesión.
-* [ ] Actualizar el baseline solo si cambió el repositorio oficial.
+* [ ] Actualizar el cuerpo humano sólo si cambió arquitectura, gobernanza, contexto o evidencia histórica relevante.
 * [ ] Crear un snapshot únicamente cuando corresponda.
 * [ ] Confirmar que el Vault no adquirió autoridad operativa.
 
