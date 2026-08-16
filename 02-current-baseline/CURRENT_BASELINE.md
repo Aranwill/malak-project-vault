@@ -29,10 +29,10 @@ retrieval_scope: active
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260816T002114666009Z_089255e2_b9fbb7e7`
-- **HEAD oficial observado:** `089255e23bd2b686436140ca569edf09c08819a7`
-- **Commit previamente observado:** `c65bff257f877460c153583bfcd9819224ca0f5c`
-- **Generado:** `2026-08-16T00:21:14.666009+00:00`
+- **Run ID:** `20260816T153657987236Z_864df56a_53464804`
+- **HEAD oficial observado:** `864df56a0949229e33706ca5c1db8f99dbeebc56`
+- **Commit previamente observado:** `089255e23bd2b686436140ca569edf09c08819a7`
+- **Generado:** `2026-08-16T15:36:57.987236+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
@@ -45,51 +45,26 @@ retrieval_scope: active
 
 ### Commits oficiales observados
 
-- 089255e23bd2b686436140ca569edf09c08819a7	Merge pull request #43 from Aranwill/docs/sprint-7.6-final-reconciliation
-- 145f4f96b06429b95725b189d88865270d4efce9	docs(project): reconcile Sprint 7.6 closure
-- 821497485f1b861cafa97cc5720616c3314b35bf	Merge pull request #42 from Aranwill/sprint/7.6-h-context-propagation-contract
-- a481f0b1cff36c737feaef3a39c8962e1c31f5fd	Merge pull request #41 from Aranwill/sprint/7.6-g-context-validity-window
-- 5e3273329a9c7517f1f61bf25d84f084fe6c4828	Merge pull request #40 from Aranwill/sprint/7.6-f-pdp-context-lifecycle
-- aa06e98a2e1e20a5d81007bac83920a79f23092d	feat(security): establish SecurityContext propagation contract
-- 47ac4f68b3eb7df64a53b3faac38b37e991849a3	feat(security): enforce SecurityContext validity window
-- 1733e1791897f9fa1524e2d9c8f0c5e42e2cbe6b	feat(security): enforce SecurityContext lifecycle in PDP
-- 3945fd0b664ab5b56b15fa3ce3485abf16d8d990	feat(security): establish SecurityContextRenewer boundary
-- e674567a8aa6db3eccfb06ef2f91097517614097	feat(security): establish SecurityContextIssuer boundary
-- 5dceb2b998ad07093eef2565e8daaebe70ca6af9	feat(security): establish SecurityContextValidator boundary
-- c9769b63afc0b1aa72f9dd023b205e2762f0029f	feat(security): establish Clock boundary
-- 92e2911199f836d7c83d3d87c9739ccfbfaa0785	Merge pull request #39 from Aranwill/sprint/7.6-a-security-context-contract
-- 9833a33e5daf360baf2412b0df116f722ca237cd	feat(security): establish SecurityContext lifecycle contract
-- a11617e4056325d593e3b1999baf07570cebd0d6	Merge pull request #38 from Aranwill/agent/directional-communication-rule
-- 502a80775ba3383f5e5161516975109208f11c17	docs: formalize directional communication and authority flow
-- 7b1cd23470b8ab2b44ad58ce8ab885b4d9d82f64	Merge pull request #37 from Aranwill/agent/engineering-method-sdd-tdd
-- 2bfb357792aa5fc836f28b9ed431660f80513137	docs: establish SDD TDD and risk-based engineering method
+- 864df56a0949229e33706ca5c1db8f99dbeebc56	docs(project): close Sprint 7.7 after promotion
+- 2cdbeabf722aeae7258e28255d9dc25dbfd5fa94	docs(project): complete Sprint 7.7-F final certification review
+- 13e2c7888c342c070ad44c16f74e0df6597bd083	docs(project): complete Sprint 7.7-E release readiness
+- ce6b89e591189fb0ad89cd25629566f41a156b2f	docs(project): complete Sprint 7.7-D security assurance
+- 9ef47dfc599fb61bd0917beb8c9f9afa461396f4	docs(project): complete Sprint 7.7-C reconciliation
+- 1c787deba94a13128232a20924642ffb8c0f73e8	docs(project): reconcile Sprint 7.7 derived documentation
+- c7587cd82918d3293061ced2ce53832e3d707bd1	docs(project): complete Sprint 7.7-B technical validation
+- 34c711c7ecd73fb4187d675e1be6fefbeee8c8b3	fix(packaging): constrain Malak package discovery
+- 1488c495fbaf69ee27774ce755fc482c05e6595a	docs(project): complete Sprint 7.7-A evidence freeze
+- 1ac0f2bb082add59e570e3eac931ffd481b520a7	docs(project): activate Sprint 7.7 baseline certification
 
 ### Evidencia que originó esta proyección
 
-- `architecture-change` por `docs/architecture/adr/ADR-003-directional-communication-and-authority-flow.md`
-- `architecture-change` por `docs/architecture/blueprint.md`
-- `architecture-change` por `docs/architecture/decisions/decision-index.md`
-- `architecture-change` por `src/malak/security/clock.py`
-- `architecture-change` por `src/malak/security/context_issuer.py`
-- `architecture-change` por `src/malak/security/context_propagation.py`
-- `architecture-change` por `src/malak/security/context_renewer.py`
-- `architecture-change` por `src/malak/security/context_validator.py`
-- `architecture-change` por `src/malak/security/contracts.py`
-- `architecture-change` por `src/malak/security/pdp.py`
+- `baseline-source-change` por `CHANGELOG.md`
+- `baseline-source-change` por `PROJECT.md`
 - `baseline-source-change` por `docs/project/implementation_roadmap.md`
 - `baseline-source-change` por `docs/project/project_context.md`
-- `baseline-source-change` por `docs/project/sprints/SPRINT-7.6.md`
-- `operational-tooling-change` por `docs/development/development_checklist.md`
-- `operational-tooling-change` por `docs/development/development_environment.md`
-- `operational-tooling-change` por `docs/development/engineering_method.md`
-- `test-change` por `tests/test_authorization_contracts.py`
-- `test-change` por `tests/test_policy_decision_point.py`
-- `test-change` por `tests/test_policy_enforcement_point.py`
-- `test-change` por `tests/test_security_clock.py`
-- `test-change` por `tests/test_security_context_issuer.py`
-- `test-change` por `tests/test_security_context_propagation.py`
-- `test-change` por `tests/test_security_context_renewer.py`
-- `test-change` por `tests/test_security_context_validator.py`
+- `baseline-source-change` por `docs/project/sprints/SPRINT-7.7.md`
+- `operational-tooling-change` por `.gitignore`
+- `test-change` por `pyproject.toml`
 <!-- MALAK_VAULT_SYNC:END -->
 
 ## 1. Propósito
