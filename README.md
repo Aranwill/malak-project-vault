@@ -8,9 +8,11 @@ authority_level: technical_documentation
 authority_rank: 6
 version: 1.0
 created: 2026-07-20
-last_reviewed: 2026-08-11
-source_of_truth: project-vault
-derived: false
+last_reviewed: 2026-08-16
+source_of_truth: repository
+source_repository: Aranwill/jarvis
+source_branch: main
+derived: true
 operational_context: true
 retrieval_enabled: true
 retrieval_scope: active
@@ -103,41 +105,20 @@ Cuando exista una contradicción, prevalece la fuente oficial de mayor autoridad
 
 ---
 
-## 4. Estado actual de Malāk
+## 4. Referencia operativa de Malāk
 
-Datos verificados al revisar este Vault:
+El README no mantiene manualmente HEAD, último sprint cerrado, suite vigente,
+PR reciente, próximo sprint ni baseline operativo mutable.
 
-```text
-Repositorio: Aranwill/jarvis
-Rama permanente: main
-Versión nominal: v0.6.0-alpha
-Último sprint cerrado: Sprint 7.5 — Security Control Plane Foundation
-Pull request de reconciliación más reciente: PR #32
-Suite documentada: 304 passed
-Próximo sprint aprobado: ninguno
-```
+Cuando esos datos deban representarse dentro del Project Vault, pertenecen
+exclusivamente al bloque machine-managed `MALAK_OPERATIONAL_STATE`.
 
-Último commit remoto verificado:
+El repositorio oficial `Aranwill/jarvis/main` sigue siendo la fuente de verdad.
+Las decisiones de autorización permanecen bajo gobernanza humana.
 
-```text
-7d6feaaaebb53b3c12bc2d1a170be85008ba9e5e
-```
-
-Descripción:
-
-```text
-Merge pull request #32 from Aranwill/docs/reconcile-project-context-2026-08-11
-```
-
-El baseline vigente tiene cerrado Sprint 7.5 — Security Control Plane
-Foundation. El bloque 7.x completado comprende los sprints 7.0 a 7.5.
-
-No existe un sprint posterior autorizado.
-
-La frontera entre `Kernel.receive` y `ConversationService` continúa sin
-integración formal aprobada.
-
-Estos datos deben revalidarse cuando cambie `HEAD`.
+Las fronteras arquitectónicas y de autoridad descritas en este documento son
+contexto estable; los valores operativos variables deben verificarse contra la
+evidencia oficial.
 
 ## 5. Principios del Vault
 
@@ -155,7 +136,8 @@ El Vault se rige por los siguientes principios:
 * índices y cachés reconstruibles;
 * solo lectura por defecto para auditoría;
 * exclusión de contenido rechazado del contexto activo;
-* mínima autoridad para herramientas automáticas.
+* mínima autoridad para herramientas automáticas;
+* `MALAK_OPERATIONAL_STATE` como único owner machine-managed del estado operativo mutable representado en el Vault.
 
 ---
 
@@ -226,7 +208,8 @@ No deberá contener reinterpretaciones que contradigan la documentación oficial
 
 ### `02-current-baseline`
 
-Contiene la vista operativa compacta del estado actual de Malāk.
+Contiene una referencia compacta al baseline, su arquitectura, restricciones,
+alcance e historia de validación.
 
 Documento principal:
 
@@ -234,19 +217,18 @@ Documento principal:
 CURRENT_BASELINE.md
 ```
 
-Debe reflejar:
+El cuerpo humano debe conservar:
 
-* rama;
-* versión;
-* último sprint cerrado;
-* pruebas;
-* componentes implementados;
+* identidad y rama oficial;
+* versión nominal;
+* componentes y fronteras documentadas;
 * restricciones;
 * fuera de alcance;
-* evidencia Git;
+* evidencia histórica relevante;
 * límites e incertidumbres.
 
-Debe actualizarse después de cambios materiales del baseline.
+HEAD, sprint estructurado, tests actuales y demás estado mutable pertenecen a
+`MALAK_OPERATIONAL_STATE` cuando deban representarse en el Vault.
 
 ---
 
@@ -293,10 +275,10 @@ Registros históricos disponibles incluyen:
 * `SPRINT-7.3-CLOSURE.md`;
 * `SPRINT-7.4-CLOSURE.md`.
 
-El baseline operativo vigente reconoce Sprint 7.5 como último sprint
-formalmente cerrado a partir de la documentación oficial del repositorio
-principal. La ausencia de una ficha de cierre específica del Vault no debe
-reinterpretarse como un estado anterior del proyecto.
+El índice de sprints y los documentos de cierre conservan historia y
+navegación. No determinan manualmente cuál es el sprint vigente ni el último
+cerrado; ese estado corresponde a `MALAK_OPERATIONAL_STATE` y a las fuentes
+oficiales cuando deba representarse.
 
 ---
 
@@ -375,13 +357,16 @@ MALAK_SESSION_CONTEXT.md
 Debe incluir:
 
 * identidad del proyecto;
-* baseline;
+* referencia de baseline;
 * restricciones;
 * decisiones abiertas;
-* último sprint cerrado;
-* estado del próximo sprint;
 * objetivo de la sesión;
+* contexto arquitectónico y de gobernanza;
+* hechos históricos necesarios para continuidad;
 * verificaciones obligatorias.
+
+HEAD, sprint vigente, tests y demás datos operativos variables no deben
+duplicarse manualmente en su cuerpo.
 
 Este archivo debe compartirse al comenzar una nueva sesión de trabajo.
 
@@ -515,7 +500,7 @@ La existencia de un archivo no demuestra vigencia.
 Antes de comenzar una sesión sobre Malāk:
 
 1. abrir `MALAK_SESSION_CONTEXT.md`;
-2. revisar `CURRENT_BASELINE.md`;
+2. revisar `CURRENT_BASELINE.md` y el estado machine-managed cuando corresponda;
 3. revisar `PENDING_DECISIONS.md`;
 4. verificar el repositorio;
 5. definir un objetivo único;
@@ -559,8 +544,8 @@ Al finalizar:
 5. registrar contradicciones;
 6. registrar riesgos;
 7. registrar validaciones;
-8. actualizar documentos afectados;
-9. actualizar `MALAK_SESSION_CONTEXT.md`;
+8. actualizar documentos humanos sólo cuando cambien arquitectura, gobernanza, decisiones, contexto o evidencia histórica;
+9. preservar el estado operativo mutable para `MALAK_OPERATIONAL_STATE`;
 10. definir un único próximo paso recomendado.
 
 El cierre de una sesión no autoriza el siguiente cambio.
@@ -581,9 +566,9 @@ Cuando se cierre un sprint:
 8. validar seguridad;
 9. documentar rollback;
 10. registrar PR y merge;
-11. actualizar baseline;
-12. actualizar contexto;
-13. actualizar decisiones;
+11. registrar evidencia histórica del cierre donde corresponda;
+12. actualizar contexto humano sólo si cambió información de continuidad;
+13. actualizar decisiones cuando exista una resolución material;
 14. eliminar la rama temporal cuando corresponda.
 
 Un sprint se cierra con evidencia, no con intención.
@@ -786,9 +771,9 @@ no implementada
 
 Próximos pasos sujetos a revisión y aprobación:
 
-1. mantener sincronizados los documentos activos después de cambios materiales;
-2. detectar referencias operativas desfasadas sin alterar registros históricos;
-3. evaluar un control determinista de frescura documental;
+1. mantener coherentes arquitectura, gobernanza, navegación y contexto humano;
+2. detectar duplicaciones manuales de estado operativo sin alterar registros históricos;
+3. mantener `MALAK_OPERATIONAL_STATE` como owner único del estado mutable;
 4. revisar el modelo de versionado y respaldo cuando exista una necesidad concreta;
 5. revisar la política de sincronización con Obsidian;
 6. revisar el esquema de metadatos;
@@ -805,7 +790,7 @@ Esta lista no autoriza implementaciones automáticas.
 Todo asistente que utilice este Vault deberá:
 
 * responder en español;
-* verificar datos variables;
+* obtener datos operativos variables desde `MALAK_OPERATIONAL_STATE` y verificar su evidencia oficial;
 * tratar `main` como rama oficial;
 * diferenciar baseline y roadmap;
 * no inventar cantidad de tests;
@@ -843,7 +828,7 @@ Todo asistente que utilice este Vault deberá:
 - [[00-governance/VAULT_GOVERNANCE|Gobernanza del Vault]]
 - [[00-governance/DOCUMENT_AUTHORITY_MODEL|Modelo de autoridad documental]]
 - [[00-governance/CONTENT_LIFECYCLE|Ciclo de vida del contenido]]
-- [[02-current-baseline/CURRENT_BASELINE|Baseline actual]]
+- [[02-current-baseline/CURRENT_BASELINE|Referencia de baseline]]
 - [[03-roadmap/IMPLEMENTATION_ROADMAP|Roadmap de implementación]]
 - [[05-decisions/PENDING_DECISIONS|Decisiones pendientes]]
 - [[08-session-context/MALAK_SESSION_CONTEXT|Contexto de sesión]]
