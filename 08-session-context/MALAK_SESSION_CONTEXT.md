@@ -215,7 +215,6 @@ Componentes principales:
 * Planner MVP;
 * Capability Registry;
 * EchoCapability;
-* `ConversationCapability`;
 * `ConversationCapability`.
 
 El Kernel continúa siendo la frontera cognitiva de entrada y permanece
