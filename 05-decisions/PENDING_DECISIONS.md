@@ -28,41 +28,42 @@ retrieval_scope: proposals
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260816T162551531070Z_864df56a_53464804`
-- **HEAD oficial observado:** `864df56a0949229e33706ca5c1db8f99dbeebc56`
-- **Commit previamente observado:** `089255e23bd2b686436140ca569edf09c08819a7`
-- **Generado:** `2026-08-16T16:25:51.531070+00:00`
+- **Run ID:** `20260817T012218198507Z_6c179730_a30db03e`
+- **HEAD oficial observado:** `6c179730e6d4220bbba22a8282f978a7a1aa9155`
+- **Commit previamente observado:** `864df56a0949229e33706ca5c1db8f99dbeebc56`
+- **Generado:** `2026-08-17T01:22:18.198507+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
 ### Estado estructurado de la fuente oficial
 
-- **Ficha de sprint más reciente:** `docs/project/sprints/SPRINT-7.6.md`
-- **Título declarado:** Sprint 7.6 — Secure Context Lifecycle Foundation
-- **Estado declarado:** `cerrado`
-- **`as_of_commit` declarado:** `821497485f1b861cafa97cc5720616c3314b35bf`
+- **Ficha de sprint más reciente:** `docs/project/sprints/SPRINT-7.7.md`
+- **Título declarado:** Sprint 7.7 — Validación de baseline y release interna
+- **Estado declarado:** `completado`
+- **`as_of_commit` declarado:** `2cdbeabf722aeae7258e28255d9dc25dbfd5fa94`
 
 ### Commits oficiales observados
 
-- 864df56a0949229e33706ca5c1db8f99dbeebc56	docs(project): close Sprint 7.7 after promotion
-- 2cdbeabf722aeae7258e28255d9dc25dbfd5fa94	docs(project): complete Sprint 7.7-F final certification review
-- 13e2c7888c342c070ad44c16f74e0df6597bd083	docs(project): complete Sprint 7.7-E release readiness
-- ce6b89e591189fb0ad89cd25629566f41a156b2f	docs(project): complete Sprint 7.7-D security assurance
-- 9ef47dfc599fb61bd0917beb8c9f9afa461396f4	docs(project): complete Sprint 7.7-C reconciliation
-- 1c787deba94a13128232a20924642ffb8c0f73e8	docs(project): reconcile Sprint 7.7 derived documentation
-- c7587cd82918d3293061ced2ce53832e3d707bd1	docs(project): complete Sprint 7.7-B technical validation
-- 34c711c7ecd73fb4187d675e1be6fefbeee8c8b3	fix(packaging): constrain Malak package discovery
-- 1488c495fbaf69ee27774ce755fc482c05e6595a	docs(project): complete Sprint 7.7-A evidence freeze
-- 1ac0f2bb082add59e570e3eac931ffd481b520a7	docs(project): activate Sprint 7.7 baseline certification
+- 6c179730e6d4220bbba22a8282f978a7a1aa9155	Merge pull request #44 from Aranwill/fix/cross-repo-baseline-reconciliation
+- 0bf5534ff7d5764dc7d41be3b30b2111c1b59dc4	docs(readme): align current baseline with Sprint 7.7
 
 ### Evidencia que originó esta proyección
 
-- `baseline-source-change` por `CHANGELOG.md`
-- `baseline-source-change` por `PROJECT.md`
-- `baseline-source-change` por `docs/project/implementation_roadmap.md`
-- `baseline-source-change` por `docs/project/project_context.md`
-- `baseline-source-change` por `docs/project/sprints/SPRINT-7.7.md`
+- `baseline-source-change` por `README.md`
 <!-- MALAK_VAULT_SYNC:END -->
+
+<!-- MALAK_OPERATIONAL_STATE:START -->
+## Estado operativo derivado
+
+> Estado machine-owned derivado de la fuente oficial.
+> No concede autoridad ni reemplaza decisiones humanas.
+
+- **HEAD oficial:** `6c179730e6d4220bbba22a8282f978a7a1aa9155`
+- **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.7.md`
+- **Titulo declarado:** Sprint 7.7 — Validación de baseline y release interna
+- **Estado declarado:** `completado`
+- **`as_of_commit` declarado:** `2cdbeabf722aeae7258e28255d9dc25dbfd5fa94`
+<!-- MALAK_OPERATIONAL_STATE:END -->
 
 ## 1. Propósito
 
