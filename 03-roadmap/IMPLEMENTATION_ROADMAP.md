@@ -28,28 +28,36 @@ retrieval_scope: active
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260817T012218198507Z_6c179730_a30db03e`
-- **HEAD oficial observado:** `6c179730e6d4220bbba22a8282f978a7a1aa9155`
-- **Commit previamente observado:** `864df56a0949229e33706ca5c1db8f99dbeebc56`
-- **Generado:** `2026-08-17T01:22:18.198507+00:00`
+- **Run ID:** `20260817T032713650673Z_bd9e3fe7_b4a4695b`
+- **HEAD oficial observado:** `bd9e3fe7f6320a8e040b959d7c6c8f5f4372d6d6`
+- **Commit previamente observado:** `6c179730e6d4220bbba22a8282f978a7a1aa9155`
+- **Generado:** `2026-08-17T03:27:13.650673+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
 ### Estado estructurado de la fuente oficial
 
-- **Ficha de sprint más reciente:** `docs/project/sprints/SPRINT-7.7.md`
-- **Título declarado:** Sprint 7.7 — Validación de baseline y release interna
-- **Estado declarado:** `completado`
-- **`as_of_commit` declarado:** `2cdbeabf722aeae7258e28255d9dc25dbfd5fa94`
+- **Ficha de sprint más reciente:** `docs/project/sprints/SPRINT-7.8.md`
+- **Título declarado:** Sprint 7.8 — Cognitive Conversation Execution Path Foundation
+- **Estado declarado:** `activo`
+- **`as_of_commit` declarado:** `6c179730e6d4220bbba22a8282f978a7a1aa9155`
 
 ### Commits oficiales observados
 
-- 6c179730e6d4220bbba22a8282f978a7a1aa9155	Merge pull request #44 from Aranwill/fix/cross-repo-baseline-reconciliation
-- 0bf5534ff7d5764dc7d41be3b30b2111c1b59dc4	docs(readme): align current baseline with Sprint 7.7
+- bd9e3fe7f6320a8e040b959d7c6c8f5f4372d6d6	Merge pull request #45 from Aranwill/sprint/7.8-cognitive-conversation-execution-path
+- 85dfef4f4675013ec6ef812be135299d2042adf6	docs(project): close Sprint 7.8 cognitive conversation path
+- 434dc84e439d8ef032f3634a49e3711afffbef7d	docs(project): complete Sprint 7.8 real runtime validation
+- 5651246e761ae00f7373bd677350442158da1279	test(conversation): validate cognitive execution path
+- f6a6569885212dbf081e9158826a20092d50ba3a	feat(cli): route conversation through kernel
+- 8423275d80c08307e08405420a00526cb9c4cd2e	feat(app): compose conversation kernel
+- 054b76dc7f996e8b8ba1489560284a5f23e38544	feat(planner): add deterministic capability routing
+- 8d35e4582ed6d11fae346d0444372781374993da	feat(conversation): add conversation capability adapter
+- 65b2efaa79fb6ff959c1560563cdf7130269c503	feat(kernel): add external composition seam
+- 7ad333ca9e835247dfceb5d59fade63cc94ef775	docs(project): activate Sprint 7.8 cognitive conversation path
 
 ### Evidencia que originó esta proyección
 
-- `baseline-source-change` por `README.md`
+- `baseline-source-change` por `docs/project/sprints/SPRINT-7.8.md`
 <!-- MALAK_VAULT_SYNC:END -->
 
 <!-- MALAK_OPERATIONAL_STATE:START -->
@@ -58,11 +66,11 @@ retrieval_scope: active
 > Estado machine-owned derivado de la fuente oficial.
 > No concede autoridad ni reemplaza decisiones humanas.
 
-- **HEAD oficial:** `6c179730e6d4220bbba22a8282f978a7a1aa9155`
-- **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.7.md`
-- **Titulo declarado:** Sprint 7.7 — Validación de baseline y release interna
-- **Estado declarado:** `completado`
-- **`as_of_commit` declarado:** `2cdbeabf722aeae7258e28255d9dc25dbfd5fa94`
+- **HEAD oficial:** `bd9e3fe7f6320a8e040b959d7c6c8f5f4372d6d6`
+- **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.8.md`
+- **Titulo declarado:** Sprint 7.8 — Cognitive Conversation Execution Path Foundation
+- **Estado declarado:** `activo`
+- **`as_of_commit` declarado:** `6c179730e6d4220bbba22a8282f978a7a1aa9155`
 <!-- MALAK_OPERATIONAL_STATE:END -->
 
 ## 1. Propósito
