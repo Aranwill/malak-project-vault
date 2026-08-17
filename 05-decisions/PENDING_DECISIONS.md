@@ -455,7 +455,7 @@ capacidad sensible posterior.
 **Estado:**
 
 ```text
-closed
+superseded
 ```
 
 **Prioridad histórica:**
@@ -464,9 +464,10 @@ closed
 media
 ```
 
-**Contexto:**
+**Contexto histórico:**
 
-El pipeline Kernel–Planner–Capability y el subsistema conversacional de CLI son rutas separadas:
+Durante el cierre del Sprint 7.3, el pipeline Kernel–Planner–Capability y el
+subsistema conversacional de CLI permanecían como rutas separadas:
 
 ```text
 Kernel
@@ -485,13 +486,15 @@ CLI
 → LLMRuntime
 ```
 
-**Resolución:**
+En ese baseline no existía una necesidad funcional aprobada que justificara
+integrar ambas rutas.
 
-No se aprueba ni se propone una integración formal entre `Kernel.receive` y `ConversationService`.
+**Resolución histórica:**
 
-El cierre del Sprint 7.3 preserva expresamente esta separación.
+No se aprobó ni se propuso en Sprint 7.3 una integración formal entre
+`Kernel.receive` y `ConversationService`.
 
-El Kernel no debe depender de:
+La decisión preservó expresamente que el Kernel no debía depender de:
 
 * `ConversationService`;
 * providers concretos;
@@ -503,7 +506,7 @@ El Kernel no debe depender de:
 * UI;
 * transporte.
 
-Una relación futura solo podrá volver a evaluarse si existe:
+Una relación futura solo podía volver a evaluarse ante:
 
 * una necesidad funcional concreta;
 * un contrato arquitectónico explícito;
@@ -514,13 +517,85 @@ Una relación futura solo podrá volver a evaluarse si existe:
 
 **Riesgo evitado:**
 
-Modificar prematuramente el límite arquitectónico del Kernel o convertirlo en orquestador de infraestructura.
+Modificar prematuramente el límite arquitectónico del Kernel o convertirlo en
+orquestador de infraestructura.
+
+**Evolución posterior — Sprint 7.8:**
+
+Sprint 7.8 introdujo una necesidad funcional concreta: establecer una primera
+ruta cognitiva conversacional integrada y validada sin acoplar el Kernel a la
+infraestructura conversacional.
+
+La solución implementada no añadió una dependencia directa entre
+`Kernel.receive` y `ConversationService`.
+
+Se introdujo:
+
+```text
+ConversationCapability
+```
+
+como frontera de adaptación dentro de la arquitectura:
+
+```text
+Kernel
+→ Planner
+→ CapabilityRegistry
+→ ConversationCapability
+→ ConversationService
+→ ConversationProviderRegistry
+→ RuntimeConversationProvider
+→ LLMRuntime
+```
+
+La composición de `ConversationService`, providers, runtimes, modelos y
+configuración continúa realizándose fuera del Kernel.
+
+Por tanto, la restricción esencial de esta decisión permanece vigente:
+
+```text
+Kernel no depende directamente de ConversationService ni de infraestructura LLM.
+```
+
+Lo que queda superseded es exclusivamente la afirmación histórica de que no
+existe una integración formal entre ambas rutas.
+
+**Superseded por:**
+
+```text
+Sprint 7.8 — Cognitive Conversation Execution Path Foundation
+```
+
+**Evidencia posterior:**
+
+* `docs/project/sprints/SPRINT-7.8.md`;
+* `src/malak/kernel/kernel.py`;
+* `src/malak/services/planner.py`;
+* `src/malak/capabilities/conversation.py`;
+* `src/malak/app/composition.py`;
+* `src/malak/app/cli.py`;
+* `tests/test_kernel.py`;
+* `tests/test_conversation_capability.py`;
+* `tests/test_app_composition.py`;
+* `tests/test_conversation_execution_path.py`;
+* `tests/test_cli.py`;
+* PR #45;
+* PR #46.
 
 **Resultado:**
 
-La separación definida por esta resolución se conserva como decisión arquitectónica.
+La decisión original cumplió su función de impedir un acoplamiento prematuro del
+Kernel.
 
-Esta decisión no autoriza una futura integración automática.
+Sprint 7.8 satisfizo posteriormente las condiciones que permitían reevaluar la
+relación y estableció una integración indirecta, explícita y desacoplada mediante
+`ConversationCapability`.
+
+La decisión pasa a `superseded` para conservar la evolución arquitectónica sin
+reescribir retrospectivamente la historia.
+
+No se concede ninguna autorización adicional para modificar el Kernel,
+`ConversationService`, el routing, providers o runtimes.
 
 ---
 

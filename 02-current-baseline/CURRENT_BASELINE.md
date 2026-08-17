@@ -320,31 +320,76 @@ Antes de una nueva implementación deberá verificarse nuevamente en el entorno 
 
 ## 7. Estado arquitectónico general
 
-Malāk mantiene actualmente dos rutas diferenciadas.
+Sprint 7.8 integró la ruta conversacional dentro del pipeline
+Kernel–Planner–Capability sin introducir dependencias de infraestructura en el
+Kernel.
+
+La ruta cognitiva conversacional validada es:
+
+```text
+Entrada de usuario
+        ↓
+CLI
+        ↓
+Request
+        ↓
+Kernel.receive()
+        ↓
+Planner
+        ↓
+CapabilityRegistry
+        ↓
+ConversationCapability
+        ↓
+ConversationService
+        ↓
+ConversationProviderRegistry
+        ↓
+RuntimeConversationProvider
+        ↓
+LLMRuntime
+├── MockLLMRuntime
+└── OllamaRuntime
+```
 
 ### 7.1 Pipeline Kernel–Planner–Capability
 
-Ruta arquitectónica interna destinada al procesamiento controlado mediante:
+El Kernel continúa procesando solicitudes mediante:
 
 * Kernel;
 * Planner;
 * Capability Registry;
 * Capabilities.
 
-### 7.2 Subsistema conversacional de CLI
+El Kernel no conoce ni construye `ConversationService`, providers, runtimes,
+modelos ni configuración de infraestructura.
 
-Ruta técnica actual:
+La selección de la capacidad conversacional se realiza mediante el Planner y el
+Capability Registry.
+
+### 7.2 Adaptación conversacional
+
+`ConversationCapability` constituye la frontera de adaptación entre el contrato
+genérico de Capability y `ConversationService`.
+
+Su función es:
+
+* recibir el contenido despachado por el Kernel;
+* construir la solicitud conversacional correspondiente;
+* delegar en `ConversationService`;
+* devolver al Kernel únicamente el resultado de la Capability.
+
+La integración entre el pipeline cognitivo y el subsistema conversacional es,
+por tanto, indirecta y desacoplada.
+
+### 7.3 Composición externa
+
+La construcción concreta de la ruta conversacional permanece fuera del Kernel.
+
+La frontera de aplicación compone:
 
 ```text
-Variables de entorno
-        ↓
-CLIConfiguration
-        ↓
-build_runtime()
-        ↓
 LLMRuntime
-├── MockLLMRuntime
-└── OllamaRuntime
         ↓
 RuntimeConversationProvider
         ↓
@@ -352,24 +397,24 @@ ConversationProviderRegistry
         ↓
 ConversationService
         ↓
-run_cli()
+ConversationCapability
+        ↓
+CapabilityRegistry
+        ↓
+Planner
+        ↓
+Kernel
 ```
 
-Estas rutas permanecen separadas.
+Esta composición preserva Runtime Independence y evita introducir en el Kernel
+dependencias de Ollama, providers, servicios conversacionales, variables de
+entorno o modelos concretos.
 
-Todavía no existe una integración formal validada entre:
+La CLI utiliza el Kernel como punto de entrada para las solicitudes
+conversacionales ordinarias.
 
-```text
-Kernel.receive
-```
-
-y:
-
-```text
-ConversationService
-```
-
-La CLI técnica no representa todavía el pipeline cognitivo completo de Malāk.
+La integración cognitiva conversacional fue validada end-to-end durante Sprint
+7.8.
 
 ---
 
@@ -554,8 +599,10 @@ Límites vigentes:
 
 * `RuntimeConversationProvider` no selecciona modelos ni configura runtimes;
 * `ConversationService` no implementa retries, logging, métricas, persistencia ni gobernanza;
-* no existe integración formal entre `ConversationService` y `Kernel.receive`;
-* el Sprint 7.3 no incorporó nuevas Capabilities.
+* `ConversationService` participa en el flujo del Kernel únicamente mediante `ConversationCapability`;
+* el Kernel no depende directamente de `ConversationService`;
+* providers, runtimes, modelos y configuración continúan fuera del Kernel;
+* la composición de la ruta conversacional se realiza en la frontera de aplicación.
 
 ---
 
@@ -982,7 +1029,6 @@ No debe instalarse o incorporarse improvisadamente.
 
 Todavía no forman parte del baseline operativo:
 
-* integración formal entre `Kernel.receive` y `ConversationService`;
 * memoria conversacional;
 * historial persistente de conversaciones;
 * agentes;
