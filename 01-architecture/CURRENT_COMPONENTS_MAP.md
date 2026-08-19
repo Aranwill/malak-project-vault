@@ -28,10 +28,10 @@ tags:
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260817T033713631080Z_67590ba2_b4a4695b`
-- **HEAD oficial observado:** `67590ba2ffe7c4938122a5ad2771266c45a21057`
-- **Commit previamente observado:** `6c179730e6d4220bbba22a8282f978a7a1aa9155`
-- **Generado:** `2026-08-17T03:37:13.631080+00:00`
+- **Run ID:** `20260819T234515311580Z_3a45a94a_a386ab03`
+- **HEAD oficial observado:** `3a45a94a630edcf071e8752897cc7f40afcd2991`
+- **Commit previamente observado:** `67590ba2ffe7c4938122a5ad2771266c45a21057`
+- **Generado:** `2026-08-19T23:45:15.311580+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
@@ -44,27 +44,18 @@ tags:
 
 ### Commits oficiales observados
 
-- 67590ba2ffe7c4938122a5ad2771266c45a21057	Merge pull request #46 from Aranwill/fix/sprint-7.8-closure-metadata
-- 87e1fda99ebb97983a6800768a48693020a0cccf	docs(project): reconcile Sprint 7.8 closure status
-- bd9e3fe7f6320a8e040b959d7c6c8f5f4372d6d6	Merge pull request #45 from Aranwill/sprint/7.8-cognitive-conversation-execution-path
-- 85dfef4f4675013ec6ef812be135299d2042adf6	docs(project): close Sprint 7.8 cognitive conversation path
-- 434dc84e439d8ef032f3634a49e3711afffbef7d	docs(project): complete Sprint 7.8 real runtime validation
-- 5651246e761ae00f7373bd677350442158da1279	test(conversation): validate cognitive execution path
-- f6a6569885212dbf081e9158826a20092d50ba3a	feat(cli): route conversation through kernel
-- 8423275d80c08307e08405420a00526cb9c4cd2e	feat(app): compose conversation kernel
-- 054b76dc7f996e8b8ba1489560284a5f23e38544	feat(planner): add deterministic capability routing
-- 8d35e4582ed6d11fae346d0444372781374993da	feat(conversation): add conversation capability adapter
-- 65b2efaa79fb6ff959c1560563cdf7130269c503	feat(kernel): add external composition seam
-- 7ad333ca9e835247dfceb5d59fade63cc94ef775	docs(project): activate Sprint 7.8 cognitive conversation path
+- 3a45a94a630edcf071e8752897cc7f40afcd2991	Merge pull request #47 from Aranwill/fix/documentation-engineering-principle-reconciliation
+- 4f83b8c5919daaca869b46e7c216b7778b6a04e3	docs(architecture): clean ADR index spacing
+- 5a6bedbf0da0429da36d920052a45e989fa71c3b	docs(architecture): add specification and verification principle
+- af85177343b76e6069c5ad8e17566406daab6774	docs(project): reconcile roadmap and Sprint 7.8 state
 
 ### Evidencia que originó esta proyección
 
-- `architecture-change` por `src/malak/app/cli.py`
-- `architecture-change` por `src/malak/app/composition.py`
-- `architecture-change` por `src/malak/capabilities/conversation.py`
-- `architecture-change` por `src/malak/kernel/kernel.py`
-- `architecture-change` por `src/malak/services/planner.py`
-- `baseline-source-change` por `docs/project/sprints/SPRINT-7.8.md`
+- `architecture-change` por `docs/architecture/adr/ADR-004-specification-and-verification-first.md`
+- `architecture-change` por `docs/architecture/blueprint.md`
+- `architecture-change` por `docs/architecture/decisions/decision-index.md`
+- `baseline-source-change` por `README.md`
+- `baseline-source-change` por `docs/project/implementation_roadmap.md`
 <!-- MALAK_VAULT_SYNC:END -->
 
 <!-- MALAK_OPERATIONAL_STATE:START -->
@@ -73,7 +64,7 @@ tags:
 > Estado machine-owned derivado de la fuente oficial.
 > No concede autoridad ni reemplaza decisiones humanas.
 
-- **HEAD oficial:** `67590ba2ffe7c4938122a5ad2771266c45a21057`
+- **HEAD oficial:** `3a45a94a630edcf071e8752897cc7f40afcd2991`
 - **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.8.md`
 - **Titulo declarado:** Sprint 7.8 — Cognitive Conversation Execution Path Foundation
 - **Estado declarado:** `completado`
