@@ -25,29 +25,48 @@ retrieval_scope: active
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260815T010848675956Z_c65bff25_30336572`
-- **HEAD oficial observado:** `c65bff257f877460c153583bfcd9819224ca0f5c`
-- **Commit previamente observado:** `223b0c3794f4a857ff3ce5c3556a59445b995831`
-- **Generado:** `2026-08-15T01:08:48.675956+00:00`
+- **Run ID:** `20260824T230643058760Z_e3c28131_9ed90ddf`
+- **HEAD oficial observado:** `e3c28131f491b740c352da79537cd9233d7f4979`
+- **Commit previamente observado:** `3a45a94a630edcf071e8752897cc7f40afcd2991`
+- **Generado:** `2026-08-24T23:06:43.058760+00:00`
 - **Prioridad:** `medium`
 - **Disposición:** `review_required`
 
 ### Estado estructurado de la fuente oficial
 
-- **Ficha de sprint más reciente:** `docs/project/sprints/SPRINT-7.5.md`
-- **Título declarado:** Sprint 7.5 — Base del plano de control de seguridad
-- **Estado declarado:** `cerrado`
-- **`as_of_commit` declarado:** `62bdc11c3ce16cb2cb54bb61bddfab4e39d689a8`
+- **Ficha de sprint más reciente:** `docs/project/sprints/SPRINT-7.8.md`
+- **Título declarado:** Sprint 7.8 — Cognitive Conversation Execution Path Foundation
+- **Estado declarado:** `completado`
+- **`as_of_commit` declarado:** `6c179730e6d4220bbba22a8282f978a7a1aa9155`
 
 ### Commits oficiales observados
 
-- c65bff257f877460c153583bfcd9819224ca0f5c	Merge pull request #36 from Aranwill/docs/concept-governance-clarification
-- e42c94e486f6d811d8f9ca09e0575d3a933b1b90	docs(concepts): clarify vault projection authority
+- e3c28131f491b740c352da79537cd9233d7f4979	Merge pull request #50 from Aranwill/docs/human-only-pr-promotion
+- 671d8e598d2ab2660403c0c36e16d6bda4983b92	docs(agents): reserve PR promotion for human review
+- a10b9ed46fe3b4b736b8db872ed665b1fdbc6a31	Merge pull request #49 from Aranwill/docs/repository-review-drift-discipline
+- 3577da2a494a7b4bce7472f6e0101275df5ee967	docs(agents): enforce repository review and drift discipline
+- 064aea4b502df7e10006686734610b992079f562	Merge pull request #48 from Aranwill/docs/ephemeral-agent-execution-evidence
+- 1f4c09346812f9b554c4302312fbcd4b1c5101e4	docs(concepts): preserve governed ephemeral agent execution model
 
 ### Evidencia que originó esta proyección
 
+- `conceptual-foundation-change` por `docs/project/concepts/GOVERNED_EPHEMERAL_AGENT_EXECUTION_EVIDENCE_REFERENCE.md`
+- `conceptual-foundation-change` por `docs/project/concepts/GOVERNED_SWARM_LONG_HORIZON_REFERENCE.md`
 - `conceptual-foundation-change` por `docs/project/concepts/README.md`
 <!-- MALAK_VAULT_SYNC:END -->
+
+<!-- MALAK_OPERATIONAL_STATE:START -->
+## Estado operativo derivado
+
+> Estado machine-owned derivado de la fuente oficial.
+> No concede autoridad ni reemplaza decisiones humanas.
+
+- **HEAD oficial:** `e3c28131f491b740c352da79537cd9233d7f4979`
+- **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.8.md`
+- **Titulo declarado:** Sprint 7.8 — Cognitive Conversation Execution Path Foundation
+- **Estado declarado:** `completado`
+- **`as_of_commit` declarado:** `6c179730e6d4220bbba22a8282f978a7a1aa9155`
+<!-- MALAK_OPERATIONAL_STATE:END -->
 
 ## 1. Propósito
 
