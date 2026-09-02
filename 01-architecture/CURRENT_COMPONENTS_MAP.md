@@ -28,10 +28,10 @@ tags:
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260902T222406203242Z_d1419dd8_d3fa271a`
-- **HEAD oficial observado:** `d1419dd84e8d8bbb0904945008943f4559d4c69a`
-- **Commit previamente observado:** `e3c28131f491b740c352da79537cd9233d7f4979`
-- **Generado:** `2026-09-02T22:24:06.203242+00:00`
+- **Run ID:** `20260902T235110328589Z_d710c4ca_c46a486b`
+- **HEAD oficial observado:** `d710c4ca2593445f86184af380ab9be7fbe9885d`
+- **Commit previamente observado:** `d1419dd84e8d8bbb0904945008943f4559d4c69a`
+- **Generado:** `2026-09-02T23:51:10.328589+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
@@ -44,12 +44,18 @@ tags:
 
 ### Commits oficiales observados
 
-- d1419dd84e8d8bbb0904945008943f4559d4c69a	Merge pull request #51 from Aranwill/fix/pre-sprint-documentation-reconciliation
-- e042a400c8017704408b8f74d8e97a58dc7854c9	docs(project): reconcile project context with Sprint 7.8 baseline
+- d710c4ca2593445f86184af380ab9be7fbe9885d	Merge pull request #52 from Aranwill/fix/documentation-drift-closure
+- 5d962a628d5b00fe60302eb7e373a2874b9ffb3e	docs(project): clean review safeguards formatting
+- 1f024c54dbee55f86b9d373dfb2bec365846cf5f	docs(project): close documentation drift and add review safeguards
 
 ### Evidencia que originó esta proyección
 
-- `baseline-source-change` por `docs/project/project_context.md`
+- `architecture-change` por `docs/operations/operational_architecture.md`
+- `baseline-source-change` por `AGENTS.md`
+- `baseline-source-change` por `docs/project/implementation_roadmap.md`
+- `baseline-source-change` por `docs/project/roadmap.md`
+- `baseline-source-change` por `documents/projects/jarvis/proyecto_jarvis_base.md`
+- `baseline-source-change` por `documents/projects/jarvis/setup.md`
 <!-- MALAK_VAULT_SYNC:END -->
 
 <!-- MALAK_OPERATIONAL_STATE:START -->
@@ -58,7 +64,7 @@ tags:
 > Estado machine-owned derivado de la fuente oficial.
 > No concede autoridad ni reemplaza decisiones humanas.
 
-- **HEAD oficial:** `d1419dd84e8d8bbb0904945008943f4559d4c69a`
+- **HEAD oficial:** `d710c4ca2593445f86184af380ab9be7fbe9885d`
 - **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.8.md`
 - **Titulo declarado:** Sprint 7.8 — Cognitive Conversation Execution Path Foundation
 - **Estado declarado:** `completado`
