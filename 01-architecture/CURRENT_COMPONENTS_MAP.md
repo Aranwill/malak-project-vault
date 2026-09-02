@@ -28,10 +28,10 @@ tags:
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260824T230643058760Z_e3c28131_9ed90ddf`
-- **HEAD oficial observado:** `e3c28131f491b740c352da79537cd9233d7f4979`
-- **Commit previamente observado:** `3a45a94a630edcf071e8752897cc7f40afcd2991`
-- **Generado:** `2026-08-24T23:06:43.058760+00:00`
+- **Run ID:** `20260902T222406203242Z_d1419dd8_d3fa271a`
+- **HEAD oficial observado:** `d1419dd84e8d8bbb0904945008943f4559d4c69a`
+- **Commit previamente observado:** `e3c28131f491b740c352da79537cd9233d7f4979`
+- **Generado:** `2026-09-02T22:24:06.203242+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
@@ -44,17 +44,12 @@ tags:
 
 ### Commits oficiales observados
 
-- e3c28131f491b740c352da79537cd9233d7f4979	Merge pull request #50 from Aranwill/docs/human-only-pr-promotion
-- 671d8e598d2ab2660403c0c36e16d6bda4983b92	docs(agents): reserve PR promotion for human review
-- a10b9ed46fe3b4b736b8db872ed665b1fdbc6a31	Merge pull request #49 from Aranwill/docs/repository-review-drift-discipline
-- 3577da2a494a7b4bce7472f6e0101275df5ee967	docs(agents): enforce repository review and drift discipline
-- 064aea4b502df7e10006686734610b992079f562	Merge pull request #48 from Aranwill/docs/ephemeral-agent-execution-evidence
-- 1f4c09346812f9b554c4302312fbcd4b1c5101e4	docs(concepts): preserve governed ephemeral agent execution model
+- d1419dd84e8d8bbb0904945008943f4559d4c69a	Merge pull request #51 from Aranwill/fix/pre-sprint-documentation-reconciliation
+- e042a400c8017704408b8f74d8e97a58dc7854c9	docs(project): reconcile project context with Sprint 7.8 baseline
 
 ### Evidencia que originó esta proyección
 
-- `baseline-source-change` por `AGENTS.md`
-- `baseline-source-change` por `documents/projects/jarvis/ideas.md`
+- `baseline-source-change` por `docs/project/project_context.md`
 <!-- MALAK_VAULT_SYNC:END -->
 
 <!-- MALAK_OPERATIONAL_STATE:START -->
@@ -63,7 +58,7 @@ tags:
 > Estado machine-owned derivado de la fuente oficial.
 > No concede autoridad ni reemplaza decisiones humanas.
 
-- **HEAD oficial:** `e3c28131f491b740c352da79537cd9233d7f4979`
+- **HEAD oficial:** `d1419dd84e8d8bbb0904945008943f4559d4c69a`
 - **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.8.md`
 - **Titulo declarado:** Sprint 7.8 — Cognitive Conversation Execution Path Foundation
 - **Estado declarado:** `completado`
