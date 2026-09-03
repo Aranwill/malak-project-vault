@@ -28,10 +28,10 @@ retrieval_scope: active
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260903T131908023088Z_1d6e650e_c2e2b763`
-- **HEAD oficial observado:** `1d6e650e98e2bbd01de7757eb65a847fa29633fc`
-- **Commit previamente observado:** `96931e2a2c5f4cb82c3bae92637ae77dff5b9610`
-- **Generado:** `2026-09-03T13:19:08.023088+00:00`
+- **Run ID:** `20260903T162700661287Z_28644354_91dd145f`
+- **HEAD oficial observado:** `2864435401353e5abcfcb51fc276361a0225c2b7`
+- **Commit previamente observado:** `1d6e650e98e2bbd01de7757eb65a847fa29633fc`
+- **Generado:** `2026-09-03T16:27:00.661287+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
@@ -44,12 +44,12 @@ retrieval_scope: active
 
 ### Commits oficiales observados
 
-- 1d6e650e98e2bbd01de7757eb65a847fa29633fc	Merge pull request #54 from Aranwill/fix/blueprint-metadata-consistency
-- a2db5a15bc90e422ab80b44210b0b326aef5fbb1	docs(architecture): decouple Blueprint status from implementation state
+- 2864435401353e5abcfcb51fc276361a0225c2b7	Merge pull request #55 from Aranwill/docs/vault-first-context-retrieval
+- 3a636551c5294c666084345ebf4511130d89fa10	docs: establish vault-first context retrieval
 
 ### Evidencia que originó esta proyección
 
-- `architecture-change` por `docs/architecture/blueprint.md`
+- `baseline-source-change` por `AGENTS.md`
 <!-- MALAK_VAULT_SYNC:END -->
 
 <!-- MALAK_OPERATIONAL_STATE:START -->
@@ -58,7 +58,7 @@ retrieval_scope: active
 > Estado machine-owned derivado de la fuente oficial.
 > No concede autoridad ni reemplaza decisiones humanas.
 
-- **HEAD oficial:** `1d6e650e98e2bbd01de7757eb65a847fa29633fc`
+- **HEAD oficial:** `2864435401353e5abcfcb51fc276361a0225c2b7`
 - **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.8.md`
 - **Titulo declarado:** Sprint 7.8 — Cognitive Conversation Execution Path Foundation
 - **Estado declarado:** `completado`
