@@ -54,6 +54,47 @@ Una coincidencia semántica, un resumen, una nota, una conversación, una proyec
 
 La similitud no concede autoridad.
 
+## Recuperación de contexto: Vault-first
+
+Para consultas ordinarias de contexto, continuidad, estado general, roadmap,
+decisiones, arquitectura conocida o referencias conceptuales de Malāk, el Vault
+es la fuente derivada predeterminada de recuperación de contexto.
+
+Secuencia predeterminada:
+
+```text
+08-session-context/MALAK_SESSION_CONTEXT.md
+        ↓
+documento especializado del Vault cuando sea necesario
+        ↓
+respuesta basada en contexto derivado vigente
+```
+
+La fuente de autoridad y la fuente de recuperación de contexto son conceptos
+distintos. `Aranwill/jarvis/main` continúa siendo la fuente de verdad; el Vault
+es el punto de entrada preferido para recuperar contexto de forma eficiente.
+
+No consultes por defecto Malāk ni el Sync Agent cuando el Vault aporte contexto
+suficiente, coherente y reconciliado.
+
+Escala a las fuentes oficiales de Malāk cuando:
+
+- la tarea vaya a modificar código o documentación oficial de Malāk;
+- se requiera evidencia exacta de implementación, tests o estado operativo;
+- se requiera autoridad normativa, arquitectónica, de seguridad o gobernanza;
+- el Vault presente contradicciones, gaps, drift o estado no reconciliado;
+- la información necesaria no esté disponible o sea incierta en el Vault;
+- se solicite una auditoría, certificación o revisión independiente desde fuente;
+- el propietario solicite explícitamente revisar directamente el repositorio.
+
+Consulta el Vault Sync Agent únicamente cuando la tarea involucre sincronización,
+mapping, cobertura, reconciliación, propuestas de sync o un fallo reportado por
+ese mecanismo.
+
+El `Minimum Review Set` transversal definido más adelante aplica a revisiones
+integrales, auditorías, reconciliaciones y detección de drift; no constituye el
+procedimiento predeterminado para recuperación ordinaria de contexto.
+
 ## Fuentes locales de gobierno del Vault
 
 Antes de realizar cambios materiales en el Vault, lee según aplicabilidad:
@@ -65,11 +106,11 @@ README.md
 00-governance/CONTENT_LIFECYCLE.md
 ```
 
-Cuando el trabajo dependa del estado real de Malāk, consulta también las fuentes oficiales correspondientes en `Aranwill/jarvis/main`.
+Cuando la tarea requiera evidencia primaria, autoridad oficial, una modificación de Malāk o la resolución de una contradicción, consulta las fuentes oficiales correspondientes en `Aranwill/jarvis/main`.
 
 ## Revisión integral del Vault
 
-Cuando la tarea solicite revisar el estado del Vault, reconciliarlo con Malāk, detectar inconsistencias, validar una proyección o determinar próximos pasos, la revisión deberá basarse en evidencia y no limitarse a `README.md`.
+Cuando la tarea solicite una revisión integral del estado del Vault, reconciliarlo con Malāk, detectar inconsistencias, validar una proyección o determinar próximos pasos, la revisión deberá basarse en evidencia y no limitarse a `README.md`.
 
 ### Minimum Review Set
 
@@ -165,6 +206,50 @@ human decision
 Una propuesta del Sync Agent no se considera correcta por haber sido generada automáticamente.
 
 Toda proyección relevante debe poder remontarse a su fuente.
+
+### Vault Context Reconciliation Gate
+
+Toda Draft Pull Request generada por el Sync Agent deberá completar una
+reconciliación contextual de cada documento candidato antes de considerarse
+lista para promoción o merge.
+
+Cada candidato deberá quedar clasificado explícitamente como uno de estos estados:
+
+```text
+RECONCILED
+→ el cuerpo contextual necesitaba cambios y quedó alineado con la evidencia
+  oficial aplicable.
+
+NO_CONTENT_CHANGE_REQUIRED
+→ el documento fue candidato por mapping, pero el cambio fuente no requiere
+  modificar su contenido contextual.
+
+BLOCKED
+→ existe contradicción, evidencia insuficiente, incertidumbre o drift pendiente
+  que impide certificar la coherencia del documento.
+```
+
+Regla de cierre:
+
+```text
+todos los candidatos
+        ↓
+RECONCILED o NO_CONTENT_CHANGE_REQUIRED
+        ↓
+context reconciliation PASS
+
+cualquier BLOCKED
+        ↓
+NO Ready for Review
+NO merge
+```
+
+Un `PASS` del Sync Agent, un bloque machine-owned actualizado, Markdown válido o
+tests verdes no demuestran por sí solos que el cuerpo contextual humano del
+documento haya sido reconciliado.
+
+El asistente puede revisar la evidencia y proponer la reconciliación contextual.
+El Owner conserva exclusivamente la autoridad para aprobar, promover o mergear.
 
 ## Trazabilidad obligatoria
 

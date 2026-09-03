@@ -269,6 +269,11 @@ Componentes documentados en el alcance representado:
 * `JsonlOperationalEventStore`;
 * `PermissionScope`;
 * `SecurityContext`;
+* `Clock` / `SystemClock`;
+* `SecurityContextValidator`;
+* `SecurityContextIssuer`;
+* `SecurityContextRenewer`;
+* `SecurityContextEnvelope`;
 * `AuthorizationRequest`;
 * `AuthorizationDecision`;
 * `PolicyDecisionPoint`;
@@ -293,6 +298,26 @@ La integración real con Ollama fue validada con:
 ```text
 qwen3.5:9b
 ```
+
+### Seguridad contextual vigente
+
+Sprint 7.6 está cerrado e incorporó lifecycle temporal para `SecurityContext`,
+incluyendo validación, emisión, renovación y propagación inmutable en memoria.
+El PDP valida la vigencia temporal antes de evaluar políticas.
+
+Permanecen expresamente fuera de alcance nonce, replay protection, firmas e
+identidad criptográficas, PKI, MFA, Secure Context Manager criptográfico
+completo, Secure Message Bus e IPC seguro.
+
+Riesgo residual aceptado vigente:
+
+```text
+7.7-D-001 — Strong SecurityContext Provenance
+severity: MEDIUM
+blocking_release: NO
+```
+
+Este riesgo no autoriza implementación adicional.
 
 ---
 

@@ -837,6 +837,57 @@ docs/architecture/adr/ADR-002-policy-enforcement-boundary.md
 docs/project/sprints/SPRINT-7.5.md
 ```
 
+### 8.16.1 Secure Context Lifecycle Foundation
+
+Estado:
+
+```text
+implementado, integrado y cerrado en Sprint 7.6
+```
+
+Sprint 7.6 extendió `SecurityContext` con lifecycle temporal explícito e
+incorporó, sin ampliar autoridad:
+
+* `context_id`, `session_id`, `issued_at`, `expires_at` y `parent_context_id`;
+* `Clock` / `SystemClock`;
+* `SecurityContextValidator`;
+* `SecurityContextIssuer`;
+* `SecurityContextRenewer`;
+* `SecurityContextEnvelope`;
+* validación temporal en `StaticPolicyDecisionPoint`;
+* semántica de vigencia `issued_at <= now < expires_at`.
+
+La renovación conserva sesión, sujeto y estado de autenticación, genera un nuevo
+`context_id` y mantiene lineage mediante `parent_context_id`. La propagación en
+memoria conserva el mismo contexto y no modifica autoridad.
+
+Permanecen fuera de alcance de esta foundation:
+
+* nonce y replay protection;
+* prevención persistente de replay;
+* firmas e identidad criptográficas;
+* PKI y MFA;
+* Secure Context Manager criptográfico completo;
+* Secure Message Bus e IPC seguro.
+
+Riesgo residual vigente:
+
+```text
+7.7-D-001 — Strong SecurityContext Provenance
+classification: ACCEPTED_RESIDUAL_RISK
+severity: MEDIUM
+blocking_release: NO
+```
+
+Este riesgo no autoriza implementación adicional y permanece sujeto a la
+autoridad y planificación oficiales de Malāk.
+
+Fuente oficial principal:
+
+```text
+docs/project/sprints/SPRINT-7.6.md
+```
+
 ---
 
 ### 8.17 AKS Engineering Knowledge Foundation
