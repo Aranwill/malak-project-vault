@@ -27,10 +27,10 @@ retrieval_scope: active
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260903T002736196015Z_96931e2a_2cb23cc0`
-- **HEAD oficial observado:** `96931e2a2c5f4cb82c3bae92637ae77dff5b9610`
-- **Commit previamente observado:** `d710c4ca2593445f86184af380ab9be7fbe9885d`
-- **Generado:** `2026-09-03T00:27:36.196015+00:00`
+- **Run ID:** `20260903T131908023088Z_1d6e650e_c2e2b763`
+- **HEAD oficial observado:** `1d6e650e98e2bbd01de7757eb65a847fa29633fc`
+- **Commit previamente observado:** `96931e2a2c5f4cb82c3bae92637ae77dff5b9610`
+- **Generado:** `2026-09-03T13:19:08.023088+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
@@ -43,18 +43,12 @@ retrieval_scope: active
 
 ### Commits oficiales observados
 
-- 96931e2a2c5f4cb82c3bae92637ae77dff5b9610	Merge pull request #53 from Aranwill/fix/legacy-operational-closeout
-- f3bfafc3b18ebf1e25e39f5a8cafcda21cada317	docs(project): classify legacy operational artifacts
+- 1d6e650e98e2bbd01de7757eb65a847fa29633fc	Merge pull request #54 from Aranwill/fix/blueprint-metadata-consistency
+- a2db5a15bc90e422ab80b44210b0b326aef5fbb1	docs(architecture): decouple Blueprint status from implementation state
 
 ### Evidencia que originó esta proyección
 
-- `baseline-source-change` por `CHANGELOG.md`
-- `baseline-source-change` por `documents/projects/jarvis/decisiones.md`
-- `governance-change` por `documents/projects/jarvis/decisiones.md`
-- `operational-tooling-change` por `scripts/backup-jarvis.ps1`
-- `operational-tooling-change` por `scripts/cerrar-jarvis.ps1`
-- `operational-tooling-change` por `scripts/iniciar-jarvis.ps1`
-- `operational-tooling-change` por `scripts/run.ps1`
+- `architecture-change` por `docs/architecture/blueprint.md`
 <!-- MALAK_VAULT_SYNC:END -->
 
 <!-- MALAK_OPERATIONAL_STATE:START -->
@@ -63,7 +57,7 @@ retrieval_scope: active
 > Estado machine-owned derivado de la fuente oficial.
 > No concede autoridad ni reemplaza decisiones humanas.
 
-- **HEAD oficial:** `96931e2a2c5f4cb82c3bae92637ae77dff5b9610`
+- **HEAD oficial:** `1d6e650e98e2bbd01de7757eb65a847fa29633fc`
 - **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.8.md`
 - **Titulo declarado:** Sprint 7.8 — Cognitive Conversation Execution Path Foundation
 - **Estado declarado:** `completado`
