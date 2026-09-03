@@ -28,10 +28,10 @@ tags:
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260902T235110328589Z_d710c4ca_c46a486b`
-- **HEAD oficial observado:** `d710c4ca2593445f86184af380ab9be7fbe9885d`
-- **Commit previamente observado:** `d1419dd84e8d8bbb0904945008943f4559d4c69a`
-- **Generado:** `2026-09-02T23:51:10.328589+00:00`
+- **Run ID:** `20260903T002736196015Z_96931e2a_2cb23cc0`
+- **HEAD oficial observado:** `96931e2a2c5f4cb82c3bae92637ae77dff5b9610`
+- **Commit previamente observado:** `d710c4ca2593445f86184af380ab9be7fbe9885d`
+- **Generado:** `2026-09-03T00:27:36.196015+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
@@ -44,18 +44,13 @@ tags:
 
 ### Commits oficiales observados
 
-- d710c4ca2593445f86184af380ab9be7fbe9885d	Merge pull request #52 from Aranwill/fix/documentation-drift-closure
-- 5d962a628d5b00fe60302eb7e373a2874b9ffb3e	docs(project): clean review safeguards formatting
-- 1f024c54dbee55f86b9d373dfb2bec365846cf5f	docs(project): close documentation drift and add review safeguards
+- 96931e2a2c5f4cb82c3bae92637ae77dff5b9610	Merge pull request #53 from Aranwill/fix/legacy-operational-closeout
+- f3bfafc3b18ebf1e25e39f5a8cafcda21cada317	docs(project): classify legacy operational artifacts
 
 ### Evidencia que originó esta proyección
 
-- `architecture-change` por `docs/operations/operational_architecture.md`
-- `baseline-source-change` por `AGENTS.md`
-- `baseline-source-change` por `docs/project/implementation_roadmap.md`
-- `baseline-source-change` por `docs/project/roadmap.md`
-- `baseline-source-change` por `documents/projects/jarvis/proyecto_jarvis_base.md`
-- `baseline-source-change` por `documents/projects/jarvis/setup.md`
+- `baseline-source-change` por `CHANGELOG.md`
+- `baseline-source-change` por `documents/projects/jarvis/decisiones.md`
 <!-- MALAK_VAULT_SYNC:END -->
 
 <!-- MALAK_OPERATIONAL_STATE:START -->
@@ -64,7 +59,7 @@ tags:
 > Estado machine-owned derivado de la fuente oficial.
 > No concede autoridad ni reemplaza decisiones humanas.
 
-- **HEAD oficial:** `d710c4ca2593445f86184af380ab9be7fbe9885d`
+- **HEAD oficial:** `96931e2a2c5f4cb82c3bae92637ae77dff5b9610`
 - **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.8.md`
 - **Titulo declarado:** Sprint 7.8 — Cognitive Conversation Execution Path Foundation
 - **Estado declarado:** `completado`
