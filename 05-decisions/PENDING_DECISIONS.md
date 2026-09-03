@@ -28,10 +28,10 @@ retrieval_scope: proposals
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260903T002736196015Z_96931e2a_2cb23cc0`
-- **HEAD oficial observado:** `96931e2a2c5f4cb82c3bae92637ae77dff5b9610`
-- **Commit previamente observado:** `d710c4ca2593445f86184af380ab9be7fbe9885d`
-- **Generado:** `2026-09-03T00:27:36.196015+00:00`
+- **Run ID:** `20260903T162700661287Z_28644354_91dd145f`
+- **HEAD oficial observado:** `2864435401353e5abcfcb51fc276361a0225c2b7`
+- **Commit previamente observado:** `1d6e650e98e2bbd01de7757eb65a847fa29633fc`
+- **Generado:** `2026-09-03T16:27:00.661287+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
@@ -44,14 +44,12 @@ retrieval_scope: proposals
 
 ### Commits oficiales observados
 
-- 96931e2a2c5f4cb82c3bae92637ae77dff5b9610	Merge pull request #53 from Aranwill/fix/legacy-operational-closeout
-- f3bfafc3b18ebf1e25e39f5a8cafcda21cada317	docs(project): classify legacy operational artifacts
+- 2864435401353e5abcfcb51fc276361a0225c2b7	Merge pull request #55 from Aranwill/docs/vault-first-context-retrieval
+- 3a636551c5294c666084345ebf4511130d89fa10	docs: establish vault-first context retrieval
 
 ### Evidencia que originó esta proyección
 
-- `baseline-source-change` por `CHANGELOG.md`
-- `baseline-source-change` por `documents/projects/jarvis/decisiones.md`
-- `governance-change` por `documents/projects/jarvis/decisiones.md`
+- `baseline-source-change` por `AGENTS.md`
 <!-- MALAK_VAULT_SYNC:END -->
 
 <!-- MALAK_OPERATIONAL_STATE:START -->
@@ -60,7 +58,7 @@ retrieval_scope: proposals
 > Estado machine-owned derivado de la fuente oficial.
 > No concede autoridad ni reemplaza decisiones humanas.
 
-- **HEAD oficial:** `96931e2a2c5f4cb82c3bae92637ae77dff5b9610`
+- **HEAD oficial:** `2864435401353e5abcfcb51fc276361a0225c2b7`
 - **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.8.md`
 - **Titulo declarado:** Sprint 7.8 — Cognitive Conversation Execution Path Foundation
 - **Estado declarado:** `completado`
