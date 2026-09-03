@@ -221,10 +221,14 @@ Existe un mapa derivado de navegación:
 El mapa representa:
 
 - el flujo Kernel–Planner–Capability;
+- la ruta conversacional integrada mediante `ConversationCapability`;
 - la frontera de eventos operativos integrada en la CLI;
 - la separación entre métricas, eventos operativos y auditoría.
 
-El subsistema conversacional se mantiene separado y no existe integración formal entre `Kernel.receive` y `ConversationService`.
+El subsistema conversacional está integrado de forma indirecta y desacoplada:
+la CLI enruta mediante `Kernel.receive()`, mientras `ConversationCapability`
+adapta el contrato de Capability hacia `ConversationService`. El Kernel no
+depende directamente de servicios, providers ni runtimes concretos.
 
 Contenido futuro previsto:
 
@@ -247,6 +251,20 @@ Toda representación deberá:
 - evitar reinterpretaciones no aprobadas.
 
 No deben crearse diagramas o mapas sin una necesidad concreta.
+
+### Referencias conceptuales
+
+- [[10-knowledge-index/CONCEPTUAL_FOUNDATIONS|Índice de fundamentos conceptuales]]
+
+Esta proyección permite recuperar de forma compacta referencias conceptuales
+activas como:
+
+- Malāk Cognitive Dataset Foundation;
+- Governed Swarm and Long-Horizon Reference;
+- Governed Ephemeral Agent Execution, Evidence and Candidate Evaluation Reference.
+
+Estas referencias son derivadas y no normativas. Su presencia en el Vault no
+autoriza implementación, no modifica el baseline y no autoriza ningún sprint.
 
 ---
 

@@ -79,8 +79,11 @@ Este mapa cubre las siguientes fronteras verificadas:
 - `Planner`;
 - `CapabilityRegistry`;
 - `EchoCapability`;
+- `ConversationCapability`;
+- `ConversationService` y `ConversationProviderRegistry`;
+- `RuntimeConversationProvider` y `LLMRuntime`;
 - `Response`;
-- CLI conversacional;
+- CLI conversacional integrada mediante `Kernel.receive`;
 - eventos operativos;
 - stores operativos.
 - contratos fundamentales de autorización.
@@ -89,7 +92,6 @@ Este mapa cubre las siguientes fronteras verificadas:
 
 Quedan fuera de alcance:
 
-- integración formal entre Kernel y subsistema conversacional;
 - detalle interno de proveedores y runtimes;
 - métricas de runtime;
 - auditoría de seguridad;
@@ -101,7 +103,10 @@ Su exclusión de este documento no implica que no existan. Solamente evita mezcl
 Sprint 7.4 incorporó eventos operativos y correlación desde la CLI sin
 modificar el flujo Kernel–Planner–Capability.
 
-No existe integración formal entre `Kernel.receive` y `ConversationService`, y este mapa no propone ni autoriza dicha integración.
+Sprint 7.8 integró la ruta conversacional dentro del pipeline
+Kernel–Planner–Capability mediante `ConversationCapability`. La integración es
+indirecta: el Kernel no depende directamente de `ConversationService`, providers
+ni runtimes concretos.
 
 ## 2. Referencia operativa del mapa
 
@@ -158,9 +163,9 @@ Selector determinista de capability.
 
 Comportamiento actual:
 
-```text
-Siempre resuelve la capability "echo".
-```
+El Planner devuelve de forma determinista el nombre de capability configurado.
+Su valor predeterminado continúa siendo `"echo"`, mientras que la composición
+conversacional lo configura explícitamente con `"conversation"`.
 
 Fuente:
 
@@ -188,12 +193,27 @@ src/malak/kernel/registry.py
 
 ### `EchoCapability`
 
-Capability registrada durante el bootstrap del Kernel.
+Capability disponible para el bootstrap mínimo basado en `echo`.
 
 Fuente:
 
 ```text
 src/malak/capabilities/echo.py
+```
+
+### `ConversationCapability`
+
+Capability que adapta el contrato genérico de ejecución hacia
+`ConversationService`.
+
+La composición conversacional registra esta capability en un
+`CapabilityRegistry` y configura el Planner con su nombre (`"conversation"`).
+
+Fuentes:
+
+```text
+src/malak/capabilities/conversation.py
+src/malak/app/composition.py
 ```
 
 ### `Response`
@@ -372,22 +392,25 @@ docs/project/sprints/SPRINT-7.5.md
 
 ## 4. Flujo implementado
 
+El Kernel mantiene un flujo genérico Kernel–Planner–Capability. La capability
+concreta depende de la composición utilizada.
+
 ```mermaid
 flowchart LR
     Request[Request]
     Kernel[Kernel]
     Planner[Planner]
     Registry[CapabilityRegistry]
-    Echo[EchoCapability]
+    Capability[Capability]
     Response[Response]
 
     Request -->|receive| Kernel
     Kernel -->|resolve request| Planner
-    Planner -->|capability name: echo| Kernel
-    Kernel -->|get echo| Registry
-    Registry -->|EchoCapability| Kernel
-    Kernel -->|execute content| Echo
-    Echo -->|result| Kernel
+    Planner -->|capability name| Kernel
+    Kernel -->|get capability| Registry
+    Registry -->|Capability| Kernel
+    Kernel -->|execute content| Capability
+    Capability -->|result| Kernel
     Kernel -->|construct| Response
 ```
 
@@ -396,55 +419,91 @@ flowchart LR
 ```mermaid
 flowchart LR
     CLI[CLI]
+    Kernel[Kernel]
+    Planner[Planner]
+    Registry[CapabilityRegistry]
+    Capability[ConversationCapability]
     Service[ConversationService]
+    ProviderRegistry[ConversationProviderRegistry]
+    Provider[RuntimeConversationProvider]
+    Runtime[LLMRuntime]
     Started[conversation.started]
     Final[conversation.succeeded / conversation.failed]
     Sink[OperationalEventSink]
     Memory[InMemoryOperationalEventStore]
     JSONL[JsonlOperationalEventStore]
 
-    CLI -->|request_id generado en CLI| Started
+    CLI -->|Request| Kernel
+    Kernel --> Planner
+    Planner -->|conversation| Kernel
+    Kernel --> Registry
+    Registry --> Capability
+    Capability --> Service
+    Service --> ProviderRegistry
+    ProviderRegistry --> Provider
+    Provider --> Runtime
+    Runtime --> Provider
+    Provider --> Service
+    Service --> Capability
+    Capability --> Kernel
+    Kernel --> CLI
+
+    CLI -->|request_id| Started
     Started --> Sink
-    CLI --> Service
-    Service --> CLI
     CLI -->|mismo request_id| Final
     Final --> Sink
     Sink -. implementación .-> Memory
     Sink -. implementación .-> JSONL
 ```
 
-Este flujo no se integra con `Kernel.receive`.
+La CLI enruta las solicitudes conversacionales válidas mediante
+`Kernel.receive()`. `ConversationCapability` mantiene al Kernel desacoplado de
+`ConversationService`, providers y runtimes concretos.
 
 La observabilidad no posee semántica de autorización ni de auditoría
 de seguridad.
 
 ## 6. Secuencia funcional
 
-1. El sistema entrega un `Request` al método `Kernel.receive`.
-2. El Kernel rechaza el contenido vacío.
-3. El Kernel solicita al Planner el nombre de la capability.
-4. El Planner devuelve actualmente `"echo"`.
+1. La CLI construye un `Request` para una entrada conversacional válida.
+2. La CLI entrega el `Request` a `Kernel.receive`.
+3. El Kernel rechaza contenido vacío y solicita al Planner el nombre de capability.
+4. En la composición conversacional, el Planner devuelve `"conversation"`.
 5. El Kernel consulta el `CapabilityRegistry`.
-6. El registro devuelve `EchoCapability`.
+6. El registro devuelve `ConversationCapability`.
 7. El Kernel ejecuta la capability con el contenido de la solicitud.
-8. El Kernel construye un `Response`.
-9. La respuesta identifica como fuente a la capability ejecutada.
+8. `ConversationCapability` delega en `ConversationService`.
+9. `ConversationService` resuelve el provider mediante `ConversationProviderRegistry`.
+10. `RuntimeConversationProvider` delega la generación en `LLMRuntime`.
+11. El resultado vuelve por la misma frontera hasta el Kernel.
+12. El Kernel construye un `Response` y la CLI presenta su contenido.
 
-## 7. Bootstrap verificado
+## 7. Bootstrap y composición verificados
 
-El registro predeterminado se crea mediante:
+El bootstrap mínimo basado en `echo` permanece disponible mediante:
 
 ```text
 src/malak/kernel/bootstrap.py
 ```
 
-El comportamiento verificado es:
+Ese helper:
 
-1. crear una instancia de `CapabilityRegistry`;
-2. crear y registrar `EchoCapability`;
-3. devolver el registro inicializado.
+1. crea una instancia de `CapabilityRegistry`;
+2. crea y registra `EchoCapability`;
+3. devuelve el registro inicializado.
 
-Actualmente este documento no afirma que existan otras capabilities registradas por defecto.
+La ruta conversacional utiliza una composición distinta:
+
+```text
+src/malak/app/composition.py
+```
+
+`build_conversation_kernel()`:
+
+1. crea `ConversationCapability`;
+2. la registra en un `CapabilityRegistry`;
+3. configura `Planner` con el nombre `"conversation"`;
+4. construye el Kernel con ese Planner y ese registro.
 
 ## 8. Límites de la representación
 
@@ -453,7 +512,7 @@ Este mapa no afirma:
 - que el Planner utilice un LLM;
 - que exista planificación dinámica;
 - que el Kernel invoque directamente un runtime LLM;
-- que el subsistema conversacional forme parte de este flujo;
+
 - que existan múltiples capabilities activas;
 - que el registro sea persistente;
 - que el diagrama represente toda la arquitectura de Malāk.
@@ -496,6 +555,12 @@ Sin convertirlos en decisiones nuevas, el código observado muestra:
 - `src/malak/services/planner.py`
 - `src/malak/contracts/capability.py`
 - `src/malak/capabilities/echo.py`
+- `src/malak/capabilities/conversation.py`
+- `src/malak/app/composition.py`
+- `src/malak/services/conversation_service.py`
+- `src/malak/core/conversation_registry.py`
+- `src/malak/providers/runtime_provider.py`
+- `src/malak/core/llm_runtime.py`
 - `src/malak/core/request.py`
 - `src/malak/core/response.py`
 - `src/malak/app/cli.py`

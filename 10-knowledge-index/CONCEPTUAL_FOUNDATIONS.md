@@ -495,7 +495,130 @@ Baseline modificado: no
 
 ---
 
-## 5. Índice de relaciones
+## 5. Governed Ephemeral Agent Execution, Evidence and Candidate Evaluation Reference
+
+### Identidad
+
+```text
+Nombre:
+Governed Ephemeral Agent Execution, Evidence and Candidate Evaluation Reference
+
+Estado:
+concept
+
+Autoridad:
+non_normative
+
+Rol:
+conceptual_reference
+```
+
+### Fuente oficial
+
+```text
+Repositorio:
+Aranwill/jarvis
+
+Ruta:
+docs/project/concepts/GOVERNED_EPHEMERAL_AGENT_EXECUTION_EVIDENCE_REFERENCE.md
+```
+
+### Propósito resumido
+
+Preservar la referencia conceptual para una futura ejecución agentic temporal,
+aislada, observable y descartable, con contexto mínimo, evidencia externa,
+lifecycle explícito de recursos y evaluación gobernada de candidatos.
+
+Esta referencia no crea una iniciativa nueva. Conserva una intersección entre:
+
+```text
+IDEA-001
+Sandbox Containment & Evaluation Evidence Foundation
+
+IDEA-003
+Resource Governance Foundation
+
+IDEA-020
+Sovereign Agent Fleet Control & Vertical Scaling
+
+IDEA-024
+Governed Agent Composition & Mission Orchestration Foundation
+```
+
+### Separación con Governed Swarm
+
+```text
+Governed Swarm
+→ orchestration / missions / long-horizon work
+
+Ephemeral Agent Execution
+→ sandbox / least context / evidence / lifecycle / candidate evaluation
+```
+
+La referencia de ejecución efímera no sustituye ni absorbe Governed Swarm.
+
+### Principios preservados
+
+- `Least Privilege` debe complementarse con `Least Context`.
+- La evidencia canónica no debe depender únicamente del agente evaluado.
+- `Agent output != Evidence`.
+- `Score != Truth`.
+- `Score != Safety`.
+- `Score != Authority`.
+- Los candidatos deben validarse antes de cualquier ranking.
+- La terminación debe revocar autoridad temporal y liberar recursos cuando
+  corresponda.
+- La evidencia puede justificar una propuesta; no concede autoridad.
+- La inteligencia puede proponer; la autoridad decide.
+
+### Lifecycle conceptual
+
+```text
+CREATE
+→ ASSIGN MINIMUM CONTEXT
+→ ISSUE TEMPORARY AUTHORITY
+→ EXECUTE
+→ COLLECT EXTERNAL EVIDENCE
+→ VALIDATE
+→ REVOKE TEMPORARY AUTHORITY
+→ RELEASE RESOURCES
+→ DESTROY OR QUARANTINE SANDBOX
+→ RETAIN AUTHORIZED EVIDENCE
+```
+
+### Restricciones principales
+
+Este concepto no autoriza actualmente:
+
+- Agent Swarm;
+- agentes permanentes;
+- Mission Controller;
+- Agent Factory;
+- múltiples sandboxes por defecto;
+- scoring universal;
+- deliberación o recursión agentic ilimitada;
+- acceso libre a Internet;
+- modificación del Kernel;
+- auto-merge;
+- auto-deploy;
+- autoaprobación;
+- modificación autónoma de políticas o gobernanza.
+
+### Estado operacional
+
+```text
+Implementación: no iniciada
+Sprint autorizado: ninguno
+Baseline modificado: no
+```
+
+Antes de derivar implementación deberá revalidarse contra baseline, Blueprint,
+Constituciones, Gobernanza, seguridad, Resource Governance, Model Governance,
+Sandbox, Evidence e Independent Validation.
+
+---
+
+## 6. Índice de relaciones
 
 ```text
 Malāk Cognitive Dataset Foundation
@@ -522,6 +645,20 @@ Governed Swarm and Long-Horizon Reference
         +--> Evidence
         +--> Independent Validation
         +--> Engineering Intelligence
+
+Governed Ephemeral Agent Execution Reference
+        |
+        +--> IDEA-001
+        +--> IDEA-003
+        +--> IDEA-020
+        +--> IDEA-024
+        +--> Security Control Plane
+        +--> Secure Context / Identity
+        +--> Resource Governance
+        +--> Model Governance
+        +--> Sandbox
+        +--> Evidence
+        +--> Independent Validation
 ```
 
 Estas relaciones son de navegación conceptual y no equivalen a dependencias
@@ -529,7 +666,7 @@ de implementación aprobadas.
 
 ---
 
-## 6. Reglas de mantenimiento
+## 7. Reglas de mantenimiento
 
 Cuando una referencia conceptual oficial cambie:
 
@@ -549,7 +686,7 @@ histórica.
 
 ---
 
-## 7. Estado
+## 8. Estado
 
 ```text
 Documento: índice derivado
