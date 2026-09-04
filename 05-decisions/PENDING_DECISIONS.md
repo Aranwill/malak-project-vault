@@ -28,28 +28,40 @@ retrieval_scope: proposals
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260903T162700661287Z_28644354_91dd145f`
-- **HEAD oficial observado:** `2864435401353e5abcfcb51fc276361a0225c2b7`
-- **Commit previamente observado:** `1d6e650e98e2bbd01de7757eb65a847fa29633fc`
-- **Generado:** `2026-09-03T16:27:00.661287+00:00`
+- **Run ID:** `20260904T012307383033Z_5cbdd35a_372955f9`
+- **HEAD oficial observado:** `5cbdd35aa86a8cc4131b787e8d7259325949b561`
+- **Commit previamente observado:** `2864435401353e5abcfcb51fc276361a0225c2b7`
+- **Generado:** `2026-09-04T01:23:07.383033+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
 ### Estado estructurado de la fuente oficial
 
-- **Ficha de sprint más reciente:** `docs/project/sprints/SPRINT-7.8.md`
-- **Título declarado:** Sprint 7.8 — Cognitive Conversation Execution Path Foundation
+- **Ficha de sprint más reciente:** `docs/project/sprints/SPRINT-7.9.md`
+- **Título declarado:** Sprint 7.9 — Conversation Continuity Foundation
 - **Estado declarado:** `completado`
-- **`as_of_commit` declarado:** `6c179730e6d4220bbba22a8282f978a7a1aa9155`
+- **`as_of_commit` declarado:** `d58b8ec98d48f5e2eac115d1d54b193e1df617fd`
 
 ### Commits oficiales observados
 
-- 2864435401353e5abcfcb51fc276361a0225c2b7	Merge pull request #55 from Aranwill/docs/vault-first-context-retrieval
-- 3a636551c5294c666084345ebf4511130d89fa10	docs: establish vault-first context retrieval
+- 5cbdd35aa86a8cc4131b787e8d7259325949b561	Merge pull request #56 from Aranwill/sprint/7.9-conversation-continuity
+- 0d3c630a91a21ba2eb9778e91baeaade5da79e95	docs(sprint): close Sprint 7.9
+- fd7ae9782dbb14921cff8b9f56dba6aa961cf1c7	docs(project): reconcile Sprint 7.9 validated state
+- 58449307d549afc60196570a9f19337f38ac18cd	docs(sprint): record Sprint 7.9 validation evidence
+- d58b8ec98d48f5e2eac115d1d54b193e1df617fd	fix(cli): document new conversation command
+- 3ed0d09af5e4a64ba87742116c6c2ff4b0333cf6	fix(conversation): enforce supported history roles
+- 071e2a6270b3e34bc4828396f2924b842efc7d5b	feat(cli): add ephemeral conversation continuity
+- eb3df70cf90ccb84e5cf3b579507722b2f578544	feat(runtime): adapt Ollama runtime to structured chat
+- 9a436bc25285889052e8c1f56fdaa2bbf75545ab	feat(conversation): integrate bounded context into conversation service
+- a8155fd63f08a47d942fb276962349281ea224af	feat(conversation): add bounded in-memory conversation context
+- 67ede24e263e92bde9f24c8300494bda9c4fd328	feat(conversation): extend conversation contract with history
+- 796bff36290e6673e51e53e9ac332b48151d883a	docs(project): activate Sprint 7.9 conversation continuity
 
 ### Evidencia que originó esta proyección
 
-- `baseline-source-change` por `AGENTS.md`
+- `baseline-source-change` por `docs/project/implementation_roadmap.md`
+- `baseline-source-change` por `docs/project/project_context.md`
+- `baseline-source-change` por `docs/project/sprints/SPRINT-7.9.md`
 <!-- MALAK_VAULT_SYNC:END -->
 
 <!-- MALAK_OPERATIONAL_STATE:START -->
@@ -58,11 +70,11 @@ retrieval_scope: proposals
 > Estado machine-owned derivado de la fuente oficial.
 > No concede autoridad ni reemplaza decisiones humanas.
 
-- **HEAD oficial:** `2864435401353e5abcfcb51fc276361a0225c2b7`
-- **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.8.md`
-- **Titulo declarado:** Sprint 7.8 — Cognitive Conversation Execution Path Foundation
+- **HEAD oficial:** `5cbdd35aa86a8cc4131b787e8d7259325949b561`
+- **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.9.md`
+- **Titulo declarado:** Sprint 7.9 — Conversation Continuity Foundation
 - **Estado declarado:** `completado`
-- **`as_of_commit` declarado:** `6c179730e6d4220bbba22a8282f978a7a1aa9155`
+- **`as_of_commit` declarado:** `d58b8ec98d48f5e2eac115d1d54b193e1df617fd`
 <!-- MALAK_OPERATIONAL_STATE:END -->
 
 ## 1. Propósito
