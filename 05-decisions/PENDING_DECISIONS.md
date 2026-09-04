@@ -28,10 +28,10 @@ retrieval_scope: proposals
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260904T012307383033Z_5cbdd35a_372955f9`
-- **HEAD oficial observado:** `5cbdd35aa86a8cc4131b787e8d7259325949b561`
-- **Commit previamente observado:** `2864435401353e5abcfcb51fc276361a0225c2b7`
-- **Generado:** `2026-09-04T01:23:07.383033+00:00`
+- **Run ID:** `20260904T133401843284Z_43041f92_26dff64a`
+- **HEAD oficial observado:** `43041f920a1b8063491e6d5cabcb1fd887bdc7a8`
+- **Commit previamente observado:** `5cbdd35aa86a8cc4131b787e8d7259325949b561`
+- **Generado:** `2026-09-04T13:34:01.843284+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
@@ -44,24 +44,12 @@ retrieval_scope: proposals
 
 ### Commits oficiales observados
 
-- 5cbdd35aa86a8cc4131b787e8d7259325949b561	Merge pull request #56 from Aranwill/sprint/7.9-conversation-continuity
-- 0d3c630a91a21ba2eb9778e91baeaade5da79e95	docs(sprint): close Sprint 7.9
-- fd7ae9782dbb14921cff8b9f56dba6aa961cf1c7	docs(project): reconcile Sprint 7.9 validated state
-- 58449307d549afc60196570a9f19337f38ac18cd	docs(sprint): record Sprint 7.9 validation evidence
-- d58b8ec98d48f5e2eac115d1d54b193e1df617fd	fix(cli): document new conversation command
-- 3ed0d09af5e4a64ba87742116c6c2ff4b0333cf6	fix(conversation): enforce supported history roles
-- 071e2a6270b3e34bc4828396f2924b842efc7d5b	feat(cli): add ephemeral conversation continuity
-- eb3df70cf90ccb84e5cf3b579507722b2f578544	feat(runtime): adapt Ollama runtime to structured chat
-- 9a436bc25285889052e8c1f56fdaa2bbf75545ab	feat(conversation): integrate bounded context into conversation service
-- a8155fd63f08a47d942fb276962349281ea224af	feat(conversation): add bounded in-memory conversation context
-- 67ede24e263e92bde9f24c8300494bda9c4fd328	feat(conversation): extend conversation contract with history
-- 796bff36290e6673e51e53e9ac332b48151d883a	docs(project): activate Sprint 7.9 conversation continuity
+- 43041f920a1b8063491e6d5cabcb1fd887bdc7a8	Merge pull request #57 from Aranwill/docs/agents-engineering-method-reference
+- 22b98b362808612c70f3d2e748ede000d7798ef0	docs(agents): reference engineering method
 
 ### Evidencia que originó esta proyección
 
-- `baseline-source-change` por `docs/project/implementation_roadmap.md`
-- `baseline-source-change` por `docs/project/project_context.md`
-- `baseline-source-change` por `docs/project/sprints/SPRINT-7.9.md`
+- `baseline-source-change` por `AGENTS.md`
 <!-- MALAK_VAULT_SYNC:END -->
 
 <!-- MALAK_OPERATIONAL_STATE:START -->
@@ -70,7 +58,7 @@ retrieval_scope: proposals
 > Estado machine-owned derivado de la fuente oficial.
 > No concede autoridad ni reemplaza decisiones humanas.
 
-- **HEAD oficial:** `5cbdd35aa86a8cc4131b787e8d7259325949b561`
+- **HEAD oficial:** `43041f920a1b8063491e6d5cabcb1fd887bdc7a8`
 - **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.9.md`
 - **Titulo declarado:** Sprint 7.9 — Conversation Continuity Foundation
 - **Estado declarado:** `completado`
