@@ -27,10 +27,10 @@ retrieval_scope: active
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260904T133401843284Z_43041f92_26dff64a`
-- **HEAD oficial observado:** `43041f920a1b8063491e6d5cabcb1fd887bdc7a8`
-- **Commit previamente observado:** `5cbdd35aa86a8cc4131b787e8d7259325949b561`
-- **Generado:** `2026-09-04T13:34:01.843284+00:00`
+- **Run ID:** `20260904T150705774500Z_270e39b5_55b6fffd`
+- **HEAD oficial observado:** `270e39b599a7bb3e7e6611e34dd644d0b7004d88`
+- **Commit previamente observado:** `43041f920a1b8063491e6d5cabcb1fd887bdc7a8`
+- **Generado:** `2026-09-04T15:07:05.774500+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
@@ -43,12 +43,16 @@ retrieval_scope: active
 
 ### Commits oficiales observados
 
-- 43041f920a1b8063491e6d5cabcb1fd887bdc7a8	Merge pull request #57 from Aranwill/docs/agents-engineering-method-reference
-- 22b98b362808612c70f3d2e748ede000d7798ef0	docs(agents): reference engineering method
+- 270e39b599a7bb3e7e6611e34dd644d0b7004d88	Merge pull request #58 from Aranwill/feat/sprint-7.10-session-isolation
+- 07b559c2ac7702291ff9adf47d08d3a0e00dc506	docs(project): close sprint 7.10 session isolation
+- 07352239ef7c90798885abf59c981107f6ca09c8	feat(conversation): isolate in-memory context by session
+- a0209a44b5bf6c6c0d1c991eb1e8a26c8a6ba5f3	refactor(capability): preserve request metadata across execution boundary
 
 ### Evidencia que originó esta proyección
 
-- `baseline-source-change` por `AGENTS.md`
+- `baseline-source-change` por `docs/project/implementation_roadmap.md`
+- `baseline-source-change` por `docs/project/project_context.md`
+- `baseline-source-change` por `docs/project/sprints/SPRINT-7.10.md`
 <!-- MALAK_VAULT_SYNC:END -->
 
 <!-- MALAK_OPERATIONAL_STATE:START -->
@@ -57,7 +61,7 @@ retrieval_scope: active
 > Estado machine-owned derivado de la fuente oficial.
 > No concede autoridad ni reemplaza decisiones humanas.
 
-- **HEAD oficial:** `43041f920a1b8063491e6d5cabcb1fd887bdc7a8`
+- **HEAD oficial:** `270e39b599a7bb3e7e6611e34dd644d0b7004d88`
 - **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.9.md`
 - **Titulo declarado:** Sprint 7.9 — Conversation Continuity Foundation
 - **Estado declarado:** `completado`
