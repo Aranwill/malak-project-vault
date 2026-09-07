@@ -27,10 +27,10 @@ retrieval_scope: active
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260904T161131930041Z_08abcdd7_55b6fffd`
-- **HEAD oficial observado:** `08abcdd7f458c2f2f3569df8f04379aebda73de8`
-- **Commit previamente observado:** `43041f920a1b8063491e6d5cabcb1fd887bdc7a8`
-- **Generado:** `2026-09-04T16:11:31.930041+00:00`
+- **Run ID:** `20260907T225040635700Z_83062029_03b1ddc0`
+- **HEAD oficial observado:** `83062029da3ed05c36885d4c4c7151d8d958ba40`
+- **Commit previamente observado:** `08abcdd7f458c2f2f3569df8f04379aebda73de8`
+- **Generado:** `2026-09-07T22:50:40.635700+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
@@ -43,20 +43,13 @@ retrieval_scope: active
 
 ### Commits oficiales observados
 
-- 08abcdd7f458c2f2f3569df8f04379aebda73de8	Merge pull request #59 from Aranwill/docs/sprint-7.10-post-merge-closure
-- 28eeb9a955155239b251b001f3ab822cb5f2c5b3	docs(agents): require evidence-first gated implementation planning
-- 9f184de85d5b77be6d9833983dac3aafd5d52d6b	docs(project): finalize sprint 7.10 post-merge state
-- 270e39b599a7bb3e7e6611e34dd644d0b7004d88	Merge pull request #58 from Aranwill/feat/sprint-7.10-session-isolation
-- 07b559c2ac7702291ff9adf47d08d3a0e00dc506	docs(project): close sprint 7.10 session isolation
-- 07352239ef7c90798885abf59c981107f6ca09c8	feat(conversation): isolate in-memory context by session
-- a0209a44b5bf6c6c0d1c991eb1e8a26c8a6ba5f3	refactor(capability): preserve request metadata across execution boundary
+- 83062029da3ed05c36885d4c4c7151d8d958ba40	Merge pull request #60 from Aranwill/docs/post-7.10-baseline-reconciliation
+- 07898ba98a5acc8d83a2aacd5e1260a4181ca260	docs(project): reconcile post-7.10 planning baseline
 
 ### Evidencia que originó esta proyección
 
-- `baseline-source-change` por `AGENTS.md`
 - `baseline-source-change` por `docs/project/implementation_roadmap.md`
 - `baseline-source-change` por `docs/project/project_context.md`
-- `baseline-source-change` por `docs/project/sprints/SPRINT-7.10.md`
 <!-- MALAK_VAULT_SYNC:END -->
 
 <!-- MALAK_OPERATIONAL_STATE:START -->
@@ -65,7 +58,7 @@ retrieval_scope: active
 > Estado machine-owned derivado de la fuente oficial.
 > No concede autoridad ni reemplaza decisiones humanas.
 
-- **HEAD oficial:** `08abcdd7f458c2f2f3569df8f04379aebda73de8`
+- **HEAD oficial:** `83062029da3ed05c36885d4c4c7151d8d958ba40`
 - **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.10.md`
 - **Titulo declarado:** Sprint 7.10 — Conversation Session Isolation Foundation
 - **Estado declarado:** `completado`
