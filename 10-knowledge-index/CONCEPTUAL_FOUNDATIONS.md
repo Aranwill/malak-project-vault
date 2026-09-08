@@ -25,34 +25,36 @@ retrieval_scope: active
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260824T230643058760Z_e3c28131_9ed90ddf`
-- **HEAD oficial observado:** `e3c28131f491b740c352da79537cd9233d7f4979`
-- **Commit previamente observado:** `3a45a94a630edcf071e8752897cc7f40afcd2991`
-- **Generado:** `2026-08-24T23:06:43.058760+00:00`
-- **Prioridad:** `medium`
+- **Run ID:** `20260908T171444541120Z_44cb70a4_2b4e92c3`
+- **HEAD oficial observado:** `44cb70a4eb9004e9332f067ddd0c193d7f6e51b1`
+- **Commit previamente observado:** `83062029da3ed05c36885d4c4c7151d8d958ba40`
+- **Generado:** `2026-09-08T17:14:44.541120+00:00`
+- **Prioridad:** `high`
 - **Disposición:** `review_required`
 
 ### Estado estructurado de la fuente oficial
 
-- **Ficha de sprint más reciente:** `docs/project/sprints/SPRINT-7.8.md`
-- **Título declarado:** Sprint 7.8 — Cognitive Conversation Execution Path Foundation
+- **Ficha de sprint más reciente:** `docs/project/sprints/SPRINT-7.10.md`
+- **Título declarado:** Sprint 7.10 — Conversation Session Isolation Foundation
 - **Estado declarado:** `completado`
-- **`as_of_commit` declarado:** `6c179730e6d4220bbba22a8282f978a7a1aa9155`
+- **`as_of_commit` declarado:** no disponible
 
 ### Commits oficiales observados
 
-- e3c28131f491b740c352da79537cd9233d7f4979	Merge pull request #50 from Aranwill/docs/human-only-pr-promotion
-- 671d8e598d2ab2660403c0c36e16d6bda4983b92	docs(agents): reserve PR promotion for human review
-- a10b9ed46fe3b4b736b8db872ed665b1fdbc6a31	Merge pull request #49 from Aranwill/docs/repository-review-drift-discipline
-- 3577da2a494a7b4bce7472f6e0101275df5ee967	docs(agents): enforce repository review and drift discipline
-- 064aea4b502df7e10006686734610b992079f562	Merge pull request #48 from Aranwill/docs/ephemeral-agent-execution-evidence
-- 1f4c09346812f9b554c4302312fbcd4b1c5101e4	docs(concepts): preserve governed ephemeral agent execution model
+- 44cb70a4eb9004e9332f067ddd0c193d7f6e51b1	Merge pull request #62 from Aranwill/docs/construction-method-hardening
+- b60aaee9844e57e69f5eba40a04e10bf3f4d1c76	docs(method): clarify future-proposal disposition
+- cb55096ebd3bdb5145ae6cfbfc0cd8adfa6db0b9	docs(agents): enforce exhaustive construction review protocol
+- 379d05c2aa146541a7104eac66f6659a89fa703e	docs(process): enforce exhaustive review and downstream reconciliation
+- 6fe364edd7fa9a18043c8d6a23d020a74dc79c3d	docs(method): define governed Malak construction protocol
+- 8d2b97215e37b676d3ba1e72fd5b847fba84106b	Merge pull request #61 from Aranwill/fix/post-sprint-readme-reconciliation-gate
+- 7f68313481ba18f40fec033b8dfb4dd92603843e	docs(pr): add sprint closure reconciliation check
+- 66c17dda44a46259e5a3395ab0daae7ff69ace14	docs(process): require post-sprint README reconciliation
+- d33ffead9ea6fe7c0ed07fc9fdb7f8ae4326742c	docs(readme): reconcile Sprint 7.10 baseline
 
 ### Evidencia que originó esta proyección
 
-- `conceptual-foundation-change` por `docs/project/concepts/GOVERNED_EPHEMERAL_AGENT_EXECUTION_EVIDENCE_REFERENCE.md`
-- `conceptual-foundation-change` por `docs/project/concepts/GOVERNED_SWARM_LONG_HORIZON_REFERENCE.md`
-- `conceptual-foundation-change` por `docs/project/concepts/README.md`
+- `baseline-source-change` por `AGENTS.md`
+- `baseline-source-change` por `README.md`
 <!-- MALAK_VAULT_SYNC:END -->
 
 <!-- MALAK_OPERATIONAL_STATE:START -->
@@ -61,7 +63,7 @@ retrieval_scope: active
 > Estado machine-owned derivado de la fuente oficial.
 > No concede autoridad ni reemplaza decisiones humanas.
 
-- **HEAD oficial:** `83062029da3ed05c36885d4c4c7151d8d958ba40`
+- **HEAD oficial:** `44cb70a4eb9004e9332f067ddd0c193d7f6e51b1`
 - **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.10.md`
 - **Titulo declarado:** Sprint 7.10 — Conversation Session Isolation Foundation
 - **Estado declarado:** `completado`

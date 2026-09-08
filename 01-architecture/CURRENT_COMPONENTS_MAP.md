@@ -28,10 +28,10 @@ tags:
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260907T225040635700Z_83062029_03b1ddc0`
-- **HEAD oficial observado:** `83062029da3ed05c36885d4c4c7151d8d958ba40`
-- **Commit previamente observado:** `08abcdd7f458c2f2f3569df8f04379aebda73de8`
-- **Generado:** `2026-09-07T22:50:40.635700+00:00`
+- **Run ID:** `20260908T171444541120Z_44cb70a4_2b4e92c3`
+- **HEAD oficial observado:** `44cb70a4eb9004e9332f067ddd0c193d7f6e51b1`
+- **Commit previamente observado:** `83062029da3ed05c36885d4c4c7151d8d958ba40`
+- **Generado:** `2026-09-08T17:14:44.541120+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
@@ -44,13 +44,20 @@ tags:
 
 ### Commits oficiales observados
 
-- 83062029da3ed05c36885d4c4c7151d8d958ba40	Merge pull request #60 from Aranwill/docs/post-7.10-baseline-reconciliation
-- 07898ba98a5acc8d83a2aacd5e1260a4181ca260	docs(project): reconcile post-7.10 planning baseline
+- 44cb70a4eb9004e9332f067ddd0c193d7f6e51b1	Merge pull request #62 from Aranwill/docs/construction-method-hardening
+- b60aaee9844e57e69f5eba40a04e10bf3f4d1c76	docs(method): clarify future-proposal disposition
+- cb55096ebd3bdb5145ae6cfbfc0cd8adfa6db0b9	docs(agents): enforce exhaustive construction review protocol
+- 379d05c2aa146541a7104eac66f6659a89fa703e	docs(process): enforce exhaustive review and downstream reconciliation
+- 6fe364edd7fa9a18043c8d6a23d020a74dc79c3d	docs(method): define governed Malak construction protocol
+- 8d2b97215e37b676d3ba1e72fd5b847fba84106b	Merge pull request #61 from Aranwill/fix/post-sprint-readme-reconciliation-gate
+- 7f68313481ba18f40fec033b8dfb4dd92603843e	docs(pr): add sprint closure reconciliation check
+- 66c17dda44a46259e5a3395ab0daae7ff69ace14	docs(process): require post-sprint README reconciliation
+- d33ffead9ea6fe7c0ed07fc9fdb7f8ae4326742c	docs(readme): reconcile Sprint 7.10 baseline
 
 ### Evidencia que originó esta proyección
 
-- `baseline-source-change` por `docs/project/implementation_roadmap.md`
-- `baseline-source-change` por `docs/project/project_context.md`
+- `baseline-source-change` por `AGENTS.md`
+- `baseline-source-change` por `README.md`
 <!-- MALAK_VAULT_SYNC:END -->
 
 <!-- MALAK_OPERATIONAL_STATE:START -->
@@ -59,7 +66,7 @@ tags:
 > Estado machine-owned derivado de la fuente oficial.
 > No concede autoridad ni reemplaza decisiones humanas.
 
-- **HEAD oficial:** `83062029da3ed05c36885d4c4c7151d8d958ba40`
+- **HEAD oficial:** `44cb70a4eb9004e9332f067ddd0c193d7f6e51b1`
 - **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.10.md`
 - **Titulo declarado:** Sprint 7.10 — Conversation Session Isolation Foundation
 - **Estado declarado:** `completado`
