@@ -28,10 +28,10 @@ retrieval_scope: active
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260908T171444541120Z_44cb70a4_2b4e92c3`
-- **HEAD oficial observado:** `44cb70a4eb9004e9332f067ddd0c193d7f6e51b1`
-- **Commit previamente observado:** `83062029da3ed05c36885d4c4c7151d8d958ba40`
-- **Generado:** `2026-09-08T17:14:44.541120+00:00`
+- **Run ID:** `20260908T181028541026Z_e8c1e5c1_47898ae6`
+- **HEAD oficial observado:** `e8c1e5c14ee1b844fa23ca5cb342237f7aaaa8f0`
+- **Commit previamente observado:** `44cb70a4eb9004e9332f067ddd0c193d7f6e51b1`
+- **Generado:** `2026-09-08T18:10:28.541026+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
@@ -44,20 +44,16 @@ retrieval_scope: active
 
 ### Commits oficiales observados
 
-- 44cb70a4eb9004e9332f067ddd0c193d7f6e51b1	Merge pull request #62 from Aranwill/docs/construction-method-hardening
-- b60aaee9844e57e69f5eba40a04e10bf3f4d1c76	docs(method): clarify future-proposal disposition
-- cb55096ebd3bdb5145ae6cfbfc0cd8adfa6db0b9	docs(agents): enforce exhaustive construction review protocol
-- 379d05c2aa146541a7104eac66f6659a89fa703e	docs(process): enforce exhaustive review and downstream reconciliation
-- 6fe364edd7fa9a18043c8d6a23d020a74dc79c3d	docs(method): define governed Malak construction protocol
-- 8d2b97215e37b676d3ba1e72fd5b847fba84106b	Merge pull request #61 from Aranwill/fix/post-sprint-readme-reconciliation-gate
-- 7f68313481ba18f40fec033b8dfb4dd92603843e	docs(pr): add sprint closure reconciliation check
-- 66c17dda44a46259e5a3395ab0daae7ff69ace14	docs(process): require post-sprint README reconciliation
-- d33ffead9ea6fe7c0ed07fc9fdb7f8ae4326742c	docs(readme): reconcile Sprint 7.10 baseline
+- e8c1e5c14ee1b844fa23ca5cb342237f7aaaa8f0	Merge pull request #63 from Aranwill/docs/gate9-admission-corrections
+- 158cb4d3f22a307b4bfedc23aee16ad618a91923	docs(method): align receipt result semantics
+- 8f426bd1a97152763bae567e302cb5b9fd36ed3f	docs(security): reconcile project identity
+- c4abd6d7364510179e41c9938c17df411b9dfc02	docs(repository): reconcile physical structure with baseline
+- 3192e9aa339146e3f514783a080016b51189dddb	docs(changelog): reconcile latest completed sprint
 
 ### Evidencia que originó esta proyección
 
-- `baseline-source-change` por `AGENTS.md`
-- `baseline-source-change` por `README.md`
+- `baseline-source-change` por `CHANGELOG.md`
+- `baseline-source-change` por `docs/project/repository_standard.md`
 <!-- MALAK_VAULT_SYNC:END -->
 
 <!-- MALAK_OPERATIONAL_STATE:START -->
@@ -66,7 +62,7 @@ retrieval_scope: active
 > Estado machine-owned derivado de la fuente oficial.
 > No concede autoridad ni reemplaza decisiones humanas.
 
-- **HEAD oficial:** `44cb70a4eb9004e9332f067ddd0c193d7f6e51b1`
+- **HEAD oficial:** `e8c1e5c14ee1b844fa23ca5cb342237f7aaaa8f0`
 - **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.10.md`
 - **Titulo declarado:** Sprint 7.10 — Conversation Session Isolation Foundation
 - **Estado declarado:** `completado`

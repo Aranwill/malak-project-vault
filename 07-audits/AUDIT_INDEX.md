@@ -15,6 +15,54 @@ tags:
 
 # Índice de auditorías
 
+<!-- MALAK_VAULT_SYNC:START -->
+## Proyección automática de sincronización
+
+> [!warning] Estado derivado pendiente de revisión
+> Este bloque fue generado de forma determinista a partir de
+> `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
+> sprints y no reemplaza la revisión humana del documento.
+
+- **Run ID:** `20260908T181028541026Z_e8c1e5c1_47898ae6`
+- **HEAD oficial observado:** `e8c1e5c14ee1b844fa23ca5cb342237f7aaaa8f0`
+- **Commit previamente observado:** `44cb70a4eb9004e9332f067ddd0c193d7f6e51b1`
+- **Generado:** `2026-09-08T18:10:28.541026+00:00`
+- **Prioridad:** `high`
+- **Disposición:** `review_required`
+
+### Estado estructurado de la fuente oficial
+
+- **Ficha de sprint más reciente:** `docs/project/sprints/SPRINT-7.10.md`
+- **Título declarado:** Sprint 7.10 — Conversation Session Isolation Foundation
+- **Estado declarado:** `completado`
+- **`as_of_commit` declarado:** no disponible
+
+### Commits oficiales observados
+
+- e8c1e5c14ee1b844fa23ca5cb342237f7aaaa8f0	Merge pull request #63 from Aranwill/docs/gate9-admission-corrections
+- 158cb4d3f22a307b4bfedc23aee16ad618a91923	docs(method): align receipt result semantics
+- 8f426bd1a97152763bae567e302cb5b9fd36ed3f	docs(security): reconcile project identity
+- c4abd6d7364510179e41c9938c17df411b9dfc02	docs(repository): reconcile physical structure with baseline
+- 3192e9aa339146e3f514783a080016b51189dddb	docs(changelog): reconcile latest completed sprint
+
+### Evidencia que originó esta proyección
+
+- `security-change` por `SECURITY.md`
+<!-- MALAK_VAULT_SYNC:END -->
+
+<!-- MALAK_OPERATIONAL_STATE:START -->
+## Estado operativo derivado
+
+> Estado machine-owned derivado de la fuente oficial.
+> No concede autoridad ni reemplaza decisiones humanas.
+
+- **HEAD oficial:** `e8c1e5c14ee1b844fa23ca5cb342237f7aaaa8f0`
+- **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.10.md`
+- **Titulo declarado:** Sprint 7.10 — Conversation Session Isolation Foundation
+- **Estado declarado:** `completado`
+- **`as_of_commit` declarado:** no disponible
+<!-- MALAK_OPERATIONAL_STATE:END -->
+
 > [!important] Naturaleza de las auditorías
 > Las auditorías documentan observaciones, evidencia, riesgos y recomendaciones.
 >
@@ -184,3 +232,5 @@ validación multiplataforma, el recovery operativo y la preservación de
 - [[07-audits/vault-synchronization/2026-09-07_VAULT_SYNC_20260907T225040635700Z_83062029_03b1ddc0|Sincronización 20260907T225040635700Z_83062029_03b1ddc0]]
 
 - [[07-audits/vault-synchronization/2026-09-08_VAULT_SYNC_20260908T171444541120Z_44cb70a4_2b4e92c3|Sincronización 20260908T171444541120Z_44cb70a4_2b4e92c3]]
+
+- [[07-audits/vault-synchronization/2026-09-08_VAULT_SYNC_20260908T181028541026Z_e8c1e5c1_47898ae6|Sincronización 20260908T181028541026Z_e8c1e5c1_47898ae6]]
