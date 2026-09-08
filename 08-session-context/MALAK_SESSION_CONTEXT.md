@@ -27,10 +27,10 @@ retrieval_scope: active
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260908T200640057029Z_deb759ee_4024d4fa`
-- **HEAD oficial observado:** `deb759ee9855737a24b169e03bde2028c7db7f33`
-- **Commit previamente observado:** `e8c1e5c14ee1b844fa23ca5cb342237f7aaaa8f0`
-- **Generado:** `2026-09-08T20:06:40.057029+00:00`
+- **Run ID:** `20260908T210033144305Z_3413e8cc_a36c9e8b`
+- **HEAD oficial observado:** `3413e8ccb348440aea757d1feccde25c65be011f`
+- **Commit previamente observado:** `deb759ee9855737a24b169e03bde2028c7db7f33`
+- **Generado:** `2026-09-08T21:00:33.144305+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
@@ -43,30 +43,25 @@ retrieval_scope: active
 
 ### Commits oficiales observados
 
-- deb759ee9855737a24b169e03bde2028c7db7f33	Merge pull request #64 from Aranwill/feat/rdd-m1-evidence-foundation
-- 6e2740b02482db05e84bf62cb51e05320e32a16e	docs(rdd): keep active evidence external to candidate
-- 6572876775195fce79b9ba2b33a75a2acfae9744	docs(rdd): clarify external active evidence semantics
-- f7aac5b34945ace3a6b5fab646b8f71970dcd4a2	docs(rdd): prevent evidence identity recursion
-- d5fdc81ad6b81cd2160b0fc367611ade3bd3a104	test(rdd): cover validator result and binding diagnostics
-- 4fa6a6e7eb7a8cd73c559057f5ecb73e01666dcd	fix(rdd): disambiguate validator result and binding evidence
-- 0f97556b611f3155c91046d1348d9c55e09ca7a6	docs(rdd): compact G0 coverage evidence
-- f7c7493ac5ad06276ba26e3df52f6fd8fe26af0c	docs(rdd): simplify evidence manifest contract
-- 2d04690fc121e0560d2af6ed72f76a7029b67662	docs(rdd): reduce admission record to essential scope
-- 54f1f83d9a114c38d05cc86d4991f8a19ef00168	test(rdd): cover baseline ancestry and result typing
-- 933449fb4ea551562fe114ad6838945522c2b765	fix(rdd): harden manifest validation semantics
-- 55b53b223bc3b909e002c78022d6d04b65dd4263	test(rdd): cover evidence manifest binding invariants
-- 493c51d2cfea02d5262f34d320a7d99a305239b5	feat(rdd): add candidate-bound manifest validator
-- daa7abe413b08e93184742006dcfcf103daaa48f	docs(rdd): define evidence manifest v1 contract
-- 0ca49d645026a5552618d9d7b776099ad6ff9e3b	docs(rdd): close G0 coverage review
-- bf5003537a22433211a2d169766e0a26542d312b	docs: record RDD-M1 admission and invariants
+- 3413e8ccb348440aea757d1feccde25c65be011f	Merge pull request #65 from Aranwill/feat/sprint-7.11-reproducible-validation-pipeline
+- 59f592e2e36d11bbd14f7d9d93b1dac4f442c108	docs(sprint-7.11): close technical gates for final validation
+- aed4374fcb7709e22a10d7f793735044d6b0bdac	docs(sprint-7.11): record bounded CI bootstrap correction
+- ef3c538b2e79d136acaa69a38b550d8670159eae	ci: use Node24-compatible official actions
+- e64f5d62f2067fda9bbd5e0304ef24d30db7fa4e	ci: add read-only candidate validation pipeline
+- be10443e6b0f56f2d460988702e965287a93ac16	docs(dev): document reproducible validation environment
+- 671dcb821382e6b20de6c7510b8d563b5438fa9e	build(dev): declare pytest development dependency
+- 1bf9280e3288ea9caa5afb500381255d95d4b2e2	docs(sprint-7.11): authorize implementation and close G1
+- 9ee3b71a72a739792c1a2be3fd4e364ce0ef2a32	docs: close Sprint 7.11 G0 and define minimal implementation contract
+- d221270e703356ec106a6f5b7cf0fe998abf2327	docs: close Sprint 7.11 admission coverage review
+- bd7714ba8808d4b25747b805ebdb6e8fa19d8222	docs: record Sprint 7.11 admission authorization
 
 ### Evidencia que originó esta proyección
 
-- `baseline-source-change` por `docs/project/sprints/proposals/RDD-M1-CANDIDATE-BOUND-EVIDENCE-FOUNDATION.md`
-- `baseline-source-change` por `docs/project/sprints/proposals/RDD-M1-G0-COVERAGE-LEDGER.md`
-- `operational-tooling-change` por `docs/development/evidence_manifest.md`
-- `operational-tooling-change` por `scripts/malak_evidence.py`
-- `test-change` por `tests/test_malak_evidence.py`
+- `baseline-source-change` por `docs/project/sprints/proposals/SPRINT-7.11-G0-COVERAGE-LEDGER.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/SPRINT-7.11-REPRODUCIBLE-VALIDATION-PIPELINE-FOUNDATION.md`
+- `operational-tooling-change` por `.github/workflows/validation.yml`
+- `operational-tooling-change` por `docs/development/development_environment.md`
+- `test-change` por `pyproject.toml`
 <!-- MALAK_VAULT_SYNC:END -->
 
 <!-- MALAK_OPERATIONAL_STATE:START -->
@@ -75,7 +70,7 @@ retrieval_scope: active
 > Estado machine-owned derivado de la fuente oficial.
 > No concede autoridad ni reemplaza decisiones humanas.
 
-- **HEAD oficial:** `deb759ee9855737a24b169e03bde2028c7db7f33`
+- **HEAD oficial:** `3413e8ccb348440aea757d1feccde25c65be011f`
 - **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.10.md`
 - **Titulo declarado:** Sprint 7.10 — Conversation Session Isolation Foundation
 - **Estado declarado:** `completado`
