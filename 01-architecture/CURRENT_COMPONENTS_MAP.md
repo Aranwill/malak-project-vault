@@ -82,6 +82,7 @@ Este mapa cubre las siguientes fronteras verificadas:
 - `EchoCapability`;
 - `ConversationCapability`;
 - `ConversationService` y `ConversationProviderRegistry`;
+- `InMemoryConversationContext` con continuidad efímera aislada por `session_id`;
 - `RuntimeConversationProvider` y `LLMRuntime`;
 - `Response`;
 - CLI conversacional integrada mediante `Kernel.receive`;
@@ -108,6 +109,11 @@ Sprint 7.8 integró la ruta conversacional dentro del pipeline
 Kernel–Planner–Capability mediante `ConversationCapability`. La integración es
 indirecta: el Kernel no depende directamente de `ConversationService`, providers
 ni runtimes concretos.
+
+Sprint 7.9 añadió continuidad conversacional efímera mediante
+`InMemoryConversationContext`. Sprint 7.10 preservó el `Request` completo a través
+de la frontera de Capability para propagar `session_id` y aislar historial por
+sesión, sin persistencia ni Memory.
 
 ## 2. Referencia operativa del mapa
 
@@ -393,8 +399,8 @@ docs/project/sprints/SPRINT-7.5.md
 
 ## 4. Flujo implementado
 
-El Kernel mantiene un flujo genérico Kernel–Planner–Capability. La capability
-concreta depende de la composición utilizada.
+El Kernel mantiene un flujo genérico Kernel–Planner–Capability. Desde Sprint 7.10
+la frontera de ejecución preserva el `Request` completo:
 
 ```mermaid
 flowchart LR
@@ -410,10 +416,13 @@ flowchart LR
     Planner -->|capability name| Kernel
     Kernel -->|get capability| Registry
     Registry -->|Capability| Kernel
-    Kernel -->|execute content| Capability
+    Kernel -->|execute Request| Capability
     Capability -->|result| Kernel
     Kernel -->|construct| Response
 ```
+
+Esto preserva metadata existente —incluido `session_id`— sin almacenar contexto
+en el Kernel ni introducir un DTO universal adicional.
 
 ## 5. Flujo operativo conversacional
 
@@ -425,59 +434,50 @@ flowchart LR
     Registry[CapabilityRegistry]
     Capability[ConversationCapability]
     Service[ConversationService]
+    Context[InMemoryConversationContext]
     ProviderRegistry[ConversationProviderRegistry]
     Provider[RuntimeConversationProvider]
     Runtime[LLMRuntime]
-    Started[conversation.started]
-    Final[conversation.succeeded / conversation.failed]
-    Sink[OperationalEventSink]
-    Memory[InMemoryOperationalEventStore]
-    JSONL[JsonlOperationalEventStore]
 
-    CLI -->|Request| Kernel
+    CLI -->|Request + session_id| Kernel
     Kernel --> Planner
     Planner -->|conversation| Kernel
     Kernel --> Registry
     Registry --> Capability
-    Capability --> Service
+    Capability -->|content + session_id| Service
+    Service -->|snapshot session| Context
+    Context -->|history| Service
     Service --> ProviderRegistry
     ProviderRegistry --> Provider
     Provider --> Runtime
     Runtime --> Provider
     Provider --> Service
+    Service -->|record successful exchange| Context
     Service --> Capability
     Capability --> Kernel
     Kernel --> CLI
-
-    CLI -->|request_id| Started
-    Started --> Sink
-    CLI -->|mismo request_id| Final
-    Final --> Sink
-    Sink -. implementación .-> Memory
-    Sink -. implementación .-> JSONL
 ```
 
-La CLI enruta las solicitudes conversacionales válidas mediante
-`Kernel.receive()`. `ConversationCapability` mantiene al Kernel desacoplado de
-`ConversationService`, providers y runtimes concretos.
+`InMemoryConversationContext` mantiene historial únicamente en RAM, separado por
+`session_id`, con un límite inicial de seis intercambios completos por sesión.
+`clear(session_id)` no afecta otras sesiones y un fallo de generación no muta el
+contexto. No existe persistencia, Memory, Knowledge ni sesión global/default
+implícita cuando el contexto está habilitado.
 
-La observabilidad no posee semántica de autorización ni de auditoría
-de seguridad.
+La CLI conserva una UUID durante la conversación activa. `new` limpia solo esa
+sesión, rota a una nueva UUID y continúa con una nueva frontera conversacional.
 
 ## 6. Secuencia funcional
 
-1. La CLI construye un `Request` para una entrada conversacional válida.
+1. La CLI construye un `Request` con contenido e identidad de sesión.
 2. La CLI entrega el `Request` a `Kernel.receive`.
-3. El Kernel rechaza contenido vacío y solicita al Planner el nombre de capability.
-4. En la composición conversacional, el Planner devuelve `"conversation"`.
-5. El Kernel consulta el `CapabilityRegistry`.
-6. El registro devuelve `ConversationCapability`.
-7. El Kernel ejecuta la capability con el contenido de la solicitud.
-8. `ConversationCapability` delega en `ConversationService`.
-9. `ConversationService` resuelve el provider mediante `ConversationProviderRegistry`.
-10. `RuntimeConversationProvider` delega la generación en `LLMRuntime`.
-11. El resultado vuelve por la misma frontera hasta el Kernel.
-12. El Kernel construye un `Response` y la CLI presenta su contenido.
+3. El Kernel obtiene la capability mediante Planner y `CapabilityRegistry`.
+4. El Kernel ejecuta `Capability.execute(Request)`.
+5. `ConversationCapability` preserva `content` y `session_id` y delega en `ConversationService`.
+6. Con contexto habilitado, el servicio obtiene `snapshot(session_id)`; sin contexto conserva compatibilidad stateless.
+7. El servicio resuelve el provider y genera la respuesta mediante `LLMRuntime`.
+8. Solo tras éxito registra el intercambio en esa sesión; ante fallo el contexto permanece intacto.
+9. El resultado vuelve al Kernel, que construye el `Response`.
 
 ## 7. Bootstrap y composición verificados
 
@@ -559,6 +559,7 @@ Sin convertirlos en decisiones nuevas, el código observado muestra:
 - `src/malak/capabilities/conversation.py`
 - `src/malak/app/composition.py`
 - `src/malak/services/conversation_service.py`
+- `src/malak/services/conversation_context.py`
 - `src/malak/core/conversation_registry.py`
 - `src/malak/providers/runtime_provider.py`
 - `src/malak/core/llm_runtime.py`
@@ -579,6 +580,8 @@ Sin convertirlos en decisiones nuevas, el código observado muestra:
 - `docs/architecture/adr/ADR-002-policy-enforcement-boundary.md`
 - `docs/project/sprints/SPRINT-7.4.md`
 - `docs/project/sprints/SPRINT-7.5.md`
+- `docs/project/sprints/SPRINT-7.9.md`
+- `docs/project/sprints/SPRINT-7.10.md`
 
 ## 11. Navegación relacionada
 

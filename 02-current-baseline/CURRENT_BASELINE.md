@@ -301,100 +301,80 @@ Antes de una nueva implementación deberá verificarse nuevamente en el entorno 
 ## 7. Estado arquitectónico general
 
 Sprint 7.8 integró la ruta conversacional dentro del pipeline
-Kernel–Planner–Capability sin introducir dependencias de infraestructura en el
-Kernel.
+Kernel–Planner–Capability. Sprint 7.9 añadió continuidad conversacional efímera
+mediante `InMemoryConversationContext`. Sprint 7.10 preservó `Request.session_id`
+a través de la frontera de Capability y aisló el historial por sesión.
 
 La ruta cognitiva conversacional validada es:
 
 ```text
-Entrada de usuario
-        ↓
 CLI
-        ↓
-Request
-        ↓
+  ↓
+Request(content, session_id, ...)
+  ↓
 Kernel.receive()
-        ↓
+  ↓
 Planner
-        ↓
+  ↓
 CapabilityRegistry
-        ↓
+  ↓
+Capability.execute(Request)
+  ↓
 ConversationCapability
-        ↓
+  ↓
 ConversationService
-        ↓
+  ↕
+InMemoryConversationContext
+  ↓
 ConversationProviderRegistry
-        ↓
+  ↓
 RuntimeConversationProvider
-        ↓
+  ↓
 LLMRuntime
-├── MockLLMRuntime
-└── OllamaRuntime
 ```
 
 ### 7.1 Pipeline Kernel–Planner–Capability
 
-El Kernel continúa procesando solicitudes mediante:
-
-* Kernel;
-* Planner;
-* Capability Registry;
-* Capabilities.
-
-El Kernel no conoce ni construye `ConversationService`, providers, runtimes,
-modelos ni configuración de infraestructura.
-
-La selección de la capacidad conversacional se realiza mediante el Planner y el
-Capability Registry.
+El Kernel entrega el `Request` completo a la capability para preservar metadata ya
+existente. No almacena historial conversacional y continúa desacoplado de
+`ConversationService`, contexto, providers, runtimes y modelos concretos.
 
 ### 7.2 Adaptación conversacional
 
-`ConversationCapability` constituye la frontera de adaptación entre el contrato
-genérico de Capability y `ConversationService`.
+`ConversationCapability` recibe el `Request`, preserva `request.content` y
+`request.session_id` y delega ambos datos en `ConversationService`. La integración
+sigue siendo indirecta: el Kernel no conoce el servicio ni el contexto.
 
-Su función es:
+### 7.3 Continuidad e aislamiento de sesión
 
-* recibir el contenido despachado por el Kernel;
-* construir la solicitud conversacional correspondiente;
-* delegar en `ConversationService`;
-* devolver al Kernel únicamente el resultado de la Capability.
-
-La integración entre el pipeline cognitivo y el subsistema conversacional es,
-por tanto, indirecta y desacoplada.
-
-### 7.3 Composición externa
-
-La construcción concreta de la ruta conversacional permanece fuera del Kernel.
-
-La frontera de aplicación compone:
+`InMemoryConversationContext` expone:
 
 ```text
-LLMRuntime
-        ↓
-RuntimeConversationProvider
-        ↓
-ConversationProviderRegistry
-        ↓
-ConversationService
-        ↓
-ConversationCapability
-        ↓
-CapabilityRegistry
-        ↓
-Planner
-        ↓
-Kernel
+snapshot(session_id)
+record_exchange(session_id, ...)
+clear(session_id)
 ```
 
-Esta composición preserva Runtime Independence y evita introducir en el Kernel
-dependencias de Ollama, providers, servicios conversacionales, variables de
-entorno o modelos concretos.
+El historial vive solo en RAM, se limita inicialmente a seis intercambios
+completos por sesión y permanece aislado entre sesiones. `clear(A)` y eviction en
+A no afectan B. El contexto solo se modifica después de una generación exitosa.
+Con contexto habilitado `session_id` es obligatorio y no existe fallback global.
 
-La CLI utiliza el Kernel como punto de entrada para las solicitudes
-conversacionales ordinarias.
+La CLI crea una UUID de sesión al iniciar y `new` limpia la sesión actual, genera
+una nueva UUID y continúa como una nueva conversación.
 
-La integración cognitiva conversacional fue validada end-to-end durante Sprint
-7.8.
+La separación vigente es:
+
+```text
+Conversation History != Memory != Knowledge
+```
+
+No existe persistencia conversacional en este baseline.
+
+### 7.4 Composición externa
+
+La construcción concreta de contexto, providers y runtimes permanece fuera del
+Kernel, preservando Runtime Independence y separación de responsabilidades.
 
 ---
 
@@ -479,6 +459,7 @@ Función:
 
 Componentes:
 
+* `ConversationMessage`;
 * `ConversationRequest`;
 * `ConversationResponse`.
 
@@ -1060,7 +1041,7 @@ No debe instalarse o incorporarse improvisadamente.
 
 Todavía no forman parte del baseline operativo:
 
-* memoria conversacional;
+* Memory persistente o cognitiva;
 * historial persistente de conversaciones;
 * agentes;
 * herramientas externas;
@@ -1218,6 +1199,11 @@ docs/project/sprints/SPRINT-7.2.md
 docs/project/sprints/SPRINT-7.3.md
 docs/project/sprints/SPRINT-7.4.md
 docs/project/sprints/SPRINT-7.5.md
+docs/project/sprints/SPRINT-7.9.md
+docs/project/sprints/SPRINT-7.10.md
+src/malak/capabilities/conversation.py
+src/malak/services/conversation_context.py
+src/malak/services/conversation_service.py
 src/malak/security/contracts.py
 src/malak/security/__init__.py
 tests/test_authorization_contracts.py
