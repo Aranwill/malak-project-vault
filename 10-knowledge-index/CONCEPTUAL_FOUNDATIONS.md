@@ -25,38 +25,41 @@ retrieval_scope: active
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260908T210033144305Z_3413e8cc_a36c9e8b`
-- **HEAD oficial observado:** `3413e8ccb348440aea757d1feccde25c65be011f`
-- **Commit previamente observado:** `deb759ee9855737a24b169e03bde2028c7db7f33`
-- **Generado:** `2026-09-08T21:00:33.144305+00:00`
+- **Run ID:** `20260908T221456916956Z_5fa2ae25_0858c502`
+- **HEAD oficial observado:** `5fa2ae2586aec3498710f6722407e371b3e58d1f`
+- **Commit previamente observado:** `3413e8ccb348440aea757d1feccde25c65be011f`
+- **Generado:** `2026-09-08T22:14:56.916956+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
 ### Estado estructurado de la fuente oficial
 
-- **Ficha de sprint más reciente:** `docs/project/sprints/SPRINT-7.10.md`
-- **Título declarado:** Sprint 7.10 — Conversation Session Isolation Foundation
+- **Ficha de sprint más reciente:** `docs/project/sprints/SPRINT-7.11.md`
+- **Título declarado:** Sprint 7.11 — Reproducible Validation Pipeline Foundation
 - **Estado declarado:** `completado`
 - **`as_of_commit` declarado:** no disponible
 
 ### Commits oficiales observados
 
-- 3413e8ccb348440aea757d1feccde25c65be011f	Merge pull request #65 from Aranwill/feat/sprint-7.11-reproducible-validation-pipeline
-- 59f592e2e36d11bbd14f7d9d93b1dac4f442c108	docs(sprint-7.11): close technical gates for final validation
-- aed4374fcb7709e22a10d7f793735044d6b0bdac	docs(sprint-7.11): record bounded CI bootstrap correction
-- ef3c538b2e79d136acaa69a38b550d8670159eae	ci: use Node24-compatible official actions
-- e64f5d62f2067fda9bbd5e0304ef24d30db7fa4e	ci: add read-only candidate validation pipeline
-- be10443e6b0f56f2d460988702e965287a93ac16	docs(dev): document reproducible validation environment
-- 671dcb821382e6b20de6c7510b8d563b5438fa9e	build(dev): declare pytest development dependency
-- 1bf9280e3288ea9caa5afb500381255d95d4b2e2	docs(sprint-7.11): authorize implementation and close G1
-- 9ee3b71a72a739792c1a2be3fd4e364ce0ef2a32	docs: close Sprint 7.11 G0 and define minimal implementation contract
-- d221270e703356ec106a6f5b7cf0fe998abf2327	docs: close Sprint 7.11 admission coverage review
-- bd7714ba8808d4b25747b805ebdb6e8fa19d8222	docs: record Sprint 7.11 admission authorization
+- 5fa2ae2586aec3498710f6722407e371b3e58d1f	Merge pull request #67 from Aranwill/docs/reconcile-sprint-7.11-state
+- e47a717ae3d754f130dc02dc71d2e86ca56a5c53	docs: restore exact project context formatting
+- 3859f3e8a5676e9c27970f05c676d02e129df850	docs: correct stale Sprint 7.9 status
+- b41fb036c023994e37a21760367d167eda69d7ea	docs: correct project context authorization wording
+- c385e685250369b9b54a2e14212b56a8fbe23380	docs: reconcile project context after Sprint 7.11
+- e89533f6fdc74c2a2bebca3265430443b10639e9	docs: reconcile roadmap state after Sprint 7.11
+- 2523a91c57460f1a94e4c6120c74085de5920289	docs: revert broad documentation compaction
+- fddb40c0e8cf804e5f252b2382afe2b48cbb1760	docs: preserve capability admission rule
+- ea8f22da1dce40dec67123c05b608d1137a45c8a	docs: consolidate implementation roadmap after Sprint 7.11
+- e6b2744880b31c6332c4f24f10509e262a2c1cd6	docs: consolidate current project context after Sprint 7.11
+- 71ed8f57d9256c6c7cff812cb1e92c0f8cf7ad7c	docs: reconcile changelog with Sprint 7.11
+- 904bc320ebed29231442596bf5aa93f5ca30ddae	docs: consolidate Sprint 7.11 closure record
 
 ### Evidencia que originó esta proyección
 
-- `baseline-source-change` por `docs/project/sprints/proposals/SPRINT-7.11-G0-COVERAGE-LEDGER.md`
-- `baseline-source-change` por `docs/project/sprints/proposals/SPRINT-7.11-REPRODUCIBLE-VALIDATION-PIPELINE-FOUNDATION.md`
+- `baseline-source-change` por `CHANGELOG.md`
+- `baseline-source-change` por `docs/project/implementation_roadmap.md`
+- `baseline-source-change` por `docs/project/project_context.md`
+- `baseline-source-change` por `docs/project/sprints/SPRINT-7.11.md`
 <!-- MALAK_VAULT_SYNC:END -->
 
 <!-- MALAK_OPERATIONAL_STATE:START -->
@@ -65,9 +68,9 @@ retrieval_scope: active
 > Estado machine-owned derivado de la fuente oficial.
 > No concede autoridad ni reemplaza decisiones humanas.
 
-- **HEAD oficial:** `3413e8ccb348440aea757d1feccde25c65be011f`
-- **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.10.md`
-- **Titulo declarado:** Sprint 7.10 — Conversation Session Isolation Foundation
+- **HEAD oficial:** `5fa2ae2586aec3498710f6722407e371b3e58d1f`
+- **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.11.md`
+- **Titulo declarado:** Sprint 7.11 — Reproducible Validation Pipeline Foundation
 - **Estado declarado:** `completado`
 - **`as_of_commit` declarado:** no disponible
 <!-- MALAK_OPERATIONAL_STATE:END -->
