@@ -61,11 +61,11 @@ retrieval_scope: active
 > Estado machine-owned derivado de la fuente oficial.
 > No concede autoridad ni reemplaza decisiones humanas.
 
-- **HEAD oficial:** `e3c28131f491b740c352da79537cd9233d7f4979`
-- **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.8.md`
-- **Titulo declarado:** Sprint 7.8 — Cognitive Conversation Execution Path Foundation
+- **HEAD oficial:** `83062029da3ed05c36885d4c4c7151d8d958ba40`
+- **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.10.md`
+- **Titulo declarado:** Sprint 7.10 — Conversation Session Isolation Foundation
 - **Estado declarado:** `completado`
-- **`as_of_commit` declarado:** `6c179730e6d4220bbba22a8282f978a7a1aa9155`
+- **`as_of_commit` declarado:** no disponible
 <!-- MALAK_OPERATIONAL_STATE:END -->
 
 ## 1. Propósito
