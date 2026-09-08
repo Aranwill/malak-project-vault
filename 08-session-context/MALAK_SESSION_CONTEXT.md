@@ -159,84 +159,67 @@ de la evidencia oficial correspondiente.
 
 ## 4. Estado arquitectónico representado
 
-Sprint 7.8 integró la conversación dentro del pipeline
-Kernel–Planner–Capability mediante una Capability dedicada y composición
-externa.
-
-La ruta cognitiva conversacional representada es:
+Sprint 7.8 integró la conversación en Kernel–Planner–Capability. Sprint 7.9 añadió
+continuidad conversacional efímera y Sprint 7.10 preservó `session_id` a través
+de la frontera de Capability para aislar historial por sesión.
 
 ```text
 CLI
-        ↓
-Request
-        ↓
+  ↓
+Request(content, session_id, ...)
+  ↓
 Kernel.receive()
-        ↓
+  ↓
 Planner
-        ↓
+  ↓
 CapabilityRegistry
-        ↓
+  ↓
+Capability.execute(Request)
+  ↓
 ConversationCapability
-        ↓
+  ↓
 ConversationService
-        ↓
+  ↕
+InMemoryConversationContext
+  ↓
 ConversationProviderRegistry
-        ↓
+  ↓
 RuntimeConversationProvider
-        ↓
+  ↓
 LLMRuntime
 ```
 
-### 4.1 Pipeline Kernel–Planner–Capability
+### 4.1 Pipeline y adaptación
 
-Componentes principales:
+El Kernel continúa sin estado conversacional. `ConversationCapability` recibe el
+`Request` completo, preserva `content` y `session_id` y delega en
+`ConversationService`. Contexto, providers y runtimes permanecen compuestos fuera
+del Kernel y de `SecurityContext`.
 
-* Kernel MVP;
-* Planner MVP;
-* Capability Registry;
-* EchoCapability;
-* `ConversationCapability`.
+### 4.2 Continuidad e aislamiento
 
-El Kernel continúa siendo la frontera cognitiva de entrada y permanece
-desacoplado de servicios, providers, runtimes y modelos concretos.
-
-### 4.2 Ruta conversacional integrada
-
-`ConversationCapability` adapta el contrato genérico de Capability hacia
-`ConversationService`.
-
-La integración no introduce una dependencia directa desde el Kernel hacia
-`ConversationService`.
-
-La composición concreta se mantiene en la frontera de aplicación:
+`InMemoryConversationContext` mantiene exclusivamente historial efímero en RAM:
 
 ```text
-LLMRuntime
-        ↓
-RuntimeConversationProvider
-        ↓
-ConversationProviderRegistry
-        ↓
-ConversationService
-        ↓
-ConversationCapability
-        ↓
-CapabilityRegistry
-        ↓
-Planner
-        ↓
-Kernel
+session_id → exchanges
+snapshot(session_id)
+record_exchange(session_id, ...)
+clear(session_id)
 ```
 
-La CLI enruta las solicitudes conversacionales a través de `Kernel.receive()`.
+El límite inicial es de seis intercambios completos por sesión. Una sesión no
+observa, limpia ni provoca eviction de otra. Un fallo de generación deja el
+contexto intacto. No existe sesión global/default implícita con contexto
+habilitado.
 
-Sprint 7.8 validó esta ruta con pruebas unitarias, integración end-to-end y una
-ejecución real mediante `OllamaRuntime`.
+La CLI conserva una UUID durante la conversación activa. `new` limpia solo la
+sesión actual, rota a una nueva UUID y continúa como una nueva conversación.
 
-La separación arquitectónica relevante que continúa vigente es la separación
-de responsabilidades: el Kernel gobierna el despacho cognitivo, mientras que
-la infraestructura conversacional y de runtime permanece compuesta
-externamente.
+```text
+Conversation History != Memory != Knowledge
+```
+
+No existe persistencia conversacional en el baseline representado.
 
 ---
 
@@ -248,6 +231,8 @@ Componentes documentados en el alcance representado:
 * Planner MVP;
 * Capability Registry;
 * EchoCapability;
+* `ConversationCapability`;
+* `ConversationMessage`;
 * `ConversationRequest`;
 * `ConversationResponse`;
 * `LLMRuntime`;
@@ -258,7 +243,8 @@ Componentes documentados en el alcance representado:
 * `ConversationProviderNotFoundError`;
 * `ConversationProviderRegistry`;
 * `ConversationService`;
-* CLI técnica;
+* `InMemoryConversationContext`;
+* CLI técnica con lifecycle de `session_id` y comando `new`;
 * configuración externa del runtime;
 * `RuntimeMetricSample`;
 * `RuntimeMetricSink`;
@@ -417,7 +403,7 @@ Antes de agentes, navegación, herramientas externas, automatización, mensajer�
 
 No forman parte del alcance implementado documentado:
 
-* memoria conversacional;
+* Memory persistente o cognitiva;
 * historial persistente;
 * agentes;
 * herramientas externas;
