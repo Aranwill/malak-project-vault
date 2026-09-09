@@ -27,10 +27,10 @@ retrieval_scope: active
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260909T001148370935Z_6458fd98_42a9c295`
-- **HEAD oficial observado:** `6458fd98b3af16401d485495eb7cd1eae4b23881`
-- **Commit previamente observado:** `5fa2ae2586aec3498710f6722407e371b3e58d1f`
-- **Generado:** `2026-09-09T00:11:48.370935+00:00`
+- **Run ID:** `20260909T115318648117Z_10d6945d_5c1904a1`
+- **HEAD oficial observado:** `10d6945d6f19a61c9dc9724738545107b9148707`
+- **Commit previamente observado:** `6458fd98b3af16401d485495eb7cd1eae4b23881`
+- **Generado:** `2026-09-09T11:53:18.648117+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
@@ -43,16 +43,26 @@ retrieval_scope: active
 
 ### Commits oficiales observados
 
-- 6458fd98b3af16401d485495eb7cd1eae4b23881	Merge pull request #69 from Aranwill/admission/constitutional-assurance-objective-invariants
-- 3c12069f5d7ffc2bee1a94fee8a477c227730a53	test: implement static architecture invariant detector
-- c89690225f4d8bcc48565b7a4d9b7b6e69136e2d	test: add RED architecture invariant scenarios
-- c1305f522c55bf9c20ba74facfbcfc3023048b24	docs: design objective architecture invariants
-- e1b41e4087f572dd75a6a40d5870f01aaecbe0f8	docs: add Constitutional Assurance G0 coverage ledger
+- 10d6945d6f19a61c9dc9724738545107b9148707	Merge pull request #71 from Aranwill/docs/security-policy-context-map-20260909
+- c5ae605cbbea73552c7ec68b5e2f3338e8a95b19	Merge pull request #70 from Aranwill/docs/research-horizon-security-reconciliation-20260909
+- 590e0f60154663daad51c12e125ed152fd574ffd	docs: remove trailing whitespace from security header
+- 96fbfc2337112dc123e7c2bd2a563f9c84d4c810	docs: record security policy and context mapping reconciliation
+- c64eab525e4291068eb9ca76cc0f60d77a6f29c2	docs: clarify security policy authority and future capabilities
+- d07551d1d5be3252d5d1adbc316671e28fc50dab	docs: add security and research horizon PR checks
+- e9ea04ae88a7070d6a99a2b0eb54992b0384de67	docs: add security horizon checks to development checklist
+- 3c712317b4d31c353a2bb7a8e5ec8b542d73d5f8	docs: include security and research horizon in construction admission
+- cfeb9b40e92fc5ceb8772e1ca5af7f7f47045f8e	docs: make security and research horizon mandatory review inputs
+- 5f11b07e7a34d277a6fc4de4e331a99c164f1027	docs: reconcile active security policy with current architecture
+- e093ef3c654369bcbc0eae1dc1e0222edcf86a5b	docs: clarify world models vs autonomous self-modification
+- 91f24646b279fc96ae442dcbab63fed14842a517	docs: index Malak research horizon map
+- 0ec2f22a43b02eca53e427b4c8265f86aeefd4f0	docs: add Malak research horizon security reconciliation
 
 ### Evidencia que originó esta proyección
 
-- `baseline-source-change` por `docs/project/sprints/proposals/CONSTITUTIONAL-ASSURANCE-G0-COVERAGE-LEDGER.md`
-- `baseline-source-change` por `docs/project/sprints/proposals/CONSTITUTIONAL-ASSURANCE-G1-DESIGN.md`
+- `baseline-source-change` por `AGENTS.md`
+- `baseline-source-change` por `CHANGELOG.md`
+- `conceptual-foundation-change` por `docs/project/concepts/MALAK_RESEARCH_HORIZON_MAP.md`
+- `conceptual-foundation-change` por `docs/project/concepts/README.md`
 <!-- MALAK_VAULT_SYNC:END -->
 
 <!-- MALAK_OPERATIONAL_STATE:START -->
@@ -61,7 +71,7 @@ retrieval_scope: active
 > Estado machine-owned derivado de la fuente oficial.
 > No concede autoridad ni reemplaza decisiones humanas.
 
-- **HEAD oficial:** `6458fd98b3af16401d485495eb7cd1eae4b23881`
+- **HEAD oficial:** `10d6945d6f19a61c9dc9724738545107b9148707`
 - **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.11.md`
 - **Titulo declarado:** Sprint 7.11 — Reproducible Validation Pipeline Foundation
 - **Estado declarado:** `completado`
