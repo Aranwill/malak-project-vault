@@ -28,10 +28,10 @@ tags:
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260909T210003559482Z_684927a1_aa278332`
-- **HEAD oficial observado:** `684927a1e429e530da8f9831f374551c22b48d8f`
-- **Commit previamente observado:** `c3080c6feda5771985aa4a10822c3eb034abd7e3`
-- **Generado:** `2026-09-09T21:00:03.559482+00:00`
+- **Run ID:** `20260909T212644350866Z_7f6f428c_155172f1`
+- **HEAD oficial observado:** `7f6f428cc3be4b2f3407c3fd9d060d20eb5a6a97`
+- **Commit previamente observado:** `684927a1e429e530da8f9831f374551c22b48d8f`
+- **Generado:** `2026-09-09T21:26:44.350866+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
@@ -44,17 +44,12 @@ tags:
 
 ### Commits oficiales observados
 
-- 684927a1e429e530da8f9831f374551c22b48d8f	Merge pull request #80 from Aranwill/design/episodic-assessment-provenance-g1-20260909
-- 0ddd6d7deded17148e6350d119b4df3fc3eca10a	docs: define episodic assessment provenance G0 G1 design
-- 64ec249758c117afb204e9f44f1d4e7cb3fe5a7c	Merge pull request #79 from Aranwill/ci/multi-os-pr-validation-20260909
-- 3b1431f30bb87eb8bb9f2908138c551fc9bc0854	ci: validate PR candidates across hosted OS runners
-- 582838bdab2c2f684a7b24326059b1f8e5fe4351	Merge pull request #78 from Aranwill/docs/reconcile-post-g3-research-horizon-20260909
-- 1bee738ca0686bc85895618ef808988dca208a50	docs: preserve research horizon final newline
-- 8c0a269c6f43e1e0f5dbab3657caf6493d7b045a	docs: reconcile research horizon after G3
+- 7f6f428cc3be4b2f3407c3fd9d060d20eb5a6a97	Merge pull request #81 from Aranwill/spec/episodic-assessment-provenance-g2-20260909
+- e66136da645f31459866921e19b95e9584f7d98b	docs: specify episodic assessment provenance candidate
 
 ### Evidencia que originó esta proyección
 
-- `baseline-source-change` por `docs/project/sprints/proposals/EPISODIC-ADMISSION-ASSESSMENT-PROVENANCE-G0-G1-DESIGN.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/EPISODIC-ADMISSION-ASSESSMENT-PROVENANCE-G2-IMPLEMENTATION-CANDIDATE-SPEC.md`
 <!-- MALAK_VAULT_SYNC:END -->
 
 <!-- MALAK_OPERATIONAL_STATE:START -->
@@ -63,7 +58,7 @@ tags:
 > Estado machine-owned derivado de la fuente oficial.
 > No concede autoridad ni reemplaza decisiones humanas.
 
-- **HEAD oficial:** `684927a1e429e530da8f9831f374551c22b48d8f`
+- **HEAD oficial:** `7f6f428cc3be4b2f3407c3fd9d060d20eb5a6a97`
 - **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.11.md`
 - **Titulo declarado:** Sprint 7.11 — Reproducible Validation Pipeline Foundation
 - **Estado declarado:** `completado`
