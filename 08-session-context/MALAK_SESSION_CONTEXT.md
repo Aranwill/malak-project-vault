@@ -1258,3 +1258,49 @@ o el LLM en propietarios de Memory. Cuando una revisión continúe esta línea o
 evalúe una implementación dependiente de Memory episódica, este design record
 debe consultarse como fuente oficial aplicable junto con `SECURITY.md`, el
 Research Horizon, baseline, roadmap, decisiones y protocolo de construcción.
+
+---
+
+## 21. Episodic Memory Admission Boundary — G2 integrado
+
+Fuente oficial:
+
+```text
+Aranwill/jarvis/docs/project/sprints/proposals/EPISODIC-MEMORY-ADMISSION-G2-IMPLEMENTATION-CANDIDATE-SPEC.md
+Estado contextual:
+
+G0: PASS
+G1 design: aprobado por el Owner e integrado
+G2 Implementation Candidate Specification: aprobada por el Owner e integrada
+Implementación productiva: no autorizada
+Memory persistente: no implementada
+Sprint 7.12: no autorizado
+RDD Stage 2: no autorizado
+
+G2 convierte las restricciones de G1 en una especificación mínima de una futura
+implementación, pero no ejecuta esa implementación.
+
+La correlación futura fue identificada después de un
+ConversationService.generate() exitoso dentro de ConversationCapability,
+donde el Request original y el ConversationResponse pueden coexistir sin
+convertir a Conversation ni al Kernel en propietarios de Memory.
+
+Se preservan:
+
+candidate payload != candidate control metadata
+
+source authority
+!= confidence
+!= source security status
+!= temporal validity
+!= sensitivity
+
+admission decision
+!= persistence authorization
+!= storage
+
+El candidate futuro permanece limitado a contratos, metadata de control,
+policy determinista y pruebas. No existe wiring runtime, persistencia, retrieval,
+Knowledge implementation ni autorización automática derivada de G2.
+
+Cualquier implementación requiere un gate y autorización humana posteriores.
