@@ -5,7 +5,7 @@ document_type: navigation
 status: active
 authority: derived
 operational_authority: none
-last_reviewed: 2026-07-22
+last_reviewed: 2026-09-09
 tags:
   - malak
   - vault
@@ -37,6 +37,26 @@ Esta sección organiza conocimiento derivado relacionado con:
 
 Este índice no declara implementado ningún componente de seguridad de Malāk.
 
+El repositorio oficial `Aranwill/jarvis/main` mantiene la fuente de verdad para
+la política y los controles efectivos. La política activa se encuentra en:
+
+```text
+SECURITY.md
+versión: 2.0
+estado: activo
+clasificación: política de seguridad protegida
+```
+
+La política distingue explícitamente entre:
+
+```text
+control implementado
+!=
+requisito de seguridad futuro
+!=
+autorización de implementación
+```
+
 El Vault Synchronization Agent permanece fuera del Security Control Plane, del Kernel y del runtime.
 
 Su modelo de amenazas cubre la Fase 1 read-only cerrada y la extensión
@@ -59,7 +79,21 @@ La aceptación de ese modelo:
 - [[03-roadmap/IMPLEMENTATION_ROADMAP|Roadmap]]
 - [[05-decisions/PENDING_DECISIONS|Decisiones pendientes]]
 - [[07-audits/AUDIT_INDEX|Auditorías]]
+- [[08-session-context/MALAK_SESSION_CONTEXT|Contexto de sesión]]
+- [[10-knowledge-index/CONCEPTUAL_FOUNDATIONS|Fundamentos conceptuales]]
 - [[10-knowledge-index/KNOWLEDGE_INDEX|Índice maestro]]
+
+Fuente oficial principal:
+
+```text
+Aranwill/jarvis/SECURITY.md
+```
+
+Referencia conceptual no normativa relacionada:
+
+```text
+Aranwill/jarvis/docs/project/concepts/MALAK_RESEARCH_HORIZON_MAP.md
+```
 
 ## Principios aplicables
 
@@ -67,12 +101,128 @@ La aceptación de ese modelo:
 - Denegación por defecto.
 - Separación entre solicitar, autorizar, ejecutar y auditar.
 - Menor privilegio.
+- Least Context cuando corresponda.
 - Defensa en profundidad.
 - Zero Trust interno.
 - Validación explícita de entradas y límites.
 - Trazabilidad de decisiones y acciones.
 - Ningún LLM constituye por sí mismo una autoridad de seguridad.
 - Una propuesta de seguridad no equivale a un control implementado.
+- Un research gap no equivale a una autorización de implementación.
+
+Separaciones estables preservadas por la política oficial:
+
+```text
+Model != System
+Intelligence != Authority
+Capability != Permission
+Decision != Execution
+Execution != Evidence
+Evidence != Authority
+
+Conversation != Memory
+Memory != Knowledge
+Knowledge != Policy
+
+External Content != Instructions
+Tool Output != Authority
+Artifact Trust != Execution Authorization
+```
+
+## Postura de seguridad activa representada
+
+La política oficial `SECURITY.md` v2.0 formaliza como postura activa:
+
+- Zero Trust y Defense in Depth;
+- Human in Control;
+- default deny y comportamiento fail-closed para operaciones sensibles;
+- Security Control Plane con separación PDP / PEP / protected operation / evidence;
+- Secure Context Lifecycle vigente sin presentar identidad criptográfica fuerte como implementada;
+- Prompt & Context Trust Boundary;
+- requisitos de confianza y anti-poisoning para futura Memory / Knowledge;
+- AI Supply-Chain Trust como requisito de admisión futura;
+- delegación sin expansión de autoridad;
+- Compromise Containment & Trust Revocation;
+- defensa activa, deception, honeypots y forensics dentro de fronteras autorizadas;
+- clasificación y disclosure de datos;
+- Resource Governance para futuras superficies de mayor riesgo.
+
+La política conserva explícitamente como no implementados, entre otros:
+
+- identidad y firmas criptográficas fuertes;
+- PKI;
+- nonce / replay protection;
+- MFA;
+- Secure Context Manager criptográfico completo;
+- Secure Message Bus / IPC seguro;
+- Sandbox gobernado;
+- agentes y tools operativos;
+- navegación;
+- Memory persistente;
+- automatización defensiva avanzada.
+
+La presencia de estos requisitos no habilita ningún componente ni sprint.
+
+## Contención, deception y respuesta
+
+La postura futura preserva el siguiente orden defensivo conceptual:
+
+```text
+SUSPECT
+  ↓
+FREEZE / REVOKE AUTHORITY
+  ↓
+CUT OR RESTRICT COMMUNICATION
+  ↓
+ISOLATE / QUARANTINE
+  ↓
+PRESERVE EVIDENCE
+  ↓
+ASSESS BLAST RADIUS
+  ↓
+REVALIDATE RELATED TRUST
+  ↓
+REBUILD FROM KNOWN-GOOD
+  ↓
+VERIFY BEFORE REINTRODUCTION
+```
+
+Principio derivado de la política oficial:
+
+> **Compromise must reduce authority, never expand investigation privileges.**
+
+Deception, honeypots, honeynets, honeytokens y observación adversarial permanecen
+sujetos a capacidades aprobadas, aislamiento, egress controlado y supervisión
+humana. Una IP u otro indicador técnico constituye evidencia observada, no prueba
+automática de identidad.
+
+Malāk no realiza `hack back` autónomo. Un ataque recibido no concede autoridad
+para comprometer infraestructura externa.
+
+## Relación con Research Horizon
+
+`MALAK_RESEARCH_HORIZON_MAP.md` es una referencia conceptual no normativa para
+reconciliar investigación reciente con conceptos existentes y detectar gaps
+reales sin duplicar arquitectura.
+
+Entre las líneas que deben revalidarse antes de futuras implementaciones están:
+
+- Prompt & Context Trust Boundary — `REINFORCE_EXISTING`;
+- Memory & Knowledge Trust / Poisoning — `GAP_CANDIDATE`;
+- AI Supply-Chain Trust — `GAP_CANDIDATE`;
+- Agent Identity & Delegation — `GAP_CANDIDATE`;
+- Compromise Containment & Trust Revocation — `GAP_CANDIDATE`;
+- Data Classification & Disclosure Control — `GAP_CANDIDATE`;
+- Governed Interoperability MCP/A2A — `WATCH`;
+- Governed Procedural Learning — `REINFORCE_EXISTING`.
+
+Estas clasificaciones ayudan a no olvidar investigación ya realizada, pero:
+
+```text
+research horizon != roadmap
+research gap != approved architecture
+research gap != implementation authorization
+```
 
 ## Clasificación recomendada
 
