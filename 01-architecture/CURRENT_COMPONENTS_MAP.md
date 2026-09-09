@@ -28,10 +28,10 @@ tags:
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260909T231042985906Z_908c290b_cbd5f740`
-- **HEAD oficial observado:** `908c290b486f60b553bb68bc7745e8f0edd33118`
-- **Commit previamente observado:** `84a7bc2f785751d478d8a1341f993d861cb2f208`
-- **Generado:** `2026-09-09T23:10:42.985906+00:00`
+- **Run ID:** `20260909T232456588490Z_2e8c5d73_d401ff24`
+- **HEAD oficial observado:** `2e8c5d7318678caeb67c8906c951935832760003`
+- **Commit previamente observado:** `908c290b486f60b553bb68bc7745e8f0edd33118`
+- **Generado:** `2026-09-09T23:24:56.588490+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
@@ -44,12 +44,13 @@ tags:
 
 ### Commits oficiales observados
 
-- 908c290b486f60b553bb68bc7745e8f0edd33118	Merge pull request #87 from Aranwill/spec/episodic-admission-governed-input-projection-g2-20260909
-- e7163ebe8dbc59f9ac280768daf60398a65a839f	docs: specify governed episodic admission input projection G2 candidate
+- 2e8c5d7318678caeb67c8906c951935832760003	Merge pull request #88 from Aranwill/feat/episodic-admission-governed-input-projection-g3-20260909
+- 87a7e31e0735edd25a80a693cf3f437f7a1501fc	feat: implement governed input projection
+- c05b33b5f5c9e5146d96b9e34d818c82c4acafe7	test: specify governed input projection behavior
 
 ### Evidencia que originó esta proyección
 
-- `baseline-source-change` por `docs/project/sprints/proposals/EPISODIC-ADMISSION-GOVERNED-INPUT-PROJECTION-G2-IMPLEMENTATION-CANDIDATE-SPEC.md`
+- `architecture-change` por `src/malak/memory/governed_input_projection.py`
 <!-- MALAK_VAULT_SYNC:END -->
 
 <!-- MALAK_OPERATIONAL_STATE:START -->
@@ -58,7 +59,7 @@ tags:
 > Estado machine-owned derivado de la fuente oficial.
 > No concede autoridad ni reemplaza decisiones humanas.
 
-- **HEAD oficial:** `908c290b486f60b553bb68bc7745e8f0edd33118`
+- **HEAD oficial:** `2e8c5d7318678caeb67c8906c951935832760003`
 - **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.11.md`
 - **Titulo declarado:** Sprint 7.11 — Reproducible Validation Pipeline Foundation
 - **Estado declarado:** `completado`
