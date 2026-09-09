@@ -8,7 +8,7 @@ authority_level: baseline
 authority_rank: 5
 version: 1.1
 created: 2026-07-20
-last_reviewed: 2026-08-16
+last_reviewed: 2026-09-09
 source_of_truth: repository
 source_repository: Aranwill/jarvis
 source_branch: main
@@ -923,6 +923,59 @@ Versión de Python documentada como validada:
 ```text
 Python 3.12.10
 ```
+
+---
+
+### 8.19 Episodic Memory Admission Boundary — G3
+
+Estado:
+
+```text
+implementado e integrado
+unidad separada posterior a Sprint 7.11
+no constituye Sprint 7.12
+```
+
+G3 materializa la primera frontera aislada de la Memory Layer en
+`src/malak/memory/` mediante contratos inmutables y una policy pura,
+determinista y fail-closed.
+
+Contrato de decisión:
+
+```text
+EpisodicMemoryCandidate
+        +
+EpisodicAdmissionSignals
+        ↓
+evaluate_episodic_candidate(...)
+        ↓
+REJECT | HOLD | ELIGIBLE
+```
+
+La implementación conserva explícitamente:
+
+```text
+Candidate != Decision
+payload != control metadata
+ELIGIBLE != persistence authorization
+HOLD != retention authorization
+admission != storage
+```
+
+G3 no modifica `ConversationCapability`, `ConversationService`, Kernel,
+Security u observabilidad y no implementa runtime wiring, persistencia,
+retrieval ni Knowledge.
+
+Fuentes oficiales:
+
+```text
+src/malak/memory/__init__.py
+src/malak/memory/episodic_admission.py
+tests/test_episodic_memory_admission.py
+```
+
+La integración de G3 no autoriza Sprint 7.12, Memory persistente, RDD Stage 2
+ni ninguna unidad posterior.
 
 ---
 

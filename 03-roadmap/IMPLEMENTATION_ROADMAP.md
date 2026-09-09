@@ -8,7 +8,7 @@ authority_level: approved_roadmap
 authority_rank: 7
 version: 1.1
 created: 2026-07-20
-last_reviewed: 2026-08-16
+last_reviewed: 2026-09-09
 source_of_truth: repository
 source_repository: Aranwill/jarvis
 source_branch: main
@@ -433,6 +433,47 @@ Los criterios que motivaron originalmente esta línea fueron:
 
 La existencia de este registro no autoriza ninguna release futura ni un nuevo
 sprint.
+
+### 7.5 Episodic Memory Admission Boundary — G3
+
+**Estado:**
+
+```text
+implementado e integrado como unidad separada posterior a Sprint 7.11
+```
+
+G3 materializó una frontera mínima de admisión episódica sin convertirse en
+Sprint 7.12 y sin habilitar Memory persistente.
+
+Alcance integrado:
+
+- contratos episódicos inmutables;
+- separación de payload y metadata de control;
+- señales explícitas de evaluación;
+- policy determinista `REJECT | HOLD | ELIGIBLE`;
+- tratamiento fail-closed de señales incompletas o fuentes no confiables;
+- pruebas deterministas.
+
+Fuera de alcance preservado:
+
+```text
+runtime wiring
+persistencia
+retrieval
+Knowledge
+cambios a Conversation
+cambios al Kernel
+cambios a Security
+ampliación de autoridad
+Sprint 7.12
+RDD Stage 2
+```
+
+La integración de G3 no autoriza ninguna unidad posterior. Cualquier avance debe
+atravesar nuevamente admisión, definición de alcance, evaluación y aprobación
+explícita del Owner.
+
+---
 
 ## 8. Iniciativas arquitectónicas aceptadas conceptualmente
 

@@ -407,7 +407,7 @@ Memory episódica o evalúe una implementación dependiente de su frontera de
 admisión. Su presencia en el índice no cambia el baseline ni concede autoridad
 para persistir, recuperar o promover Memory automáticamente.
 
-### Episodic Memory Admission Boundary Foundation — G2
+### Episodic Memory Admission Boundary Foundation — G2 (registro pre-G3)
 
 Fuente oficial:
 
@@ -458,3 +458,48 @@ admission != storage
 El candidate especificado por G2 sigue siendo una propuesta de implementación
 futura. Su presencia en este índice no autoriza código productivo, persistencia,
 retrieval, Knowledge, un nuevo sprint ni RDD Stage 2.
+
+### Episodic Memory Admission Boundary Foundation — G3
+
+Fuentes oficiales:
+
+~~~text
+Aranwill/jarvis/src/malak/memory/__init__.py
+Aranwill/jarvis/src/malak/memory/episodic_admission.py
+Aranwill/jarvis/tests/test_episodic_memory_admission.py
+~~~
+
+Estado derivado:
+
+~~~text
+G3: implementado e integrado
+unidad separada posterior a Sprint 7.11
+Sprint 7.12: no autorizado
+Memory persistente: no implementada
+retrieval: no implementado
+RDD Stage 2: no autorizado
+~~~
+
+G3 materializa `EpisodicMemoryCandidate`, metadata de control separada,
+señales de evaluación y `EpisodicAdmissionDecision` mediante una policy
+determinista `episodic-admission/v1`.
+
+Resultados:
+
+~~~text
+REJECT | HOLD | ELIGIBLE
+~~~
+
+La implementación preserva:
+
+~~~text
+Candidate != Decision
+payload != control metadata
+ELIGIBLE != persistence authorization
+HOLD != retention authorization
+admission != storage
+~~~
+
+Este registro confirma existencia de la frontera de admisión, no Memory
+persistente ni una autorización para almacenamiento, retrieval, Knowledge,
+Sprint 7.12 o una unidad posterior.
