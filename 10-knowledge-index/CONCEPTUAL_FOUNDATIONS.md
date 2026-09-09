@@ -25,10 +25,10 @@ retrieval_scope: active
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260909T220009933168Z_4953532a_c8761523`
-- **HEAD oficial observado:** `4953532addef9a5e4c0dd8e9e03531ab7c77ce51`
-- **Commit previamente observado:** `42bc41687a99d236b8ee59bae670bef2d37858e1`
-- **Generado:** `2026-09-09T22:00:09.933168+00:00`
+- **Run ID:** `20260909T221619785266Z_674fd60f_adf60ff9`
+- **HEAD oficial observado:** `674fd60f1ec6cea00cca495dd7f8a991493a246e`
+- **Commit previamente observado:** `4953532addef9a5e4c0dd8e9e03531ab7c77ce51`
+- **Generado:** `2026-09-09T22:16:19.785266+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
@@ -41,12 +41,12 @@ retrieval_scope: active
 
 ### Commits oficiales observados
 
-- 4953532addef9a5e4c0dd8e9e03531ab7c77ce51	Merge pull request #83 from Aranwill/design/episodic-assessment-producer-authorization-g1-20260909
-- f5551ac4f64b63e80a7de84909d2b21a71e93e93	docs: design episodic assessment producer authorization G0 G1
+- 674fd60f1ec6cea00cca495dd7f8a991493a246e	Merge pull request #84 from Aranwill/spec/episodic-assessment-producer-authorization-g2-20260909
+- 05c0f40b8f39da2e9acc07b8564ba49a6745bbea	docs: specify assessment producer authorization G2 candidate
 
 ### Evidencia que originó esta proyección
 
-- `baseline-source-change` por `docs/project/sprints/proposals/EPISODIC-ADMISSION-ASSESSMENT-PRODUCER-AUTHORIZATION-G0-G1-DESIGN.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/EPISODIC-ADMISSION-ASSESSMENT-PRODUCER-AUTHORIZATION-G2-IMPLEMENTATION-CANDIDATE-SPEC.md`
 <!-- MALAK_VAULT_SYNC:END -->
 
 <!-- MALAK_OPERATIONAL_STATE:START -->
@@ -55,7 +55,7 @@ retrieval_scope: active
 > Estado machine-owned derivado de la fuente oficial.
 > No concede autoridad ni reemplaza decisiones humanas.
 
-- **HEAD oficial:** `4953532addef9a5e4c0dd8e9e03531ab7c77ce51`
+- **HEAD oficial:** `674fd60f1ec6cea00cca495dd7f8a991493a246e`
 - **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.11.md`
 - **Titulo declarado:** Sprint 7.11 — Reproducible Validation Pipeline Foundation
 - **Estado declarado:** `completado`
