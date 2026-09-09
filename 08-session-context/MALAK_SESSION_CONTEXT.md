@@ -1265,10 +1265,13 @@ Research Horizon, baseline, roadmap, decisiones y protocolo de construcción.
 
 Fuente oficial:
 
-```text
+~~~text
 Aranwill/jarvis/docs/project/sprints/proposals/EPISODIC-MEMORY-ADMISSION-G2-IMPLEMENTATION-CANDIDATE-SPEC.md
+~~~
+
 Estado contextual:
 
+~~~text
 G0: PASS
 G1 design: aprobado por el Owner e integrado
 G2 Implementation Candidate Specification: aprobada por el Owner e integrada
@@ -1276,17 +1279,19 @@ Implementación productiva: no autorizada
 Memory persistente: no implementada
 Sprint 7.12: no autorizado
 RDD Stage 2: no autorizado
+~~~
 
 G2 convierte las restricciones de G1 en una especificación mínima de una futura
 implementación, pero no ejecuta esa implementación.
 
 La correlación futura fue identificada después de un
-ConversationService.generate() exitoso dentro de ConversationCapability,
-donde el Request original y el ConversationResponse pueden coexistir sin
+`ConversationService.generate()` exitoso dentro de `ConversationCapability`,
+donde el `Request` original y el `ConversationResponse` pueden coexistir sin
 convertir a Conversation ni al Kernel en propietarios de Memory.
 
 Se preservan:
 
+~~~text
 candidate payload != candidate control metadata
 
 source authority
@@ -1298,6 +1303,7 @@ source authority
 admission decision
 != persistence authorization
 != storage
+~~~
 
 El candidate futuro permanece limitado a contratos, metadata de control,
 policy determinista y pruebas. No existe wiring runtime, persistencia, retrieval,

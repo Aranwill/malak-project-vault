@@ -409,14 +409,17 @@ Memory episódica o evalúe una implementación dependiente de su frontera de
 admisión. Su presencia en el índice no cambia el baseline ni concede autoridad
 para persistir, recuperar o promover Memory automáticamente.
 
-Episodic Memory Admission Boundary Foundation — G2
+### Episodic Memory Admission Boundary Foundation — G2
 
 Fuente oficial:
 
+~~~text
 Aranwill/jarvis/docs/project/sprints/proposals/EPISODIC-MEMORY-ADMISSION-G2-IMPLEMENTATION-CANDIDATE-SPEC.md
+~~~
 
 Estado derivado:
 
+~~~text
 G0: PASS
 G1 design: aprobado e integrado
 G2 Implementation Candidate Specification: aprobada e integrada
@@ -424,15 +427,17 @@ Implementación productiva: no autorizada
 Memory persistente: no implementada
 Sprint 7.12: no autorizado
 RDD Stage 2: no autorizado
+~~~
 
 G2 identifica como punto futuro de correlación el retorno exitoso de
-ConversationService.generate() dentro de ConversationCapability, donde
-Request y ConversationResponse pueden coexistir sin modificar
-ConversationRequest, sin introducir Memory en el Kernel y sin convertir a
+`ConversationService.generate()` dentro de `ConversationCapability`, donde
+`Request` y `ConversationResponse` pueden coexistir sin modificar
+`ConversationRequest`, sin introducir Memory en el Kernel y sin convertir a
 Conversation en propietaria de Memory.
 
 La especificación preserva explícitamente:
 
+~~~text
 candidate payload != candidate control metadata
 
 source authority
@@ -442,12 +447,15 @@ source authority
 != sensitivity
 
 REJECT | HOLD | ELIGIBLE
+~~~
 
 y mantiene:
 
+~~~text
 ELIGIBLE != persistence authorization
 HOLD != retention authorization
 admission != storage
+~~~
 
 El candidate especificado por G2 sigue siendo una propuesta de implementación
 futura. Su presencia en este índice no autoriza código productivo, persistencia,
