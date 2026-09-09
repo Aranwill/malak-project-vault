@@ -25,10 +25,10 @@ retrieval_scope: active
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260909T161034786647Z_c70c6de6_bbb2741e`
-- **HEAD oficial observado:** `c70c6de6c734fa96d0bfe264a793a0bb65e4b940`
-- **Commit previamente observado:** `10d6945d6f19a61c9dc9724738545107b9148707`
-- **Generado:** `2026-09-09T16:10:34.786647+00:00`
+- **Run ID:** `20260909T164043299250Z_b6321a04_9eafa62d`
+- **HEAD oficial observado:** `b6321a04b8d6c213de63b51402b0818052c01f43`
+- **Commit previamente observado:** `c70c6de6c734fa96d0bfe264a793a0bb65e4b940`
+- **Generado:** `2026-09-09T16:40:43.299250+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
@@ -41,15 +41,13 @@ retrieval_scope: active
 
 ### Commits oficiales observados
 
-- c70c6de6c734fa96d0bfe264a793a0bb65e4b940	Merge pull request #73 from Aranwill/g1/episodic-memory-admission-20260909
-- fc6b6567d71273df0be8394f4d9fe33c334b3c47	docs: harden G1 episodic memory admission design
-- e3dc3e9ae419a311985f3087c8c1d2cbaf6be67a	docs: record G1 episodic memory admission boundary design
-- 71da298c029ca38060cd4c46794ab4e24d1319d9	revert: keep G1 design isolated from main
-- 31de2df160521ceadd02afd11bf97776fc932ea1	docs: record G1 episodic memory admission boundary design
+- b6321a04b8d6c213de63b51402b0818052c01f43	Merge pull request #75 from Aranwill/g2/episodic-memory-admission-spec-20260909
+- 147f527ac517371a33dc335e6fc23f1cde92ee84	docs: harden G2 episodic memory candidate specification
+- 3f066a32d299889bf5c48baeb195480c948e67b3	docs: specify G2 episodic memory admission candidate
 
 ### Evidencia que originó esta proyección
 
-- `baseline-source-change` por `docs/project/sprints/proposals/EPISODIC-MEMORY-ADMISSION-G0-G1-DESIGN.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/EPISODIC-MEMORY-ADMISSION-G2-IMPLEMENTATION-CANDIDATE-SPEC.md`
 <!-- MALAK_VAULT_SYNC:END -->
 
 <!-- MALAK_OPERATIONAL_STATE:START -->
@@ -58,7 +56,7 @@ retrieval_scope: active
 > Estado machine-owned derivado de la fuente oficial.
 > No concede autoridad ni reemplaza decisiones humanas.
 
-- **HEAD oficial:** `c70c6de6c734fa96d0bfe264a793a0bb65e4b940`
+- **HEAD oficial:** `b6321a04b8d6c213de63b51402b0818052c01f43`
 - **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.11.md`
 - **Titulo declarado:** Sprint 7.11 — Reproducible Validation Pipeline Foundation
 - **Estado declarado:** `completado`
