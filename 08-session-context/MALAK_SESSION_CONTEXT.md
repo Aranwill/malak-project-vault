@@ -27,10 +27,10 @@ retrieval_scope: active
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260909T221619785266Z_674fd60f_adf60ff9`
-- **HEAD oficial observado:** `674fd60f1ec6cea00cca495dd7f8a991493a246e`
-- **Commit previamente observado:** `4953532addef9a5e4c0dd8e9e03531ab7c77ce51`
-- **Generado:** `2026-09-09T22:16:19.785266+00:00`
+- **Run ID:** `20260909T223104894472Z_b96e1802_87208d5f`
+- **HEAD oficial observado:** `b96e1802c47e447699f06f4a019241d119f747ef`
+- **Commit previamente observado:** `674fd60f1ec6cea00cca495dd7f8a991493a246e`
+- **Generado:** `2026-09-09T22:31:04.894472+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
@@ -43,12 +43,15 @@ retrieval_scope: active
 
 ### Commits oficiales observados
 
-- 674fd60f1ec6cea00cca495dd7f8a991493a246e	Merge pull request #84 from Aranwill/spec/episodic-assessment-producer-authorization-g2-20260909
-- 05c0f40b8f39da2e9acc07b8564ba49a6745bbea	docs: specify assessment producer authorization G2 candidate
+- b96e1802c47e447699f06f4a019241d119f747ef	Merge pull request #85 from Aranwill/impl/episodic-assessment-producer-authorization-g3-20260909
+- c9265dfdbd62ced896234f3294339cd3b79b7db7	test: correct non-UTC authorization case
+- d53f245847cd28c4ac662c116be9a60f94f5dde0	feat: implement assessment producer authorization boundary
+- 0829f269da416ca6a350a6c6919a99bfb351ca36	test: define assessment producer authorization G3 contract
 
 ### Evidencia que originó esta proyección
 
-- `baseline-source-change` por `docs/project/sprints/proposals/EPISODIC-ADMISSION-ASSESSMENT-PRODUCER-AUTHORIZATION-G2-IMPLEMENTATION-CANDIDATE-SPEC.md`
+- `architecture-change` por `src/malak/memory/assessment_producer_authorization.py`
+- `test-change` por `tests/test_assessment_producer_authorization.py`
 <!-- MALAK_VAULT_SYNC:END -->
 
 <!-- MALAK_OPERATIONAL_STATE:START -->
@@ -57,7 +60,7 @@ retrieval_scope: active
 > Estado machine-owned derivado de la fuente oficial.
 > No concede autoridad ni reemplaza decisiones humanas.
 
-- **HEAD oficial:** `674fd60f1ec6cea00cca495dd7f8a991493a246e`
+- **HEAD oficial:** `b96e1802c47e447699f06f4a019241d119f747ef`
 - **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.11.md`
 - **Titulo declarado:** Sprint 7.11 — Reproducible Validation Pipeline Foundation
 - **Estado declarado:** `completado`
