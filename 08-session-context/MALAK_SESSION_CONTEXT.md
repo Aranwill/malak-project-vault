@@ -252,6 +252,10 @@ Conversation History != Memory != Knowledge
 
 No existe persistencia conversacional en el baseline representado.
 
+G3 añadió posteriormente una frontera aislada de admisión episódica bajo
+`src/malak/memory/`. Esa unidad no está conectada a Conversation, no persiste
+Memory y no altera la separación `Conversation History != Memory != Knowledge`.
+
 ---
 
 ## 5. Componentes implementados
@@ -309,7 +313,8 @@ Componentes documentados en el alcance representado:
   exclusivamente en la CLI;
 * perfilado inicial de métricas;
 * AKS Engineering Knowledge Foundation;
-* Development Framework.
+* Development Framework;
+* Episodic Memory Admission Boundary — G3 bajo `src/malak/memory/`, aislada y sin persistencia/retrieval.
 
 La integración real con Ollama fue validada con:
 
@@ -1259,7 +1264,7 @@ Research Horizon, baseline, roadmap, decisiones y protocolo de construcción.
 
 ---
 
-## 21. Episodic Memory Admission Boundary — G2 integrado
+## 21. Episodic Memory Admission Boundary — G2 integrado (registro pre-G3)
 
 Fuente oficial:
 
@@ -1308,3 +1313,54 @@ policy determinista y pruebas. No existe wiring runtime, persistencia, retrieval
 Knowledge implementation ni autorización automática derivada de G2.
 
 Cualquier implementación requiere un gate y autorización humana posteriores.
+
+---
+
+## 22. Episodic Memory Admission Boundary — G3 integrado
+
+Fuente oficial implementada:
+
+~~~text
+Aranwill/jarvis/src/malak/memory/__init__.py
+Aranwill/jarvis/src/malak/memory/episodic_admission.py
+Aranwill/jarvis/tests/test_episodic_memory_admission.py
+~~~
+
+Estado contextual:
+
+~~~text
+G0: PASS
+G1 design: aprobado e integrado
+G2 Implementation Candidate Specification: aprobada e integrada
+G3: implementado e integrado mediante PR #76
+Sprint 7.11: último sprint numerado integrado
+Sprint 7.12: no autorizado
+Memory persistente: no implementada
+RDD Stage 2: no autorizado
+unidad posterior a G3: no autorizada
+~~~
+
+G3 materializa contratos inmutables y una policy determinista de admisión
+episódica con outcomes `REJECT | HOLD | ELIGIBLE`.
+
+La unidad preserva:
+
+~~~text
+Candidate != Decision
+payload != control metadata
+source authority != confidence != source security status != temporal validity != sensitivity
+ELIGIBLE != persistence authorization
+HOLD != retention authorization
+admission != storage
+~~~
+
+Fuentes tainted o revoked y violaciones de policy se rechazan. Información
+incompleta, fuente suspect/unassessed, revisión sensible o contradicción pendiente
+se mantiene en `HOLD`.
+
+G3 permanece aislado de `ConversationCapability`, `ConversationService`,
+Kernel, Security y observabilidad. No existe runtime wiring, persistencia,
+retrieval ni Knowledge derivada de esta integración.
+
+La presencia de G3 en el baseline no autoriza Sprint 7.12 ni una siguiente
+unidad de Memory.

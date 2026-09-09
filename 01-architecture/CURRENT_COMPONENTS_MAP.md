@@ -7,7 +7,7 @@ authority: derived
 operational_authority: none
 version: 1.2
 created: 2026-07-20
-last_reviewed: 2026-08-16
+last_reviewed: 2026-09-09
 source_repository: Aranwill/jarvis
 source_branch: main
 tags:
@@ -91,6 +91,7 @@ Este mapa cubre las siguientes fronteras verificadas:
 - contratos fundamentales de autorización.
 - Policy Decision Point mínimo.
 - Policy Enforcement Point inicial.
+- Episodic Memory Admission Boundary — G3, aislada de Conversation, Kernel y persistencia.
 
 Quedan fuera de alcance:
 
@@ -114,6 +115,10 @@ Sprint 7.9 añadió continuidad conversacional efímera mediante
 `InMemoryConversationContext`. Sprint 7.10 preservó el `Request` completo a través
 de la frontera de Capability para propagar `session_id` y aislar historial por
 sesión, sin persistencia ni Memory.
+
+G3 integró una frontera aislada de admisión episódica bajo `src/malak/memory/`.
+La unidad no está conectada al flujo conversacional, no persiste ni recupera
+Memory y no introduce estado en Kernel o `SecurityContext`.
 
 ## 2. Referencia operativa del mapa
 
@@ -396,6 +401,61 @@ tests/test_policy_enforcement_point.py
 docs/architecture/adr/ADR-002-policy-enforcement-boundary.md
 docs/project/sprints/SPRINT-7.5.md
 ```
+
+### Episodic Memory Admission Boundary — G3
+
+Estado:
+
+```text
+implementado e integrado como unidad separada posterior a Sprint 7.11
+```
+
+Componentes públicos verificados:
+
+- `EpisodicOrigin`;
+- `EpisodicExperience`;
+- `EpisodicAdmissionContext`;
+- `EpisodicMemoryCandidate`;
+- `EpisodicAdmissionSignals`;
+- `SourceSecurityStatus`;
+- `EpisodicAdmissionDecision`;
+- `EpisodicAdmissionOutcome`;
+- `EpisodicAdmissionReason`;
+- `evaluate_episodic_candidate`.
+
+La policy `episodic-admission/v1` produce únicamente:
+
+```text
+REJECT | HOLD | ELIGIBLE
+```
+
+Separaciones preservadas:
+
+```text
+candidate != decision
+payload != control metadata
+source authority != confidence != source security status != temporal validity != sensitivity
+ELIGIBLE != persistence authorization
+HOLD != retention authorization
+admission != storage
+```
+
+La unidad es determinista y fail-closed. Fuentes tainted o revoked producen
+`REJECT`; evaluaciones incompletas, fuentes suspect/unassessed, sensibilidad o
+contradicciones pendientes producen `HOLD`.
+
+No existe wiring con `ConversationCapability` o `ConversationService`,
+persistencia, retrieval, Knowledge, cambio al Kernel ni ampliación de autoridad.
+
+Fuentes:
+
+```text
+src/malak/memory/__init__.py
+src/malak/memory/episodic_admission.py
+tests/test_episodic_memory_admission.py
+```
+
+---
 
 ## 4. Flujo implementado
 
