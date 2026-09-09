@@ -5,9 +5,9 @@ type: knowledge_index
 status: active
 authority_level: derived_reference
 authority_rank: 8
-version: 1.0
+version: 1.1
 created: 2026-08-14
-last_reviewed: 2026-08-14
+last_reviewed: 2026-09-09
 source_of_truth: Aranwill/jarvis
 derived: true
 operational_context: false
@@ -616,7 +616,132 @@ Sandbox, Evidence e Independent Validation.
 
 ---
 
-## 6. Índice de relaciones
+## 6. Malāk Research Horizon Map
+
+### Identidad
+
+```text
+Nombre:
+Malāk Research Horizon Map
+
+Estado:
+concept
+
+Autoridad:
+non_normative
+
+Rol:
+research_horizon_reconciliation
+```
+
+### Fuente oficial
+
+```text
+Repositorio:
+Aranwill/jarvis
+
+Ruta:
+docs/project/concepts/MALAK_RESEARCH_HORIZON_MAP.md
+```
+
+### Propósito resumido
+
+Preservar el DIFF entre investigación reciente, visión futura y conceptos ya
+existentes de Malāk para distinguir qué está alineado, qué requiere refuerzo y
+qué constituye todavía un gap conceptual real.
+
+El mapa no crea una segunda arquitectura, no reemplaza `ideas.md`, Long Horizon,
+la política de seguridad ni el roadmap. Su función principal es evitar dos
+fallos opuestos:
+
+```text
+olvidar investigación ya realizada
+        !=
+convertir investigación en autorización
+```
+
+### Taxonomía de reconciliación
+
+```text
+ALIGNED
+REINFORCE_EXISTING
+GAP_CANDIDATE
+WATCH
+IRRELEVANT
+CONFLICTS_WITH_VISION
+```
+
+Un `GAP_CANDIDATE` puede originar análisis posterior, pero no equivale a
+arquitectura aprobada, roadmap, sprint ni implementación.
+
+### Líneas principales preservadas
+
+Ya representadas suficientemente y que no deben duplicarse:
+
+- Durable Cognitive Execution;
+- Governed Self-Improvement;
+- Resource Governance;
+- Deception / Honeypots / Adversarial Evaluation;
+- Incident Forensics / Attack Path.
+
+Refuerzos o gaps que deben revalidarse antes de diseñar futuras superficies:
+
+- Prompt & Context Trust Boundary — `REINFORCE_EXISTING`;
+- Memory & Knowledge Trust / Poisoning — `GAP_CANDIDATE`;
+- AI Supply-Chain Trust — `GAP_CANDIDATE`;
+- Agent Identity & Delegation — `GAP_CANDIDATE`;
+- Compromise Containment & Trust Revocation — `GAP_CANDIDATE`;
+- Data Classification & Disclosure Control — `GAP_CANDIDATE`;
+- Governed Procedural Learning — `REINFORCE_EXISTING`.
+
+Líneas en observación:
+
+- Governed Interoperability MCP/A2A — `WATCH`;
+- Multimodal Perception Boundary — `WATCH`;
+- World models — `WATCH`.
+
+Conflicto explícito con la visión:
+
+- Autonomous self-modification — `CONFLICTS_WITH_VISION`.
+
+### Invariantes de continuidad
+
+```text
+research gap != implementation approved
+security requirement != implemented capability
+concept != baseline
+roadmap != authorization
+learning != self-authorization
+```
+
+La mejora gobernada permanece permitida como investigación, experimentación
+aislada, evidencia y propuesta; la autoaprobación, auto-merge, auto-deploy y
+modificación autónoma del baseline permanecen prohibidos.
+
+### Relación con seguridad
+
+El Research Horizon se interpreta junto con la política oficial:
+
+```text
+Aranwill/jarvis/SECURITY.md
+```
+
+La política de seguridad puede convertir algunas propiedades del horizonte en
+requisitos transversales obligatorios sin afirmar que sus mecanismos futuros ya
+están implementados.
+
+### Estado operacional
+
+```text
+Documento: referencia conceptual
+Implementación directa: no autorizada
+Sprint autorizado por este documento: ninguno
+Baseline modificado: no
+```
+
+---
+
+## 7. Índice de relaciones
 
 ```text
 Malāk Cognitive Dataset Foundation
@@ -657,6 +782,17 @@ Governed Ephemeral Agent Execution Reference
         +--> Sandbox
         +--> Evidence
         +--> Independent Validation
+
+Malāk Research Horizon Map
+        |
+        +--> SECURITY.md
+        +--> ideas.md
+        +--> Governed Swarm / Long Horizon
+        +--> Governed Ephemeral Agent Execution
+        +--> Memory / Knowledge Governance candidates
+        +--> Model / Artifact Governance candidates
+        +--> Security Control Plane
+        +--> future admission reviews
 ```
 
 Estas relaciones son de navegación conceptual y no equivalen a dependencias
@@ -664,7 +800,7 @@ de implementación aprobadas.
 
 ---
 
-## 7. Reglas de mantenimiento
+## 8. Reglas de mantenimiento
 
 Cuando una referencia conceptual oficial cambie:
 
@@ -684,7 +820,7 @@ histórica.
 
 ---
 
-## 8. Estado
+## 9. Estado
 
 ```text
 Documento: índice derivado

@@ -137,10 +137,12 @@ Project Vault
 
 Malāk — source of truth
 ├── AGENTS.md
+├── SECURITY.md cuando la tarea involucre seguridad o selección de próxima implementación
 ├── fuentes normativas aplicables
 ├── baseline vigente
 ├── ADR y decisiones aplicables
 ├── documents/projects/jarvis/ideas.md cuando corresponda
+├── docs/project/concepts/MALAK_RESEARCH_HORIZON_MAP.md cuando se analice la próxima implementación
 ├── docs/project/concepts/** cuando corresponda
 ├── código y tests relevantes cuando corresponda
 └── HEAD / evidencia de repositorio aplicable
@@ -154,6 +156,35 @@ Vault Sync Agent
 ```
 
 La profundidad de lectura debe ser proporcional a la pregunta. No es obligatorio leer todos los archivos completos cuando una búsqueda o sección concreta aporte evidencia suficiente, pero ninguna fuente relevante puede omitirse silenciosamente.
+
+### Admission review de próxima implementación
+
+Cuando el propietario pida revisar Malāk para determinar o comparar la próxima
+implementación, no basta con recuperar roadmap y último sprint. Deben contrastarse
+explícitamente las fuentes oficiales aplicables de:
+
+```text
+baseline / roadmap / decisiones
+SECURITY.md
+MALAK_RESEARCH_HORIZON_MAP.md
+ideas.md
+docs/project/concepts/** relacionados
+protocolo de construcción
+código / tests / evidencia cuando corresponda
+```
+
+Las proyecciones `06-security/SECURITY_INDEX.md`,
+`10-knowledge-index/CONCEPTUAL_FOUNDATIONS.md` y `KNOWLEDGE_INDEX.md` sirven para
+navegación y recuperación; la fuente oficial conserva autoridad.
+
+Reglas:
+
+```text
+security requirement != implemented capability
+research gap != implementation authorization
+concept != baseline
+roadmap != authorization
+```
 
 ## Referencias conceptuales
 
