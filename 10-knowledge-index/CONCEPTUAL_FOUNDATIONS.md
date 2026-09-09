@@ -25,10 +25,10 @@ retrieval_scope: active
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260909T195746176160Z_c3080c6f_9684ba31`
-- **HEAD oficial observado:** `c3080c6feda5771985aa4a10822c3eb034abd7e3`
-- **Commit previamente observado:** `b6321a04b8d6c213de63b51402b0818052c01f43`
-- **Generado:** `2026-09-09T19:57:46.176160+00:00`
+- **Run ID:** `20260909T210003559482Z_684927a1_aa278332`
+- **HEAD oficial observado:** `684927a1e429e530da8f9831f374551c22b48d8f`
+- **Commit previamente observado:** `c3080c6feda5771985aa4a10822c3eb034abd7e3`
+- **Generado:** `2026-09-09T21:00:03.559482+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
@@ -41,17 +41,18 @@ retrieval_scope: active
 
 ### Commits oficiales observados
 
-- c3080c6feda5771985aa4a10822c3eb034abd7e3	Merge pull request #77 from Aranwill/docs/close-g3-episodic-admission-20260909
-- 68fc7e1ea6cbaf4fe9d410008194ee034307caa2	docs: reconcile integrated G3 episodic admission state
-- 2d5fe87c304927baeab29e5649f2383030e1a1fd	Merge pull request #76 from Aranwill/g3/episodic-memory-admission-20260909
-- e3e3c2aa6031d4a6a9ad8f3a3c529a9453cbbe9b	feat(memory): implement episodic admission candidate
-- 1be8d92af60744941d1261323a9a974f2938e601	test(memory): define episodic admission candidate behavior
+- 684927a1e429e530da8f9831f374551c22b48d8f	Merge pull request #80 from Aranwill/design/episodic-assessment-provenance-g1-20260909
+- 0ddd6d7deded17148e6350d119b4df3fc3eca10a	docs: define episodic assessment provenance G0 G1 design
+- 64ec249758c117afb204e9f44f1d4e7cb3fe5a7c	Merge pull request #79 from Aranwill/ci/multi-os-pr-validation-20260909
+- 3b1431f30bb87eb8bb9f2908138c551fc9bc0854	ci: validate PR candidates across hosted OS runners
+- 582838bdab2c2f684a7b24326059b1f8e5fe4351	Merge pull request #78 from Aranwill/docs/reconcile-post-g3-research-horizon-20260909
+- 1bee738ca0686bc85895618ef808988dca208a50	docs: preserve research horizon final newline
+- 8c0a269c6f43e1e0f5dbab3657caf6493d7b045a	docs: reconcile research horizon after G3
 
 ### Evidencia que originó esta proyección
 
-- `baseline-source-change` por `CHANGELOG.md`
-- `baseline-source-change` por `docs/project/implementation_roadmap.md`
-- `baseline-source-change` por `docs/project/project_context.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/EPISODIC-ADMISSION-ASSESSMENT-PROVENANCE-G0-G1-DESIGN.md`
+- `conceptual-foundation-change` por `docs/project/concepts/MALAK_RESEARCH_HORIZON_MAP.md`
 <!-- MALAK_VAULT_SYNC:END -->
 
 <!-- MALAK_OPERATIONAL_STATE:START -->
@@ -60,7 +61,7 @@ retrieval_scope: active
 > Estado machine-owned derivado de la fuente oficial.
 > No concede autoridad ni reemplaza decisiones humanas.
 
-- **HEAD oficial:** `c3080c6feda5771985aa4a10822c3eb034abd7e3`
+- **HEAD oficial:** `684927a1e429e530da8f9831f374551c22b48d8f`
 - **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.11.md`
 - **Titulo declarado:** Sprint 7.11 — Reproducible Validation Pipeline Foundation
 - **Estado declarado:** `completado`
