@@ -23,27 +23,35 @@ tags:
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260908T181028541026Z_e8c1e5c1_47898ae6`
-- **HEAD oficial observado:** `e8c1e5c14ee1b844fa23ca5cb342237f7aaaa8f0`
-- **Commit previamente observado:** `44cb70a4eb9004e9332f067ddd0c193d7f6e51b1`
-- **Generado:** `2026-09-08T18:10:28.541026+00:00`
+- **Run ID:** `20260909T124638201108Z_10d6945d_4d016aa6`
+- **HEAD oficial observado:** `10d6945d6f19a61c9dc9724738545107b9148707`
+- **Commit previamente observado:** `6458fd98b3af16401d485495eb7cd1eae4b23881`
+- **Generado:** `2026-09-09T12:46:38.201108+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
 ### Estado estructurado de la fuente oficial
 
-- **Ficha de sprint más reciente:** `docs/project/sprints/SPRINT-7.10.md`
-- **Título declarado:** Sprint 7.10 — Conversation Session Isolation Foundation
+- **Ficha de sprint más reciente:** `docs/project/sprints/SPRINT-7.11.md`
+- **Título declarado:** Sprint 7.11 — Reproducible Validation Pipeline Foundation
 - **Estado declarado:** `completado`
 - **`as_of_commit` declarado:** no disponible
 
 ### Commits oficiales observados
 
-- e8c1e5c14ee1b844fa23ca5cb342237f7aaaa8f0	Merge pull request #63 from Aranwill/docs/gate9-admission-corrections
-- 158cb4d3f22a307b4bfedc23aee16ad618a91923	docs(method): align receipt result semantics
-- 8f426bd1a97152763bae567e302cb5b9fd36ed3f	docs(security): reconcile project identity
-- c4abd6d7364510179e41c9938c17df411b9dfc02	docs(repository): reconcile physical structure with baseline
-- 3192e9aa339146e3f514783a080016b51189dddb	docs(changelog): reconcile latest completed sprint
+- 10d6945d6f19a61c9dc9724738545107b9148707	Merge pull request #71 from Aranwill/docs/security-policy-context-map-20260909
+- c5ae605cbbea73552c7ec68b5e2f3338e8a95b19	Merge pull request #70 from Aranwill/docs/research-horizon-security-reconciliation-20260909
+- 590e0f60154663daad51c12e125ed152fd574ffd	docs: remove trailing whitespace from security header
+- 96fbfc2337112dc123e7c2bd2a563f9c84d4c810	docs: record security policy and context mapping reconciliation
+- c64eab525e4291068eb9ca76cc0f60d77a6f29c2	docs: clarify security policy authority and future capabilities
+- d07551d1d5be3252d5d1adbc316671e28fc50dab	docs: add security and research horizon PR checks
+- e9ea04ae88a7070d6a99a2b0eb54992b0384de67	docs: add security horizon checks to development checklist
+- 3c712317b4d31c353a2bb7a8e5ec8b542d73d5f8	docs: include security and research horizon in construction admission
+- cfeb9b40e92fc5ceb8772e1ca5af7f7f47045f8e	docs: make security and research horizon mandatory review inputs
+- 5f11b07e7a34d277a6fc4de4e331a99c164f1027	docs: reconcile active security policy with current architecture
+- e093ef3c654369bcbc0eae1dc1e0222edcf86a5b	docs: clarify world models vs autonomous self-modification
+- 91f24646b279fc96ae442dcbab63fed14842a517	docs: index Malak research horizon map
+- 0ec2f22a43b02eca53e427b4c8265f86aeefd4f0	docs: add Malak research horizon security reconciliation
 
 ### Evidencia que originó esta proyección
 
@@ -56,9 +64,9 @@ tags:
 > Estado machine-owned derivado de la fuente oficial.
 > No concede autoridad ni reemplaza decisiones humanas.
 
-- **HEAD oficial:** `e8c1e5c14ee1b844fa23ca5cb342237f7aaaa8f0`
-- **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.10.md`
-- **Titulo declarado:** Sprint 7.10 — Conversation Session Isolation Foundation
+- **HEAD oficial:** `10d6945d6f19a61c9dc9724738545107b9148707`
+- **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.11.md`
+- **Titulo declarado:** Sprint 7.11 — Reproducible Validation Pipeline Foundation
 - **Estado declarado:** `completado`
 - **`as_of_commit` declarado:** no disponible
 <!-- MALAK_OPERATIONAL_STATE:END -->
