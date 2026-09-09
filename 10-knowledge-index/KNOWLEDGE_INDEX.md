@@ -5,9 +5,9 @@ type: knowledge-index
 status: active
 authority_level: technical_documentation
 authority_rank: 6
-version: 1.0
+version: 1.1
 created: 2026-07-20
-last_reviewed: 2026-08-16
+last_reviewed: 2026-09-09
 source_of_truth: repository
 source_repository: Aranwill/jarvis
 source_branch: main
@@ -75,7 +75,7 @@ Este documento es el índice maestro de navegación del Malāk Project Vault.
 Su función es:
 
 - facilitar el acceso al conocimiento activo e histórico;
-- conectar gobernanza, baseline, roadmap y decisiones;
+- conectar gobernanza, baseline, seguridad, roadmap, decisiones y referencias conceptuales;
 - reducir búsquedas manuales;
 - preparar relaciones documentales para Obsidian;
 - servir como base futura para índices temáticos;
@@ -97,16 +97,44 @@ estado pertenecen exclusivamente al bloque machine-managed
 
 - [[08-session-context/MALAK_SESSION_CONTEXT|Contexto operativo de sesión]]
 - [[02-current-baseline/CURRENT_BASELINE|Referencia de baseline]]
+- [[06-security/SECURITY_INDEX|Índice de seguridad]]
 - [[05-decisions/PENDING_DECISIONS|Decisiones pendientes]]
 - [[03-roadmap/IMPLEMENTATION_ROADMAP|Roadmap de implementación]]
+- [[10-knowledge-index/CONCEPTUAL_FOUNDATIONS|Fundamentos conceptuales]]
 
-Orden recomendado al iniciar una sesión:
+Orden recomendado al iniciar una sesión ordinaria:
 
 1. contexto de sesión;
 2. referencia de baseline;
-3. decisiones pendientes;
-4. roadmap;
-5. verificación directa del repositorio oficial.
+3. decisiones pendientes y roadmap cuando apliquen;
+4. documento especializado del Vault;
+5. verificación directa del repositorio oficial cuando se requiera autoridad o evidencia primaria.
+
+Para una revisión orientada a definir la **próxima implementación**, el conjunto
+de entrada debe ampliar explícitamente la navegación hacia:
+
+```text
+06-security/SECURITY_INDEX.md
+10-knowledge-index/CONCEPTUAL_FOUNDATIONS.md
+```
+
+y verificar en `Aranwill/jarvis/main`:
+
+```text
+SECURITY.md
+docs/project/concepts/MALAK_RESEARCH_HORIZON_MAP.md
+docs/project/concepts/README.md
+docs/project/concepts/** aplicables
+documents/projects/jarvis/ideas.md
+roadmap / baseline / decisiones / protocolo de construcción aplicables
+```
+
+Regla:
+
+```text
+security requirement != implemented capability
+research gap != implementation authorization
+```
 
 ---
 
@@ -127,7 +155,26 @@ Estas fuentes determinan:
 
 ---
 
-## 4. Referencia de baseline
+## 4. Seguridad
+
+- [[06-security/SECURITY_INDEX|Índice de seguridad]]
+
+Fuente oficial de política:
+
+```text
+Aranwill/jarvis/SECURITY.md
+```
+
+La política activa de seguridad debe diferenciarse de conceptos futuros y de
+mecanismos todavía no implementados. El índice derivado de seguridad facilita
+navegación hacia Zero Trust, Security Control Plane, Secure Context, trust
+boundaries, poisoning, supply-chain trust, delegation, compromise containment,
+deception, forensics, disclosure y Resource Governance sin convertir esas
+referencias en capacidades existentes.
+
+---
+
+## 5. Referencia de baseline
 
 - [[02-current-baseline/CURRENT_BASELINE|Malāk Current Baseline]]
 
@@ -140,7 +187,7 @@ Cuando esos datos deban representarse en el Vault, pertenecen a
 Los cierres y resultados concretos de sprints anteriores permanecen accesibles
 mediante sus fichas, documentos de cierre, auditorías y registros históricos.
 
-## 5. Roadmap
+## 6. Roadmap
 
 - [[03-roadmap/IMPLEMENTATION_ROADMAP|Malāk Implementation Roadmap]]
 
@@ -161,7 +208,7 @@ El estado estructurado de sprint y demás datos operativos variables pertenecen 
 `MALAK_OPERATIONAL_STATE` cuando deban representarse en el Vault.
 
 ---
-## 6. Registro de decisiones
+## 7. Registro de decisiones
 
 - [[05-decisions/PENDING_DECISIONS|Malāk Pending Decisions]]
 
@@ -195,7 +242,7 @@ Las prioridades vigentes deben consultarse en el registro de decisiones y no inf
 
 ---
 
-## 7. Plantillas operativas
+## 8. Plantillas operativas
 
 - [[templates/SESSION_CLOSE_TEMPLATE|Plantilla de cierre de sesión]]
 - [[templates/SPRINT_CLOSE_TEMPLATE|Plantilla de cierre de sprint]]
@@ -206,7 +253,7 @@ No deben completarse directamente sobre el archivo original.
 
 ---
 
-## 8. Arquitectura
+## 9. Arquitectura y referencias conceptuales
 
 Carpeta:
 
@@ -263,14 +310,19 @@ activas como:
 
 - Malāk Cognitive Dataset Foundation;
 - Governed Swarm and Long-Horizon Reference;
-- Governed Ephemeral Agent Execution, Evidence and Candidate Evaluation Reference.
+- Governed Ephemeral Agent Execution, Evidence and Candidate Evaluation Reference;
+- Malāk Research Horizon Map.
+
+El Research Horizon conserva clasificaciones `ALIGNED`, `REINFORCE_EXISTING`,
+`GAP_CANDIDATE`, `WATCH`, `IRRELEVANT` y `CONFLICTS_WITH_VISION` para evitar
+olvidar investigación ya realizada sin convertirla en roadmap o autorización.
 
 Estas referencias son derivadas y no normativas. Su presencia en el Vault no
 autoriza implementación, no modifica el baseline y no autoriza ningún sprint.
 
 ---
 
-## 9. Sprints
+## 10. Sprints
 
 Carpeta:
 
