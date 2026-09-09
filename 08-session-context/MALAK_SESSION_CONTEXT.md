@@ -6,9 +6,9 @@ type: session-context
 status: active
 authority_level: technical_documentation
 authority_rank: 6
-version: 1.2
+version: 1.3
 created: 2026-07-20
-last_reviewed: 2026-08-16
+last_reviewed: 2026-09-09
 source_repository: Aranwill/jarvis
 source_branch: main
 derived: true
@@ -79,7 +79,8 @@ Debe utilizarse para:
 * evitar depender de conversaciones anteriores;
 * distinguir baseline, roadmap y propuestas;
 * mantener alineación con la arquitectura y la gobernanza;
-* reducir contradicciones y reconstrucciones incorrectas.
+* reducir contradicciones y reconstrucciones incorrectas;
+* dirigir revisiones de próxima implementación hacia las fuentes oficiales de seguridad e investigación aplicables.
 
 Este archivo no reemplaza las fuentes oficiales del repositorio.
 
@@ -102,6 +103,36 @@ Ante cualquier contradicción, prevalecen:
 6. contratos públicos;
 7. baseline y documentación oficial vigente;
 8. evidencia directa del repositorio.
+
+Para una revisión cuyo objetivo sea **analizar la próxima implementación**, la
+recuperación de contexto debe incluir explícitamente, además del baseline,
+roadmap y decisiones aplicables:
+
+```text
+Aranwill/jarvis/SECURITY.md
+Aranwill/jarvis/docs/project/concepts/MALAK_RESEARCH_HORIZON_MAP.md
+Aranwill/jarvis/docs/project/concepts/README.md
+Aranwill/jarvis/docs/project/concepts/** aplicables
+Aranwill/jarvis/documents/projects/jarvis/ideas.md
+Aranwill/jarvis/docs/development/malak_construction_protocol.md
+```
+
+Proyecciones derivadas de navegación:
+
+```text
+06-security/SECURITY_INDEX.md
+10-knowledge-index/CONCEPTUAL_FOUNDATIONS.md
+10-knowledge-index/KNOWLEDGE_INDEX.md
+```
+
+Reglas de interpretación:
+
+```text
+security requirement != implemented capability
+research gap != implementation authorization
+concept != baseline
+roadmap != authorization
+```
 
 ---
 
@@ -400,6 +431,10 @@ No debe incorporarse de forma aislada o improvisada.
 ### Seguridad
 
 Antes de agentes, navegación, herramientas externas, automatización, mensajería o memoria sensible deben aprobarse e implementarse los fundamentos de seguridad correspondientes.
+
+La política oficial `Aranwill/jarvis/SECURITY.md` debe consultarse como fuente de
+seguridad activa. Las referencias de Research Horizon ayudan a detectar gaps y
+restricciones ya investigados, pero no demuestran implementación ni autorización.
 
 ---
 
@@ -888,7 +923,10 @@ Al recibir este archivo, el asistente debe:
 * evitar completar vacíos mediante suposiciones;
 * trabajar mediante pasos pequeños;
 * explicar cada paso antes de ejecutarlo;
-* solicitar aprobación antes de iniciar un nuevo sprint.
+* solicitar aprobación antes de iniciar un nuevo sprint;
+* cuando se solicite revisar Malāk y definir la próxima implementación, leer explícitamente la política oficial `SECURITY.md` y el `MALAK_RESEARCH_HORIZON_MAP.md`, además del baseline, roadmap, ideas, conceptos y protocolo de construcción aplicables;
+* utilizar `06-security/SECURITY_INDEX.md` y `10-knowledge-index/CONCEPTUAL_FOUNDATIONS.md` como navegación derivada, sin elevar su autoridad;
+* no interpretar un requisito de seguridad, research gap o referencia conceptual como capacidad ya implementada o autorización automática.
 
 Los conteos de tests, HEAD, sprint representado y demás valores operativos no
 deben fijarse manualmente en esta sección.
@@ -1042,7 +1080,7 @@ Repositorio: Aranwill/jarvis
 Rama: main
 HEAD: fd4da3d371d07b6aa91cc9f1c4d4bac3838ad627
 Último sprint cerrado: Sprint 7.3 — Conversation Provider Boundary Stabilization
-PR integrado: #13
+PR integrado: PR #13
 Suite documentada: 74 passed
 Próximo sprint aprobado: ninguno
 ```
