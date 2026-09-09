@@ -377,3 +377,45 @@ documentos de cierre y los snapshots históricos correspondientes.
 
 Esto evita que una segunda lista manual quede desfasada respecto de la fuente
 oficial o de `MALAK_OPERATIONAL_STATE`.
+
+---
+
+## 11. Diseños aprobados todavía no implementados
+
+### Episodic Memory Admission Boundary Foundation — G1
+
+Fuente oficial:
+
+```text
+Aranwill/jarvis/docs/project/sprints/proposals/EPISODIC-MEMORY-ADMISSION-G0-G1-DESIGN.md
+```
+
+Estado derivado:
+
+```text
+G0: PASS
+G1 design: aprobado por el Owner e integrado en la fuente oficial
+Implementación productiva: no autorizada
+Memory persistente: no implementada
+G2: requiere autorización humana separada
+Sprint 7.12: no autorizado por este diseño
+RDD Stage 2: no autorizado por este diseño
+```
+
+Separaciones obligatorias preservadas por G1:
+
+```text
+Conversation History != Memory != Knowledge
+candidate payload != candidate control metadata
+admission decision != persistence authorization != storage
+HOLD != retention authorization
+ELIGIBLE != storage authorization
+```
+
+La ausencia de provenance, clasificación o entradas de política requeridas debe
+resolver fail-closed (`HOLD` o `REJECT`), nunca `ELIGIBLE` por defecto.
+
+Este design record debe consultarse cuando una revisión continúe la línea de
+Memory episódica o evalúe una implementación dependiente de su frontera de
+admisión. Su presencia en el índice no cambia el baseline ni concede autoridad
+para persistir, recuperar o promover Memory automáticamente.

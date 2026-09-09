@@ -1230,3 +1230,44 @@ No están implementados ni autorizados:
 - beta pública;
 - Domain Packs;
 - respuesta ofensiva externa.
+
+---
+
+## 20. Episodic Memory Admission Boundary — G1 aprobado
+
+Fuente oficial:
+
+```text
+Aranwill/jarvis/docs/project/sprints/proposals/EPISODIC-MEMORY-ADMISSION-G0-G1-DESIGN.md
+```
+
+Estado contextual:
+
+```text
+G0: PASS
+G1 design: aprobado por el Owner e integrado en la fuente oficial
+Implementación productiva: no autorizada
+Memory persistente: no implementada
+G2: no autorizado por G1; requiere aprobación humana separada
+Sprint 7.12: no autorizado por G1
+RDD Stage 2: no autorizado por G1
+```
+
+G1 preserva como restricciones de diseño:
+
+```text
+Conversation History != Memory != Knowledge
+candidate payload != candidate control metadata
+admission decision != persistence authorization != storage
+HOLD != retention authorization
+ELIGIBLE != storage authorization
+```
+
+La ausencia de provenance, clasificación o entradas de política requeridas debe
+resolverse fail-closed (`HOLD` o `REJECT`), nunca `ELIGIBLE` por defecto.
+
+Este diseño no cambia el baseline implementado ni convierte Conversation, Kernel
+o el LLM en propietarios de Memory. Cuando una revisión continúe esta línea o
+evalúe una implementación dependiente de Memory episódica, este design record
+debe consultarse como fuente oficial aplicable junto con `SECURITY.md`, el
+Research Horizon, baseline, roadmap, decisiones y protocolo de construcción.
