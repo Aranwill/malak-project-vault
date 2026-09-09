@@ -829,7 +829,7 @@ Registro histórico del baseline documentado en aquella etapa:
 * rama: `main`;
 * commit: `fd4da3d371d07b6aa91cc9f1c4d4bac3838ad627`;
 * último sprint cerrado: Sprint 7.3 — Conversation Provider Boundary Stabilization;
-* pull request integrado: #13;
+* pull request integrado: PR #13;
 * suite documentada: 74 pruebas aprobadas;
 * próximo sprint aprobado: ninguno.
 
