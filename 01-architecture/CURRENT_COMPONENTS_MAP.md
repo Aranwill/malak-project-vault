@@ -28,10 +28,10 @@ tags:
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260909T172110755425Z_b6321a04_419b721e`
-- **HEAD oficial observado:** `b6321a04b8d6c213de63b51402b0818052c01f43`
-- **Commit previamente observado:** `c70c6de6c734fa96d0bfe264a793a0bb65e4b940`
-- **Generado:** `2026-09-09T17:21:10.755425+00:00`
+- **Run ID:** `20260909T184551072941Z_c3080c6f_6a230a36`
+- **HEAD oficial observado:** `c3080c6feda5771985aa4a10822c3eb034abd7e3`
+- **Commit previamente observado:** `b6321a04b8d6c213de63b51402b0818052c01f43`
+- **Generado:** `2026-09-09T18:45:51.072941+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
@@ -44,13 +44,19 @@ tags:
 
 ### Commits oficiales observados
 
-- b6321a04b8d6c213de63b51402b0818052c01f43	Merge pull request #75 from Aranwill/g2/episodic-memory-admission-spec-20260909
-- 147f527ac517371a33dc335e6fc23f1cde92ee84	docs: harden G2 episodic memory candidate specification
-- 3f066a32d299889bf5c48baeb195480c948e67b3	docs: specify G2 episodic memory admission candidate
+- c3080c6feda5771985aa4a10822c3eb034abd7e3	Merge pull request #77 from Aranwill/docs/close-g3-episodic-admission-20260909
+- 68fc7e1ea6cbaf4fe9d410008194ee034307caa2	docs: reconcile integrated G3 episodic admission state
+- 2d5fe87c304927baeab29e5649f2383030e1a1fd	Merge pull request #76 from Aranwill/g3/episodic-memory-admission-20260909
+- e3e3c2aa6031d4a6a9ad8f3a3c529a9453cbbe9b	feat(memory): implement episodic admission candidate
+- 1be8d92af60744941d1261323a9a974f2938e601	test(memory): define episodic admission candidate behavior
 
 ### Evidencia que originó esta proyección
 
-- `baseline-source-change` por `docs/project/sprints/proposals/EPISODIC-MEMORY-ADMISSION-G2-IMPLEMENTATION-CANDIDATE-SPEC.md`
+- `architecture-change` por `src/malak/memory/__init__.py`
+- `architecture-change` por `src/malak/memory/episodic_admission.py`
+- `baseline-source-change` por `CHANGELOG.md`
+- `baseline-source-change` por `docs/project/implementation_roadmap.md`
+- `baseline-source-change` por `docs/project/project_context.md`
 <!-- MALAK_VAULT_SYNC:END -->
 
 <!-- MALAK_OPERATIONAL_STATE:START -->
@@ -59,7 +65,7 @@ tags:
 > Estado machine-owned derivado de la fuente oficial.
 > No concede autoridad ni reemplaza decisiones humanas.
 
-- **HEAD oficial:** `b6321a04b8d6c213de63b51402b0818052c01f43`
+- **HEAD oficial:** `c3080c6feda5771985aa4a10822c3eb034abd7e3`
 - **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.11.md`
 - **Titulo declarado:** Sprint 7.11 — Reproducible Validation Pipeline Foundation
 - **Estado declarado:** `completado`
