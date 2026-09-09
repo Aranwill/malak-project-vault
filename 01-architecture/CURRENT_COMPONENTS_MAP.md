@@ -28,10 +28,10 @@ tags:
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260908T221456916956Z_5fa2ae25_0858c502`
-- **HEAD oficial observado:** `5fa2ae2586aec3498710f6722407e371b3e58d1f`
-- **Commit previamente observado:** `3413e8ccb348440aea757d1feccde25c65be011f`
-- **Generado:** `2026-09-08T22:14:56.916956+00:00`
+- **Run ID:** `20260909T001148370935Z_6458fd98_42a9c295`
+- **HEAD oficial observado:** `6458fd98b3af16401d485495eb7cd1eae4b23881`
+- **Commit previamente observado:** `5fa2ae2586aec3498710f6722407e371b3e58d1f`
+- **Generado:** `2026-09-09T00:11:48.370935+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
@@ -44,25 +44,16 @@ tags:
 
 ### Commits oficiales observados
 
-- 5fa2ae2586aec3498710f6722407e371b3e58d1f	Merge pull request #67 from Aranwill/docs/reconcile-sprint-7.11-state
-- e47a717ae3d754f130dc02dc71d2e86ca56a5c53	docs: restore exact project context formatting
-- 3859f3e8a5676e9c27970f05c676d02e129df850	docs: correct stale Sprint 7.9 status
-- b41fb036c023994e37a21760367d167eda69d7ea	docs: correct project context authorization wording
-- c385e685250369b9b54a2e14212b56a8fbe23380	docs: reconcile project context after Sprint 7.11
-- e89533f6fdc74c2a2bebca3265430443b10639e9	docs: reconcile roadmap state after Sprint 7.11
-- 2523a91c57460f1a94e4c6120c74085de5920289	docs: revert broad documentation compaction
-- fddb40c0e8cf804e5f252b2382afe2b48cbb1760	docs: preserve capability admission rule
-- ea8f22da1dce40dec67123c05b608d1137a45c8a	docs: consolidate implementation roadmap after Sprint 7.11
-- e6b2744880b31c6332c4f24f10509e262a2c1cd6	docs: consolidate current project context after Sprint 7.11
-- 71ed8f57d9256c6c7cff812cb1e92c0f8cf7ad7c	docs: reconcile changelog with Sprint 7.11
-- 904bc320ebed29231442596bf5aa93f5ca30ddae	docs: consolidate Sprint 7.11 closure record
+- 6458fd98b3af16401d485495eb7cd1eae4b23881	Merge pull request #69 from Aranwill/admission/constitutional-assurance-objective-invariants
+- 3c12069f5d7ffc2bee1a94fee8a477c227730a53	test: implement static architecture invariant detector
+- c89690225f4d8bcc48565b7a4d9b7b6e69136e2d	test: add RED architecture invariant scenarios
+- c1305f522c55bf9c20ba74facfbcfc3023048b24	docs: design objective architecture invariants
+- e1b41e4087f572dd75a6a40d5870f01aaecbe0f8	docs: add Constitutional Assurance G0 coverage ledger
 
 ### Evidencia que originó esta proyección
 
-- `baseline-source-change` por `CHANGELOG.md`
-- `baseline-source-change` por `docs/project/implementation_roadmap.md`
-- `baseline-source-change` por `docs/project/project_context.md`
-- `baseline-source-change` por `docs/project/sprints/SPRINT-7.11.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/CONSTITUTIONAL-ASSURANCE-G0-COVERAGE-LEDGER.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/CONSTITUTIONAL-ASSURANCE-G1-DESIGN.md`
 <!-- MALAK_VAULT_SYNC:END -->
 
 <!-- MALAK_OPERATIONAL_STATE:START -->
@@ -71,7 +62,7 @@ tags:
 > Estado machine-owned derivado de la fuente oficial.
 > No concede autoridad ni reemplaza decisiones humanas.
 
-- **HEAD oficial:** `5fa2ae2586aec3498710f6722407e371b3e58d1f`
+- **HEAD oficial:** `6458fd98b3af16401d485495eb7cd1eae4b23881`
 - **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.11.md`
 - **Titulo declarado:** Sprint 7.11 — Reproducible Validation Pipeline Foundation
 - **Estado declarado:** `completado`
