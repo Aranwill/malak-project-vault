@@ -1,0 +1,136 @@
+name: Validation
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.sha }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  repository-validation:
+    name: Repository validation (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - ubuntu-latest
+          - windows-latest
+          - macos-latest
+
+    env:
+      CANDIDATE_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+      BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
+
+    steps:
+      - name: Checkout exact candidate
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Verify candidate identity
+        shell: bash
+        run: |
+          set -euo pipefail
+          actual="$(git rev-parse HEAD)"
+          echo "candidate_sha=$actual"
+          echo "base_sha=$BASE_SHA"
+
+          if [[ "$actual" != "$CANDIDATE_SHA" ]]; then
+            echo "Candidate identity mismatch: expected $CANDIDATE_SHA, got $actual" >&2
+            exit 1
+          fi
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Validate tracked text encoding
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import subprocess
+
+          text_suffixes = {
+              ".md",
+              ".yml",
+              ".yaml",
+              ".json",
+              ".txt",
+              ".toml",
+              ".ps1",
+              ".py",
+          }
+          special_names = {".gitignore", ".gitattributes"}
+
+          tracked = subprocess.check_output(
+              ["git", "ls-files"],
+              text=True,
+              encoding="utf-8",
+          ).splitlines()
+
+          checked = 0
+          failures = []
+
+          for raw_path in tracked:
+              path = Path(raw_path)
+              if (
+                  path.suffix.lower() not in text_suffixes
+                  and path.name not in special_names
+              ):
+                  continue
+
+              try:
+                  path.read_text(encoding="utf-8")
+              except (UnicodeDecodeError, OSError) as exc:
+                  failures.append(f"{raw_path}: {exc}")
+              else:
+                  checked += 1
+
+          print(f"utf8_text_files_checked={checked}")
+
+          if failures:
+              for failure in failures:
+                  print(failure)
+              raise SystemExit(1)
+          PY
+
+      - name: Validate candidate diff
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if [[ -z "${BASE_SHA:-}" ]]; then
+            echo "Missing base SHA for candidate diff validation." >&2
+            exit 1
+          fi
+
+          case "$GITHUB_EVENT_NAME" in
+            pull_request)
+              git diff --check --no-renames "$BASE_SHA...$CANDIDATE_SHA"
+              ;;
+            push)
+              if [[ "$BASE_SHA" =~ ^0+$ ]]; then
+                git show --check --format= --no-renames "$CANDIDATE_SHA"
+              else
+                git diff --check --no-renames "$BASE_SHA..$CANDIDATE_SHA"
+              fi
+              ;;
+            *)
+              echo "Unsupported workflow event: $GITHUB_EVENT_NAME" >&2
+              exit 1
+              ;;
+          esac
