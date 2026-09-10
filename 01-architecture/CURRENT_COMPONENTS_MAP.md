@@ -28,10 +28,10 @@ tags:
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260910T124447231865Z_2ee38192_4b504f25`
-- **HEAD oficial observado:** `2ee3819293da950d343155a4ed14fb4f8d0b4c37`
-- **Commit previamente observado:** `aaabae65fcd989ed698704fa1bc735c3896c3903`
-- **Generado:** `2026-09-10T12:44:47.231865+00:00`
+- **Run ID:** `20260910T125723328974Z_9438c66e_05f5813d`
+- **HEAD oficial observado:** `9438c66e315faa2b4c8c3f0a99d4e1e9619992c3`
+- **Commit previamente observado:** `2ee3819293da950d343155a4ed14fb4f8d0b4c37`
+- **Generado:** `2026-09-10T12:57:23.328974+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
@@ -44,12 +44,13 @@ tags:
 
 ### Commits oficiales observados
 
-- 2ee3819293da950d343155a4ed14fb4f8d0b4c37	Merge pull request #91 from Aranwill/spec/episodic-admission-governed-projection-consumption-g2-20260910
-- d2efe0eb614b1714029dc07210cc99944217c1ba	docs: specify governed projection consumption G2 candidate
+- 9438c66e315faa2b4c8c3f0a99d4e1e9619992c3	Merge pull request #92 from Aranwill/feat/episodic-admission-governed-projection-consumption-g3-20260910
+- 5139d95aaa2c30971b3979ca7c3917067856a428	feat: implement governed projection consumption
+- 7641fedce770946b033ce1e56122bbf86c6902bc	test: specify governed projection consumption behavior
 
 ### Evidencia que originó esta proyección
 
-- `baseline-source-change` por `docs/project/sprints/proposals/EPISODIC-ADMISSION-GOVERNED-PROJECTION-CONSUMPTION-G2-IMPLEMENTATION-CANDIDATE-SPEC.md`
+- `architecture-change` por `src/malak/memory/governed_projection_consumption.py`
 <!-- MALAK_VAULT_SYNC:END -->
 
 <!-- MALAK_OPERATIONAL_STATE:START -->
@@ -58,7 +59,7 @@ tags:
 > Estado machine-owned derivado de la fuente oficial.
 > No concede autoridad ni reemplaza decisiones humanas.
 
-- **HEAD oficial:** `2ee3819293da950d343155a4ed14fb4f8d0b4c37`
+- **HEAD oficial:** `9438c66e315faa2b4c8c3f0a99d4e1e9619992c3`
 - **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.11.md`
 - **Titulo declarado:** Sprint 7.11 — Reproducible Validation Pipeline Foundation
 - **Estado declarado:** `completado`
