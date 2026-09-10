@@ -27,10 +27,10 @@ retrieval_scope: active
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260910T125723328974Z_9438c66e_05f5813d`
-- **HEAD oficial observado:** `9438c66e315faa2b4c8c3f0a99d4e1e9619992c3`
-- **Commit previamente observado:** `2ee3819293da950d343155a4ed14fb4f8d0b4c37`
-- **Generado:** `2026-09-10T12:57:23.328974+00:00`
+- **Run ID:** `20260910T153329545510Z_c16c23e1_c65b9fb7`
+- **HEAD oficial observado:** `c16c23e14cbd2e34c3abdba085a113dd0a37e0f5`
+- **Commit previamente observado:** `9438c66e315faa2b4c8c3f0a99d4e1e9619992c3`
+- **Generado:** `2026-09-10T15:33:29.545510+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
@@ -43,14 +43,37 @@ retrieval_scope: active
 
 ### Commits oficiales observados
 
-- 9438c66e315faa2b4c8c3f0a99d4e1e9619992c3	Merge pull request #92 from Aranwill/feat/episodic-admission-governed-projection-consumption-g3-20260910
-- 5139d95aaa2c30971b3979ca7c3917067856a428	feat: implement governed projection consumption
-- 7641fedce770946b033ce1e56122bbf86c6902bc	test: specify governed projection consumption behavior
+- c16c23e14cbd2e34c3abdba085a113dd0a37e0f5	Merge pull request #100 from Aranwill/docs/reconcile-post-99-derived-state-20260910
+- 24fc86fd065241305d04f285a460f74c1b27aa73	docs: reconcile derived state after PR #99
+- cc9c7373879555a3eb267cd91be5228207427ae8	Merge pull request #99 from Aranwill/docs/cognitive-assurance-g1-progressive-design-20260910
+- b08981327f2b763db925a5609835f09679fa5cc3	docs: design progressive cognitive assurance G1
+- d835934c3cd80aac63f5f06f2e2c555c7f817350	Merge pull request #98 from Aranwill/docs/cognitive-assurance-g0-research-evidence-20260910
+- c7bdc6902eff8c1bd90e4f89bfb70d0ae8438ce9	docs: record cognitive assurance G0 research evidence
+- 1a2e31e1b7dfb9a692f0f198b32bd33714a62ff2	Merge pull request #97 from Aranwill/docs/evidence-bound-cognition-foundation-20260910
+- d6aa4377d66e84f2fc328ae3358eaf9b7758f429	docs(concepts): index evidence-bound cognition foundation
+- e3d805c54a38e7961bd44182a08c078548db271f	docs(concepts): preserve evidence-bound cognition foundation
+- 7b344f40b5d13ea0a9464d4260d47fa409071d9c	Merge pull request #96 from Aranwill/docs/agent-bounded-deterministic-change-rule-20260910
+- 883b513c02a4144039587d7f357b46759af9145b	docs(agents): require bounded deterministic modifications
+- 9a672ea1e2de477051393d44153e72a9f64372c9	Merge pull request #95 from Aranwill/fix/revert-pr94-document-simplification-20260910
+- b47b8b61c810fabed54b8e2905ac54322501d54f	fix(docs): revert over-broad PR #94 simplification
+- ee81336790c88cc8de2ba1ab0984a6ccd5b79776	Merge pull request #94 from Aranwill/docs/reconcile-post-content-identity-g0-g1-20260910
+- 98b1058188d348e55e77773610b3fa6861122b1b	docs: preserve future planning and legacy disposition
+- 09f03fb149044a3f55fec5484ff952cf7af0b32d	docs: reconcile research horizon after governed consumption
+- 37f9cdd95280d17589483bcd3eb80b6a46ba3849	docs: reconcile implementation roadmap post G3
+- 40a0ebf92a570758a8ea2dc15247963524f2c080	docs: reconcile project context post G3 and content identity G0/G1
+- bd2b011a56be0b6c5b05fd7e287644edc95d141c	docs: reconcile changelog through content identity G0/G1
+- 3788caf68ac14da37040f06a0da3e0fe9db5a2db	Merge pull request #93 from Aranwill/docs/episodic-candidate-content-identity-g0-g1-20260910
+- 4d41776b62fd4f001c850396cb35d365c59a6e0a	docs: design episodic candidate content identity G0/G1
 
 ### Evidencia que originó esta proyección
 
-- `architecture-change` por `src/malak/memory/governed_projection_consumption.py`
-- `test-change` por `tests/test_governed_projection_consumption.py`
+- `baseline-source-change` por `AGENTS.md`
+- `baseline-source-change` por `CHANGELOG.md`
+- `baseline-source-change` por `docs/project/implementation_roadmap.md`
+- `baseline-source-change` por `docs/project/project_context.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/EPISODIC-CANDIDATE-CONTENT-IDENTITY-G0-G1-DESIGN.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-COGNITIVE-ASSURANCE-G0-RESEARCH-EVIDENCE.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-COGNITIVE-ASSURANCE-G1-PROGRESSIVE-DESIGN.md`
 <!-- MALAK_VAULT_SYNC:END -->
 
 <!-- MALAK_OPERATIONAL_STATE:START -->
@@ -59,7 +82,7 @@ retrieval_scope: active
 > Estado machine-owned derivado de la fuente oficial.
 > No concede autoridad ni reemplaza decisiones humanas.
 
-- **HEAD oficial:** `9438c66e315faa2b4c8c3f0a99d4e1e9619992c3`
+- **HEAD oficial:** `c16c23e14cbd2e34c3abdba085a113dd0a37e0f5`
 - **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.11.md`
 - **Titulo declarado:** Sprint 7.11 — Reproducible Validation Pipeline Foundation
 - **Estado declarado:** `completado`
