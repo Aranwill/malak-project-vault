@@ -25,10 +25,10 @@ retrieval_scope: active
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260910T153329545510Z_c16c23e1_c65b9fb7`
-- **HEAD oficial observado:** `c16c23e14cbd2e34c3abdba085a113dd0a37e0f5`
-- **Commit previamente observado:** `9438c66e315faa2b4c8c3f0a99d4e1e9619992c3`
-- **Generado:** `2026-09-10T15:33:29.545510+00:00`
+- **Run ID:** `20260910T170502398134Z_f0ec79ce_591730b0`
+- **HEAD oficial observado:** `f0ec79cea861f135a7778958943db5d616d0dc2f`
+- **Commit previamente observado:** `c16c23e14cbd2e34c3abdba085a113dd0a37e0f5`
+- **Generado:** `2026-09-10T17:05:02.398134+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
@@ -41,40 +41,21 @@ retrieval_scope: active
 
 ### Commits oficiales observados
 
-- c16c23e14cbd2e34c3abdba085a113dd0a37e0f5	Merge pull request #100 from Aranwill/docs/reconcile-post-99-derived-state-20260910
-- 24fc86fd065241305d04f285a460f74c1b27aa73	docs: reconcile derived state after PR #99
-- cc9c7373879555a3eb267cd91be5228207427ae8	Merge pull request #99 from Aranwill/docs/cognitive-assurance-g1-progressive-design-20260910
-- b08981327f2b763db925a5609835f09679fa5cc3	docs: design progressive cognitive assurance G1
-- d835934c3cd80aac63f5f06f2e2c555c7f817350	Merge pull request #98 from Aranwill/docs/cognitive-assurance-g0-research-evidence-20260910
-- c7bdc6902eff8c1bd90e4f89bfb70d0ae8438ce9	docs: record cognitive assurance G0 research evidence
-- 1a2e31e1b7dfb9a692f0f198b32bd33714a62ff2	Merge pull request #97 from Aranwill/docs/evidence-bound-cognition-foundation-20260910
-- d6aa4377d66e84f2fc328ae3358eaf9b7758f429	docs(concepts): index evidence-bound cognition foundation
-- e3d805c54a38e7961bd44182a08c078548db271f	docs(concepts): preserve evidence-bound cognition foundation
-- 7b344f40b5d13ea0a9464d4260d47fa409071d9c	Merge pull request #96 from Aranwill/docs/agent-bounded-deterministic-change-rule-20260910
-- 883b513c02a4144039587d7f357b46759af9145b	docs(agents): require bounded deterministic modifications
-- 9a672ea1e2de477051393d44153e72a9f64372c9	Merge pull request #95 from Aranwill/fix/revert-pr94-document-simplification-20260910
-- b47b8b61c810fabed54b8e2905ac54322501d54f	fix(docs): revert over-broad PR #94 simplification
-- ee81336790c88cc8de2ba1ab0984a6ccd5b79776	Merge pull request #94 from Aranwill/docs/reconcile-post-content-identity-g0-g1-20260910
-- 98b1058188d348e55e77773610b3fa6861122b1b	docs: preserve future planning and legacy disposition
-- 09f03fb149044a3f55fec5484ff952cf7af0b32d	docs: reconcile research horizon after governed consumption
-- 37f9cdd95280d17589483bcd3eb80b6a46ba3849	docs: reconcile implementation roadmap post G3
-- 40a0ebf92a570758a8ea2dc15247963524f2c080	docs: reconcile project context post G3 and content identity G0/G1
-- bd2b011a56be0b6c5b05fd7e287644edc95d141c	docs: reconcile changelog through content identity G0/G1
-- 3788caf68ac14da37040f06a0da3e0fe9db5a2db	Merge pull request #93 from Aranwill/docs/episodic-candidate-content-identity-g0-g1-20260910
-- 4d41776b62fd4f001c850396cb35d365c59a6e0a	docs: design episodic candidate content identity G0/G1
+- f0ec79cea861f135a7778958943db5d616d0dc2f	Merge pull request #104 from Aranwill/docs/enforce-material-sprint-process-20260910
+- 4af940d9ad4b0bfecd99d9bd758e16b4a4ff4198	docs(process): enforce material sprint assurance and law boundary
+- 6be08e6e522ee576e4052bad050bbf2f5b0d1213	Merge pull request #103 from Aranwill/docs/fix-normative-activation-consistency-20260910
+- 1bc11b51ba00589c1c3cec180b5afb055a947f33	docs: correct normative activation packet consistency
+- 90306fc155ec1b7aa699d671307db900de51c312	Merge pull request #102 from Aranwill/docs/cognitive-assurance-normative-promotion-candidate-20260910
+- 0ec879d6f1843c785d4a977f8a76f4f0cac61fa4	docs: propose evidence-bound finalization normative packet
+- 9aaa57fc831e9329e2154b233c8716062958dcb6	Merge pull request #101 from Aranwill/docs/cognitive-assurance-constitutional-impact-g0-g1-20260910
+- 3ef530181b46da4b21224a0aa314b9e1f5ef7bf6	docs: review cognitive assurance constitutional impact G0/G1
 
 ### Evidencia que originó esta proyección
 
-- `baseline-source-change` por `AGENTS.md`
-- `baseline-source-change` por `CHANGELOG.md`
-- `baseline-source-change` por `docs/project/implementation_roadmap.md`
-- `baseline-source-change` por `docs/project/project_context.md`
-- `baseline-source-change` por `docs/project/sprints/proposals/EPISODIC-CANDIDATE-CONTENT-IDENTITY-G0-G1-DESIGN.md`
-- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-COGNITIVE-ASSURANCE-G0-RESEARCH-EVIDENCE.md`
-- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-COGNITIVE-ASSURANCE-G1-PROGRESSIVE-DESIGN.md`
-- `conceptual-foundation-change` por `docs/project/concepts/MALAK_EVIDENCE_BOUND_COGNITION_FOUNDATION.md`
-- `conceptual-foundation-change` por `docs/project/concepts/MALAK_RESEARCH_HORIZON_MAP.md`
-- `conceptual-foundation-change` por `docs/project/concepts/README.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-BLUEPRINT-V0.6.2-EVIDENCE-BOUND-FINALIZATION-CANDIDATE.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-COGNITIVE-ASSURANCE-CONSTITUTIONAL-IMPACT-G0-G1.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-COGNITIVE-ASSURANCE-NORMATIVE-PROMOTION-SCOPE-FREEZE.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-COGNITIVE-CONSTITUTION-V1.1-EVIDENCE-BOUND-FINALIZATION-CANDIDATE.md`
 <!-- MALAK_VAULT_SYNC:END -->
 
 <!-- MALAK_OPERATIONAL_STATE:START -->
@@ -83,7 +64,7 @@ retrieval_scope: active
 > Estado machine-owned derivado de la fuente oficial.
 > No concede autoridad ni reemplaza decisiones humanas.
 
-- **HEAD oficial:** `c16c23e14cbd2e34c3abdba085a113dd0a37e0f5`
+- **HEAD oficial:** `f0ec79cea861f135a7778958943db5d616d0dc2f`
 - **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.11.md`
 - **Titulo declarado:** Sprint 7.11 — Reproducible Validation Pipeline Foundation
 - **Estado declarado:** `completado`
