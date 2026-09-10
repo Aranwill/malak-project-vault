@@ -28,10 +28,10 @@ retrieval_scope: active
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260910T123228889733Z_aaabae65_d7d4e2d7`
-- **HEAD oficial observado:** `aaabae65fcd989ed698704fa1bc735c3896c3903`
-- **Commit previamente observado:** `2e8c5d7318678caeb67c8906c951935832760003`
-- **Generado:** `2026-09-10T12:32:28.889733+00:00`
+- **Run ID:** `20260910T124447231865Z_2ee38192_4b504f25`
+- **HEAD oficial observado:** `2ee3819293da950d343155a4ed14fb4f8d0b4c37`
+- **Commit previamente observado:** `aaabae65fcd989ed698704fa1bc735c3896c3903`
+- **Generado:** `2026-09-10T12:44:47.231865+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
@@ -44,20 +44,12 @@ retrieval_scope: active
 
 ### Commits oficiales observados
 
-- aaabae65fcd989ed698704fa1bc735c3896c3903	Merge pull request #90 from Aranwill/docs/episodic-admission-governed-projection-consumption-g0-g1-20260910
-- 0b1fccdfc327a9f45bbe754c912763a04be2ddee	docs: design governed projection consumption G0/G1
-- 8638015a3ec8750901a1762ad51f60e7fb4a0240	Merge pull request #89 from Aranwill/docs/reconcile-post-governed-projection-20260910
-- cccd916b91064822f39c68c01f2362847731dd5f	docs: reconcile project context after governed projection
-- ee692b9060671aee3c2d2d34b67bfe6690228c03	docs: reconcile implementation roadmap after governed projection
-- 898ab4e11cd43074c8ca7f2812d1e6857593f1ae	docs: reconcile memory research horizon after governed projection
-- 6652436c5d8479b5c93172d01ab696eeeb42caeb	docs: reconcile post-projection changelog state
+- 2ee3819293da950d343155a4ed14fb4f8d0b4c37	Merge pull request #91 from Aranwill/spec/episodic-admission-governed-projection-consumption-g2-20260910
+- d2efe0eb614b1714029dc07210cc99944217c1ba	docs: specify governed projection consumption G2 candidate
 
 ### Evidencia que originó esta proyección
 
-- `baseline-source-change` por `CHANGELOG.md`
-- `baseline-source-change` por `docs/project/implementation_roadmap.md`
-- `baseline-source-change` por `docs/project/project_context.md`
-- `baseline-source-change` por `docs/project/sprints/proposals/EPISODIC-ADMISSION-GOVERNED-PROJECTION-CONSUMPTION-G0-G1-DESIGN.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/EPISODIC-ADMISSION-GOVERNED-PROJECTION-CONSUMPTION-G2-IMPLEMENTATION-CANDIDATE-SPEC.md`
 <!-- MALAK_VAULT_SYNC:END -->
 
 <!-- MALAK_OPERATIONAL_STATE:START -->
@@ -66,7 +58,7 @@ retrieval_scope: active
 > Estado machine-owned derivado de la fuente oficial.
 > No concede autoridad ni reemplaza decisiones humanas.
 
-- **HEAD oficial:** `aaabae65fcd989ed698704fa1bc735c3896c3903`
+- **HEAD oficial:** `2ee3819293da950d343155a4ed14fb4f8d0b4c37`
 - **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.11.md`
 - **Titulo declarado:** Sprint 7.11 — Reproducible Validation Pipeline Foundation
 - **Estado declarado:** `completado`
