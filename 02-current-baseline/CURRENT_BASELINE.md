@@ -1339,7 +1339,7 @@ Todavía no forman parte del baseline operativo:
 
 * Memory persistente o cognitiva;
 * historial persistente de conversaciones;
-* agents;
+* agentes;
 * herramientas externas;
 * navegación;
 * GraphRAG;

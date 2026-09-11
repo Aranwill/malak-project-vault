@@ -8,7 +8,7 @@ authority_level: approved_roadmap
 authority_rank: 7
 version: 1.1
 created: 2026-07-20
-last_reviewed: 2026-09-09
+last_reviewed: 2026-09-11
 source_of_truth: repository
 source_repository: Aranwill/jarvis
 source_branch: main
@@ -482,9 +482,128 @@ Sprint 7.12
 RDD Stage 2
 ```
 
-La integración de G3 no autoriza ninguna unidad posterior. Cualquier avance debe
-atravesar nuevamente admisión, definición de alcance, evaluación y aprobación
-explícita del Owner.
+En el momento de su integración, G3 no autorizó automáticamente ninguna unidad
+posterior. Las unidades episódicas posteriores fueron evaluadas, diseñadas,
+autorizadas e integradas mediante gates independientes; ninguna de ellas
+constituyó Sprint 7.12.
+
+### 7.6 Cadena episódica gobernada posterior a G3
+
+**Estado:**
+
+```text
+implementada e integrada como unidades aisladas posteriores a Sprint 7.11
+```
+
+Secuencia verificada:
+
+```text
+EpisodicMemoryCandidate
+        ↓
+AdmissionAssessment
+        ↓
+Assessment Provenance
+VALID | HOLD | INVALID
+        ↓
+Assessment Producer Authorization
+AUTHORIZED | HOLD | DENIED
+        ↓
+Governed Input Projection
+READY | HOLD | DENIED
+        ↓
+Governed Projection Consumption
+BLOCKED | EVALUATED
+        ↓
+Episodic Admission
+REJECT | HOLD | ELIGIBLE
+```
+
+La cadena preserva:
+
+```text
+Projection READY != Admission ELIGIBLE
+Evidence != Authority
+admission != persistence
+```
+
+Assessment Provenance, Producer Authorization, Governed Input Projection y
+Governed Projection Consumption permanecen separados, candidate-bound y
+fail-closed. No existe Conversation/runtime wiring, persistencia, retrieval,
+Knowledge ni ampliación de autoridad como consecuencia de estas unidades.
+
+Fuentes oficiales principales:
+
+```text
+src/malak/memory/assessment_provenance.py
+src/malak/memory/assessment_producer_authorization.py
+src/malak/memory/governed_input_projection.py
+src/malak/memory/governed_projection_consumption.py
+```
+
+### 7.7 G2A — Protected Finalization Foundation
+
+**Estado:**
+
+```text
+implementada e integrada como foundation determinista aislada
+```
+
+G2A introduce una frontera explícita entre generación de candidato y
+finalización protegida:
+
+```text
+ProtectedResponseCandidate
+        ↓
+ProtectedFinalizationInput
+        ↓
+ACCEPT | ABSTAIN | BLOCK
+```
+
+La foundation no está conectada a la ruta conversacional real, no llama
+providers ni LLMs, no persiste decisiones, no consume Memory/Knowledge y no
+modifica Kernel, `ConversationService`, `ConversationCapability`, CLI ni
+history.
+
+Fuente oficial principal:
+
+```text
+src/malak/core/protected_finalization.py
+```
+
+### 7.8 Assurance Signal Authority Boundary — G0/G1
+
+**Estado:**
+
+```text
+G0/G1 design: integrado
+Signal Boundary G2: NOT AUTHORIZED
+Conversation G2B: BLOCKED / NOT AUTHORIZED
+Sprint 7.12: NOT AUTHORIZED
+RDD Stage 2: NOT AUTHORIZED
+```
+
+El diseño confirma que el baseline todavía no posee productores runtime
+autorizados para:
+
+```text
+applicability
+evidence_required
+support_sufficient
+contradiction_unresolved
+policy_violation
+```
+
+Por tanto:
+
+```text
+G2A integrated
+!= Signal Boundary G2 authorized
+!= Conversation G2B authorized
+```
+
+La existencia de G2A y del diseño de authority boundary no constituye
+autorización para implementar el boundary de señales ni para conectarlo a
+Conversation.
 
 ---
 

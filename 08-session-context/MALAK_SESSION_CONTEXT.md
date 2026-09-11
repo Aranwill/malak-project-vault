@@ -8,7 +8,7 @@ authority_level: technical_documentation
 authority_rank: 6
 version: 1.3
 created: 2026-07-20
-last_reviewed: 2026-09-09
+last_reviewed: 2026-09-11
 source_repository: Aranwill/jarvis
 source_branch: main
 derived: true
@@ -268,9 +268,44 @@ Conversation History != Memory != Knowledge
 
 No existe persistencia conversacional en el baseline representado.
 
-G3 añadió posteriormente una frontera aislada de admisión episódica bajo
-`src/malak/memory/`. Esa unidad no está conectada a Conversation, no persiste
-Memory y no altera la separación `Conversation History != Memory != Knowledge`.
+Después de Sprint 7.11 se integró incrementalmente una cadena episódica aislada:
+
+```text
+Episodic Memory Admission
+        ↓
+Assessment Provenance
+        ↓
+Assessment Producer Authorization
+        ↓
+Governed Input Projection
+        ↓
+Governed Projection Consumption
+```
+
+Las unidades permanecen separadas de Conversation/runtime, no persisten ni
+recuperan Memory y preservan:
+
+```text
+Conversation History != Memory != Knowledge
+Projection READY != Admission ELIGIBLE
+Evidence != Authority
+```
+
+PR #110 integró además G2A — Protected Finalization Foundation como una
+foundation determinista aislada con resultados `ACCEPT | ABSTAIN | BLOCK`.
+G2A todavía no está conectada a Conversation y no posee productores runtime
+autorizados de sus assurance signals.
+
+Estado de autorización que debe preservarse:
+
+```text
+G2A: INTEGRATED / ISOLATED
+Assurance Signal Authority G0/G1: INTEGRATED DESIGN
+Signal Boundary G2: NOT AUTHORIZED
+Conversation G2B: BLOCKED / NOT AUTHORIZED
+Sprint 7.12: NOT AUTHORIZED
+RDD Stage 2: NOT AUTHORIZED
+```
 
 ---
 
@@ -330,7 +365,15 @@ Componentes documentados en el alcance representado:
 * perfilado inicial de métricas;
 * AKS Engineering Knowledge Foundation;
 * Development Framework;
-* Episodic Memory Admission Boundary — G3 bajo `src/malak/memory/`, aislada y sin persistencia/retrieval.
+* Episodic Memory Admission Boundary bajo `src/malak/memory/`, aislada y sin persistencia/retrieval;
+* Assessment Provenance Boundary;
+* Assessment Producer Authorization Boundary;
+* Governed Input Projection Boundary;
+* Governed Projection Consumption Boundary;
+* G2A — Protected Finalization Foundation, integrada y aislada de Conversation.
+
+La integración de estas fronteras no autoriza Memory persistente, Signal
+Boundary G2, Conversation G2B, Sprint 7.12 ni RDD Stage 2.
 
 La integración real con Ollama fue validada con:
 
@@ -475,7 +518,13 @@ No forman parte del alcance implementado documentado:
 * aplicación automática de recomendaciones;
 * Secure Context Manager implementado;
 * RAG externo;
-* auditor externo.
+* auditor externo;
+* productores runtime autorizados de assurance signals;
+* Signal Boundary G2;
+* Conversation G2B;
+* wiring de Protected Finalization con Conversation;
+* Sprint 7.12;
+* RDD Stage 2.
 
 ---
 
