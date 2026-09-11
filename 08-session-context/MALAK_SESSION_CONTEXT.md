@@ -1336,7 +1336,7 @@ Sprint 7.11: último sprint numerado integrado
 Sprint 7.12: no autorizado
 Memory persistente: no implementada
 RDD Stage 2: no autorizado
-unidad posterior a G3: no autorizada
+unidades posteriores a G3: Assessment Provenance, Assessment Producer Authorization, Governed Input Projection y Governed Projection Consumption integradas de forma separada; ninguna constituye Sprint 7.12
 ~~~
 
 G3 materializa contratos inmutables y una policy determinista de admisión
