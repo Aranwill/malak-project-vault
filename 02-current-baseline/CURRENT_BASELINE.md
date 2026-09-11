@@ -28,10 +28,10 @@ retrieval_scope: active
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260911T183954518797Z_e4fe2f58_f86b2750`
-- **HEAD oficial observado:** `e4fe2f5832a9d9703515ae5168aefbeae44a399e`
-- **Commit previamente observado:** `ceb41083879c38b2954e55b9f7368d6070c4ef71`
-- **Generado:** `2026-09-11T18:39:54.518797+00:00`
+- **Run ID:** `20260911T192623942519Z_9380b851_72f21660`
+- **HEAD oficial observado:** `9380b851c7db1a0bf48043e3ea871c9a0bdda31a`
+- **Commit previamente observado:** `e4fe2f5832a9d9703515ae5168aefbeae44a399e`
+- **Generado:** `2026-09-11T19:26:23.942519+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
@@ -44,12 +44,12 @@ retrieval_scope: active
 
 ### Commits oficiales observados
 
-- e4fe2f5832a9d9703515ae5168aefbeae44a399e	Merge pull request #107 from Aranwill/docs/f02a-roadmap-current-state-20260911
-- 0f1041c0a55c2ada0c9f7b06d6424a49e23ba178	docs(state): reconcile cognitive assurance roadmap status
+- 9380b851c7db1a0bf48043e3ea871c9a0bdda31a	Merge pull request #108 from Aranwill/docs/f02c-blueprint-constitution-sync-20260911
+- a720e9c595e9de0662b507c333033b7a218d15dc	docs(architecture): sync cognitive constitution in Blueprint
 
 ### Evidencia que originó esta proyección
 
-- `baseline-source-change` por `docs/project/implementation_roadmap.md`
+- `architecture-change` por `docs/architecture/blueprint.md`
 <!-- MALAK_VAULT_SYNC:END -->
 
 <!-- MALAK_OPERATIONAL_STATE:START -->
@@ -58,7 +58,7 @@ retrieval_scope: active
 > Estado machine-owned derivado de la fuente oficial.
 > No concede autoridad ni reemplaza decisiones humanas.
 
-- **HEAD oficial:** `e4fe2f5832a9d9703515ae5168aefbeae44a399e`
+- **HEAD oficial:** `9380b851c7db1a0bf48043e3ea871c9a0bdda31a`
 - **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.11.md`
 - **Titulo declarado:** Sprint 7.11 — Reproducible Validation Pipeline Foundation
 - **Estado declarado:** `completado`
