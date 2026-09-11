@@ -57,6 +57,103 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Install frontmatter validator dependency
+        run: python -m pip install --disable-pip-version-check "PyYAML==6.0.2"
+
+      - name: Validate governed Markdown frontmatter
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          import yaml
+
+
+          class UniqueKeyLoader(yaml.SafeLoader):
+              pass
+
+
+          def construct_unique_mapping(loader, node, deep=False):
+              mapping = {}
+
+              for key_node, value_node in node.value:
+                  key = loader.construct_object(key_node, deep=deep)
+
+                  if key in mapping:
+                      raise yaml.constructor.ConstructorError(
+                          "while constructing a mapping",
+                          node.start_mark,
+                          f"found duplicate key: {key}",
+                          key_node.start_mark,
+                      )
+
+                  mapping[key] = loader.construct_object(
+                      value_node,
+                      deep=deep,
+                  )
+
+              return mapping
+
+
+          UniqueKeyLoader.add_constructor(
+              yaml.resolver.BaseResolver.DEFAULT_MAPPING_TAG,
+              construct_unique_mapping,
+          )
+
+          paths = [
+              Path("HOME.md"),
+              Path("README.md"),
+              *sorted(Path("templates").glob("*.md")),
+          ]
+
+          if not paths:
+              raise SystemExit("No governed Markdown paths found.")
+
+          for path in paths:
+              lines = path.read_text(encoding="utf-8").splitlines()
+
+              if not lines or lines[0].strip() != "---":
+                  raise SystemExit(
+                      f"{path}: missing YAML frontmatter start delimiter"
+                  )
+
+              closing = next(
+                  (
+                      index
+                      for index, line in enumerate(lines[1:], start=1)
+                      if line.strip() == "---"
+                  ),
+                  None,
+              )
+
+              if closing is None:
+                  raise SystemExit(
+                      f"{path}: missing YAML frontmatter end delimiter"
+                  )
+
+              frontmatter = chr(10).join(lines[1:closing])
+
+              try:
+                  payload = yaml.load(
+                      frontmatter,
+                      Loader=UniqueKeyLoader,
+                  )
+              except yaml.YAMLError as exc:
+                  raise SystemExit(
+                      f"{path}: invalid YAML frontmatter: {exc}"
+                  ) from exc
+
+              if not isinstance(payload, dict):
+                  raise SystemExit(
+                      f"{path}: YAML frontmatter must be a mapping"
+                  )
+
+              print(f"frontmatter_ok={path}")
+
+          print(f"frontmatter_files_checked={len(paths)}")
+          print("governed_frontmatter_validation=pass")
+          PY
+
       - name: Validate tracked text encoding
         shell: bash
         run: |

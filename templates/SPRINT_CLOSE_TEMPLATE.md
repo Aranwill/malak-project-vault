@@ -13,7 +13,7 @@ derived: false
 operational_context: false
 retrieval_enabled: true
 retrieval_scope: active
------------------------
+---
 
 # Malāk — Cierre de sesión
 

@@ -10,11 +10,10 @@ repository_source: Aranwill/jarvis
 repository_branch: main
 last_reviewed: 2026-08-16
 tags:
-
-* malak
-* vault
-* navigation
-* project-context
+  - malak
+  - vault
+  - navigation
+  - project-context
 
 ---
 

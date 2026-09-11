@@ -16,7 +16,7 @@ derived: true
 operational_context: true
 retrieval_enabled: true
 retrieval_scope: active
------------------------
+---
 
 # Malāk Project Vault
 
