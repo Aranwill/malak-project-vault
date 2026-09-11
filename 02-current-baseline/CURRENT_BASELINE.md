@@ -8,7 +8,7 @@ authority_level: baseline
 authority_rank: 5
 version: 1.1
 created: 2026-07-20
-last_reviewed: 2026-09-09
+last_reviewed: 2026-09-11
 source_of_truth: repository
 source_repository: Aranwill/jarvis
 source_branch: main
@@ -28,10 +28,10 @@ retrieval_scope: active
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260911T200728898198Z_5865da6a_a5610ec5`
-- **HEAD oficial observado:** `5865da6a5e502fe71e35e2e38bc4cceaab9b3600`
-- **Commit previamente observado:** `9380b851c7db1a0bf48043e3ea871c9a0bdda31a`
-- **Generado:** `2026-09-11T20:07:28.898198+00:00`
+- **Run ID:** `20260911T232318209174Z_c979f481_b2f9e3b0`
+- **HEAD oficial observado:** `c979f481e2e5353c8953e41e56e9218c7b1d4c6f`
+- **Commit previamente observado:** `5865da6a5e502fe71e35e2e38bc4cceaab9b3600`
+- **Generado:** `2026-09-11T23:23:18.209174+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
@@ -44,13 +44,29 @@ retrieval_scope: active
 
 ### Commits oficiales observados
 
-- 5865da6a5e502fe71e35e2e38bc4cceaab9b3600	Merge pull request #109 from Aranwill/fix/f08-bounded-ollama-transport-20260911
-- 14f6451ca5e297759ab1baff804d8d14c4e88150	fix(runtime): bound Ollama transport payloads
+- c979f481e2e5353c8953e41e56e9218c7b1d4c6f	Merge pull request #116 from Aranwill/docs/reconcile-implementation-roadmap-post-g2a-20260911
+- e3870435e31aa18905ae3ba16e7d0fca007109c4	docs(state): reconcile implementation roadmap after G2A
+- 7d295007de574f2f307328f3d9d26d768e0fb0a2	Merge pull request #115 from Aranwill/ci/ubuntu-windows-only-20260911
+- 34566b59b400e52ad542818c3e47e8512e78e4d1	Merge pull request #114 from Aranwill/docs/reconcile-project-context-post-g2a-20260911
+- 6fe89a762f3064168c76a0ad9ab4c5cf46e154da	ci: limitar validación a ubuntu y windows
+- ec6ec2cd98b749ae334344b698bd2e334e87571a	docs(state): reconcile project context after G2A
+- e45a3e3c0ebf657a513596aa74452413479c05d1	Merge pull request #111 from Aranwill/docs/assurance-signal-authority-g0-g1-20260911
+- c2a0d69768c65f773c34b19dbb73d33a66fe7a98	docs(cognition): rebase assurance signal authority onto main
+- ecb1315946f47534135bbdc73d94ccf88df0d8d6	feat(cognition): implementar G2A protected finalization foundation (#110)
 
 ### Evidencia que originó esta proyección
 
-- `architecture-change` por `src/malak/runtime/ollama_runtime.py`
-- `test-change` por `tests/test_ollama_runtime.py`
+- `architecture-change` por `src/malak/core/protected_finalization.py`
+- `baseline-source-change` por `docs/project/implementation_roadmap.md`
+- `baseline-source-change` por `docs/project/project_context.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-ASSURANCE-SIGNAL-AUTHORITY-G0-G1-DESIGN.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-PROGRESSIVE-COGNITIVE-ASSURANCE-RUNTIME-G0-INSPECTION.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-PROGRESSIVE-COGNITIVE-ASSURANCE-RUNTIME-G1-DESIGN.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-PROGRESSIVE-COGNITIVE-ASSURANCE-RUNTIME-G2A-IMPLEMENTATION-CANDIDATE-SPEC.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-PROGRESSIVE-COGNITIVE-ASSURANCE-RUNTIME-SCOPE-FREEZE-CANDIDATE.md`
+- `baseline-source-change` por `docs/project/status/MALAK-POST-AUDIT-REBASELINE-20260911.md`
+- `operational-tooling-change` por `.github/workflows/validation.yml`
+- `test-change` por `tests/test_protected_finalization.py`
 <!-- MALAK_VAULT_SYNC:END -->
 
 <!-- MALAK_OPERATIONAL_STATE:START -->
@@ -59,7 +75,7 @@ retrieval_scope: active
 > Estado machine-owned derivado de la fuente oficial.
 > No concede autoridad ni reemplaza decisiones humanas.
 
-- **HEAD oficial:** `5865da6a5e502fe71e35e2e38bc4cceaab9b3600`
+- **HEAD oficial:** `c979f481e2e5353c8953e41e56e9218c7b1d4c6f`
 - **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.11.md`
 - **Titulo declarado:** Sprint 7.11 — Reproducible Validation Pipeline Foundation
 - **Estado declarado:** `completado`
@@ -160,6 +176,57 @@ El cuerpo humano de este documento no debe duplicar esos valores como estado
 vigente.
 
 La fuente de verdad continúa siendo `Aranwill/jarvis`, rama `main`.
+
+### 4.1 Estado humano reconciliado post-G2A
+
+El baseline vigente conserva Sprint 7.11 como último sprint numerado completado.
+Después de ese sprint se integraron unidades aisladas que no constituyen Sprint
+7.12.
+
+La cadena episódica integrada es:
+
+```text
+Episodic Memory Admission Boundary
+        ↓
+Assessment Provenance Boundary
+        ↓
+Assessment Producer Authorization Boundary
+        ↓
+Governed Input Projection Boundary
+        ↓
+Governed Projection Consumption Boundary
+```
+
+La última foundation de código cognitivo integrada es:
+
+```text
+G2A — Protected Finalization Foundation
+```
+
+G2A es determinista y aislada. No está conectada a la ruta conversacional real,
+no modifica Kernel, no persiste decisiones y no consume Memory o Knowledge.
+
+El último diseño cognitivo integrado es:
+
+```text
+Assurance Signal Authority Boundary — G0/G1
+```
+
+Ese diseño confirmó que el baseline todavía no posee productores runtime
+autorizados para `applicability`, `evidence_required`, `support_sufficient`,
+`contradiction_unresolved` y `policy_violation`.
+
+Por tanto, el estado de autorización preservado es:
+
+```text
+Signal Boundary G2: NOT AUTHORIZED
+Conversation G2B: BLOCKED / NOT AUTHORIZED
+Sprint 7.12: NOT AUTHORIZED
+RDD Stage 2: NOT AUTHORIZED
+```
+
+La reconciliación documental no cambia estas autorizaciones.
+
 ---
 
 ## 5. Registro histórico — cierre del Sprint 7.5
@@ -375,6 +442,53 @@ No existe persistencia conversacional en este baseline.
 
 La construcción concreta de contexto, providers y runtimes permanece fuera del
 Kernel, preservando Runtime Independence y separación de responsabilidades.
+
+### 7.5 Cadena episódica aislada
+
+Después de Sprint 7.11 se materializó una cadena episódica separada del runtime
+conversacional:
+
+```text
+EpisodicMemoryCandidate
+        ↓
+AdmissionAssessment
+        ↓
+Assessment Provenance
+VALID | HOLD | INVALID
+        ↓
+Assessment Producer Authorization
+AUTHORIZED | HOLD | DENIED
+        ↓
+Governed Input Projection
+READY | HOLD | DENIED
+        ↓
+Governed Projection Consumption
+BLOCKED | EVALUATED
+        ↓
+Episodic Admission
+REJECT | HOLD | ELIGIBLE
+```
+
+La cadena preserva `Projection READY != Admission ELIGIBLE`, valida provenance y
+autorización antes de proyectar señales trust-sensitive y no implementa
+persistencia, retrieval, Knowledge ni wiring conversacional.
+
+### 7.6 Protected Finalization aislada
+
+PR #110 materializó G2A como una foundation determinista separada:
+
+```text
+ProtectedResponseCandidate
+        ↓
+ProtectedFinalizationInput
+        ↓
+ACCEPT | ABSTAIN | BLOCK
+```
+
+G2A no aparece en el flujo conversacional anterior porque ese wiring no existe.
+`ConversationService` continúa registrando el intercambio después de una
+generación exitosa; no existe todavía una frontera autorizada que produzca y
+proyecte los assurance signals requeridos hacia G2A.
 
 ---
 
@@ -977,6 +1091,135 @@ tests/test_episodic_memory_admission.py
 La integración de G3 no autoriza Sprint 7.12, Memory persistente, RDD Stage 2
 ni ninguna unidad posterior.
 
+### 8.20 Assessment Provenance Boundary
+
+Estado:
+
+```text
+implementado e integrado como unidad aislada posterior a Sprint 7.11
+```
+
+Liga assessments a identidad de assessment/candidate, kind y producer role y
+produce una evaluación de provenance separada de identidad, verdad, permiso o
+autoridad.
+
+Resultado:
+
+```text
+VALID | HOLD | INVALID
+```
+
+Fuente principal:
+
+```text
+src/malak/memory/assessment_provenance.py
+```
+
+### 8.21 Assessment Producer Authorization Boundary
+
+Estado:
+
+```text
+implementado e integrado como unidad aislada posterior a Sprint 7.11
+```
+
+Verifica que un producer esté autorizado para el kind y clase de influencia de
+un assessment sin convertir provenance en permiso ni admission decision.
+
+Resultado:
+
+```text
+AUTHORIZED | HOLD | DENIED
+```
+
+Fuente principal:
+
+```text
+src/malak/memory/assessment_producer_authorization.py
+```
+
+### 8.22 Governed Input Projection Boundary
+
+Estado:
+
+```text
+implementado e integrado como unidad aislada posterior a Sprint 7.11
+```
+
+Reconstruye señales trust-sensitive a partir de assessments con provenance y
+autorización verificadas. No acepta autoridad por mera presencia de metadata y
+no aplica last-write-wins.
+
+Resultado:
+
+```text
+READY | HOLD | DENIED
+```
+
+Fuente principal:
+
+```text
+src/malak/memory/governed_input_projection.py
+```
+
+### 8.23 Governed Projection Consumption Boundary
+
+Estado:
+
+```text
+implementado e integrado como unidad aislada posterior a Sprint 7.11
+```
+
+Valida binding y policy-version de una projection, construye una vista efímera
+del contexto gobernado y delega exactamente una vez a Episodic Admission solo
+cuando la projection es consumible.
+
+Resultado:
+
+```text
+BLOCKED | EVALUATED
+```
+
+Separación preservada:
+
+```text
+Projection READY != Admission ELIGIBLE
+```
+
+Fuente principal:
+
+```text
+src/malak/memory/governed_projection_consumption.py
+```
+
+### 8.24 G2A — Protected Finalization Foundation
+
+Estado:
+
+```text
+implementada e integrada como foundation determinista aislada
+```
+
+G2A evalúa candidatos de respuesta mediante un contrato explícito y produce:
+
+```text
+ACCEPT | ABSTAIN | BLOCK
+```
+
+La foundation no está conectada a Conversation, no llama providers o LLMs, no
+lee o escribe Memory/Knowledge y no persiste decisiones.
+
+Los assurance signals requeridos no tienen todavía productores runtime
+autorizados. Su diseño de authority boundary está integrado solo en G0/G1.
+
+Fuentes oficiales:
+
+```text
+src/malak/core/protected_finalization.py
+tests/test_protected_finalization.py
+docs/project/sprints/proposals/MALAK-ASSURANCE-SIGNAL-AUTHORITY-G0-G1-DESIGN.md
+```
+
 ---
 
 ## 9. Principios vigentes
@@ -1109,8 +1352,14 @@ Todavía no forman parte del baseline operativo:
 * configuración de persistencia de métricas desde la CLI;
 * campañas formales de calibración;
 * comparación automática de modelos;
-* autoajuste.
+* autoajuste;
 * Secure Context Manager;
+* Signal Boundary G2;
+* Conversation G2B;
+* wiring de Protected Finalization con Conversation;
+* productores runtime autorizados de assurance signals;
+* Sprint 7.12;
+* RDD Stage 2.
 
 ---
 
@@ -1246,6 +1495,7 @@ docs/governance/cognitive_constitution.md
 docs/governance/governance_constitution.md
 docs/development/development_environment.md
 docs/project/implementation_roadmap.md
+docs/project/project_context.md
 docs/project/sprints/SPRINT-7.0.md
 docs/project/sprints/SPRINT-7.1.md
 docs/project/sprints/SPRINT-7.2.md
@@ -1254,12 +1504,20 @@ docs/project/sprints/SPRINT-7.4.md
 docs/project/sprints/SPRINT-7.5.md
 docs/project/sprints/SPRINT-7.9.md
 docs/project/sprints/SPRINT-7.10.md
+docs/project/sprints/proposals/MALAK-ASSURANCE-SIGNAL-AUTHORITY-G0-G1-DESIGN.md
 src/malak/capabilities/conversation.py
 src/malak/services/conversation_context.py
 src/malak/services/conversation_service.py
 src/malak/security/contracts.py
 src/malak/security/__init__.py
+src/malak/memory/episodic_admission.py
+src/malak/memory/assessment_provenance.py
+src/malak/memory/assessment_producer_authorization.py
+src/malak/memory/governed_input_projection.py
+src/malak/memory/governed_projection_consumption.py
+src/malak/core/protected_finalization.py
 tests/test_authorization_contracts.py
+tests/test_protected_finalization.py
 ```
 
 Las fichas de sprints futuros no constituyen aprobación para implementarlos.

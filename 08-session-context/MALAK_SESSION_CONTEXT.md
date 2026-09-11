@@ -8,7 +8,7 @@ authority_level: technical_documentation
 authority_rank: 6
 version: 1.3
 created: 2026-07-20
-last_reviewed: 2026-09-09
+last_reviewed: 2026-09-11
 source_repository: Aranwill/jarvis
 source_branch: main
 derived: true
@@ -27,10 +27,10 @@ retrieval_scope: active
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260911T200728898198Z_5865da6a_a5610ec5`
-- **HEAD oficial observado:** `5865da6a5e502fe71e35e2e38bc4cceaab9b3600`
-- **Commit previamente observado:** `9380b851c7db1a0bf48043e3ea871c9a0bdda31a`
-- **Generado:** `2026-09-11T20:07:28.898198+00:00`
+- **Run ID:** `20260911T232318209174Z_c979f481_b2f9e3b0`
+- **HEAD oficial observado:** `c979f481e2e5353c8953e41e56e9218c7b1d4c6f`
+- **Commit previamente observado:** `5865da6a5e502fe71e35e2e38bc4cceaab9b3600`
+- **Generado:** `2026-09-11T23:23:18.209174+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
@@ -43,13 +43,29 @@ retrieval_scope: active
 
 ### Commits oficiales observados
 
-- 5865da6a5e502fe71e35e2e38bc4cceaab9b3600	Merge pull request #109 from Aranwill/fix/f08-bounded-ollama-transport-20260911
-- 14f6451ca5e297759ab1baff804d8d14c4e88150	fix(runtime): bound Ollama transport payloads
+- c979f481e2e5353c8953e41e56e9218c7b1d4c6f	Merge pull request #116 from Aranwill/docs/reconcile-implementation-roadmap-post-g2a-20260911
+- e3870435e31aa18905ae3ba16e7d0fca007109c4	docs(state): reconcile implementation roadmap after G2A
+- 7d295007de574f2f307328f3d9d26d768e0fb0a2	Merge pull request #115 from Aranwill/ci/ubuntu-windows-only-20260911
+- 34566b59b400e52ad542818c3e47e8512e78e4d1	Merge pull request #114 from Aranwill/docs/reconcile-project-context-post-g2a-20260911
+- 6fe89a762f3064168c76a0ad9ab4c5cf46e154da	ci: limitar validación a ubuntu y windows
+- ec6ec2cd98b749ae334344b698bd2e334e87571a	docs(state): reconcile project context after G2A
+- e45a3e3c0ebf657a513596aa74452413479c05d1	Merge pull request #111 from Aranwill/docs/assurance-signal-authority-g0-g1-20260911
+- c2a0d69768c65f773c34b19dbb73d33a66fe7a98	docs(cognition): rebase assurance signal authority onto main
+- ecb1315946f47534135bbdc73d94ccf88df0d8d6	feat(cognition): implementar G2A protected finalization foundation (#110)
 
 ### Evidencia que originó esta proyección
 
-- `architecture-change` por `src/malak/runtime/ollama_runtime.py`
-- `test-change` por `tests/test_ollama_runtime.py`
+- `architecture-change` por `src/malak/core/protected_finalization.py`
+- `baseline-source-change` por `docs/project/implementation_roadmap.md`
+- `baseline-source-change` por `docs/project/project_context.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-ASSURANCE-SIGNAL-AUTHORITY-G0-G1-DESIGN.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-PROGRESSIVE-COGNITIVE-ASSURANCE-RUNTIME-G0-INSPECTION.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-PROGRESSIVE-COGNITIVE-ASSURANCE-RUNTIME-G1-DESIGN.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-PROGRESSIVE-COGNITIVE-ASSURANCE-RUNTIME-G2A-IMPLEMENTATION-CANDIDATE-SPEC.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-PROGRESSIVE-COGNITIVE-ASSURANCE-RUNTIME-SCOPE-FREEZE-CANDIDATE.md`
+- `baseline-source-change` por `docs/project/status/MALAK-POST-AUDIT-REBASELINE-20260911.md`
+- `operational-tooling-change` por `.github/workflows/validation.yml`
+- `test-change` por `tests/test_protected_finalization.py`
 <!-- MALAK_VAULT_SYNC:END -->
 
 <!-- MALAK_OPERATIONAL_STATE:START -->
@@ -58,7 +74,7 @@ retrieval_scope: active
 > Estado machine-owned derivado de la fuente oficial.
 > No concede autoridad ni reemplaza decisiones humanas.
 
-- **HEAD oficial:** `5865da6a5e502fe71e35e2e38bc4cceaab9b3600`
+- **HEAD oficial:** `c979f481e2e5353c8953e41e56e9218c7b1d4c6f`
 - **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.11.md`
 - **Titulo declarado:** Sprint 7.11 — Reproducible Validation Pipeline Foundation
 - **Estado declarado:** `completado`
@@ -252,9 +268,44 @@ Conversation History != Memory != Knowledge
 
 No existe persistencia conversacional en el baseline representado.
 
-G3 añadió posteriormente una frontera aislada de admisión episódica bajo
-`src/malak/memory/`. Esa unidad no está conectada a Conversation, no persiste
-Memory y no altera la separación `Conversation History != Memory != Knowledge`.
+Después de Sprint 7.11 se integró incrementalmente una cadena episódica aislada:
+
+```text
+Episodic Memory Admission
+        ↓
+Assessment Provenance
+        ↓
+Assessment Producer Authorization
+        ↓
+Governed Input Projection
+        ↓
+Governed Projection Consumption
+```
+
+Las unidades permanecen separadas de Conversation/runtime, no persisten ni
+recuperan Memory y preservan:
+
+```text
+Conversation History != Memory != Knowledge
+Projection READY != Admission ELIGIBLE
+Evidence != Authority
+```
+
+PR #110 integró además G2A — Protected Finalization Foundation como una
+foundation determinista aislada con resultados `ACCEPT | ABSTAIN | BLOCK`.
+G2A todavía no está conectada a Conversation y no posee productores runtime
+autorizados de sus assurance signals.
+
+Estado de autorización que debe preservarse:
+
+```text
+G2A: INTEGRATED / ISOLATED
+Assurance Signal Authority G0/G1: INTEGRATED DESIGN
+Signal Boundary G2: NOT AUTHORIZED
+Conversation G2B: BLOCKED / NOT AUTHORIZED
+Sprint 7.12: NOT AUTHORIZED
+RDD Stage 2: NOT AUTHORIZED
+```
 
 ---
 
@@ -314,7 +365,15 @@ Componentes documentados en el alcance representado:
 * perfilado inicial de métricas;
 * AKS Engineering Knowledge Foundation;
 * Development Framework;
-* Episodic Memory Admission Boundary — G3 bajo `src/malak/memory/`, aislada y sin persistencia/retrieval.
+* Episodic Memory Admission Boundary bajo `src/malak/memory/`, aislada y sin persistencia/retrieval;
+* Assessment Provenance Boundary;
+* Assessment Producer Authorization Boundary;
+* Governed Input Projection Boundary;
+* Governed Projection Consumption Boundary;
+* G2A — Protected Finalization Foundation, integrada y aislada de Conversation.
+
+La integración de estas fronteras no autoriza Memory persistente, Signal
+Boundary G2, Conversation G2B, Sprint 7.12 ni RDD Stage 2.
 
 La integración real con Ollama fue validada con:
 
@@ -459,7 +518,13 @@ No forman parte del alcance implementado documentado:
 * aplicación automática de recomendaciones;
 * Secure Context Manager implementado;
 * RAG externo;
-* auditor externo.
+* auditor externo;
+* productores runtime autorizados de assurance signals;
+* Signal Boundary G2;
+* Conversation G2B;
+* wiring de Protected Finalization con Conversation;
+* Sprint 7.12;
+* RDD Stage 2.
 
 ---
 
