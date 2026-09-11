@@ -7,7 +7,7 @@ authority_level: technical_documentation
 authority_rank: 6
 version: 1.1
 created: 2026-07-20
-last_reviewed: 2026-09-09
+last_reviewed: 2026-09-11
 source_of_truth: repository
 source_repository: Aranwill/jarvis
 source_branch: main
@@ -217,6 +217,17 @@ Criterios de lectura:
 El estado estructurado de sprint y demás datos operativos variables pertenecen a
 `MALAK_OPERATIONAL_STATE` cuando deban representarse en el Vault.
 
+Estado cognitivo relevante para navegación:
+
+```text
+G2A Protected Finalization Foundation: INTEGRATED / ISOLATED
+Assurance Signal Authority G0/G1: INTEGRATED DESIGN
+Signal Boundary G2: NOT AUTHORIZED
+Conversation G2B: BLOCKED / NOT AUTHORIZED
+Sprint 7.12: NOT AUTHORIZED
+RDD Stage 2: NOT AUTHORIZED
+```
+
 ---
 ## 7. Registro de decisiones
 
@@ -282,7 +293,9 @@ El mapa representa:
 - el flujo Kernel–Planner–Capability;
 - la ruta conversacional integrada mediante `ConversationCapability`;
 - la frontera de eventos operativos integrada en la CLI;
-- la separación entre métricas, eventos operativos y auditoría.
+- la separación entre métricas, eventos operativos y auditoría;
+- la cadena episódica aislada Admission → Provenance → Producer Authorization → Governed Projection → Consumption;
+- G2A Protected Finalization como foundation aislada, sin wiring conversacional.
 
 El subsistema conversacional está integrado de forma indirecta y desacoplada:
 la CLI enruta mediante `Kernel.receive()`, mientras `ConversationCapability`
@@ -380,7 +393,7 @@ oficial o de `MALAK_OPERATIONAL_STATE`.
 
 ---
 
-## 11. Diseños aprobados todavía no implementados
+## 11. Registro de fronteras episódicas y cognitive assurance
 
 ### Episodic Memory Admission Boundary Foundation — G1
 
@@ -390,16 +403,12 @@ Fuente oficial:
 Aranwill/jarvis/docs/project/sprints/proposals/EPISODIC-MEMORY-ADMISSION-G0-G1-DESIGN.md
 ```
 
-Estado derivado:
+Estado histórico derivado:
 
 ```text
 G0: PASS
 G1 design: aprobado por el Owner e integrado en la fuente oficial
-Implementación productiva: no autorizada
-Memory persistente: no implementada
-G2: requiere autorización humana separada
-Sprint 7.12: no autorizado por este diseño
-RDD Stage 2: no autorizado por este diseño
+G1 != implementación productiva
 ```
 
 Separaciones obligatorias preservadas por G1:
@@ -415,11 +424,6 @@ ELIGIBLE != storage authorization
 La ausencia de provenance, clasificación o entradas de política requeridas debe
 resolver fail-closed (`HOLD` o `REJECT`), nunca `ELIGIBLE` por defecto.
 
-Este design record debe consultarse cuando una revisión continúe la línea de
-Memory episódica o evalúe una implementación dependiente de su frontera de
-admisión. Su presencia en el índice no cambia el baseline ni concede autoridad
-para persistir, recuperar o promover Memory automáticamente.
-
 ### Episodic Memory Admission Boundary Foundation — G2 (registro pre-G3)
 
 Fuente oficial:
@@ -428,51 +432,11 @@ Fuente oficial:
 Aranwill/jarvis/docs/project/sprints/proposals/EPISODIC-MEMORY-ADMISSION-G2-IMPLEMENTATION-CANDIDATE-SPEC.md
 ~~~
 
-Estado derivado:
+Este registro conserva la candidate specification previa a la integración de G3.
+No debe interpretarse como estado operativo actual ni como autorización de
+persistencia, retrieval, Knowledge, Sprint 7.12 o RDD Stage 2.
 
-~~~text
-G0: PASS
-G1 design: aprobado e integrado
-G2 Implementation Candidate Specification: aprobada e integrada
-Implementación productiva: no autorizada
-Memory persistente: no implementada
-Sprint 7.12: no autorizado
-RDD Stage 2: no autorizado
-~~~
-
-G2 identifica como punto futuro de correlación el retorno exitoso de
-`ConversationService.generate()` dentro de `ConversationCapability`, donde
-`Request` y `ConversationResponse` pueden coexistir sin modificar
-`ConversationRequest`, sin introducir Memory en el Kernel y sin convertir a
-Conversation en propietaria de Memory.
-
-La especificación preserva explícitamente:
-
-~~~text
-candidate payload != candidate control metadata
-
-source authority
-!= confidence
-!= source security status
-!= temporal validity
-!= sensitivity
-
-REJECT | HOLD | ELIGIBLE
-~~~
-
-y mantiene:
-
-~~~text
-ELIGIBLE != persistence authorization
-HOLD != retention authorization
-admission != storage
-~~~
-
-El candidate especificado por G2 sigue siendo una propuesta de implementación
-futura. Su presencia en este índice no autoriza código productivo, persistencia,
-retrieval, Knowledge, un nuevo sprint ni RDD Stage 2.
-
-### Episodic Memory Admission Boundary Foundation — G3
+### Episodic Memory Admission Boundary — G3
 
 Fuentes oficiales:
 
@@ -513,6 +477,145 @@ HOLD != retention authorization
 admission != storage
 ~~~
 
-Este registro confirma existencia de la frontera de admisión, no Memory
-persistente ni una autorización para almacenamiento, retrieval, Knowledge,
-Sprint 7.12 o una unidad posterior.
+### Assessment Provenance Boundary
+
+Fuente oficial:
+
+```text
+Aranwill/jarvis/src/malak/memory/assessment_provenance.py
+```
+
+Estado:
+
+```text
+implementado e integrado
+resultado: VALID | HOLD | INVALID
+```
+
+Provenance liga un assessment a su candidato, kind y producer role sin
+convertirse en identidad, verdad, permiso o autoridad.
+
+### Assessment Producer Authorization Boundary
+
+Fuente oficial:
+
+```text
+Aranwill/jarvis/src/malak/memory/assessment_producer_authorization.py
+```
+
+Estado:
+
+```text
+implementado e integrado
+resultado: AUTHORIZED | HOLD | DENIED
+```
+
+Producer authorization es una frontera propia y no debe confundirse con
+provenance, Admission ni autorización de persistencia.
+
+### Governed Input Projection Boundary
+
+Fuente oficial:
+
+```text
+Aranwill/jarvis/src/malak/memory/governed_input_projection.py
+```
+
+Estado:
+
+```text
+implementado e integrado
+resultado: READY | HOLD | DENIED
+```
+
+La projection reconstruye inputs trust-sensitive únicamente desde assessments
+candidate-bound con provenance y autorización verificadas. No acepta campos
+sensibles por mera presencia y no aplica last-write-wins.
+
+### Governed Projection Consumption Boundary
+
+Fuente oficial:
+
+```text
+Aranwill/jarvis/src/malak/memory/governed_projection_consumption.py
+```
+
+Estado:
+
+```text
+implementado e integrado
+resultado: BLOCKED | EVALUATED
+```
+
+El consumer valida binding y policy-version, construye una vista efímera del
+contexto gobernado y llama exactamente una vez a Episodic Admission cuando la
+projection es consumible.
+
+Regla:
+
+```text
+Projection READY != Admission ELIGIBLE
+```
+
+Toda la cadena episódica permanece sin Conversation/runtime wiring,
+persistencia, retrieval o Knowledge.
+
+### G2A — Protected Finalization Foundation
+
+Fuentes oficiales:
+
+```text
+Aranwill/jarvis/src/malak/core/protected_finalization.py
+Aranwill/jarvis/tests/test_protected_finalization.py
+Aranwill/jarvis/docs/project/sprints/proposals/MALAK-PROGRESSIVE-COGNITIVE-ASSURANCE-RUNTIME-G2A-IMPLEMENTATION-CANDIDATE-SPEC.md
+```
+
+Estado:
+
+```text
+implementada e integrada como foundation determinista aislada
+ACCEPT | ABSTAIN | BLOCK
+Conversation wiring: no implementado
+```
+
+G2A separa generación y finalización protegida, pero todavía no participa del
+runtime conversacional real.
+
+### Assurance Signal Authority Boundary — G0/G1
+
+Fuente oficial:
+
+```text
+Aranwill/jarvis/docs/project/sprints/proposals/MALAK-ASSURANCE-SIGNAL-AUTHORITY-G0-G1-DESIGN.md
+```
+
+El diseño integrado confirma que todavía no existe productor runtime autorizado
+para:
+
+```text
+applicability
+evidence_required
+support_sufficient
+contradiction_unresolved
+policy_violation
+```
+
+Estado de autorización:
+
+```text
+Signal Boundary G2: NOT AUTHORIZED
+Conversation G2B: BLOCKED / NOT AUTHORIZED
+Sprint 7.12: NOT AUTHORIZED
+RDD Stage 2: NOT AUTHORIZED
+```
+
+Separación de autoridad:
+
+```text
+Evidence != Authority
+observation != producer authorization != projected signal != finalization decision
+G2A integrated != G2B authorized
+```
+
+Este índice registra existencia y relaciones; no concede autorización para la
+siguiente unidad.
