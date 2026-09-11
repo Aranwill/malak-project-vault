@@ -28,10 +28,10 @@ retrieval_scope: active
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260911T192623942519Z_9380b851_72f21660`
-- **HEAD oficial observado:** `9380b851c7db1a0bf48043e3ea871c9a0bdda31a`
-- **Commit previamente observado:** `e4fe2f5832a9d9703515ae5168aefbeae44a399e`
-- **Generado:** `2026-09-11T19:26:23.942519+00:00`
+- **Run ID:** `20260911T200728898198Z_5865da6a_a5610ec5`
+- **HEAD oficial observado:** `5865da6a5e502fe71e35e2e38bc4cceaab9b3600`
+- **Commit previamente observado:** `9380b851c7db1a0bf48043e3ea871c9a0bdda31a`
+- **Generado:** `2026-09-11T20:07:28.898198+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
@@ -44,12 +44,13 @@ retrieval_scope: active
 
 ### Commits oficiales observados
 
-- 9380b851c7db1a0bf48043e3ea871c9a0bdda31a	Merge pull request #108 from Aranwill/docs/f02c-blueprint-constitution-sync-20260911
-- a720e9c595e9de0662b507c333033b7a218d15dc	docs(architecture): sync cognitive constitution in Blueprint
+- 5865da6a5e502fe71e35e2e38bc4cceaab9b3600	Merge pull request #109 from Aranwill/fix/f08-bounded-ollama-transport-20260911
+- 14f6451ca5e297759ab1baff804d8d14c4e88150	fix(runtime): bound Ollama transport payloads
 
 ### Evidencia que originó esta proyección
 
-- `architecture-change` por `docs/architecture/blueprint.md`
+- `architecture-change` por `src/malak/runtime/ollama_runtime.py`
+- `test-change` por `tests/test_ollama_runtime.py`
 <!-- MALAK_VAULT_SYNC:END -->
 
 <!-- MALAK_OPERATIONAL_STATE:START -->
@@ -58,7 +59,7 @@ retrieval_scope: active
 > Estado machine-owned derivado de la fuente oficial.
 > No concede autoridad ni reemplaza decisiones humanas.
 
-- **HEAD oficial:** `9380b851c7db1a0bf48043e3ea871c9a0bdda31a`
+- **HEAD oficial:** `5865da6a5e502fe71e35e2e38bc4cceaab9b3600`
 - **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.11.md`
 - **Titulo declarado:** Sprint 7.11 — Reproducible Validation Pipeline Foundation
 - **Estado declarado:** `completado`
