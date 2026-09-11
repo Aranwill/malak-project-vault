@@ -7,7 +7,7 @@ authority: derived
 operational_authority: none
 version: 1.2
 created: 2026-07-20
-last_reviewed: 2026-09-09
+last_reviewed: 2026-09-11
 source_repository: Aranwill/jarvis
 source_branch: main
 tags:
@@ -101,11 +101,16 @@ Este mapa cubre las siguientes fronteras verificadas:
 - `Response`;
 - CLI conversacional integrada mediante `Kernel.receive`;
 - eventos operativos;
-- stores operativos.
-- contratos fundamentales de autorización.
-- Policy Decision Point mínimo.
-- Policy Enforcement Point inicial.
-- Episodic Memory Admission Boundary — G3, aislada de Conversation, Kernel y persistencia.
+- stores operativos;
+- contratos fundamentales de autorización;
+- Policy Decision Point mínimo;
+- Policy Enforcement Point inicial;
+- Episodic Memory Admission Boundary;
+- Assessment Provenance Boundary;
+- Assessment Producer Authorization Boundary;
+- Governed Input Projection Boundary;
+- Governed Projection Consumption Boundary;
+- G2A — Protected Finalization Foundation, aislada de la ruta conversacional real.
 
 Quedan fuera de alcance:
 
@@ -113,7 +118,9 @@ Quedan fuera de alcance:
 - métricas de runtime;
 - auditoría de seguridad;
 - auditoría de autorización;
-- componentes propuestos en el roadmap.
+- componentes propuestos en el roadmap;
+- productores runtime de assurance signals todavía no autorizados;
+- wiring de Protected Finalization con Conversation.
 
 Su exclusión de este documento no implica que no existan. Solamente evita mezclar subsistemas todavía no verificados dentro de este mapa.
 
@@ -130,9 +137,16 @@ Sprint 7.9 añadió continuidad conversacional efímera mediante
 de la frontera de Capability para propagar `session_id` y aislar historial por
 sesión, sin persistencia ni Memory.
 
-G3 integró una frontera aislada de admisión episódica bajo `src/malak/memory/`.
-La unidad no está conectada al flujo conversacional, no persiste ni recupera
-Memory y no introduce estado en Kernel o `SecurityContext`.
+Después de Sprint 7.11 se integró incrementalmente una cadena episódica aislada
+bajo `src/malak/memory/`: admisión, provenance de assessments, autorización del
+producer, proyección gobernada de inputs y consumo gobernado de projections. La
+cadena permanece separada de Conversation, no persiste ni recupera Memory y no
+introduce estado en Kernel o `SecurityContext`.
+
+PR #110 integró además G2A — Protected Finalization Foundation bajo
+`src/malak/core/protected_finalization.py`. La foundation es determinista y
+aislada: todavía no está conectada a `ConversationCapability`,
+`ConversationService`, historial, Memory, Knowledge, providers o runtimes.
 
 ## 2. Referencia operativa del mapa
 
@@ -416,7 +430,7 @@ docs/architecture/adr/ADR-002-policy-enforcement-boundary.md
 docs/project/sprints/SPRINT-7.5.md
 ```
 
-### Episodic Memory Admission Boundary — G3
+### Episodic Memory Admission Boundary
 
 Estado:
 
@@ -467,6 +481,108 @@ Fuentes:
 src/malak/memory/__init__.py
 src/malak/memory/episodic_admission.py
 tests/test_episodic_memory_admission.py
+```
+
+### Cadena episódica de assessment y proyección gobernada
+
+Estado:
+
+```text
+implementada e integrada como unidades aisladas posteriores a Sprint 7.11
+```
+
+La cadena verificada es:
+
+```text
+EpisodicMemoryCandidate
+        ↓
+AdmissionAssessment
+        ↓
+Assessment Provenance
+VALID | HOLD | INVALID
+        ↓
+Assessment Producer Authorization
+AUTHORIZED | HOLD | DENIED
+        ↓
+Governed Input Projection
+READY | HOLD | DENIED
+        ↓
+Governed Projection Consumption
+BLOCKED | EVALUATED
+        ↓
+Episodic Admission
+REJECT | HOLD | ELIGIBLE
+```
+
+La proyección gobernada reconstruye señales trust-sensitive a partir de
+assessments candidate-bound con provenance y autorización verificadas; no confía
+en campos de control sensibles por mera presencia y no aplica last-write-wins.
+
+El consumo gobernado valida binding y policy-version, construye una vista
+efímera con el contexto efectivo gobernado y delega exactamente una vez a
+`evaluate_episodic_candidate(...)` únicamente cuando la projection es consumible.
+
+La cadena no incorpora Conversation/runtime wiring, persistencia, retrieval,
+Knowledge, cambios al Kernel ni ampliación de autoridad.
+
+Fuentes:
+
+```text
+src/malak/memory/assessment_provenance.py
+src/malak/memory/assessment_producer_authorization.py
+src/malak/memory/governed_input_projection.py
+src/malak/memory/governed_projection_consumption.py
+```
+
+### G2A — Protected Finalization Foundation
+
+Estado:
+
+```text
+implementada e integrada como foundation determinista aislada
+```
+
+Contrato verificado:
+
+```text
+ProtectedResponseCandidate
+        ↓
+ProtectedFinalizationInput
+        ↓
+deterministic finalization evaluation
+        ↓
+ACCEPT | ABSTAIN | BLOCK
+```
+
+G2A separa generación de candidato y finalización protegida, pero no está
+conectada a la ruta conversacional real. No llama providers ni LLMs, no lee o
+escribe Memory/Knowledge, no persiste decisiones y no modifica Kernel,
+ConversationService, ConversationCapability, CLI ni historial.
+
+El baseline tampoco posee todavía productores runtime autorizados para:
+
+```text
+applicability
+evidence_required
+support_sufficient
+contradiction_unresolved
+policy_violation
+```
+
+Por tanto:
+
+```text
+G2A integrated
+!= Signal Boundary G2 authorized
+!= Conversation G2B authorized
+```
+
+Fuentes:
+
+```text
+src/malak/core/protected_finalization.py
+tests/test_protected_finalization.py
+docs/project/sprints/proposals/MALAK-ASSURANCE-SIGNAL-AUTHORITY-G0-G1-DESIGN.md
 ```
 
 ---
@@ -541,6 +657,9 @@ implícita cuando el contexto está habilitado.
 La CLI conserva una UUID durante la conversación activa. `new` limpia solo esa
 sesión, rota a una nueva UUID y continúa con una nueva frontera conversacional.
 
+G2A no aparece en este diagrama porque no existe wiring autorizado ni
+implementado entre Protected Finalization y la ruta conversacional vigente.
+
 ## 6. Secuencia funcional
 
 1. La CLI construye un `Request` con contenido e identidad de sesión.
@@ -552,6 +671,9 @@ sesión, rota a una nueva UUID y continúa con una nueva frontera conversacional
 7. El servicio resuelve el provider y genera la respuesta mediante `LLMRuntime`.
 8. Solo tras éxito registra el intercambio en esa sesión; ante fallo el contexto permanece intacto.
 9. El resultado vuelve al Kernel, que construye el `Response`.
+
+Esta secuencia describe el runtime conversacional implementado actual. No debe
+reinterpretarse como ejecución de G2A ni como autorización de G2B.
 
 ## 7. Bootstrap y composición verificados
 
@@ -587,15 +709,18 @@ Este mapa no afirma:
 - que el Planner utilice un LLM;
 - que exista planificación dinámica;
 - que el Kernel invoque directamente un runtime LLM;
-
 - que existan múltiples capabilities activas;
 - que el registro sea persistente;
-- que el diagrama represente toda la arquitectura de Malāk.
+- que el diagrama represente toda la arquitectura de Malāk;
 - que eventos operativos y métricas compartan contratos o stores;
 - que exista auditoría de autorización;
 - que la observabilidad adopte decisiones de autorización;
-- que `ConversationRequest` contenga `request_id`.
-- que los contratos de autorización concedan permisos por sí mismos.
+- que `ConversationRequest` contenga `request_id`;
+- que los contratos de autorización concedan permisos por sí mismos;
+- que la cadena episódica persista o recupere Memory;
+- que G2A esté conectado a Conversation;
+- que existan productores runtime autorizados de assurance signals;
+- que Signal Boundary G2 o Conversation G2B estén autorizados.
 
 ## 9. Hallazgos arquitectónicos descriptivos
 
@@ -606,21 +731,23 @@ Sin convertirlos en decisiones nuevas, el código observado muestra:
 - registro desacoplado mediante el contrato `Capability`;
 - bootstrap explícito de capabilities;
 - respuesta final construida por el Kernel;
-- tratamiento explícito de solicitudes vacías y capabilities inexistentes.
+- tratamiento explícito de solicitudes vacías y capabilities inexistentes;
 - generación exclusiva de `request_id` en la CLI;
 - contratos operativos separados de las métricas;
 - persistencia operativa opcional e inyectada;
 - degradación controlada ante fallos del sink;
-- Kernel, Planner y contratos conversacionales intactos.
-- solicitud, contexto, permiso y decisión representados por contratos
-  separados e inmutables;
+- Kernel, Planner y contratos conversacionales intactos;
+- solicitud, contexto, permiso y decisión representados por contratos separados e inmutables;
 - PDP determinista separado de la ejecución;
 - reglas exactas y denegación por defecto;
 - evidencia de confirmación inmutable y verificador inyectable;
 - PEP separado del PDP y de la operación protegida;
 - enforcement fail-closed con asociación estricta por `request_id`;
-- ausencia de integración con operaciones reales y de auditoría de
-  autorización.
+- cadena episódica aislada con provenance, producer authorization, projection y consumo gobernados;
+- separación `Projection READY != Admission ELIGIBLE`;
+- ausencia de persistencia y wiring conversacional en la cadena episódica;
+- G2A determinista aislada de Conversation y sin autoridad para producir sus propios signals;
+- ausencia de integración con operaciones reales y de ampliación automática de autoridad.
 
 ## 10. Fuentes oficiales
 
@@ -639,6 +766,7 @@ Sin convertirlos en decisiones nuevas, el código observado muestra:
 - `src/malak/core/llm_runtime.py`
 - `src/malak/core/request.py`
 - `src/malak/core/response.py`
+- `src/malak/core/protected_finalization.py`
 - `src/malak/app/cli.py`
 - `src/malak/observability/operational_event.py`
 - `src/malak/observability/operational_event_sink.py`
@@ -648,14 +776,22 @@ Sin convertirlos en decisiones nuevas, el código observado muestra:
 - `src/malak/security/pdp.py`
 - `src/malak/security/pep.py`
 - `src/malak/security/__init__.py`
+- `src/malak/memory/episodic_admission.py`
+- `src/malak/memory/assessment_provenance.py`
+- `src/malak/memory/assessment_producer_authorization.py`
+- `src/malak/memory/governed_input_projection.py`
+- `src/malak/memory/governed_projection_consumption.py`
 - `tests/test_authorization_contracts.py`
 - `tests/test_policy_decision_point.py`
 - `tests/test_policy_enforcement_point.py`
+- `tests/test_episodic_memory_admission.py`
+- `tests/test_protected_finalization.py`
 - `docs/architecture/adr/ADR-002-policy-enforcement-boundary.md`
 - `docs/project/sprints/SPRINT-7.4.md`
 - `docs/project/sprints/SPRINT-7.5.md`
 - `docs/project/sprints/SPRINT-7.9.md`
 - `docs/project/sprints/SPRINT-7.10.md`
+- `docs/project/sprints/proposals/MALAK-ASSURANCE-SIGNAL-AUTHORITY-G0-G1-DESIGN.md`
 
 ## 11. Navegación relacionada
 
