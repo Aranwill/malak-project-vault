@@ -28,10 +28,10 @@ retrieval_scope: proposals
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260910T190613129361Z_ceb41083_36ee7c6c`
-- **HEAD oficial observado:** `ceb41083879c38b2954e55b9f7368d6070c4ef71`
-- **Commit previamente observado:** `031b50ca7207b5bf7a476b598348a4573d3a58e3`
-- **Generado:** `2026-09-10T19:06:13.129361+00:00`
+- **Run ID:** `20260911T183954518797Z_e4fe2f58_f86b2750`
+- **HEAD oficial observado:** `e4fe2f5832a9d9703515ae5168aefbeae44a399e`
+- **Commit previamente observado:** `ceb41083879c38b2954e55b9f7368d6070c4ef71`
+- **Generado:** `2026-09-11T18:39:54.518797+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
@@ -44,12 +44,12 @@ retrieval_scope: proposals
 
 ### Commits oficiales observados
 
-- ceb41083879c38b2954e55b9f7368d6070c4ef71	Merge pull request #106 from Aranwill/owner/normative-traceability-hygiene-20260910
-- 5944c20295a79b901114e7f0ff0fcf7db56f8302	docs(architecture): repair ADR traceability
+- e4fe2f5832a9d9703515ae5168aefbeae44a399e	Merge pull request #107 from Aranwill/docs/f02a-roadmap-current-state-20260911
+- 0f1041c0a55c2ada0c9f7b06d6424a49e23ba178	docs(state): reconcile cognitive assurance roadmap status
 
 ### Evidencia que originó esta proyección
 
-- `governance-change` por `docs/architecture/decisions/decision-index.md`
+- `baseline-source-change` por `docs/project/implementation_roadmap.md`
 <!-- MALAK_VAULT_SYNC:END -->
 
 <!-- MALAK_OPERATIONAL_STATE:START -->
@@ -58,7 +58,7 @@ retrieval_scope: proposals
 > Estado machine-owned derivado de la fuente oficial.
 > No concede autoridad ni reemplaza decisiones humanas.
 
-- **HEAD oficial:** `ceb41083879c38b2954e55b9f7368d6070c4ef71`
+- **HEAD oficial:** `e4fe2f5832a9d9703515ae5168aefbeae44a399e`
 - **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.11.md`
 - **Titulo declarado:** Sprint 7.11 — Reproducible Validation Pipeline Foundation
 - **Estado declarado:** `completado`

@@ -25,10 +25,10 @@ retrieval_scope: active
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260910T170502398134Z_f0ec79ce_591730b0`
-- **HEAD oficial observado:** `f0ec79cea861f135a7778958943db5d616d0dc2f`
-- **Commit previamente observado:** `c16c23e14cbd2e34c3abdba085a113dd0a37e0f5`
-- **Generado:** `2026-09-10T17:05:02.398134+00:00`
+- **Run ID:** `20260911T183954518797Z_e4fe2f58_f86b2750`
+- **HEAD oficial observado:** `e4fe2f5832a9d9703515ae5168aefbeae44a399e`
+- **Commit previamente observado:** `ceb41083879c38b2954e55b9f7368d6070c4ef71`
+- **Generado:** `2026-09-11T18:39:54.518797+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
@@ -41,21 +41,12 @@ retrieval_scope: active
 
 ### Commits oficiales observados
 
-- f0ec79cea861f135a7778958943db5d616d0dc2f	Merge pull request #104 from Aranwill/docs/enforce-material-sprint-process-20260910
-- 4af940d9ad4b0bfecd99d9bd758e16b4a4ff4198	docs(process): enforce material sprint assurance and law boundary
-- 6be08e6e522ee576e4052bad050bbf2f5b0d1213	Merge pull request #103 from Aranwill/docs/fix-normative-activation-consistency-20260910
-- 1bc11b51ba00589c1c3cec180b5afb055a947f33	docs: correct normative activation packet consistency
-- 90306fc155ec1b7aa699d671307db900de51c312	Merge pull request #102 from Aranwill/docs/cognitive-assurance-normative-promotion-candidate-20260910
-- 0ec879d6f1843c785d4a977f8a76f4f0cac61fa4	docs: propose evidence-bound finalization normative packet
-- 9aaa57fc831e9329e2154b233c8716062958dcb6	Merge pull request #101 from Aranwill/docs/cognitive-assurance-constitutional-impact-g0-g1-20260910
-- 3ef530181b46da4b21224a0aa314b9e1f5ef7bf6	docs: review cognitive assurance constitutional impact G0/G1
+- e4fe2f5832a9d9703515ae5168aefbeae44a399e	Merge pull request #107 from Aranwill/docs/f02a-roadmap-current-state-20260911
+- 0f1041c0a55c2ada0c9f7b06d6424a49e23ba178	docs(state): reconcile cognitive assurance roadmap status
 
 ### Evidencia que originó esta proyección
 
-- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-BLUEPRINT-V0.6.2-EVIDENCE-BOUND-FINALIZATION-CANDIDATE.md`
-- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-COGNITIVE-ASSURANCE-CONSTITUTIONAL-IMPACT-G0-G1.md`
-- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-COGNITIVE-ASSURANCE-NORMATIVE-PROMOTION-SCOPE-FREEZE.md`
-- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-COGNITIVE-CONSTITUTION-V1.1-EVIDENCE-BOUND-FINALIZATION-CANDIDATE.md`
+- `baseline-source-change` por `docs/project/implementation_roadmap.md`
 <!-- MALAK_VAULT_SYNC:END -->
 
 <!-- MALAK_OPERATIONAL_STATE:START -->
@@ -64,7 +55,7 @@ retrieval_scope: active
 > Estado machine-owned derivado de la fuente oficial.
 > No concede autoridad ni reemplaza decisiones humanas.
 
-- **HEAD oficial:** `f0ec79cea861f135a7778958943db5d616d0dc2f`
+- **HEAD oficial:** `e4fe2f5832a9d9703515ae5168aefbeae44a399e`
 - **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.11.md`
 - **Titulo declarado:** Sprint 7.11 — Reproducible Validation Pipeline Foundation
 - **Estado declarado:** `completado`
