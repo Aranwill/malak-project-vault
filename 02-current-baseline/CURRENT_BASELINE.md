@@ -8,7 +8,7 @@ authority_level: baseline
 authority_rank: 5
 version: 1.1
 created: 2026-07-20
-last_reviewed: 2026-09-11
+last_reviewed: 2026-09-12
 source_of_truth: repository
 source_repository: Aranwill/jarvis
 source_branch: main
@@ -28,10 +28,10 @@ retrieval_scope: active
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260911T232318209174Z_c979f481_b2f9e3b0`
-- **HEAD oficial observado:** `c979f481e2e5353c8953e41e56e9218c7b1d4c6f`
-- **Commit previamente observado:** `5865da6a5e502fe71e35e2e38bc4cceaab9b3600`
-- **Generado:** `2026-09-11T23:23:18.209174+00:00`
+- **Run ID:** `20260912T005735174153Z_cd50c308_66ed128a`
+- **HEAD oficial observado:** `cd50c308e1f5a1481851d6402ae4435341410d27`
+- **Commit previamente observado:** `c979f481e2e5353c8953e41e56e9218c7b1d4c6f`
+- **Generado:** `2026-09-12T00:57:35.174153+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
@@ -44,29 +44,24 @@ retrieval_scope: active
 
 ### Commits oficiales observados
 
-- c979f481e2e5353c8953e41e56e9218c7b1d4c6f	Merge pull request #116 from Aranwill/docs/reconcile-implementation-roadmap-post-g2a-20260911
-- e3870435e31aa18905ae3ba16e7d0fca007109c4	docs(state): reconcile implementation roadmap after G2A
-- 7d295007de574f2f307328f3d9d26d768e0fb0a2	Merge pull request #115 from Aranwill/ci/ubuntu-windows-only-20260911
-- 34566b59b400e52ad542818c3e47e8512e78e4d1	Merge pull request #114 from Aranwill/docs/reconcile-project-context-post-g2a-20260911
-- 6fe89a762f3064168c76a0ad9ab4c5cf46e154da	ci: limitar validación a ubuntu y windows
-- ec6ec2cd98b749ae334344b698bd2e334e87571a	docs(state): reconcile project context after G2A
-- e45a3e3c0ebf657a513596aa74452413479c05d1	Merge pull request #111 from Aranwill/docs/assurance-signal-authority-g0-g1-20260911
-- c2a0d69768c65f773c34b19dbb73d33a66fe7a98	docs(cognition): rebase assurance signal authority onto main
-- ecb1315946f47534135bbdc73d94ccf88df0d8d6	feat(cognition): implementar G2A protected finalization foundation (#110)
+- cd50c308e1f5a1481851d6402ae4435341410d27	Merge pull request #118 from Aranwill/feat/g2-assurance-signal-projection-20260911
+- 0bd6fa4f7be908fc7bec3c5fa49b80b40acc3dfb	docs(cognition): record authorized G2 implementation candidate evidence
+- 74ae9f7d69d7f8215d5bdb69d56dd8e02b0e7426	docs(cognition): recalibrate G2 correction budget after F002
+- f5917729aca6f43e9738919fcf613f1814baa400	test(cognition): prove G2 cardinality guard short-circuits inspection
+- a292b2088ed5cb81f229708a5a3b3ebfed2fe405	fix(cognition): bound G2 cardinality before element inspection
+- 30c8687984b086b4111b3993f4ab022fdfe37fd1	refactor(cognition): keep G2 projection within frozen LOC budget
+- c42d3275179d20c58343cb2f02e940ab827af093	feat(cognition): implement G2 assurance signal projection
+- 82032c3eef7ab75d40abb35a7a4ff79e28e66a95	test(cognition): define G2 assurance signal projection RED contract
+- 7339805d5da51de526e2a50718f9a6a655dff11d	Merge pull request #117 from docs/g2-assurance-signal-boundary-spec-20260911
+- aa6deebd5d54a6ea2fb78717a355178615c44178	docs(cognition): harden G2 signal boundary specification
+- 7259475fec142c13826f697c75ad1ca6540f91b5	docs(cognition): harden G2 signal authority scope
+- 7c3be120ee2ea9e0e5834a16b8a48b60e50d93e7	docs(cognition): freeze G2 assurance signal boundary spec
 
 ### Evidencia que originó esta proyección
 
-- `architecture-change` por `src/malak/core/protected_finalization.py`
-- `baseline-source-change` por `docs/project/implementation_roadmap.md`
-- `baseline-source-change` por `docs/project/project_context.md`
-- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-ASSURANCE-SIGNAL-AUTHORITY-G0-G1-DESIGN.md`
-- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-PROGRESSIVE-COGNITIVE-ASSURANCE-RUNTIME-G0-INSPECTION.md`
-- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-PROGRESSIVE-COGNITIVE-ASSURANCE-RUNTIME-G1-DESIGN.md`
-- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-PROGRESSIVE-COGNITIVE-ASSURANCE-RUNTIME-G2A-IMPLEMENTATION-CANDIDATE-SPEC.md`
-- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-PROGRESSIVE-COGNITIVE-ASSURANCE-RUNTIME-SCOPE-FREEZE-CANDIDATE.md`
-- `baseline-source-change` por `docs/project/status/MALAK-POST-AUDIT-REBASELINE-20260911.md`
-- `operational-tooling-change` por `.github/workflows/validation.yml`
-- `test-change` por `tests/test_protected_finalization.py`
+- `architecture-change` por `src/malak/core/assurance_signal_projection.py`
+- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-ASSURANCE-SIGNAL-BOUNDARY-G2-IMPLEMENTATION-CANDIDATE-SPEC.md`
+- `test-change` por `tests/test_assurance_signal_projection.py`
 <!-- MALAK_VAULT_SYNC:END -->
 
 <!-- MALAK_OPERATIONAL_STATE:START -->
@@ -75,7 +70,7 @@ retrieval_scope: active
 > Estado machine-owned derivado de la fuente oficial.
 > No concede autoridad ni reemplaza decisiones humanas.
 
-- **HEAD oficial:** `c979f481e2e5353c8953e41e56e9218c7b1d4c6f`
+- **HEAD oficial:** `cd50c308e1f5a1481851d6402ae4435341410d27`
 - **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.11.md`
 - **Titulo declarado:** Sprint 7.11 — Reproducible Validation Pipeline Foundation
 - **Estado declarado:** `completado`
@@ -177,7 +172,7 @@ vigente.
 
 La fuente de verdad continúa siendo `Aranwill/jarvis`, rama `main`.
 
-### 4.1 Estado humano reconciliado post-G2A
+### 4.1 Estado humano reconciliado post-G2
 
 El baseline vigente conserva Sprint 7.11 como último sprint numerado completado.
 Después de ese sprint se integraron unidades aisladas que no constituyen Sprint
@@ -197,35 +192,41 @@ Governed Input Projection Boundary
 Governed Projection Consumption Boundary
 ```
 
-La última foundation de código cognitivo integrada es:
+Las foundations cognitivas de finalización integradas son:
 
 ```text
 G2A — Protected Finalization Foundation
+        ↓
+G2 — Assurance Signal Authority & Projection Foundation
 ```
 
-G2A es determinista y aislada. No está conectada a la ruta conversacional real,
-no modifica Kernel, no persiste decisiones y no consume Memory o Knowledge.
+G2A conserva ownership de `ACCEPT | ABSTAIN | BLOCK`.
 
-El último diseño cognitivo integrado es:
+G2 es una foundation determinista same-process que valida observations
+explícitas, producer authorization sensible a kind+value, binding,
+temporalidad, cardinalidad, policy version y coherencia antes de proyectar
+`ProtectedFinalizationInput`. No decide verdad cognitiva, no produce signals y
+no está conectada a la ruta conversacional real.
 
-```text
-Assurance Signal Authority Boundary — G0/G1
-```
-
-Ese diseño confirmó que el baseline todavía no posee productores runtime
-autorizados para `applicability`, `evidence_required`, `support_sufficient`,
+El baseline todavía no posee productores runtime legítimos para
+`applicability`, `evidence_required`, `support_sufficient`,
 `contradiction_unresolved` y `policy_violation`.
 
-Por tanto, el estado de autorización preservado es:
+Además, `AuthorizationDecision` continúa siendo evidencia estructural:
+G2 no afirma proof-of-origin criptográfico del PDP.
+
+Estado de autorización preservado:
 
 ```text
-Signal Boundary G2: NOT AUTHORIZED
+G2A: INTEGRATED / ISOLATED
+Signal Boundary G2: INTEGRATED / ISOLATED
 Conversation G2B: BLOCKED / NOT AUTHORIZED
 Sprint 7.12: NOT AUTHORIZED
 RDD Stage 2: NOT AUTHORIZED
 ```
 
-La reconciliación documental no cambia estas autorizaciones.
+G2 integrado no implica producers conversacionales legítimos, provenance de
+decisión resuelto para live use ni autorización de G2B.
 
 ---
 
