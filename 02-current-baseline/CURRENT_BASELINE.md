@@ -28,10 +28,10 @@ retrieval_scope: active
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260912T232639435516Z_51ae7776_e6d10709`
-- **HEAD oficial observado:** `51ae777695480c77d9b2e7a89c1bb398ffd61ba0`
-- **Commit previamente observado:** `5577c9b23de32bc914505bababe3576346dae4b3`
-- **Generado:** `2026-09-12T23:26:39.435516+00:00`
+- **Run ID:** `20260912T235049604465Z_0466e180_5e2bc995`
+- **HEAD oficial observado:** `0466e18075fd6bce6243e03f701a377fd34469dd`
+- **Commit previamente observado:** `51ae777695480c77d9b2e7a89c1bb398ffd61ba0`
+- **Generado:** `2026-09-12T23:50:49.604465+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
@@ -44,13 +44,15 @@ retrieval_scope: active
 
 ### Commits oficiales observados
 
-- 51ae777695480c77d9b2e7a89c1bb398ffd61ba0	Merge pull request #122 from Aranwill/spec/episodic-candidate-content-identity-g2
-- 79bb71bf2453974945dcaa7d64c13517f4bc7553	docs(memory): correct normative content identity vectors
-- 4ea1f7f33384fd67b2feb148dfe593478e2be4c8	docs(memory): freeze candidate content identity G2 spec
+- 0466e18075fd6bce6243e03f701a377fd34469dd	Merge pull request #123 from Aranwill/feat/episodic-candidate-content-identity-g2
+- 2b6e0853c360d6c63dcafdd8d3a253e78a303909	test(memory): harden candidate content identity verification
+- 64f2fdb66cfedd347847820488a1b2cbf2564910	feat(memory): implement episodic candidate content identity G2
+- 084947cfc8d79ab56022e0d2ec62b97b8b0a7c49	test(memory): define candidate content identity G2 contract
 
 ### Evidencia que originó esta proyección
 
-- `baseline-source-change` por `docs/project/sprints/proposals/EPISODIC-CANDIDATE-CONTENT-IDENTITY-G2-IMPLEMENTATION-CANDIDATE-SPEC.md`
+- `architecture-change` por `src/malak/memory/candidate_content_identity.py`
+- `test-change` por `tests/test_candidate_content_identity.py`
 <!-- MALAK_VAULT_SYNC:END -->
 
 <!-- MALAK_OPERATIONAL_STATE:START -->
@@ -59,7 +61,7 @@ retrieval_scope: active
 > Estado machine-owned derivado de la fuente oficial.
 > No concede autoridad ni reemplaza decisiones humanas.
 
-- **HEAD oficial:** `51ae777695480c77d9b2e7a89c1bb398ffd61ba0`
+- **HEAD oficial:** `0466e18075fd6bce6243e03f701a377fd34469dd`
 - **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.11.md`
 - **Titulo declarado:** Sprint 7.11 — Reproducible Validation Pipeline Foundation
 - **Estado declarado:** `completado`
