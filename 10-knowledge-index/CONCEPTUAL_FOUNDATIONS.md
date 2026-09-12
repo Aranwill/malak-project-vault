@@ -25,10 +25,10 @@ retrieval_scope: active
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260912T183525031387Z_5577c9b2_29c4253c`
-- **HEAD oficial observado:** `5577c9b23de32bc914505bababe3576346dae4b3`
-- **Commit previamente observado:** `cd50c308e1f5a1481851d6402ae4435341410d27`
-- **Generado:** `2026-09-12T18:35:25.031387+00:00`
+- **Run ID:** `20260912T232639435516Z_51ae7776_e6d10709`
+- **HEAD oficial observado:** `51ae777695480c77d9b2e7a89c1bb398ffd61ba0`
+- **Commit previamente observado:** `5577c9b23de32bc914505bababe3576346dae4b3`
+- **Generado:** `2026-09-12T23:26:39.435516+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
@@ -41,18 +41,13 @@ retrieval_scope: active
 
 ### Commits oficiales observados
 
-- 5577c9b23de32bc914505bababe3576346dae4b3	Merge pull request #121 from Aranwill/docs/post-g2-reconciliation-20260912
-- 21cb7baad9a69d3931b9b7a4be5d02cda3bf30c0	docs(state): reconcile implementation roadmap post-G2
-- 32a788e78476dec0cd8feaf702f204f5a54230fb	docs(state): reconcile project context post-G2
-- 3690d5f50183eec51d7edde2eb5e0954582f1f3a	Merge pull request #120 from Aranwill/docs/research-evidence-input-20260912
-- cf168681f6ff13ccb20ad8a49dc525defe88d8df	docs(research): fix evidence map whitespace
-- 1806f2412fe9788c2c253a6d22c66af930a24e89	docs(research): add implementation evidence map
+- 51ae777695480c77d9b2e7a89c1bb398ffd61ba0	Merge pull request #122 from Aranwill/spec/episodic-candidate-content-identity-g2
+- 79bb71bf2453974945dcaa7d64c13517f4bc7553	docs(memory): correct normative content identity vectors
+- 4ea1f7f33384fd67b2feb148dfe593478e2be4c8	docs(memory): freeze candidate content identity G2 spec
 
 ### Evidencia que originó esta proyección
 
-- `baseline-source-change` por `docs/project/implementation_roadmap.md`
-- `baseline-source-change` por `docs/project/project_context.md`
-- `conceptual-foundation-change` por `docs/project/concepts/MALAK_RESEARCH_HORIZON_MAP.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/EPISODIC-CANDIDATE-CONTENT-IDENTITY-G2-IMPLEMENTATION-CANDIDATE-SPEC.md`
 <!-- MALAK_VAULT_SYNC:END -->
 
 <!-- MALAK_OPERATIONAL_STATE:START -->
@@ -61,7 +56,7 @@ retrieval_scope: active
 > Estado machine-owned derivado de la fuente oficial.
 > No concede autoridad ni reemplaza decisiones humanas.
 
-- **HEAD oficial:** `5577c9b23de32bc914505bababe3576346dae4b3`
+- **HEAD oficial:** `51ae777695480c77d9b2e7a89c1bb398ffd61ba0`
 - **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.11.md`
 - **Titulo declarado:** Sprint 7.11 — Reproducible Validation Pipeline Foundation
 - **Estado declarado:** `completado`
