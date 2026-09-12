@@ -8,7 +8,7 @@ authority_level: baseline
 authority_rank: 5
 version: 1.1
 created: 2026-07-20
-last_reviewed: 2026-09-11
+last_reviewed: 2026-09-12
 source_of_truth: repository
 source_repository: Aranwill/jarvis
 source_branch: main
@@ -172,7 +172,7 @@ vigente.
 
 La fuente de verdad continúa siendo `Aranwill/jarvis`, rama `main`.
 
-### 4.1 Estado humano reconciliado post-G2A
+### 4.1 Estado humano reconciliado post-G2
 
 El baseline vigente conserva Sprint 7.11 como último sprint numerado completado.
 Después de ese sprint se integraron unidades aisladas que no constituyen Sprint
@@ -192,35 +192,41 @@ Governed Input Projection Boundary
 Governed Projection Consumption Boundary
 ```
 
-La última foundation de código cognitivo integrada es:
+Las foundations cognitivas de finalización integradas son:
 
 ```text
 G2A — Protected Finalization Foundation
+        ↓
+G2 — Assurance Signal Authority & Projection Foundation
 ```
 
-G2A es determinista y aislada. No está conectada a la ruta conversacional real,
-no modifica Kernel, no persiste decisiones y no consume Memory o Knowledge.
+G2A conserva ownership de `ACCEPT | ABSTAIN | BLOCK`.
 
-El último diseño cognitivo integrado es:
+G2 es una foundation determinista same-process que valida observations
+explícitas, producer authorization sensible a kind+value, binding,
+temporalidad, cardinalidad, policy version y coherencia antes de proyectar
+`ProtectedFinalizationInput`. No decide verdad cognitiva, no produce signals y
+no está conectada a la ruta conversacional real.
 
-```text
-Assurance Signal Authority Boundary — G0/G1
-```
-
-Ese diseño confirmó que el baseline todavía no posee productores runtime
-autorizados para `applicability`, `evidence_required`, `support_sufficient`,
+El baseline todavía no posee productores runtime legítimos para
+`applicability`, `evidence_required`, `support_sufficient`,
 `contradiction_unresolved` y `policy_violation`.
 
-Por tanto, el estado de autorización preservado es:
+Además, `AuthorizationDecision` continúa siendo evidencia estructural:
+G2 no afirma proof-of-origin criptográfico del PDP.
+
+Estado de autorización preservado:
 
 ```text
-Signal Boundary G2: NOT AUTHORIZED
+G2A: INTEGRATED / ISOLATED
+Signal Boundary G2: INTEGRATED / ISOLATED
 Conversation G2B: BLOCKED / NOT AUTHORIZED
 Sprint 7.12: NOT AUTHORIZED
 RDD Stage 2: NOT AUTHORIZED
 ```
 
-La reconciliación documental no cambia estas autorizaciones.
+G2 integrado no implica producers conversacionales legítimos, provenance de
+decisión resuelto para live use ni autorización de G2B.
 
 ---
 

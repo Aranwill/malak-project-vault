@@ -8,7 +8,7 @@ authority_level: technical_documentation
 authority_rank: 6
 version: 1.3
 created: 2026-07-20
-last_reviewed: 2026-09-11
+last_reviewed: 2026-09-12
 source_repository: Aranwill/jarvis
 source_branch: main
 derived: true
@@ -288,15 +288,20 @@ Evidence != Authority
 
 PR #110 integró además G2A — Protected Finalization Foundation como una
 foundation determinista aislada con resultados `ACCEPT | ABSTAIN | BLOCK`.
-G2A todavía no está conectada a Conversation y no posee productores runtime
-autorizados de sus assurance signals.
 
-Estado de autorización que debe preservarse:
+PR #118 integró G2 — Assurance Signal Authority & Projection Foundation. G2
+valida observations explícitas y autorización del producer sensible a
+kind+value antes de proyectar un `ProtectedFinalizationInput` hacia G2A.
+
+Ambas foundations permanecen aisladas de Conversation. El baseline todavía no
+posee productores runtime legítimos de assurance signals y G2 no afirma
+provenance criptográfica del `AuthorizationDecision`.
+
+Estado que debe preservarse:
 
 ```text
 G2A: INTEGRATED / ISOLATED
-Assurance Signal Authority G0/G1: INTEGRATED DESIGN
-Signal Boundary G2: NOT AUTHORIZED
+Signal Boundary G2: INTEGRATED / ISOLATED
 Conversation G2B: BLOCKED / NOT AUTHORIZED
 Sprint 7.12: NOT AUTHORIZED
 RDD Stage 2: NOT AUTHORIZED
@@ -365,10 +370,12 @@ Componentes documentados en el alcance representado:
 * Assessment Producer Authorization Boundary;
 * Governed Input Projection Boundary;
 * Governed Projection Consumption Boundary;
-* G2A — Protected Finalization Foundation, integrada y aislada de Conversation.
+* G2A — Protected Finalization Foundation, integrada y aislada de Conversation;
+* G2 — Assurance Signal Authority & Projection Foundation, integrada y aislada de Conversation.
 
-La integración de estas fronteras no autoriza Memory persistente, Signal
-Boundary G2, Conversation G2B, Sprint 7.12 ni RDD Stage 2.
+La integración de estas fronteras no autoriza Memory persistente,
+productores runtime de assurance signals, Conversation G2B, Sprint 7.12 ni
+RDD Stage 2.
 
 La integración real con Ollama fue validada con:
 
@@ -515,7 +522,6 @@ No forman parte del alcance implementado documentado:
 * RAG externo;
 * auditor externo;
 * productores runtime autorizados de assurance signals;
-* Signal Boundary G2;
 * Conversation G2B;
 * wiring de Protected Finalization con Conversation;
 * Sprint 7.12;

@@ -7,7 +7,7 @@ authority: derived
 operational_authority: none
 version: 1.2
 created: 2026-07-20
-last_reviewed: 2026-09-11
+last_reviewed: 2026-09-12
 source_repository: Aranwill/jarvis
 source_branch: main
 tags:
@@ -107,6 +107,7 @@ Este mapa cubre las siguientes fronteras verificadas:
 - Governed Input Projection Boundary;
 - Governed Projection Consumption Boundary;
 - G2A — Protected Finalization Foundation, aislada de la ruta conversacional real.
+- G2 — Assurance Signal Authority & Projection Foundation, aislada de la ruta conversacional real.
 
 Quedan fuera de alcance:
 
@@ -143,6 +144,13 @@ PR #110 integró además G2A — Protected Finalization Foundation bajo
 `src/malak/core/protected_finalization.py`. La foundation es determinista y
 aislada: todavía no está conectada a `ConversationCapability`,
 `ConversationService`, historial, Memory, Knowledge, providers o runtimes.
+
+PR #118 integró G2 — Assurance Signal Authority & Projection Foundation bajo
+`src/malak/core/assurance_signal_projection.py`. G2 valida observations
+explícitas, binding de request/session/candidate, autorización del producer
+sensible a kind+value, coherencia temporal, cardinalidad y compatibilidad de
+policy antes de proyectar un `ProtectedFinalizationInput`. Permanece puro,
+same-process y aislado de Conversation.
 
 ## 2. Referencia operativa del mapa
 
@@ -550,12 +558,60 @@ deterministic finalization evaluation
 ACCEPT | ABSTAIN | BLOCK
 ```
 
-G2A separa generación de candidato y finalización protegida, pero no está
-conectada a la ruta conversacional real. No llama providers ni LLMs, no lee o
-escribe Memory/Knowledge, no persiste decisiones y no modifica Kernel,
+G2A separa generación de candidato y finalización protegida. No está conectada
+a la ruta conversacional real, no llama providers ni LLMs, no lee o escribe
+Memory/Knowledge, no persiste decisiones y no modifica Kernel,
 ConversationService, ConversationCapability, CLI ni historial.
 
-El baseline tampoco posee todavía productores runtime autorizados para:
+Fuentes:
+
+```text
+src/malak/core/protected_finalization.py
+tests/test_protected_finalization.py
+```
+
+### G2 — Assurance Signal Authority & Projection Foundation
+
+Estado:
+
+```text
+implementada e integrada como foundation determinista aislada
+```
+
+Contrato verificado:
+
+```text
+ProtectedResponseCandidate
+        +
+5 explicit AssuranceSignalObservation
+        +
+5 bound Producer Authorization Evidence
+        ↓
+Assurance Signal Authority / Projection
+        ↓
+READY | HOLD | DENIED
+        ↓
+ProtectedFinalizationInput only when READY
+        ↓
+existing G2A
+```
+
+G2 valida únicamente admisibilidad, binding, producer permission,
+temporalidad, cardinalidad, versionado y coherencia del set. No decide que una
+señal sea verdadera y no transforma Security ALLOW/DENY en una disposición
+cognitiva.
+
+```text
+producer permission != signal truth
+G2 READY != G2A ACCEPT
+G2 DENIED != G2A BLOCK
+```
+
+El boundary permanece same-process y no afirma identidad criptográfica,
+provenance criptográfica del `AuthorizationDecision`, replay protection ni
+autenticidad de producers remotos.
+
+El baseline todavía no posee productores runtime legítimos para:
 
 ```text
 applicability
@@ -565,20 +621,15 @@ contradiction_unresolved
 policy_violation
 ```
 
-Por tanto:
-
-```text
-G2A integrated
-!= Signal Boundary G2 authorized
-!= Conversation G2B authorized
-```
+Por tanto G2 sigue aislado y `Conversation G2B` permanece bloqueado y no
+autorizado.
 
 Fuentes:
 
 ```text
-src/malak/core/protected_finalization.py
-tests/test_protected_finalization.py
-docs/project/sprints/proposals/MALAK-ASSURANCE-SIGNAL-AUTHORITY-G0-G1-DESIGN.md
+src/malak/core/assurance_signal_projection.py
+tests/test_assurance_signal_projection.py
+docs/project/sprints/proposals/MALAK-ASSURANCE-SIGNAL-BOUNDARY-G2-IMPLEMENTATION-CANDIDATE-SPEC.md
 ```
 
 ---

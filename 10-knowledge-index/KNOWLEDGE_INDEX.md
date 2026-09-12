@@ -7,7 +7,7 @@ authority_level: technical_documentation
 authority_rank: 6
 version: 1.1
 created: 2026-07-20
-last_reviewed: 2026-09-11
+last_reviewed: 2026-09-12
 source_of_truth: repository
 source_repository: Aranwill/jarvis
 source_branch: main
@@ -218,7 +218,7 @@ Estado cognitivo relevante para navegación:
 ```text
 G2A Protected Finalization Foundation: INTEGRATED / ISOLATED
 Assurance Signal Authority G0/G1: INTEGRATED DESIGN
-Signal Boundary G2: NOT AUTHORIZED
+Signal Boundary G2: INTEGRATED / ISOLATED
 Conversation G2B: BLOCKED / NOT AUTHORIZED
 Sprint 7.12: NOT AUTHORIZED
 RDD Stage 2: NOT AUTHORIZED
@@ -291,7 +291,8 @@ El mapa representa:
 - la frontera de eventos operativos integrada en la CLI;
 - la separación entre métricas, eventos operativos y auditoría;
 - la cadena episódica aislada Admission → Provenance → Producer Authorization → Governed Projection → Consumption;
-- G2A Protected Finalization como foundation aislada, sin wiring conversacional.
+- G2A Protected Finalization como foundation aislada, sin wiring conversacional;
+- G2 Assurance Signal Authority & Projection como foundation aislada, sin producers runtime ni wiring conversacional.
 
 El subsistema conversacional está integrado de forma indirecta y desacoplada:
 la CLI enruta mediante `Kernel.receive()`, mientras `ConversationCapability`
@@ -585,8 +586,32 @@ Fuente oficial:
 Aranwill/jarvis/docs/project/sprints/proposals/MALAK-ASSURANCE-SIGNAL-AUTHORITY-G0-G1-DESIGN.md
 ```
 
-El diseño integrado confirma que todavía no existe productor runtime autorizado
-para:
+G0/G1 definió la separación entre observations, producer authorization,
+projection y finalization decision.
+
+### G2 — Assurance Signal Authority & Projection Foundation
+
+Fuentes oficiales:
+
+```text
+Aranwill/jarvis/src/malak/core/assurance_signal_projection.py
+Aranwill/jarvis/tests/test_assurance_signal_projection.py
+Aranwill/jarvis/docs/project/sprints/proposals/MALAK-ASSURANCE-SIGNAL-BOUNDARY-G2-IMPLEMENTATION-CANDIDATE-SPEC.md
+```
+
+Estado:
+
+```text
+Signal Boundary G2: INTEGRATED / ISOLATED
+Conversation G2B: BLOCKED / NOT AUTHORIZED
+Sprint 7.12: NOT AUTHORIZED
+RDD Stage 2: NOT AUTHORIZED
+```
+
+G2 valida authority/projection de cinco assurance signals y solo produce un
+`ProtectedFinalizationInput` cuando el set es `READY`.
+
+El baseline continúa sin producers runtime legítimos para:
 
 ```text
 applicability
@@ -596,22 +621,19 @@ contradiction_unresolved
 policy_violation
 ```
 
-Estado de autorización:
-
-```text
-Signal Boundary G2: NOT AUTHORIZED
-Conversation G2B: BLOCKED / NOT AUTHORIZED
-Sprint 7.12: NOT AUTHORIZED
-RDD Stage 2: NOT AUTHORIZED
-```
-
-Separación de autoridad:
+Separaciones preservadas:
 
 ```text
 Evidence != Authority
-observation != producer authorization != projected signal != finalization decision
-G2A integrated != G2B authorized
+producer permission != signal truth
+Security authorization != Cognitive policy disposition
+G2 READY != G2A ACCEPT
+G2 DENIED != G2A BLOCK
+G2 integrated != G2B authorized
 ```
+
+La foundation es same-process y no afirma identidad criptográfica, replay
+protection ni provenance criptográfica del `AuthorizationDecision`.
 
 Este índice registra existencia y relaciones; no concede autorización para la
 siguiente unidad.

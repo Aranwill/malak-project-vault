@@ -8,7 +8,7 @@ authority_level: approved_roadmap
 authority_rank: 7
 version: 1.1
 created: 2026-07-20
-last_reviewed: 2026-09-11
+last_reviewed: 2026-09-12
 source_of_truth: repository
 source_repository: Aranwill/jarvis
 source_branch: main
@@ -572,14 +572,15 @@ src/malak/core/protected_finalization.py
 
 ```text
 G0/G1 design: integrado
-Signal Boundary G2: NOT AUTHORIZED
+Signal Boundary G2: IMPLEMENTED / ISOLATED
 Conversation G2B: BLOCKED / NOT AUTHORIZED
 Sprint 7.12: NOT AUTHORIZED
 RDD Stage 2: NOT AUTHORIZED
 ```
 
-El diseño confirma que el baseline todavía no posee productores runtime
-autorizados para:
+El diseño G0/G1 estableció la procedencia, binding y authority boundary de los
+cinco assurance signals. El baseline continúa sin productores runtime
+legítimos para:
 
 ```text
 applicability
@@ -589,17 +590,43 @@ contradiction_unresolved
 policy_violation
 ```
 
+### 7.9 Assurance Signal Authority & Projection Foundation — G2
+
+**Estado:**
+
+```text
+implementado e integrado mediante PR #118
+foundation aislada
+same-process only
+```
+
+G2 materializa un boundary determinista que acepta observations explícitas,
+verifica autorización del producer sensible a `kind + value`, request/session
+binding, temporalidad, cardinalidad, policy version y coherencia del set.
+
+Solo `READY` proyecta un `ProtectedFinalizationInput` hacia G2A.
+
+```text
+producer permission != signal truth
+Security authorization != Cognitive policy disposition
+G2 READY != G2A ACCEPT
+G2 DENIED != G2A BLOCK
+```
+
+G2 no lee prompts, no clasifica materialidad, no llama LLM/provider/runtime, no
+persiste evidencia, no modifica Kernel, Memory, Knowledge ni Conversation.
+
+La provenance criptográfica del `AuthorizationDecision` no está resuelta y no
+se afirma. Cualquier necesidad de producers remotos, evidence replayable o
+proof-of-origin exige un gate independiente.
+
 Por tanto:
 
 ```text
-G2A integrated
-!= Signal Boundary G2 authorized
+G2 integrated
+!= legitimate Conversation signal producers exist
 != Conversation G2B authorized
 ```
-
-La existencia de G2A y del diseño de authority boundary no constituye
-autorización para implementar el boundary de señales ni para conectarlo a
-Conversation.
 
 ---
 
