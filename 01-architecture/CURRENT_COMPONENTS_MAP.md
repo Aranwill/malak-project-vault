@@ -28,10 +28,10 @@ tags:
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260912T005735174153Z_cd50c308_66ed128a`
-- **HEAD oficial observado:** `cd50c308e1f5a1481851d6402ae4435341410d27`
-- **Commit previamente observado:** `c979f481e2e5353c8953e41e56e9218c7b1d4c6f`
-- **Generado:** `2026-09-12T00:57:35.174153+00:00`
+- **Run ID:** `20260912T183525031387Z_5577c9b2_29c4253c`
+- **HEAD oficial observado:** `5577c9b23de32bc914505bababe3576346dae4b3`
+- **Commit previamente observado:** `cd50c308e1f5a1481851d6402ae4435341410d27`
+- **Generado:** `2026-09-12T18:35:25.031387+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
@@ -44,23 +44,17 @@ tags:
 
 ### Commits oficiales observados
 
-- cd50c308e1f5a1481851d6402ae4435341410d27	Merge pull request #118 from Aranwill/feat/g2-assurance-signal-projection-20260911
-- 0bd6fa4f7be908fc7bec3c5fa49b80b40acc3dfb	docs(cognition): record authorized G2 implementation candidate evidence
-- 74ae9f7d69d7f8215d5bdb69d56dd8e02b0e7426	docs(cognition): recalibrate G2 correction budget after F002
-- f5917729aca6f43e9738919fcf613f1814baa400	test(cognition): prove G2 cardinality guard short-circuits inspection
-- a292b2088ed5cb81f229708a5a3b3ebfed2fe405	fix(cognition): bound G2 cardinality before element inspection
-- 30c8687984b086b4111b3993f4ab022fdfe37fd1	refactor(cognition): keep G2 projection within frozen LOC budget
-- c42d3275179d20c58343cb2f02e940ab827af093	feat(cognition): implement G2 assurance signal projection
-- 82032c3eef7ab75d40abb35a7a4ff79e28e66a95	test(cognition): define G2 assurance signal projection RED contract
-- 7339805d5da51de526e2a50718f9a6a655dff11d	Merge pull request #117 from docs/g2-assurance-signal-boundary-spec-20260911
-- aa6deebd5d54a6ea2fb78717a355178615c44178	docs(cognition): harden G2 signal boundary specification
-- 7259475fec142c13826f697c75ad1ca6540f91b5	docs(cognition): harden G2 signal authority scope
-- 7c3be120ee2ea9e0e5834a16b8a48b60e50d93e7	docs(cognition): freeze G2 assurance signal boundary spec
+- 5577c9b23de32bc914505bababe3576346dae4b3	Merge pull request #121 from Aranwill/docs/post-g2-reconciliation-20260912
+- 21cb7baad9a69d3931b9b7a4be5d02cda3bf30c0	docs(state): reconcile implementation roadmap post-G2
+- 32a788e78476dec0cd8feaf702f204f5a54230fb	docs(state): reconcile project context post-G2
+- 3690d5f50183eec51d7edde2eb5e0954582f1f3a	Merge pull request #120 from Aranwill/docs/research-evidence-input-20260912
+- cf168681f6ff13ccb20ad8a49dc525defe88d8df	docs(research): fix evidence map whitespace
+- 1806f2412fe9788c2c253a6d22c66af930a24e89	docs(research): add implementation evidence map
 
 ### Evidencia que originó esta proyección
 
-- `architecture-change` por `src/malak/core/assurance_signal_projection.py`
-- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-ASSURANCE-SIGNAL-BOUNDARY-G2-IMPLEMENTATION-CANDIDATE-SPEC.md`
+- `baseline-source-change` por `docs/project/implementation_roadmap.md`
+- `baseline-source-change` por `docs/project/project_context.md`
 <!-- MALAK_VAULT_SYNC:END -->
 
 <!-- MALAK_OPERATIONAL_STATE:START -->
@@ -69,7 +63,7 @@ tags:
 > Estado machine-owned derivado de la fuente oficial.
 > No concede autoridad ni reemplaza decisiones humanas.
 
-- **HEAD oficial:** `cd50c308e1f5a1481851d6402ae4435341410d27`
+- **HEAD oficial:** `5577c9b23de32bc914505bababe3576346dae4b3`
 - **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.11.md`
 - **Titulo declarado:** Sprint 7.11 — Reproducible Validation Pipeline Foundation
 - **Estado declarado:** `completado`
