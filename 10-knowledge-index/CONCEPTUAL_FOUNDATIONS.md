@@ -25,10 +25,10 @@ retrieval_scope: active
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260913T200245645514Z_b61c2764_22e703cd`
-- **HEAD oficial observado:** `b61c2764b708bf96ca3829e5a9959a0c5e53ad2c`
-- **Commit previamente observado:** `69cccf23b773c89c31b47a2ef1cad75ebf76b237`
-- **Generado:** `2026-09-13T20:02:45.645514+00:00`
+- **Run ID:** `20260913T205428707448Z_876fa628_35aa35f4`
+- **HEAD oficial observado:** `876fa62819ec511d4f0d2e7ad6e759aa3f275cf9`
+- **Commit previamente observado:** `b61c2764b708bf96ca3829e5a9959a0c5e53ad2c`
+- **Generado:** `2026-09-13T20:54:28.707448+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
@@ -41,12 +41,18 @@ retrieval_scope: active
 
 ### Commits oficiales observados
 
-- b61c2764b708bf96ca3829e5a9959a0c5e53ad2c	Merge pull request #129 from Aranwill/design/cal-014-normative-promotion-scope-freeze
-- f2d9f5281ee0af46c4477a008fb772af016e9389	docs(governance): harden CAL-014 normative promotion scope
+- 876fa62819ec511d4f0d2e7ad6e759aa3f275cf9	Merge pull request #131 from Aranwill/docs/cal-014-scope-interpretive-hardening
+- 8d2af4e608a52dd1a832d8a3404aa8dcc1075761	docs(governance): harden CAL-014 interpretive boundaries after candidate merge
+- d262114a859b55251c2856cd02d836b80e2ad7c8	Merge pull request #130 from Aranwill/docs/cal-014-exact-normative-candidates
+- 8d00eac04135567bb1eedf9974fcc60e134d181b	docs(governance): add CAL-014 exact normative candidates
 
 ### Evidencia que originó esta proyección
 
-- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-CAL-014-NORMATIVE-PROMOTION-SCOPE-FREEZE.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-CAL-014-ADR-006-CANDIDATE.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-CAL-014-BLUEPRINT-V0.6.3-CANDIDATE.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-CAL-014-COGNITIVE-CONSTITUTION-V1.2-CANDIDATE.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-CAL-014-DECISION-INDEX-ADR-006-CANDIDATE.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-CAL-014-NORMATIVE-SCOPE-INTERPRETIVE-HARDENING.md`
 <!-- MALAK_VAULT_SYNC:END -->
 
 <!-- MALAK_OPERATIONAL_STATE:START -->
@@ -55,7 +61,7 @@ retrieval_scope: active
 > Estado machine-owned derivado de la fuente oficial.
 > No concede autoridad ni reemplaza decisiones humanas.
 
-- **HEAD oficial:** `b61c2764b708bf96ca3829e5a9959a0c5e53ad2c`
+- **HEAD oficial:** `876fa62819ec511d4f0d2e7ad6e759aa3f275cf9`
 - **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.11.md`
 - **Titulo declarado:** Sprint 7.11 — Reproducible Validation Pipeline Foundation
 - **Estado declarado:** `completado`
