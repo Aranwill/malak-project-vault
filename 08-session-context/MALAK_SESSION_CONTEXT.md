@@ -27,10 +27,10 @@ retrieval_scope: active
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260913T205428707448Z_876fa628_35aa35f4`
-- **HEAD oficial observado:** `876fa62819ec511d4f0d2e7ad6e759aa3f275cf9`
-- **Commit previamente observado:** `b61c2764b708bf96ca3829e5a9959a0c5e53ad2c`
-- **Generado:** `2026-09-13T20:54:28.707448+00:00`
+- **Run ID:** `20260913T212254246383Z_9176c5eb_7893aa2b`
+- **HEAD oficial observado:** `9176c5eb84b72c3a51de515a8ced808a7385be3c`
+- **Commit previamente observado:** `876fa62819ec511d4f0d2e7ad6e759aa3f275cf9`
+- **Generado:** `2026-09-13T21:22:54.246383+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
@@ -43,10 +43,10 @@ retrieval_scope: active
 
 ### Commits oficiales observados
 
-- 876fa62819ec511d4f0d2e7ad6e759aa3f275cf9	Merge pull request #131 from Aranwill/docs/cal-014-scope-interpretive-hardening
-- 8d2af4e608a52dd1a832d8a3404aa8dcc1075761	docs(governance): harden CAL-014 interpretive boundaries after candidate merge
-- d262114a859b55251c2856cd02d836b80e2ad7c8	Merge pull request #130 from Aranwill/docs/cal-014-exact-normative-candidates
-- 8d00eac04135567bb1eedf9974fcc60e134d181b	docs(governance): add CAL-014 exact normative candidates
+- 9176c5eb84b72c3a51de515a8ced808a7385be3c	Merge pull request #133 from Aranwill/docs/cal-014-reference-cleanup
+- 221d63c1e013f421f14c1e15ef2e499a1b9e6d3c	docs(governance): fix CAL-014 candidate references
+- 38ee0c144bab45146815b4d8c5140dbeb0e5f4c4	Merge pull request #132 from Aranwill/docs/cal-014-exact-candidate-refresh
+- f0432e4897c4c9449c7245c2159238905bd734eb	docs(governance): refresh CAL-014 exact normative candidates
 
 ### Evidencia que originó esta proyección
 
@@ -63,7 +63,7 @@ retrieval_scope: active
 > Estado machine-owned derivado de la fuente oficial.
 > No concede autoridad ni reemplaza decisiones humanas.
 
-- **HEAD oficial:** `876fa62819ec511d4f0d2e7ad6e759aa3f275cf9`
+- **HEAD oficial:** `9176c5eb84b72c3a51de515a8ced808a7385be3c`
 - **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.11.md`
 - **Titulo declarado:** Sprint 7.11 — Reproducible Validation Pipeline Foundation
 - **Estado declarado:** `completado`
