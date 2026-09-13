@@ -28,10 +28,10 @@ retrieval_scope: active
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260912T232639435516Z_51ae7776_e6d10709`
-- **HEAD oficial observado:** `51ae777695480c77d9b2e7a89c1bb398ffd61ba0`
-- **Commit previamente observado:** `5577c9b23de32bc914505bababe3576346dae4b3`
-- **Generado:** `2026-09-12T23:26:39.435516+00:00`
+- **Run ID:** `20260913T002509534298Z_63ae1a3c_62c56b06`
+- **HEAD oficial observado:** `63ae1a3c305eb2cfbce1dee397ec12f18772fb4c`
+- **Commit previamente observado:** `0466e18075fd6bce6243e03f701a377fd34469dd`
+- **Generado:** `2026-09-13T00:25:09.534298+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
@@ -44,13 +44,16 @@ retrieval_scope: active
 
 ### Commits oficiales observados
 
-- 51ae777695480c77d9b2e7a89c1bb398ffd61ba0	Merge pull request #122 from Aranwill/spec/episodic-candidate-content-identity-g2
-- 79bb71bf2453974945dcaa7d64c13517f4bc7553	docs(memory): correct normative content identity vectors
-- 4ea1f7f33384fd67b2feb148dfe593478e2be4c8	docs(memory): freeze candidate content identity G2 spec
+- 63ae1a3c305eb2cfbce1dee397ec12f18772fb4c	Merge pull request #125 from Aranwill/spec/episodic-content-identity-propagation-g2
+- 41578bb7f9dca0233bb2f4572099111b5dc385a1	docs(memory): freeze content identity propagation G2 spec
+- d08d4ccb77c704d1831e7e2a1c6dfbc337dbe67e	Merge pull request #124 from Aranwill/design/episodic-content-identity-propagation-g0-g1
+- 30cc3cfdc4ca1b9f3f37d2c85ce58078422a42f2	docs(memory): harden propagation design for component compromise
+- 61e8ad1486df60768ae97389a4ac9b64798ddcfd	docs(memory): define content identity propagation G0/G1
 
 ### Evidencia que originó esta proyección
 
-- `baseline-source-change` por `docs/project/sprints/proposals/EPISODIC-CANDIDATE-CONTENT-IDENTITY-G2-IMPLEMENTATION-CANDIDATE-SPEC.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/EPISODIC-CANDIDATE-CONTENT-IDENTITY-PROPAGATION-G0-G1-DESIGN.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/EPISODIC-CANDIDATE-CONTENT-IDENTITY-PROPAGATION-G2-IMPLEMENTATION-CANDIDATE-SPEC.md`
 <!-- MALAK_VAULT_SYNC:END -->
 
 <!-- MALAK_OPERATIONAL_STATE:START -->
@@ -59,7 +62,7 @@ retrieval_scope: active
 > Estado machine-owned derivado de la fuente oficial.
 > No concede autoridad ni reemplaza decisiones humanas.
 
-- **HEAD oficial:** `51ae777695480c77d9b2e7a89c1bb398ffd61ba0`
+- **HEAD oficial:** `63ae1a3c305eb2cfbce1dee397ec12f18772fb4c`
 - **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.11.md`
 - **Titulo declarado:** Sprint 7.11 — Reproducible Validation Pipeline Foundation
 - **Estado declarado:** `completado`
