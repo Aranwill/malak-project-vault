@@ -28,10 +28,10 @@ retrieval_scope: active
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260913T002509534298Z_63ae1a3c_62c56b06`
-- **HEAD oficial observado:** `63ae1a3c305eb2cfbce1dee397ec12f18772fb4c`
-- **Commit previamente observado:** `0466e18075fd6bce6243e03f701a377fd34469dd`
-- **Generado:** `2026-09-13T00:25:09.534298+00:00`
+- **Run ID:** `20260913T191109581601Z_69cccf23_082eb8c7`
+- **HEAD oficial observado:** `69cccf23b773c89c31b47a2ef1cad75ebf76b237`
+- **Commit previamente observado:** `0bf4f839f73de075589129886b044918622b53e7`
+- **Generado:** `2026-09-13T19:11:09.581601+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
@@ -44,16 +44,13 @@ retrieval_scope: active
 
 ### Commits oficiales observados
 
-- 63ae1a3c305eb2cfbce1dee397ec12f18772fb4c	Merge pull request #125 from Aranwill/spec/episodic-content-identity-propagation-g2
-- 41578bb7f9dca0233bb2f4572099111b5dc385a1	docs(memory): freeze content identity propagation G2 spec
-- d08d4ccb77c704d1831e7e2a1c6dfbc337dbe67e	Merge pull request #124 from Aranwill/design/episodic-content-identity-propagation-g0-g1
-- 30cc3cfdc4ca1b9f3f37d2c85ce58078422a42f2	docs(memory): harden propagation design for component compromise
-- 61e8ad1486df60768ae97389a4ac9b64798ddcfd	docs(memory): define content identity propagation G0/G1
+- 69cccf23b773c89c31b47a2ef1cad75ebf76b237	Merge pull request #128 from Aranwill/design/cal-014-durable-reliance-g0-g1
+- 24775d1f155be589b332f8ff49ff5143dba6b0e3	docs(governance): harden CAL-014 review boundaries
+- 031aca7100d14b4a6bf0f79df73970c9e061e3a0	docs(governance): reopen CAL-014 durable reliance review
 
 ### Evidencia que originó esta proyección
 
-- `baseline-source-change` por `docs/project/sprints/proposals/EPISODIC-CANDIDATE-CONTENT-IDENTITY-PROPAGATION-G0-G1-DESIGN.md`
-- `baseline-source-change` por `docs/project/sprints/proposals/EPISODIC-CANDIDATE-CONTENT-IDENTITY-PROPAGATION-G2-IMPLEMENTATION-CANDIDATE-SPEC.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-CAL-014-DURABLE-RELIANCE-CONSTITUTIONAL-IMPACT-G0-G1.md`
 <!-- MALAK_VAULT_SYNC:END -->
 
 <!-- MALAK_OPERATIONAL_STATE:START -->
@@ -62,7 +59,7 @@ retrieval_scope: active
 > Estado machine-owned derivado de la fuente oficial.
 > No concede autoridad ni reemplaza decisiones humanas.
 
-- **HEAD oficial:** `63ae1a3c305eb2cfbce1dee397ec12f18772fb4c`
+- **HEAD oficial:** `69cccf23b773c89c31b47a2ef1cad75ebf76b237`
 - **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.11.md`
 - **Titulo declarado:** Sprint 7.11 — Reproducible Validation Pipeline Foundation
 - **Estado declarado:** `completado`
