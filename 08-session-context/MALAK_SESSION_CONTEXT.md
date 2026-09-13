@@ -27,10 +27,10 @@ retrieval_scope: active
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260913T191109581601Z_69cccf23_082eb8c7`
-- **HEAD oficial observado:** `69cccf23b773c89c31b47a2ef1cad75ebf76b237`
-- **Commit previamente observado:** `0bf4f839f73de075589129886b044918622b53e7`
-- **Generado:** `2026-09-13T19:11:09.581601+00:00`
+- **Run ID:** `20260913T200245645514Z_b61c2764_22e703cd`
+- **HEAD oficial observado:** `b61c2764b708bf96ca3829e5a9959a0c5e53ad2c`
+- **Commit previamente observado:** `69cccf23b773c89c31b47a2ef1cad75ebf76b237`
+- **Generado:** `2026-09-13T20:02:45.645514+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
@@ -43,13 +43,12 @@ retrieval_scope: active
 
 ### Commits oficiales observados
 
-- 69cccf23b773c89c31b47a2ef1cad75ebf76b237	Merge pull request #128 from Aranwill/design/cal-014-durable-reliance-g0-g1
-- 24775d1f155be589b332f8ff49ff5143dba6b0e3	docs(governance): harden CAL-014 review boundaries
-- 031aca7100d14b4a6bf0f79df73970c9e061e3a0	docs(governance): reopen CAL-014 durable reliance review
+- b61c2764b708bf96ca3829e5a9959a0c5e53ad2c	Merge pull request #129 from Aranwill/design/cal-014-normative-promotion-scope-freeze
+- f2d9f5281ee0af46c4477a008fb772af016e9389	docs(governance): harden CAL-014 normative promotion scope
 
 ### Evidencia que originó esta proyección
 
-- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-CAL-014-DURABLE-RELIANCE-CONSTITUTIONAL-IMPACT-G0-G1.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-CAL-014-NORMATIVE-PROMOTION-SCOPE-FREEZE.md`
 <!-- MALAK_VAULT_SYNC:END -->
 
 <!-- MALAK_OPERATIONAL_STATE:START -->
@@ -58,7 +57,7 @@ retrieval_scope: active
 > Estado machine-owned derivado de la fuente oficial.
 > No concede autoridad ni reemplaza decisiones humanas.
 
-- **HEAD oficial:** `69cccf23b773c89c31b47a2ef1cad75ebf76b237`
+- **HEAD oficial:** `b61c2764b708bf96ca3829e5a9959a0c5e53ad2c`
 - **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.11.md`
 - **Titulo declarado:** Sprint 7.11 — Reproducible Validation Pipeline Foundation
 - **Estado declarado:** `completado`
