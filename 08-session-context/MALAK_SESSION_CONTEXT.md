@@ -27,11 +27,11 @@ retrieval_scope: active
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260913T175857245826Z_0bf4f839_2aa5f694`
-- **HEAD oficial observado:** `0bf4f839f73de075589129886b044918622b53e7`
-- **Commit previamente observado:** `650f202c613066368b35783c8816bd8f5f1ef36c`
-- **Generado:** `2026-09-13T17:58:57.245826+00:00`
-- **Prioridad:** `medium`
+- **Run ID:** `20260913T191109581601Z_69cccf23_082eb8c7`
+- **HEAD oficial observado:** `69cccf23b773c89c31b47a2ef1cad75ebf76b237`
+- **Commit previamente observado:** `0bf4f839f73de075589129886b044918622b53e7`
+- **Generado:** `2026-09-13T19:11:09.581601+00:00`
+- **Prioridad:** `high`
 - **Disposición:** `review_required`
 
 ### Estado estructurado de la fuente oficial
@@ -43,12 +43,13 @@ retrieval_scope: active
 
 ### Commits oficiales observados
 
-- 0bf4f839f73de075589129886b044918622b53e7	Merge pull request #127 from Aranwill/docs/malak-alignment-matrix
-- 175360fd06dbb7197a12f8716b43736c499b546c	docs(method): require Malak alignment matrix for material gates
+- 69cccf23b773c89c31b47a2ef1cad75ebf76b237	Merge pull request #128 from Aranwill/design/cal-014-durable-reliance-g0-g1
+- 24775d1f155be589b332f8ff49ff5143dba6b0e3	docs(governance): harden CAL-014 review boundaries
+- 031aca7100d14b4a6bf0f79df73970c9e061e3a0	docs(governance): reopen CAL-014 durable reliance review
 
 ### Evidencia que originó esta proyección
 
-- `operational-tooling-change` por `docs/development/malak_construction_protocol.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-CAL-014-DURABLE-RELIANCE-CONSTITUTIONAL-IMPACT-G0-G1.md`
 <!-- MALAK_VAULT_SYNC:END -->
 
 <!-- MALAK_OPERATIONAL_STATE:START -->
@@ -57,7 +58,7 @@ retrieval_scope: active
 > Estado machine-owned derivado de la fuente oficial.
 > No concede autoridad ni reemplaza decisiones humanas.
 
-- **HEAD oficial:** `0bf4f839f73de075589129886b044918622b53e7`
+- **HEAD oficial:** `69cccf23b773c89c31b47a2ef1cad75ebf76b237`
 - **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.11.md`
 - **Titulo declarado:** Sprint 7.11 — Reproducible Validation Pipeline Foundation
 - **Estado declarado:** `completado`
