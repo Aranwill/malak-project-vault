@@ -28,11 +28,11 @@ retrieval_scope: active
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260913T010019009636Z_650f202c_f95f2d10`
-- **HEAD oficial observado:** `650f202c613066368b35783c8816bd8f5f1ef36c`
-- **Commit previamente observado:** `63ae1a3c305eb2cfbce1dee397ec12f18772fb4c`
-- **Generado:** `2026-09-13T01:00:19.009636+00:00`
-- **Prioridad:** `high`
+- **Run ID:** `20260913T175857245826Z_0bf4f839_2aa5f694`
+- **HEAD oficial observado:** `0bf4f839f73de075589129886b044918622b53e7`
+- **Commit previamente observado:** `650f202c613066368b35783c8816bd8f5f1ef36c`
+- **Generado:** `2026-09-13T17:58:57.245826+00:00`
+- **Prioridad:** `medium`
 - **Disposición:** `review_required`
 
 ### Estado estructurado de la fuente oficial
@@ -44,30 +44,12 @@ retrieval_scope: active
 
 ### Commits oficiales observados
 
-- 650f202c613066368b35783c8816bd8f5f1ef36c	Merge pull request #126 from Aranwill/feat/episodic-content-identity-propagation-g2
-- 502f7c3a2b12712b4c399484ec90ca356e604e6d	test(memory): compact provenance coverage within G2 budget
-- f37a2ee3b6de8c4063a41a266d1c5d781153f37f	refactor(memory): compact governed consumption binding within budget
-- f3c35d9427a17345bc7e569f51b5ecb36f6b93d7	refactor(memory): compact content identity propagation within budget
-- 9515ba38fed1a509f8f845ddcae0e77d11c92c6d	test(memory): migrate governed consumption tests to content-bound v2
-- 7c5d87b854f267e5a4b2af2abd96af4962e95e28	test(memory): migrate governed projection tests to content-bound v2
-- d1b4135b7e1017be8b8c0b10c811eabf30ee73ad	test(memory): migrate producer authorization tests to content-bound v2
-- 580547fb154d3d49b76f765ce3f7337e1b7e78b0	test(memory): migrate provenance tests to content-bound v2
-- 508f97824b4a6aa9a36a4ebf9d40870ccd632514	feat(memory): verify candidate content identity at governed consumption
-- ab23b9f3bcd52f60def1aa3c450407e65e7340dc	feat(memory): bind governed projection to candidate content identity
-- 6edfe6e88e63acc5c4a3daa1fb9da6f0081a2fd6	feat(memory): bind producer authorization to candidate content identity
-- ab0d9b3bddf9ae41c3fdcd8a06122fa3df46ce35	feat(memory): bind assessment provenance to candidate content identity
-- 8f7d54adbab8c0a47538fbe187aed10a3910fd10	test(memory): seed content identity propagation G2 contract
+- 0bf4f839f73de075589129886b044918622b53e7	Merge pull request #127 from Aranwill/docs/malak-alignment-matrix
+- 175360fd06dbb7197a12f8716b43736c499b546c	docs(method): require Malak alignment matrix for material gates
 
 ### Evidencia que originó esta proyección
 
-- `architecture-change` por `src/malak/memory/assessment_producer_authorization.py`
-- `architecture-change` por `src/malak/memory/assessment_provenance.py`
-- `architecture-change` por `src/malak/memory/governed_input_projection.py`
-- `architecture-change` por `src/malak/memory/governed_projection_consumption.py`
-- `test-change` por `tests/test_assessment_producer_authorization.py`
-- `test-change` por `tests/test_episodic_assessment_provenance.py`
-- `test-change` por `tests/test_governed_input_projection.py`
-- `test-change` por `tests/test_governed_projection_consumption.py`
+- `operational-tooling-change` por `docs/development/malak_construction_protocol.md`
 <!-- MALAK_VAULT_SYNC:END -->
 
 <!-- MALAK_OPERATIONAL_STATE:START -->
@@ -76,7 +58,7 @@ retrieval_scope: active
 > Estado machine-owned derivado de la fuente oficial.
 > No concede autoridad ni reemplaza decisiones humanas.
 
-- **HEAD oficial:** `650f202c613066368b35783c8816bd8f5f1ef36c`
+- **HEAD oficial:** `0bf4f839f73de075589129886b044918622b53e7`
 - **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.11.md`
 - **Titulo declarado:** Sprint 7.11 — Reproducible Validation Pipeline Foundation
 - **Estado declarado:** `completado`
