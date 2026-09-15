@@ -28,10 +28,10 @@ retrieval_scope: active
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260913T221927832231Z_e9cf3f90_c71d628c`
-- **HEAD oficial observado:** `e9cf3f901fb492cdf4383843a64c6a89d0065d50`
-- **Commit previamente observado:** `9176c5eb84b72c3a51de515a8ced808a7385be3c`
-- **Generado:** `2026-09-13T22:19:27.832231+00:00`
+- **Run ID:** `20260915T220212796217Z_46dde745_7bf83313`
+- **HEAD oficial observado:** `46dde74592ffc336104f4309cdd8a966b518fc53`
+- **Commit previamente observado:** `e9cf3f901fb492cdf4383843a64c6a89d0065d50`
+- **Generado:** `2026-09-15T22:02:12.796217+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
@@ -44,17 +44,16 @@ retrieval_scope: active
 
 ### Commits oficiales observados
 
-- e9cf3f901fb492cdf4383843a64c6a89d0065d50	Merge pull request #135 from Aranwill/docs/adr-template-reviewer-default
-- acc2241e411dc2f56cedae30fb32f41c54a770db	docs(adr): clear default reviewer attribution
-- 953c37619c76e9648e0487512850011459ca5bfb	Merge pull request #134 from Aranwill/governance/cal-014-normative-activation
-- 985badc57d8e44d3b95fcaf5228fb6d525713c6e	docs(governance): activate CAL-014 durable reliance law
+- 46dde74592ffc336104f4309cdd8a966b518fc53	Merge pull request #136 from Aranwill/docs/state-reconciliation-20260915
+- d6fe129c8c02774ed4b86bbe02e0e9c51045008f	docs(state): route current state through reconciliation record
+- 3569b65f3e3352bfc21fb1ef989de219d5f81156	docs(state): record current-state reconciliation
+- 85074790200c789f1f27525dabb3def7047fd0bf	docs(state): reconcile README with current baseline
 
 ### Evidencia que originó esta proyección
 
-- `governance-change` por `docs/architecture/adr/ADR-006-protected-durable-reliance-preconditions.md`
-- `governance-change` por `docs/architecture/adr/ADR-TEMPLATE.md`
-- `governance-change` por `docs/architecture/decisions/decision-index.md`
-- `governance-change` por `docs/governance/cognitive_constitution.md`
+- `baseline-source-change` por `README.md`
+- `baseline-source-change` por `ROADMAP.md`
+- `baseline-source-change` por `docs/project/status/MALAK-STATE-RECONCILIATION-20260915.md`
 <!-- MALAK_VAULT_SYNC:END -->
 
 <!-- MALAK_OPERATIONAL_STATE:START -->
@@ -63,7 +62,7 @@ retrieval_scope: active
 > Estado machine-owned derivado de la fuente oficial.
 > No concede autoridad ni reemplaza decisiones humanas.
 
-- **HEAD oficial:** `e9cf3f901fb492cdf4383843a64c6a89d0065d50`
+- **HEAD oficial:** `46dde74592ffc336104f4309cdd8a966b518fc53`
 - **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.11.md`
 - **Titulo declarado:** Sprint 7.11 — Reproducible Validation Pipeline Foundation
 - **Estado declarado:** `completado`
