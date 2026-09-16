@@ -28,10 +28,10 @@ retrieval_scope: active
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260915T230550157682Z_75c04178_80e2de35`
-- **HEAD oficial observado:** `75c04178049a4cd2d90680b27ae0921b39b4215e`
-- **Commit previamente observado:** `46dde74592ffc336104f4309cdd8a966b518fc53`
-- **Generado:** `2026-09-15T23:05:50.157682+00:00`
+- **Run ID:** `20260916T000340446687Z_18aa1249_5779cbe7`
+- **HEAD oficial observado:** `18aa1249861d3dda621acdf96714046748244b84`
+- **Commit previamente observado:** `869ce248f1b0bb9eafaae74ac6d82452590ad30d`
+- **Generado:** `2026-09-16T00:03:40.446687+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
@@ -44,27 +44,15 @@ retrieval_scope: active
 
 ### Commits oficiales observados
 
-- 75c04178049a4cd2d90680b27ae0921b39b4215e	Merge pull request #139 from Aranwill/feat/g2a-bound-authorization-enforcement-20260915
-- afdb2b792d9bb56f6e63f6a1cc548cb5444d0d36	test(security): preserve audit positional field compatibility
-- 568e6aa9b920fc27362e54c9142d22b2c7b54eba	refactor(security): preserve audit positional compatibility
-- f5bbff29a031da2ea4bbb86ea44f11faa931568a	test(security): cover requested and actual audit bindings
-- bde8e059d6cf62a7a60c0b8f96bb4c8383728902	test(security): cover authorization operation binding contracts
-- 9f60a1c88ba36cdf6dc64aa35e3ffe3b1c3397bb	test(security): cover exact PEP operation binding enforcement
-- 5d2188eef5b3a3de56fea18252ff19ffccbd9756	test(security): cover bound PDP authorization semantics
-- 5f74d7f5a26da93db3e18628cd4c69bd0b4c8e37	feat(security): enforce exact protected operation binding
-- b9f1ae941637d921e25d89b0d1c8623430dec2a1	feat(security): preserve exact binding through policy decisions
-- 8512b407338cec9208219f6ce59289cbe3852535	feat(security): export authorization operation binding
-- cc131c9941129c7969bb01edb91beba8a5459e7a	feat(security): audit exact authorization operation binding
-- 5ed57fef444745b4e36c72cd7fbae02dfa0eadb6	feat(security): add exact authorization operation binding
-- c0387e785bab8ec5fcffe2d80a01efc95f5e7d61	test(security): define RED audit binding expectations
-- 3c957f821d52e525e8aed4ae27dd836d5b3cd2ea	Merge pull request #138 from Aranwill/docs/adr-002-bound-authorization-amendment-20260915
-- 9a385cfdb2663bbf40a12e43ec9c21c61624b942	docs(adr): harden ADR-002 with bound authorization enforcement
-- 225c19ea7b5bd207bbabbd58e56294072037b940	Merge pull request #137 from Aranwill/docs/adr-002-bound-authorization-hardening-20260915
-- e30d03c139607245f27bd354994918e3f67ae5bc	docs(security): specify ADR-002 bound authorization hardening
+- 18aa1249861d3dda621acdf96714046748244b84	Merge pull request #142 from Aranwill/docs/adr-002-permission-operation-binding-amendment-20260915
+- 14b3c9983303035baaa72badc21d3810accae1e0	docs(adr): remove ChatGPT reviewer attribution
+- d9bac08cd051f9b378def1f34ae1a5a67e2838ec	docs(adr): harden ADR-002 with required permission binding
+- fc097df1161755d51a33709b044e6facceb993e4	Merge pull request #141 from Aranwill/docs/adr-002-permission-operation-binding-hardening-20260915
+- ca5d972732476645031a008c4d3630896cc2b0e2	docs(security): specify permission-operation binding hardening
 
 ### Evidencia que originó esta proyección
 
-- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-ADR-002-BOUND-AUTHORIZATION-ENFORCEMENT-HARDENING-G2.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-ADR-002-PERMISSION-OPERATION-BINDING-HARDENING-G2P-A.md`
 - `governance-change` por `docs/architecture/adr/ADR-002-policy-enforcement-boundary.md`
 <!-- MALAK_VAULT_SYNC:END -->
 
@@ -74,7 +62,7 @@ retrieval_scope: active
 > Estado machine-owned derivado de la fuente oficial.
 > No concede autoridad ni reemplaza decisiones humanas.
 
-- **HEAD oficial:** `75c04178049a4cd2d90680b27ae0921b39b4215e`
+- **HEAD oficial:** `18aa1249861d3dda621acdf96714046748244b84`
 - **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.11.md`
 - **Titulo declarado:** Sprint 7.11 — Reproducible Validation Pipeline Foundation
 - **Estado declarado:** `completado`

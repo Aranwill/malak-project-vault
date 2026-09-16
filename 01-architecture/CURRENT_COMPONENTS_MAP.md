@@ -28,10 +28,10 @@ tags:
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260915T233554760654Z_869ce248_ff1ec35c`
-- **HEAD oficial observado:** `869ce248f1b0bb9eafaae74ac6d82452590ad30d`
-- **Commit previamente observado:** `75c04178049a4cd2d90680b27ae0921b39b4215e`
-- **Generado:** `2026-09-15T23:35:54.760654+00:00`
+- **Run ID:** `20260916T000340446687Z_18aa1249_5779cbe7`
+- **HEAD oficial observado:** `18aa1249861d3dda621acdf96714046748244b84`
+- **Commit previamente observado:** `869ce248f1b0bb9eafaae74ac6d82452590ad30d`
+- **Generado:** `2026-09-16T00:03:40.446687+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
@@ -44,18 +44,16 @@ tags:
 
 ### Commits oficiales observados
 
-- 869ce248f1b0bb9eafaae74ac6d82452590ad30d	Merge pull request #140 from Aranwill/feat/g2b-episodic-persistence-readiness-20260915
-- 634a6f88a691c4f0e2bfccd3f9e54e849c87ea3d	fix(memory): harden readiness binding and upstream policy handling
-- e2f31fd4d15a4a12f98b3281c11afe203aedf056	test(memory): harden persistence readiness fail-closed invariants
-- dbccca2f17fd708b92477b1a4806fc740b223948	fix(memory): classify malformed persistence intent at readiness boundary
-- 9ee1c9a626152336b7d9f631a25b4a75094cb8c4	feat(memory): export episodic persistence readiness contracts
-- 4b44d38dd5185c555aa45172c3a5f3d2a5637030	feat(memory): implement episodic persistence readiness G2B
-- cda29d05606f1056e1cd4d79deeae73cd0ce0854	test(memory): define episodic persistence readiness G2B
+- 18aa1249861d3dda621acdf96714046748244b84	Merge pull request #142 from Aranwill/docs/adr-002-permission-operation-binding-amendment-20260915
+- 14b3c9983303035baaa72badc21d3810accae1e0	docs(adr): remove ChatGPT reviewer attribution
+- d9bac08cd051f9b378def1f34ae1a5a67e2838ec	docs(adr): harden ADR-002 with required permission binding
+- fc097df1161755d51a33709b044e6facceb993e4	Merge pull request #141 from Aranwill/docs/adr-002-permission-operation-binding-hardening-20260915
+- ca5d972732476645031a008c4d3630896cc2b0e2	docs(security): specify permission-operation binding hardening
 
 ### Evidencia que originó esta proyección
 
-- `architecture-change` por `src/malak/memory/__init__.py`
-- `architecture-change` por `src/malak/memory/episodic_persistence_readiness.py`
+- `architecture-change` por `docs/architecture/adr/ADR-002-policy-enforcement-boundary.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-ADR-002-PERMISSION-OPERATION-BINDING-HARDENING-G2P-A.md`
 <!-- MALAK_VAULT_SYNC:END -->
 
 <!-- MALAK_OPERATIONAL_STATE:START -->
@@ -64,7 +62,7 @@ tags:
 > Estado machine-owned derivado de la fuente oficial.
 > No concede autoridad ni reemplaza decisiones humanas.
 
-- **HEAD oficial:** `869ce248f1b0bb9eafaae74ac6d82452590ad30d`
+- **HEAD oficial:** `18aa1249861d3dda621acdf96714046748244b84`
 - **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.11.md`
 - **Titulo declarado:** Sprint 7.11 — Reproducible Validation Pipeline Foundation
 - **Estado declarado:** `completado`
