@@ -28,10 +28,10 @@ tags:
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260916T215756075915Z_59859241_ceb1bce2`
-- **HEAD oficial observado:** `59859241c1052301eec832d7805633e9aba2d5d2`
-- **Commit previamente observado:** `18aa1249861d3dda621acdf96714046748244b84`
-- **Generado:** `2026-09-16T21:57:56.075915+00:00`
+- **Run ID:** `20260916T230628458498Z_ed1b648c_b113f3c5`
+- **HEAD oficial observado:** `ed1b648c03acb40197d5eb7282a5f9babecd4073`
+- **Commit previamente observado:** `59859241c1052301eec832d7805633e9aba2d5d2`
+- **Generado:** `2026-09-16T23:06:28.458498+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
@@ -44,15 +44,16 @@ tags:
 
 ### Commits oficiales observados
 
-- 59859241c1052301eec832d7805633e9aba2d5d2	Merge pull request #143 from Aranwill/docs/remove-unauthorized-chatgpt-reviewer-attribution-20260916
-- 019560100b70e16ef76ab831ba9abfdb7947b14c	docs: remove unauthorized ChatGPT reviewer attribution
+- ed1b648c03acb40197d5eb7282a5f9babecd4073	Merge pull request #144 from Aranwill/test/g2p-a-permission-operation-binding-red-20260916
+- fb7625f84f8e518bfcc90be8c0d3ae4c9da9e205	feat(security): enforce operation permission binding
+- 01000c0bb5337e5f93fbe49ee331d0568476fc11	feat(security): record protected operation permission
+- 46c307023780eec7e5f266886cda8a72cc2a8722	test(security): define G2P-A permission enforcement RED contract
+- f2d95002c3de0dadfad1ad9dfba91edaf398efd9	test(security): define G2P-A audit RED contract
 
 ### Evidencia que originó esta proyección
 
-- `architecture-change` por `docs/architecture/adr/ADR-003-directional-communication-and-authority-flow.md`
-- `architecture-change` por `docs/architecture/adr/ADR-004-specification-and-verification-first.md`
-- `architecture-change` por `docs/architecture/adr/ADR-005-evidence-bound-final-response-transition.md`
-- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-CAL-014-ADR-006-CANDIDATE.md`
+- `architecture-change` por `src/malak/security/audit.py`
+- `architecture-change` por `src/malak/security/pep.py`
 <!-- MALAK_VAULT_SYNC:END -->
 
 <!-- MALAK_OPERATIONAL_STATE:START -->
@@ -61,7 +62,7 @@ tags:
 > Estado machine-owned derivado de la fuente oficial.
 > No concede autoridad ni reemplaza decisiones humanas.
 
-- **HEAD oficial:** `59859241c1052301eec832d7805633e9aba2d5d2`
+- **HEAD oficial:** `ed1b648c03acb40197d5eb7282a5f9babecd4073`
 - **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.11.md`
 - **Titulo declarado:** Sprint 7.11 — Reproducible Validation Pipeline Foundation
 - **Estado declarado:** `completado`

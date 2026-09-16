@@ -23,10 +23,10 @@ tags:
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260909T124638201108Z_10d6945d_4d016aa6`
-- **HEAD oficial observado:** `10d6945d6f19a61c9dc9724738545107b9148707`
-- **Commit previamente observado:** `6458fd98b3af16401d485495eb7cd1eae4b23881`
-- **Generado:** `2026-09-09T12:46:38.201108+00:00`
+- **Run ID:** `20260916T230628458498Z_ed1b648c_b113f3c5`
+- **HEAD oficial observado:** `ed1b648c03acb40197d5eb7282a5f9babecd4073`
+- **Commit previamente observado:** `59859241c1052301eec832d7805633e9aba2d5d2`
+- **Generado:** `2026-09-16T23:06:28.458498+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
@@ -39,23 +39,16 @@ tags:
 
 ### Commits oficiales observados
 
-- 10d6945d6f19a61c9dc9724738545107b9148707	Merge pull request #71 from Aranwill/docs/security-policy-context-map-20260909
-- c5ae605cbbea73552c7ec68b5e2f3338e8a95b19	Merge pull request #70 from Aranwill/docs/research-horizon-security-reconciliation-20260909
-- 590e0f60154663daad51c12e125ed152fd574ffd	docs: remove trailing whitespace from security header
-- 96fbfc2337112dc123e7c2bd2a563f9c84d4c810	docs: record security policy and context mapping reconciliation
-- c64eab525e4291068eb9ca76cc0f60d77a6f29c2	docs: clarify security policy authority and future capabilities
-- d07551d1d5be3252d5d1adbc316671e28fc50dab	docs: add security and research horizon PR checks
-- e9ea04ae88a7070d6a99a2b0eb54992b0384de67	docs: add security horizon checks to development checklist
-- 3c712317b4d31c353a2bb7a8e5ec8b542d73d5f8	docs: include security and research horizon in construction admission
-- cfeb9b40e92fc5ceb8772e1ca5af7f7f47045f8e	docs: make security and research horizon mandatory review inputs
-- 5f11b07e7a34d277a6fc4de4e331a99c164f1027	docs: reconcile active security policy with current architecture
-- e093ef3c654369bcbc0eae1dc1e0222edcf86a5b	docs: clarify world models vs autonomous self-modification
-- 91f24646b279fc96ae442dcbab63fed14842a517	docs: index Malak research horizon map
-- 0ec2f22a43b02eca53e427b4c8265f86aeefd4f0	docs: add Malak research horizon security reconciliation
+- ed1b648c03acb40197d5eb7282a5f9babecd4073	Merge pull request #144 from Aranwill/test/g2p-a-permission-operation-binding-red-20260916
+- fb7625f84f8e518bfcc90be8c0d3ae4c9da9e205	feat(security): enforce operation permission binding
+- 01000c0bb5337e5f93fbe49ee331d0568476fc11	feat(security): record protected operation permission
+- 46c307023780eec7e5f266886cda8a72cc2a8722	test(security): define G2P-A permission enforcement RED contract
+- f2d95002c3de0dadfad1ad9dfba91edaf398efd9	test(security): define G2P-A audit RED contract
 
 ### Evidencia que originó esta proyección
 
-- `security-change` por `SECURITY.md`
+- `security-change` por `src/malak/security/audit.py`
+- `security-change` por `src/malak/security/pep.py`
 <!-- MALAK_VAULT_SYNC:END -->
 
 <!-- MALAK_OPERATIONAL_STATE:START -->
@@ -64,7 +57,7 @@ tags:
 > Estado machine-owned derivado de la fuente oficial.
 > No concede autoridad ni reemplaza decisiones humanas.
 
-- **HEAD oficial:** `10d6945d6f19a61c9dc9724738545107b9148707`
+- **HEAD oficial:** `ed1b648c03acb40197d5eb7282a5f9babecd4073`
 - **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.11.md`
 - **Titulo declarado:** Sprint 7.11 — Reproducible Validation Pipeline Foundation
 - **Estado declarado:** `completado`
@@ -332,3 +325,5 @@ validación multiplataforma, el recovery operativo y la preservación de
 - [[07-audits/vault-synchronization/2026-09-16_VAULT_SYNC_20260916T000340446687Z_18aa1249_5779cbe7|Sincronización 20260916T000340446687Z_18aa1249_5779cbe7]]
 
 - [[07-audits/vault-synchronization/2026-09-16_VAULT_SYNC_20260916T215756075915Z_59859241_ceb1bce2|Sincronización 20260916T215756075915Z_59859241_ceb1bce2]]
+
+- [[07-audits/vault-synchronization/2026-09-16_VAULT_SYNC_20260916T230628458498Z_ed1b648c_b113f3c5|Sincronización 20260916T230628458498Z_ed1b648c_b113f3c5]]
