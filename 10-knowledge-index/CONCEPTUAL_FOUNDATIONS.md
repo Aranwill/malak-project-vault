@@ -25,10 +25,10 @@ retrieval_scope: active
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260916T000340446687Z_18aa1249_5779cbe7`
-- **HEAD oficial observado:** `18aa1249861d3dda621acdf96714046748244b84`
-- **Commit previamente observado:** `869ce248f1b0bb9eafaae74ac6d82452590ad30d`
-- **Generado:** `2026-09-16T00:03:40.446687+00:00`
+- **Run ID:** `20260916T215756075915Z_59859241_ceb1bce2`
+- **HEAD oficial observado:** `59859241c1052301eec832d7805633e9aba2d5d2`
+- **Commit previamente observado:** `18aa1249861d3dda621acdf96714046748244b84`
+- **Generado:** `2026-09-16T21:57:56.075915+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
@@ -41,15 +41,12 @@ retrieval_scope: active
 
 ### Commits oficiales observados
 
-- 18aa1249861d3dda621acdf96714046748244b84	Merge pull request #142 from Aranwill/docs/adr-002-permission-operation-binding-amendment-20260915
-- 14b3c9983303035baaa72badc21d3810accae1e0	docs(adr): remove ChatGPT reviewer attribution
-- d9bac08cd051f9b378def1f34ae1a5a67e2838ec	docs(adr): harden ADR-002 with required permission binding
-- fc097df1161755d51a33709b044e6facceb993e4	Merge pull request #141 from Aranwill/docs/adr-002-permission-operation-binding-hardening-20260915
-- ca5d972732476645031a008c4d3630896cc2b0e2	docs(security): specify permission-operation binding hardening
+- 59859241c1052301eec832d7805633e9aba2d5d2	Merge pull request #143 from Aranwill/docs/remove-unauthorized-chatgpt-reviewer-attribution-20260916
+- 019560100b70e16ef76ab831ba9abfdb7947b14c	docs: remove unauthorized ChatGPT reviewer attribution
 
 ### Evidencia que originó esta proyección
 
-- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-ADR-002-PERMISSION-OPERATION-BINDING-HARDENING-G2P-A.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-CAL-014-ADR-006-CANDIDATE.md`
 <!-- MALAK_VAULT_SYNC:END -->
 
 <!-- MALAK_OPERATIONAL_STATE:START -->
@@ -58,7 +55,7 @@ retrieval_scope: active
 > Estado machine-owned derivado de la fuente oficial.
 > No concede autoridad ni reemplaza decisiones humanas.
 
-- **HEAD oficial:** `18aa1249861d3dda621acdf96714046748244b84`
+- **HEAD oficial:** `59859241c1052301eec832d7805633e9aba2d5d2`
 - **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.11.md`
 - **Titulo declarado:** Sprint 7.11 — Reproducible Validation Pipeline Foundation
 - **Estado declarado:** `completado`
