@@ -28,10 +28,10 @@ retrieval_scope: active
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260916T230628458498Z_ed1b648c_b113f3c5`
-- **HEAD oficial observado:** `ed1b648c03acb40197d5eb7282a5f9babecd4073`
-- **Commit previamente observado:** `59859241c1052301eec832d7805633e9aba2d5d2`
-- **Generado:** `2026-09-16T23:06:28.458498+00:00`
+- **Run ID:** `20260917T230838502218Z_39366da0_6449d027`
+- **HEAD oficial observado:** `39366da01f793cf8f5d3856c47457954ee758925`
+- **Commit previamente observado:** `ed1b648c03acb40197d5eb7282a5f9babecd4073`
+- **Generado:** `2026-09-17T23:08:38.502218+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
@@ -44,20 +44,19 @@ retrieval_scope: active
 
 ### Commits oficiales observados
 
-- ed1b648c03acb40197d5eb7282a5f9babecd4073	Merge pull request #144 from Aranwill/test/g2p-a-permission-operation-binding-red-20260916
-- fb7625f84f8e518bfcc90be8c0d3ae4c9da9e205	feat(security): enforce operation permission binding
-- 01000c0bb5337e5f93fbe49ee331d0568476fc11	feat(security): record protected operation permission
-- 46c307023780eec7e5f266886cda8a72cc2a8722	test(security): define G2P-A permission enforcement RED contract
-- f2d95002c3de0dadfad1ad9dfba91edaf398efd9	test(security): define G2P-A audit RED contract
+- 39366da01f793cf8f5d3856c47457954ee758925	Merge pull request #146 from Aranwill/test/g2p-b-persistence-authorization-red-20260917
+- 293b4234aa7dca6c56a74c496421850c43156b4f	test(g2p-b): congelar preservación de created_at
+- 3e2d84f2b1ae16bd218d36164614df5558adf143	feat(g2p-b): componer solicitud de autorización de persistencia
+- b221c1c72654d8d6fd03429edb476065874c403a	test(g2p-b): definir RED de composición de autorización
+- af82f6e2200b00a5c1532f21dfc4122ea9676fa4	Merge pull request #145 from Aranwill/docs/g2p-b-persistence-authorization-composition-20260917
+- 86e1730fcd7bc5d7345b1e0425276cae449b3407	docs(g2p-b): endurecer fronteras de composición
+- 7a23058066ba28f8ac0bb60bb73bf86b15e1242a	docs: definir candidate de composición de autorización G2P-B
 
 ### Evidencia que originó esta proyección
 
-- `architecture-change` por `src/malak/security/audit.py`
-- `architecture-change` por `src/malak/security/pep.py`
-- `security-change` por `src/malak/security/audit.py`
-- `security-change` por `src/malak/security/pep.py`
-- `test-change` por `tests/test_authorization_audit.py`
-- `test-change` por `tests/test_policy_enforcement_point.py`
+- `architecture-change` por `src/malak/memory/episodic_persistence_authorization.py`
+- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-G2P-B-PERSISTENCE-AUTHORIZATION-COMPOSITION-DESIGN.md`
+- `test-change` por `tests/test_episodic_persistence_authorization.py`
 <!-- MALAK_VAULT_SYNC:END -->
 
 <!-- MALAK_OPERATIONAL_STATE:START -->
@@ -66,7 +65,7 @@ retrieval_scope: active
 > Estado machine-owned derivado de la fuente oficial.
 > No concede autoridad ni reemplaza decisiones humanas.
 
-- **HEAD oficial:** `ed1b648c03acb40197d5eb7282a5f9babecd4073`
+- **HEAD oficial:** `39366da01f793cf8f5d3856c47457954ee758925`
 - **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.11.md`
 - **Titulo declarado:** Sprint 7.11 — Reproducible Validation Pipeline Foundation
 - **Estado declarado:** `completado`
