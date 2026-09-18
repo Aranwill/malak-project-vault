@@ -2,9 +2,12 @@
 document_id: VAULT-SESSION-ENGINEERING-INTELLIGENCE-20260918
 title: Malāk Engineering Intelligence Alignment — Audit and Minimal Route
 document_type: session-context
-status: draft
+status: accepted
 authority: derived
 operational_authority: none
+approved: true
+approved_by: owner
+approved_at: 2026-09-18
 created: 2026-09-18
 last_reviewed: 2026-09-18
 source_repository: Aranwill/jarvis
