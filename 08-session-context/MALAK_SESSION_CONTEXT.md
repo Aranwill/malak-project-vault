@@ -27,10 +27,10 @@ retrieval_scope: active
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260919T151547477237Z_5b6660eb_a813d253`
-- **HEAD oficial observado:** `5b6660eba9e5617a59c17d7380dd6822e8c193a4`
-- **Commit previamente observado:** `14122dd2d0c94d1c2d5ba1a68b6ae43bcb1c2c9e`
-- **Generado:** `2026-09-19T15:15:47.477237+00:00`
+- **Run ID:** `20260919T154026582007Z_edbce978_c1d61e26`
+- **HEAD oficial observado:** `edbce978c4f851131e17e6f5ddcc5703621b74e0`
+- **Commit previamente observado:** `5b6660eba9e5617a59c17d7380dd6822e8c193a4`
+- **Generado:** `2026-09-19T15:40:26.582007+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
@@ -43,15 +43,15 @@ retrieval_scope: active
 
 ### Commits oficiales observados
 
-- 5b6660eba9e5617a59c17d7380dd6822e8c193a4	Merge pull request #153 from Aranwill/docs/d1-engineering-intelligence-e4-state-reconciliation-20260919
-- 697b78953cb4154f79d656e50c01f318e73a1170	docs(state): reconcile remaining E4 current-state blocks
-- 23b2a3c5a5096d84eea0d7d3ebf1607a1685bd7d	docs(state): correct remaining current E4 authorization state
-- 8d893d095f76a9c6510ef3dce2ba78f1c5ef0e7f	docs(state): reconcile Engineering Intelligence E4 current state
+- edbce978c4f851131e17e6f5ddcc5703621b74e0	Merge pull request #154 from Aranwill/docs/e5-engineering-cli-g0-g1-design-20260919
+- dd76a7df3caee1912d0633a13ad2f217e54cdd22	docs(e5): tighten adaptive CLI design scope
+- 3f3d5b52fa0894d23170acd7ce6f5e076a4ebafe	docs(e5): define adaptive Engineering CLI G0 G1 design
+- ff1559d828183e377895ceb445c221ef2e65aa14	docs(e5): add G0 coverage ledger
 
 ### Evidencia que originó esta proyección
 
-- `baseline-source-change` por `docs/project/implementation_roadmap.md`
-- `baseline-source-change` por `docs/project/project_context.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-E5-ENGINEERING-CLI-G0-G1-DESIGN.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-E5-G0-COVERAGE-LEDGER.md`
 <!-- MALAK_VAULT_SYNC:END -->
 
 <!-- MALAK_OPERATIONAL_STATE:START -->
@@ -60,7 +60,7 @@ retrieval_scope: active
 > Estado machine-owned derivado de la fuente oficial.
 > No concede autoridad ni reemplaza decisiones humanas.
 
-- **HEAD oficial:** `5b6660eba9e5617a59c17d7380dd6822e8c193a4`
+- **HEAD oficial:** `edbce978c4f851131e17e6f5ddcc5703621b74e0`
 - **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.11.md`
 - **Titulo declarado:** Sprint 7.11 — Reproducible Validation Pipeline Foundation
 - **Estado declarado:** `completado`
