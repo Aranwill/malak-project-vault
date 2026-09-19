@@ -27,10 +27,10 @@ retrieval_scope: active
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260919T140948435512Z_f0362ef7_4632ccab`
-- **HEAD oficial observado:** `f0362ef77d06ce7852851345295f374c57f4ddd3`
-- **Commit previamente observado:** `c48b72b7af95f1edc9bcd357f64aeb9d5a34f5c8`
-- **Generado:** `2026-09-19T14:09:48.435512+00:00`
+- **Run ID:** `20260919T144306795890Z_14122dd2_63db96ff`
+- **HEAD oficial observado:** `14122dd2d0c94d1c2d5ba1a68b6ae43bcb1c2c9e`
+- **Commit previamente observado:** `f0362ef77d06ce7852851345295f374c57f4ddd3`
+- **Generado:** `2026-09-19T14:43:06.795890+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
@@ -43,14 +43,19 @@ retrieval_scope: active
 
 ### Commits oficiales observados
 
-- f0362ef77d06ce7852851345295f374c57f4ddd3	Merge pull request #151 from Aranwill/docs/d0-engineering-intelligence-state-reconciliation-20260919
-- 9a402a686ad3c4b56985f787efb30dda3df0c5c1	docs(state): correct current Vault reconciliation reference
-- 6c79dc33fc967e8632b98860755dc06de18d2af9	docs(state): reconcile Engineering Intelligence E0-E3 current state
+- 14122dd2d0c94d1c2d5ba1a68b6ae43bcb1c2c9e	Merge pull request #152 from Aranwill/test/e4-engineering-propose-red-20260919
+- 3463f1c391f6a11de70a0d6ecfc37c4127da21cb	docs(e4): record GREEN authorization
+- e2978d541840a34dfbfbb72ea70eaf8ee259d190	feat(e4): add grounded engineering propose capability
+- 2cc25d07f23b01b260b3bb961198285de36a6ed2	test(e4): define engineering propose RED contract
+- b5141fa4566cd2173af286cd96e49761c83907b4	docs(e4): define engineering propose design
 
 ### Evidencia que originó esta proyección
 
-- `baseline-source-change` por `docs/project/implementation_roadmap.md`
-- `baseline-source-change` por `docs/project/project_context.md`
+- `architecture-change` por `src/malak/capabilities/_engineering_analysis.py`
+- `architecture-change` por `src/malak/capabilities/engineering_analyze.py`
+- `architecture-change` por `src/malak/capabilities/engineering_propose.py`
+- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-E4-ENGINEERING-PROPOSE-G0-G1-DESIGN.md`
+- `test-change` por `tests/test_engineering_propose.py`
 <!-- MALAK_VAULT_SYNC:END -->
 
 <!-- MALAK_OPERATIONAL_STATE:START -->
@@ -59,7 +64,7 @@ retrieval_scope: active
 > Estado machine-owned derivado de la fuente oficial.
 > No concede autoridad ni reemplaza decisiones humanas.
 
-- **HEAD oficial:** `f0362ef77d06ce7852851345295f374c57f4ddd3`
+- **HEAD oficial:** `14122dd2d0c94d1c2d5ba1a68b6ae43bcb1c2c9e`
 - **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.11.md`
 - **Titulo declarado:** Sprint 7.11 — Reproducible Validation Pipeline Foundation
 - **Estado declarado:** `completado`
@@ -366,7 +371,9 @@ Componentes documentados en el alcance representado:
 * `GovernedKnowledgeReader` — E1 Governed Knowledge Read;
 * `EngineeringInspectCapability` — E2 Engineering Inspect;
 * `EngineeringAnalyzeCapability` — E3 Engineering Analyze;
-* `collect_engineering_evidence(...)` — primitive privada compartida por E2/E3.
+* `EngineeringProposeCapability` — E4 Engineering Propose;
+* `collect_engineering_evidence(...)` — primitive privada compartida por E2–E4;
+* `_engineering_analysis.py` — primitive privada compartida por E3/E4.
 
 Estado bounded de Engineering Intelligence:
 
@@ -375,16 +382,18 @@ E0: INTEGRATED
 E1: INTEGRATED
 E2: INTEGRATED
 E3: INTEGRATED
-E4: DEFERRED / NOT AUTHORIZED
+E4: INTEGRATED
 E5: DEFERRED / NOT AUTHORIZED
 Planner/CLI engineering wiring: NOT IMPLEMENTED
 writes/tools/agents: NOT AUTHORIZED
 authority effect: NONE
 ```
 
-E0–E3 comparten un baseline Git capturado, preservan evidencia explícita y no
-convierten clasificación documental, inference, finding o análisis en autoridad.
-E2/E3 todavía no están integradas al routing productivo de Planner/CLI.
+E0–E4 comparten un baseline Git capturado, preservan evidencia explícita y no
+convierten clasificación documental, inference, finding, análisis o proposal en
+autoridad. E4 transforma únicamente findings elegibles grounded en propuestas
+bounded para revisión humana. E2/E3/E4 todavía no están integradas al routing
+productivo de Planner/CLI.
 
 La integración de estas fronteras no autoriza Memory persistente,
 productores runtime de assurance signals, Conversation G2B, Sprint 7.12 ni
@@ -937,7 +946,7 @@ Sin sprint aprobado:
 
 * Resource Governance Foundation;
 * Model Governance Foundation;
-* Controlled Engineering Improvement Loop Foundation — la foundation integral permanece futura; E0–E3 están integrados como vertical bounded y E4/E5 continúan no autorizados;
+* Controlled Engineering Improvement Loop Foundation — la foundation integral permanece futura; E0–E4 están integrados como vertical bounded y E5 continúa no autorizado;
 * Development Tooling Foundation;
 * Evidence Acquisition Foundation;
 * Secure Context Manager;

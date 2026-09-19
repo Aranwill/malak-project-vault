@@ -27,10 +27,10 @@ retrieval_scope: active
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260919T140948435512Z_f0362ef7_4632ccab`
-- **HEAD oficial observado:** `f0362ef77d06ce7852851345295f374c57f4ddd3`
-- **Commit previamente observado:** `c48b72b7af95f1edc9bcd357f64aeb9d5a34f5c8`
-- **Generado:** `2026-09-19T14:09:48.435512+00:00`
+- **Run ID:** `20260919T144306795890Z_14122dd2_63db96ff`
+- **HEAD oficial observado:** `14122dd2d0c94d1c2d5ba1a68b6ae43bcb1c2c9e`
+- **Commit previamente observado:** `f0362ef77d06ce7852851345295f374c57f4ddd3`
+- **Generado:** `2026-09-19T14:43:06.795890+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
@@ -43,14 +43,15 @@ retrieval_scope: active
 
 ### Commits oficiales observados
 
-- f0362ef77d06ce7852851345295f374c57f4ddd3	Merge pull request #151 from Aranwill/docs/d0-engineering-intelligence-state-reconciliation-20260919
-- 9a402a686ad3c4b56985f787efb30dda3df0c5c1	docs(state): correct current Vault reconciliation reference
-- 6c79dc33fc967e8632b98860755dc06de18d2af9	docs(state): reconcile Engineering Intelligence E0-E3 current state
+- 14122dd2d0c94d1c2d5ba1a68b6ae43bcb1c2c9e	Merge pull request #152 from Aranwill/test/e4-engineering-propose-red-20260919
+- 3463f1c391f6a11de70a0d6ecfc37c4127da21cb	docs(e4): record GREEN authorization
+- e2978d541840a34dfbfbb72ea70eaf8ee259d190	feat(e4): add grounded engineering propose capability
+- 2cc25d07f23b01b260b3bb961198285de36a6ed2	test(e4): define engineering propose RED contract
+- b5141fa4566cd2173af286cd96e49761c83907b4	docs(e4): define engineering propose design
 
 ### Evidencia que originó esta proyección
 
-- `baseline-source-change` por `docs/project/implementation_roadmap.md`
-- `baseline-source-change` por `docs/project/project_context.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-E4-ENGINEERING-PROPOSE-G0-G1-DESIGN.md`
 <!-- MALAK_VAULT_SYNC:END -->
 
 <!-- MALAK_OPERATIONAL_STATE:START -->
@@ -59,7 +60,7 @@ retrieval_scope: active
 > Estado machine-owned derivado de la fuente oficial.
 > No concede autoridad ni reemplaza decisiones humanas.
 
-- **HEAD oficial:** `f0362ef77d06ce7852851345295f374c57f4ddd3`
+- **HEAD oficial:** `14122dd2d0c94d1c2d5ba1a68b6ae43bcb1c2c9e`
 - **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.11.md`
 - **Titulo declarado:** Sprint 7.11 — Reproducible Validation Pipeline Foundation
 - **Estado declarado:** `completado`
@@ -285,7 +286,7 @@ El mapa representa:
 - la cadena episódica aislada Admission → Provenance → Producer Authorization → Governed Projection → Consumption;
 - G2A Protected Finalization como foundation aislada, sin wiring conversacional;
 - G2 Assurance Signal Authority & Projection como foundation aislada, sin producers runtime ni wiring conversacional;
-- la vertical bounded de Engineering Intelligence E0–E3: Repository Read → Governed Knowledge Read → Inspect / Analyze.
+- la vertical bounded de Engineering Intelligence E0–E4: Repository Read → Governed Knowledge Read → Inspect / Analyze → Propose.
 
 El subsistema conversacional está integrado de forma indirecta y desacoplada:
 la CLI enruta mediante `Kernel.receive()`, mientras `ConversationCapability`
@@ -299,7 +300,7 @@ E0 Repository Read          INTEGRATED
 E1 Governed Knowledge Read  INTEGRATED
 E2 Engineering Inspect      INTEGRATED
 E3 Engineering Analyze      INTEGRATED
-E4 Engineering Propose      DEFERRED / NOT AUTHORIZED
+E4 Engineering Propose      INTEGRATED
 E5 CLI Integration          DEFERRED / NOT AUTHORIZED
 ```
 
@@ -309,8 +310,12 @@ Fuentes runtime principales:
 Aranwill/jarvis/src/malak/infrastructure/repository_reader.py
 Aranwill/jarvis/src/malak/knowledge/knowledge_reader.py
 Aranwill/jarvis/src/malak/capabilities/_engineering_evidence.py
+Aranwill/jarvis/src/malak/capabilities/_engineering_analysis.py
 Aranwill/jarvis/src/malak/capabilities/engineering_inspect.py
 Aranwill/jarvis/src/malak/capabilities/engineering_analyze.py
+Aranwill/jarvis/src/malak/capabilities/engineering_propose.py
+Aranwill/jarvis/tests/test_engineering_propose.py
+Aranwill/jarvis/docs/project/sprints/proposals/MALAK-E4-ENGINEERING-PROPOSE-G0-G1-DESIGN.md
 ```
 
 Contexto histórico de la ruta que originó E0–E5:
@@ -318,8 +323,9 @@ Contexto histórico de la ruta que originó E0–E5:
 - [[08-session-context/ENGINEERING_INTELLIGENCE_ALIGNMENT_20260918|Engineering Intelligence Alignment — Audit and Minimal Route]]
 
 Ese documento permanece anclado al baseline histórico `39366da0`; no debe
-reescribirse para representar el estado actual. La implementación E0–E3 tampoco
-autoriza E4/E5, agents, tools, writes ni un runtime autónomo de ingeniería.
+reescribirse para representar el estado actual. La implementación E0–E4 no
+autoriza E5, agents, tools, writes, un runtime autónomo de ingeniería ni
+ejecución. E4 produce únicamente proposals bounded para revisión humana.
 
 Contenido futuro previsto:
 

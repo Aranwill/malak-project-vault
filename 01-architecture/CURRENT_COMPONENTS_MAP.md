@@ -28,10 +28,10 @@ tags:
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260919T140948435512Z_f0362ef7_4632ccab`
-- **HEAD oficial observado:** `f0362ef77d06ce7852851345295f374c57f4ddd3`
-- **Commit previamente observado:** `c48b72b7af95f1edc9bcd357f64aeb9d5a34f5c8`
-- **Generado:** `2026-09-19T14:09:48.435512+00:00`
+- **Run ID:** `20260919T144306795890Z_14122dd2_63db96ff`
+- **HEAD oficial observado:** `14122dd2d0c94d1c2d5ba1a68b6ae43bcb1c2c9e`
+- **Commit previamente observado:** `f0362ef77d06ce7852851345295f374c57f4ddd3`
+- **Generado:** `2026-09-19T14:43:06.795890+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
@@ -44,14 +44,18 @@ tags:
 
 ### Commits oficiales observados
 
-- f0362ef77d06ce7852851345295f374c57f4ddd3	Merge pull request #151 from Aranwill/docs/d0-engineering-intelligence-state-reconciliation-20260919
-- 9a402a686ad3c4b56985f787efb30dda3df0c5c1	docs(state): correct current Vault reconciliation reference
-- 6c79dc33fc967e8632b98860755dc06de18d2af9	docs(state): reconcile Engineering Intelligence E0-E3 current state
+- 14122dd2d0c94d1c2d5ba1a68b6ae43bcb1c2c9e	Merge pull request #152 from Aranwill/test/e4-engineering-propose-red-20260919
+- 3463f1c391f6a11de70a0d6ecfc37c4127da21cb	docs(e4): record GREEN authorization
+- e2978d541840a34dfbfbb72ea70eaf8ee259d190	feat(e4): add grounded engineering propose capability
+- 2cc25d07f23b01b260b3bb961198285de36a6ed2	test(e4): define engineering propose RED contract
+- b5141fa4566cd2173af286cd96e49761c83907b4	docs(e4): define engineering propose design
 
 ### Evidencia que originó esta proyección
 
-- `baseline-source-change` por `docs/project/implementation_roadmap.md`
-- `baseline-source-change` por `docs/project/project_context.md`
+- `architecture-change` por `src/malak/capabilities/_engineering_analysis.py`
+- `architecture-change` por `src/malak/capabilities/engineering_analyze.py`
+- `architecture-change` por `src/malak/capabilities/engineering_propose.py`
+- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-E4-ENGINEERING-PROPOSE-G0-G1-DESIGN.md`
 <!-- MALAK_VAULT_SYNC:END -->
 
 <!-- MALAK_OPERATIONAL_STATE:START -->
@@ -60,7 +64,7 @@ tags:
 > Estado machine-owned derivado de la fuente oficial.
 > No concede autoridad ni reemplaza decisiones humanas.
 
-- **HEAD oficial:** `f0362ef77d06ce7852851345295f374c57f4ddd3`
+- **HEAD oficial:** `14122dd2d0c94d1c2d5ba1a68b6ae43bcb1c2c9e`
 - **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.11.md`
 - **Titulo declarado:** Sprint 7.11 — Reproducible Validation Pipeline Foundation
 - **Estado declarado:** `completado`
@@ -103,7 +107,9 @@ Este mapa cubre las siguientes fronteras verificadas:
 - `GovernedKnowledgeReader` — E1 Governed Knowledge Read, con clasificación documental explícita.
 - `EngineeringInspectCapability` — E2 Engineering Inspect, inspección grounded y acotada.
 - `EngineeringAnalyzeCapability` — E3 Engineering Analyze, comparación grounded entre evidencia de repositorio y conocimiento gobernado.
-- `collect_engineering_evidence(...)` — primitive privada compartida por E2 y E3 para recopilar evidencia determinista y bounded.
+- `EngineeringProposeCapability` — E4 Engineering Propose, generación read-only de propuestas bounded para revisión humana.
+- `collect_engineering_evidence(...)` — primitive privada compartida por E2–E4 para recopilar evidencia determinista y bounded.
+- `_engineering_analysis.py` — primitive privada compartida por E3/E4 para análisis estructurado grounded.
 
 Quedan fuera de alcance:
 
@@ -114,7 +120,6 @@ Quedan fuera de alcance:
 - componentes propuestos en el roadmap;
 - productores runtime de assurance signals todavía no autorizados;
 - wiring de Protected Finalization con Conversation;
-- E4 Engineering Propose;
 - E5 integración CLI del vertical de Engineering Intelligence;
 - un runtime genérico/autónomo de Engineering Intelligence;
 - agents, tools, writes o ejecución externa para el vertical de ingeniería.
@@ -153,10 +158,11 @@ policy antes de proyectar un `ProtectedFinalizationInput`. Permanece puro,
 same-process y aislado de Conversation.
 
 Después de ese baseline se integró una vertical acotada de Engineering
-Intelligence mediante E0–E3. Estas unidades permiten observar un snapshot Git
-exacto, recuperar conocimiento clasificado, inspeccionar evidencia y producir
-análisis grounded. La integración no añadió routing productivo en Planner/CLI,
-writes, tools, agents ni autoridad operacional.
+Intelligence mediante E0–E4. Estas unidades permiten observar un snapshot Git
+exacto, recuperar conocimiento clasificado, inspeccionar evidencia, producir
+análisis grounded y transformar findings elegibles en propuestas técnicas
+bounded para revisión humana. La integración no añadió routing productivo en
+Planner/CLI, writes, tools, agents ni autoridad operacional.
 
 ## 2. Referencia operativa del mapa
 
@@ -640,7 +646,7 @@ docs/project/sprints/proposals/MALAK-ASSURANCE-SIGNAL-BOUNDARY-G2-IMPLEMENTATION
 
 ---
 
-### Engineering Intelligence — E0–E3 bounded vertical
+### Engineering Intelligence — E0–E4 bounded vertical
 
 Estado verificado:
 
@@ -649,7 +655,7 @@ E0 Repository Read          INTEGRATED
 E1 Governed Knowledge Read  INTEGRATED
 E2 Engineering Inspect      INTEGRATED
 E3 Engineering Analyze      INTEGRATED
-E4 Engineering Propose      DEFERRED / NOT AUTHORIZED
+E4 Engineering Propose      INTEGRATED
 E5 CLI Integration          DEFERRED / NOT AUTHORIZED
 ```
 
@@ -661,14 +667,19 @@ GitRepositoryReader
 GovernedKnowledgeReader
         ↓
 collect_engineering_evidence(...)
-        ├──────────────────────┐
-        ↓                      ↓
-EngineeringInspectCapability  EngineeringAnalyzeCapability
-        ↓                      ↓
-grounded inspection           grounded findings
-        └──────────┬───────────┘
-                   ↓
-             human consumer
+        ├─────────────────────────────┐
+        ↓                             ↓
+EngineeringInspectCapability   _engineering_analysis.py
+        ↓                             ↓
+grounded inspection            structured grounded analysis
+                                      ├──────────────────────┐
+                                      ↓                      ↓
+                         EngineeringAnalyzeCapability  EngineeringProposeCapability
+                                      ↓                      ↓
+                               grounded findings       bounded proposals
+                                      └──────────┬───────────┘
+                                                 ↓
+                                               Owner
 ```
 
 E0 captura un snapshot Git exacto y expone lectura/búsqueda acotadas sobre
@@ -676,25 +687,32 @@ objetos del commit capturado. E1 clasifica únicamente fuentes documentales
 reconocidas y preserva `source_class` / `authority_class` sin convertir esa
 metadata en permiso.
 
-E2 y E3 reutilizan una primitive privada compartida para recopilar evidencia
-bounded. E2 produce inspección read-only y E3 admite exclusivamente
-`ALIGNED | PARTIAL | GAP | CONTRADICTION | UNRESOLVED`, manteniendo referencias
-a evidencia explícitas. Ante evidencia insuficiente o truncada relevante, el
-vertical degrada a resultados no confirmados/fail-closed según el contrato
-correspondiente.
+E2–E4 reutilizan una primitive privada compartida para recopilar evidencia
+bounded. E2 produce inspección read-only. E3 y E4 comparten una primitive privada
+de análisis estructurado; E3 admite exclusivamente
+`ALIGNED | PARTIAL | GAP | CONTRADICTION | UNRESOLVED`, mientras E4 solo puede
+generar una propuesta adicional cuando existen findings grounded `GAP` o
+`PARTIAL` y no hay `UNRESOLVED` ni `CONTRADICTION`. Ante evidencia
+insuficiente o truncada relevante, el vertical degrada a resultados
+no confirmados/fail-closed según el contrato correspondiente.
 
-La integración E0–E3 no implica:
+La integración E0–E4 no implica:
 
 ```text
 analysis = decision
 finding = authorization
+proposal = decision
+proposal = authorization
+proposal = implementation
+proposal = execution
 evidence = authority
 capability = planner/CLI wiring
 integrated primitive = autonomous engineering runtime
 ```
 
-No existe E4, E5, escritura de repositorio, generic tool runner, agents ni
-ejecución externa autorizada por esta vertical.
+No existe E5, wiring productivo de ingeniería en Planner/CLI, escritura de
+repositorio, generic tool runner, agents ni ejecución externa autorizada por
+esta vertical.
 
 ## 4. Flujo implementado
 
@@ -830,10 +848,10 @@ Este mapa no afirma:
 - que G2A esté conectado a Conversation;
 - que existan productores runtime autorizados de assurance signals;
 - que Signal Boundary G2 o Conversation G2B estén autorizados;
-- que E2/E3 estén cableadas al Planner o a la CLI productiva;
-- que exista E4 Engineering Propose o E5 CLI Integration;
+- que E2/E3/E4 estén cableadas al Planner o a la CLI productiva;
+- que exista E5 CLI Integration;
 - que Engineering Intelligence pueda escribir, ejecutar tools o crear agents;
-- que un finding o análisis conceda autoridad.
+- que un finding, análisis o proposal conceda autoridad.
 
 ## 9. Hallazgos arquitectónicos descriptivos
 
@@ -861,9 +879,10 @@ Sin convertirlos en decisiones nuevas, el código observado muestra:
 - ausencia de persistencia y wiring conversacional en la cadena episódica;
 - G2A determinista aislada de Conversation y sin autoridad para producir sus propios signals;
 - E0 y E1 preservan un mismo baseline commit-bound para repositorio y conocimiento gobernado;
-- E2 y E3 consumen evidencia compartida bounded sin convertirla en autoridad;
+- E2–E4 consumen evidencia compartida bounded sin convertirla en autoridad;
 - E3 exige binding de evidence refs para findings grounded y mantiene incertidumbre explícita;
-- ausencia de Planner/CLI wiring, E4/E5, writes, tools, agents y ampliación automática de autoridad.
+- E4 exige binding `proposal → finding → evidence`, bloquea `UNRESOLVED` y `CONTRADICTION`, y devuelve la propuesta al Owner;
+- ausencia de Planner/CLI wiring, E5, writes, tools, agents y ampliación automática de autoridad.
 
 ## 10. Fuentes oficiales
 
@@ -875,8 +894,10 @@ Sin convertirlos en decisiones nuevas, el código observado muestra:
 - `src/malak/capabilities/echo.py`
 - `src/malak/capabilities/conversation.py`
 - `src/malak/capabilities/_engineering_evidence.py`
+- `src/malak/capabilities/_engineering_analysis.py`
 - `src/malak/capabilities/engineering_inspect.py`
 - `src/malak/capabilities/engineering_analyze.py`
+- `src/malak/capabilities/engineering_propose.py`
 - `src/malak/infrastructure/repository_reader.py`
 - `src/malak/knowledge/__init__.py`
 - `src/malak/knowledge/knowledge_reader.py`
@@ -912,10 +933,12 @@ Sin convertirlos en decisiones nuevas, el código observado muestra:
 - `tests/test_knowledge_reader.py`
 - `tests/test_engineering_inspect.py`
 - `tests/test_engineering_analyze.py`
+- `tests/test_engineering_propose.py`
 - `docs/project/sprints/proposals/MALAK-E0-REPOSITORY-READ-PROOF-G0-G1-DESIGN.md`
 - `docs/project/sprints/proposals/MALAK-E1-GOVERNED-KNOWLEDGE-READ-G0-G1-DESIGN.md`
 - `docs/project/sprints/proposals/MALAK-E2-ENGINEERING-INSPECT-G0-G1-DESIGN.md`
 - `docs/project/sprints/proposals/MALAK-E3-ENGINEERING-ANALYZE-G0-G1-DESIGN.md`
+- `docs/project/sprints/proposals/MALAK-E4-ENGINEERING-PROPOSE-G0-G1-DESIGN.md`
 - `docs/architecture/adr/ADR-002-policy-enforcement-boundary.md`
 - `docs/project/sprints/SPRINT-7.4.md`
 - `docs/project/sprints/SPRINT-7.5.md`
