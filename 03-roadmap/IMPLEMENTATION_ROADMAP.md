@@ -1121,14 +1121,14 @@ E0 Repository Read: integrado
 E1 Governed Knowledge Read: integrado
 E2 Engineering Inspect: integrado
 E3 Engineering Analyze: integrado
-E4 Engineering Propose: deferred / no autorizado
+E4 Engineering Propose: integrado
 E5 CLI Integration: deferred / no autorizado
 ```
 
-Los incrementos E0–E3 materializan únicamente una vertical cognitiva bounded de
-lectura, evidencia, inspección y análisis. No constituyen por sí mismos el
-Controlled Engineering Improvement Loop completo y no habilitan automodificación,
-writes, tools, agents, ejecución de cambios ni autoridad operacional.
+Los incrementos E0–E4 materializan una vertical bounded de lectura, evidencia,
+inspección, análisis y propuesta. No constituyen por sí mismos el Controlled
+Engineering Improvement Loop completo y no habilitan automodificación, writes,
+tools, agents, ejecución de cambios ni autoridad operacional.
 
 Ubicación recomendada:
 
@@ -1144,7 +1144,7 @@ Principios:
 
 > La evidencia puede originar una propuesta; solamente la gobernanza puede convertirla en una modificación.
 
-Baseline materializado hasta E3:
+Baseline materializado hasta E4:
 
 ```text
 GitRepositoryReader
@@ -1152,18 +1152,23 @@ GitRepositoryReader
 GovernedKnowledgeReader
         ↓
 bounded shared evidence
-        ├───────────────┐
-        ↓               ↓
-Engineering Inspect   Engineering Analyze
-        ↓               ↓
-      findings / grounded analysis
-                ↓
-              Owner
+        ├──────────────────────┐
+        ↓                      ↓
+Engineering Inspect    structured analysis
+                               ├────────────────┐
+                               ↓                ↓
+                      Engineering Analyze  Engineering Propose
+                               ↓                ↓
+                         grounded findings  bounded proposals
+                               └────────┬───────┘
+                                        ↓
+                                      Owner
 ```
 
-La siguiente unidad E4 no se deduce automáticamente del cierre de E3. Requiere
-una nueva admission review y autorización explícita antes de diseñarse o
-implementarse.
+E4 fue admitido, diseñado, validado e integrado mediante una autorización humana
+separada. La siguiente unidad E5 no se deduce automáticamente del cierre de E4 y
+requiere una nueva admission review y autorización explícita antes de diseñarse
+o implementarse.
 
 Alcance conceptual:
 

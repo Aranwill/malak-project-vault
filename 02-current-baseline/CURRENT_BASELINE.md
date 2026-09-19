@@ -1218,7 +1218,7 @@ docs/project/sprints/proposals/MALAK-ASSURANCE-SIGNAL-AUTHORITY-G0-G1-DESIGN.md
 
 ---
 
-### 8.25 Engineering Intelligence — E0–E3 bounded vertical
+### 8.25 Engineering Intelligence — E0–E4 bounded vertical
 
 Estado:
 
@@ -1227,7 +1227,7 @@ E0 Repository Read          implementado e integrado
 E1 Governed Knowledge Read  implementado e integrado
 E2 Engineering Inspect      implementado e integrado
 E3 Engineering Analyze      implementado e integrado
-E4 Engineering Propose      deferred / no autorizado
+E4 Engineering Propose      implementado e integrado
 E5 CLI Integration          deferred / no autorizado
 ```
 
@@ -1240,16 +1240,20 @@ Clasifica un conjunto acotado de fuentes mediante `source_class` y
 `authority_class`; esas clases son roles documentales y no conceden permiso,
 verdad ni autoridad operacional.
 
-E2 y E3 son Capabilities separadas que reutilizan
-`collect_engineering_evidence(...)` como primitive privada compartida:
+E2–E4 son Capabilities separadas que reutilizan
+`collect_engineering_evidence(...)` como primitive privada compartida. E3 y E4
+comparten además `_engineering_analysis.py` para análisis estructurado:
 
 ```text
 Repository evidence + Governed Knowledge
                  ↓
        bounded evidence bundle
-          ├──────────────┐
-          ↓              ↓
-   Engineering Inspect  Engineering Analyze
+          ├────────────────────────┐
+          ↓                        ↓
+   Engineering Inspect     structured analysis
+                                   ├──────────────┐
+                                   ↓              ↓
+                          Engineering Analyze  Engineering Propose
 ```
 
 E2 realiza como máximo una inferencia stateless sobre evidencia previamente
@@ -1261,9 +1265,11 @@ ALIGNED | PARTIAL | GAP | CONTRADICTION | UNRESOLVED
 ```
 
 Los findings deben estar ligados a evidence refs válidos; las clasificaciones
-relacionales requieren evidencia de repositorio y conocimiento. Evidencia
-insuficiente o contexto materialmente truncado no se convierte en una
-conclusión autorizada.
+relacionales requieren evidencia de repositorio y conocimiento. E4 solo habilita
+una inferencia adicional de propuesta ante `GAP` o `PARTIAL` grounded, bloquea
+`UNRESOLVED` y `CONTRADICTION`, y valida la cadena
+`proposal → finding → evidence`. Evidencia insuficiente o contexto materialmente
+truncado no se convierte en una conclusión ni propuesta autorizada.
 
 Separaciones vigentes:
 
@@ -1271,11 +1277,15 @@ Separaciones vigentes:
 Evidence != Authority
 Analysis != Decision
 Finding != Authorization
+Proposal != Decision
+Proposal != Authorization
+Proposal != Implementation Packet
+Proposal != Execution
 Integrated Capability != Planner/CLI wiring
-Engineering Intelligence E0–E3 != autonomous self-improvement
+Engineering Intelligence E0–E4 != autonomous self-improvement
 ```
 
-No existe wiring productivo de E2/E3 con Planner o CLI, ni E4, E5, writes,
+No existe wiring productivo de E2/E3/E4 con Planner o CLI, ni E5, writes,
 generic tool runner, agents o ejecución externa dentro de esta vertical.
 
 Fuentes principales:
@@ -1284,12 +1294,16 @@ Fuentes principales:
 src/malak/infrastructure/repository_reader.py
 src/malak/knowledge/knowledge_reader.py
 src/malak/capabilities/_engineering_evidence.py
+src/malak/capabilities/_engineering_analysis.py
 src/malak/capabilities/engineering_inspect.py
 src/malak/capabilities/engineering_analyze.py
+src/malak/capabilities/engineering_propose.py
 tests/test_repository_reader.py
 tests/test_knowledge_reader.py
 tests/test_engineering_inspect.py
 tests/test_engineering_analyze.py
+tests/test_engineering_propose.py
+docs/project/sprints/proposals/MALAK-E4-ENGINEERING-PROPOSE-G0-G1-DESIGN.md
 ```
 
 ---
@@ -1432,9 +1446,8 @@ Todavía no forman parte del baseline operativo:
 * productores runtime autorizados de assurance signals;
 * Sprint 7.12;
 * RDD Stage 2;
-* E4 Engineering Propose;
 * E5 Engineering CLI Integration;
-* runtime genérico o autónomo de Engineering Intelligence por encima de E0–E3.
+* runtime genérico o autónomo de Engineering Intelligence por encima de E0–E4.
 
 ---
 

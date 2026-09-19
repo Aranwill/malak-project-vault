@@ -371,7 +371,9 @@ Componentes documentados en el alcance representado:
 * `GovernedKnowledgeReader` — E1 Governed Knowledge Read;
 * `EngineeringInspectCapability` — E2 Engineering Inspect;
 * `EngineeringAnalyzeCapability` — E3 Engineering Analyze;
-* `collect_engineering_evidence(...)` — primitive privada compartida por E2/E3.
+* `EngineeringProposeCapability` — E4 Engineering Propose;
+* `collect_engineering_evidence(...)` — primitive privada compartida por E2–E4;
+* `_engineering_analysis.py` — primitive privada compartida por E3/E4.
 
 Estado bounded de Engineering Intelligence:
 
@@ -380,16 +382,18 @@ E0: INTEGRATED
 E1: INTEGRATED
 E2: INTEGRATED
 E3: INTEGRATED
-E4: DEFERRED / NOT AUTHORIZED
+E4: INTEGRATED
 E5: DEFERRED / NOT AUTHORIZED
 Planner/CLI engineering wiring: NOT IMPLEMENTED
 writes/tools/agents: NOT AUTHORIZED
 authority effect: NONE
 ```
 
-E0–E3 comparten un baseline Git capturado, preservan evidencia explícita y no
-convierten clasificación documental, inference, finding o análisis en autoridad.
-E2/E3 todavía no están integradas al routing productivo de Planner/CLI.
+E0–E4 comparten un baseline Git capturado, preservan evidencia explícita y no
+convierten clasificación documental, inference, finding, análisis o proposal en
+autoridad. E4 transforma únicamente findings elegibles grounded en propuestas
+bounded para revisión humana. E2/E3/E4 todavía no están integradas al routing
+productivo de Planner/CLI.
 
 La integración de estas fronteras no autoriza Memory persistente,
 productores runtime de assurance signals, Conversation G2B, Sprint 7.12 ni
@@ -942,7 +946,7 @@ Sin sprint aprobado:
 
 * Resource Governance Foundation;
 * Model Governance Foundation;
-* Controlled Engineering Improvement Loop Foundation — la foundation integral permanece futura; E0–E3 están integrados como vertical bounded y E4/E5 continúan no autorizados;
+* Controlled Engineering Improvement Loop Foundation — la foundation integral permanece futura; E0–E4 están integrados como vertical bounded y E5 continúa no autorizado;
 * Development Tooling Foundation;
 * Evidence Acquisition Foundation;
 * Secure Context Manager;

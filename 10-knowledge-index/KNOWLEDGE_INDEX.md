@@ -286,7 +286,7 @@ El mapa representa:
 - la cadena episódica aislada Admission → Provenance → Producer Authorization → Governed Projection → Consumption;
 - G2A Protected Finalization como foundation aislada, sin wiring conversacional;
 - G2 Assurance Signal Authority & Projection como foundation aislada, sin producers runtime ni wiring conversacional;
-- la vertical bounded de Engineering Intelligence E0–E3: Repository Read → Governed Knowledge Read → Inspect / Analyze.
+- la vertical bounded de Engineering Intelligence E0–E4: Repository Read → Governed Knowledge Read → Inspect / Analyze → Propose.
 
 El subsistema conversacional está integrado de forma indirecta y desacoplada:
 la CLI enruta mediante `Kernel.receive()`, mientras `ConversationCapability`
@@ -300,7 +300,7 @@ E0 Repository Read          INTEGRATED
 E1 Governed Knowledge Read  INTEGRATED
 E2 Engineering Inspect      INTEGRATED
 E3 Engineering Analyze      INTEGRATED
-E4 Engineering Propose      DEFERRED / NOT AUTHORIZED
+E4 Engineering Propose      INTEGRATED
 E5 CLI Integration          DEFERRED / NOT AUTHORIZED
 ```
 
@@ -310,8 +310,12 @@ Fuentes runtime principales:
 Aranwill/jarvis/src/malak/infrastructure/repository_reader.py
 Aranwill/jarvis/src/malak/knowledge/knowledge_reader.py
 Aranwill/jarvis/src/malak/capabilities/_engineering_evidence.py
+Aranwill/jarvis/src/malak/capabilities/_engineering_analysis.py
 Aranwill/jarvis/src/malak/capabilities/engineering_inspect.py
 Aranwill/jarvis/src/malak/capabilities/engineering_analyze.py
+Aranwill/jarvis/src/malak/capabilities/engineering_propose.py
+Aranwill/jarvis/tests/test_engineering_propose.py
+Aranwill/jarvis/docs/project/sprints/proposals/MALAK-E4-ENGINEERING-PROPOSE-G0-G1-DESIGN.md
 ```
 
 Contexto histórico de la ruta que originó E0–E5:
@@ -319,8 +323,9 @@ Contexto histórico de la ruta que originó E0–E5:
 - [[08-session-context/ENGINEERING_INTELLIGENCE_ALIGNMENT_20260918|Engineering Intelligence Alignment — Audit and Minimal Route]]
 
 Ese documento permanece anclado al baseline histórico `39366da0`; no debe
-reescribirse para representar el estado actual. La implementación E0–E3 tampoco
-autoriza E4/E5, agents, tools, writes ni un runtime autónomo de ingeniería.
+reescribirse para representar el estado actual. La implementación E0–E4 no
+autoriza E5, agents, tools, writes, un runtime autónomo de ingeniería ni
+ejecución. E4 produce únicamente proposals bounded para revisión humana.
 
 Contenido futuro previsto:
 
