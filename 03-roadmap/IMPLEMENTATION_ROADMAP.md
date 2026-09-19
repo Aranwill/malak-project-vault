@@ -28,10 +28,10 @@ retrieval_scope: active
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260919T154026582007Z_edbce978_c1d61e26`
-- **HEAD oficial observado:** `edbce978c4f851131e17e6f5ddcc5703621b74e0`
-- **Commit previamente observado:** `5b6660eba9e5617a59c17d7380dd6822e8c193a4`
-- **Generado:** `2026-09-19T15:40:26.582007+00:00`
+- **Run ID:** `20260919T170647793670Z_913f032e_50e64b21`
+- **HEAD oficial observado:** `913f032e981376860720381c2740274b840e5b0a`
+- **Commit previamente observado:** `a33aba233115830e002c6a6646aa1a701f77aa8d`
+- **Generado:** `2026-09-19T17:06:47.793670+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
@@ -44,15 +44,14 @@ retrieval_scope: active
 
 ### Commits oficiales observados
 
-- edbce978c4f851131e17e6f5ddcc5703621b74e0	Merge pull request #154 from Aranwill/docs/e5-engineering-cli-g0-g1-design-20260919
-- dd76a7df3caee1912d0633a13ad2f217e54cdd22	docs(e5): tighten adaptive CLI design scope
-- 3f3d5b52fa0894d23170acd7ce6f5e076a4ebafe	docs(e5): define adaptive Engineering CLI G0 G1 design
-- ff1559d828183e377895ceb445c221ef2e65aa14	docs(e5): add G0 coverage ledger
+- 913f032e981376860720381c2740274b840e5b0a	Merge pull request #156 from Aranwill/docs/e5-b1-readonly-explorer-g0-g1-20260919
+- 2f6a40db754c00299653dc0dc1f08a19b15d3db8	docs(e5): define B1 read-only Explorer G0 G1 design
+- 2060e9a02b8689dd3a34f97841e875d22d33b55a	docs(e5): add B1 Explorer G0 coverage ledger
 
 ### Evidencia que originó esta proyección
 
-- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-E5-ENGINEERING-CLI-G0-G1-DESIGN.md`
-- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-E5-G0-COVERAGE-LEDGER.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-E5-B1-READONLY-EXPLORER-G0-COVERAGE-LEDGER.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-E5-B1-READONLY-EXPLORER-G0-G1-DESIGN.md`
 <!-- MALAK_VAULT_SYNC:END -->
 
 <!-- MALAK_OPERATIONAL_STATE:START -->
@@ -61,7 +60,7 @@ retrieval_scope: active
 > Estado machine-owned derivado de la fuente oficial.
 > No concede autoridad ni reemplaza decisiones humanas.
 
-- **HEAD oficial:** `edbce978c4f851131e17e6f5ddcc5703621b74e0`
+- **HEAD oficial:** `913f032e981376860720381c2740274b840e5b0a`
 - **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.11.md`
 - **Titulo declarado:** Sprint 7.11 — Reproducible Validation Pipeline Foundation
 - **Estado declarado:** `completado`

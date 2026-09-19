@@ -28,10 +28,10 @@ retrieval_scope: active
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260919T162033704468Z_a33aba23_3b75bc52`
-- **HEAD oficial observado:** `a33aba233115830e002c6a6646aa1a701f77aa8d`
-- **Commit previamente observado:** `edbce978c4f851131e17e6f5ddcc5703621b74e0`
-- **Generado:** `2026-09-19T16:20:33.704468+00:00`
+- **Run ID:** `20260919T170647793670Z_913f032e_50e64b21`
+- **HEAD oficial observado:** `913f032e981376860720381c2740274b840e5b0a`
+- **Commit previamente observado:** `a33aba233115830e002c6a6646aa1a701f77aa8d`
+- **Generado:** `2026-09-19T17:06:47.793670+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
@@ -44,20 +44,14 @@ retrieval_scope: active
 
 ### Commits oficiales observados
 
-- a33aba233115830e002c6a6646aa1a701f77aa8d	Merge pull request #155 from Aranwill/test/e5-engineering-cli-red-20260919
-- 86a059dfa7da83d151fc82e762a1448a1c97213c	test(e5): cover stateless Engineering service boundary
-- f9dc50dbed15fc354fe0f60f8c99477dd96f1ab7	fix(e5): isolate stateless Engineering inference service
-- 6900db58ddbf653971ac209d36282b48a4b03f8d	feat(e5): add deterministic Engineering CLI surface
-- 5d7a823a0eb151ae186e44dfd6bad47c2735e321	feat(e5): compose Engineering kernels on one snapshot
-- 08db765144cdc39dc5b1c204694cc6e1d651f9f2	test(e5): define Engineering composition RED contract
-- 0b86df5a8c7c5035f17a26f6dd5737cdb1ca0d8c	test(e5): define Engineering CLI RED contract
+- 913f032e981376860720381c2740274b840e5b0a	Merge pull request #156 from Aranwill/docs/e5-b1-readonly-explorer-g0-g1-20260919
+- 2f6a40db754c00299653dc0dc1f08a19b15d3db8	docs(e5): define B1 read-only Explorer G0 G1 design
+- 2060e9a02b8689dd3a34f97841e875d22d33b55a	docs(e5): add B1 Explorer G0 coverage ledger
 
 ### Evidencia que originó esta proyección
 
-- `architecture-change` por `src/malak/app/cli.py`
-- `architecture-change` por `src/malak/app/composition.py`
-- `test-change` por `tests/test_app_composition.py`
-- `test-change` por `tests/test_cli.py`
+- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-E5-B1-READONLY-EXPLORER-G0-COVERAGE-LEDGER.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-E5-B1-READONLY-EXPLORER-G0-G1-DESIGN.md`
 <!-- MALAK_VAULT_SYNC:END -->
 
 <!-- MALAK_OPERATIONAL_STATE:START -->
@@ -66,7 +60,7 @@ retrieval_scope: active
 > Estado machine-owned derivado de la fuente oficial.
 > No concede autoridad ni reemplaza decisiones humanas.
 
-- **HEAD oficial:** `a33aba233115830e002c6a6646aa1a701f77aa8d`
+- **HEAD oficial:** `913f032e981376860720381c2740274b840e5b0a`
 - **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.11.md`
 - **Titulo declarado:** Sprint 7.11 — Reproducible Validation Pipeline Foundation
 - **Estado declarado:** `completado`
