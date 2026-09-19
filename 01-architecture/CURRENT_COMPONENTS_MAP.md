@@ -28,10 +28,10 @@ tags:
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260919T154026582007Z_edbce978_c1d61e26`
-- **HEAD oficial observado:** `edbce978c4f851131e17e6f5ddcc5703621b74e0`
-- **Commit previamente observado:** `5b6660eba9e5617a59c17d7380dd6822e8c193a4`
-- **Generado:** `2026-09-19T15:40:26.582007+00:00`
+- **Run ID:** `20260919T162033704468Z_a33aba23_3b75bc52`
+- **HEAD oficial observado:** `a33aba233115830e002c6a6646aa1a701f77aa8d`
+- **Commit previamente observado:** `edbce978c4f851131e17e6f5ddcc5703621b74e0`
+- **Generado:** `2026-09-19T16:20:33.704468+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
@@ -44,15 +44,18 @@ tags:
 
 ### Commits oficiales observados
 
-- edbce978c4f851131e17e6f5ddcc5703621b74e0	Merge pull request #154 from Aranwill/docs/e5-engineering-cli-g0-g1-design-20260919
-- dd76a7df3caee1912d0633a13ad2f217e54cdd22	docs(e5): tighten adaptive CLI design scope
-- 3f3d5b52fa0894d23170acd7ce6f5e076a4ebafe	docs(e5): define adaptive Engineering CLI G0 G1 design
-- ff1559d828183e377895ceb445c221ef2e65aa14	docs(e5): add G0 coverage ledger
+- a33aba233115830e002c6a6646aa1a701f77aa8d	Merge pull request #155 from Aranwill/test/e5-engineering-cli-red-20260919
+- 86a059dfa7da83d151fc82e762a1448a1c97213c	test(e5): cover stateless Engineering service boundary
+- f9dc50dbed15fc354fe0f60f8c99477dd96f1ab7	fix(e5): isolate stateless Engineering inference service
+- 6900db58ddbf653971ac209d36282b48a4b03f8d	feat(e5): add deterministic Engineering CLI surface
+- 5d7a823a0eb151ae186e44dfd6bad47c2735e321	feat(e5): compose Engineering kernels on one snapshot
+- 08db765144cdc39dc5b1c204694cc6e1d651f9f2	test(e5): define Engineering composition RED contract
+- 0b86df5a8c7c5035f17a26f6dd5737cdb1ca0d8c	test(e5): define Engineering CLI RED contract
 
 ### Evidencia que originó esta proyección
 
-- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-E5-ENGINEERING-CLI-G0-G1-DESIGN.md`
-- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-E5-G0-COVERAGE-LEDGER.md`
+- `architecture-change` por `src/malak/app/cli.py`
+- `architecture-change` por `src/malak/app/composition.py`
 <!-- MALAK_VAULT_SYNC:END -->
 
 <!-- MALAK_OPERATIONAL_STATE:START -->
@@ -61,7 +64,7 @@ tags:
 > Estado machine-owned derivado de la fuente oficial.
 > No concede autoridad ni reemplaza decisiones humanas.
 
-- **HEAD oficial:** `edbce978c4f851131e17e6f5ddcc5703621b74e0`
+- **HEAD oficial:** `a33aba233115830e002c6a6646aa1a701f77aa8d`
 - **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.11.md`
 - **Titulo declarado:** Sprint 7.11 — Reproducible Validation Pipeline Foundation
 - **Estado declarado:** `completado`
