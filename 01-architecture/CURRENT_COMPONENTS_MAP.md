@@ -28,10 +28,10 @@ tags:
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260919T170647793670Z_913f032e_50e64b21`
-- **HEAD oficial observado:** `913f032e981376860720381c2740274b840e5b0a`
-- **Commit previamente observado:** `a33aba233115830e002c6a6646aa1a701f77aa8d`
-- **Generado:** `2026-09-19T17:06:47.793670+00:00`
+- **Run ID:** `20260919T172833335110Z_1b4bc197_1637c276`
+- **HEAD oficial observado:** `1b4bc19769344458e1af7943c45c34a2fb8a67e5`
+- **Commit previamente observado:** `913f032e981376860720381c2740274b840e5b0a`
+- **Generado:** `2026-09-19T17:28:33.335110+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
@@ -44,14 +44,17 @@ tags:
 
 ### Commits oficiales observados
 
-- 913f032e981376860720381c2740274b840e5b0a	Merge pull request #156 from Aranwill/docs/e5-b1-readonly-explorer-g0-g1-20260919
-- 2f6a40db754c00299653dc0dc1f08a19b15d3db8	docs(e5): define B1 read-only Explorer G0 G1 design
-- 2060e9a02b8689dd3a34f97841e875d22d33b55a	docs(e5): add B1 Explorer G0 coverage ledger
+- 1b4bc19769344458e1af7943c45c34a2fb8a67e5	Merge pull request #157 from Aranwill/test/e5-b1-readonly-explorer-red-20260919
+- 68bc81fda8659aafac6c028b977df138bdb6c3c1	feat(e5): add deterministic read-only Explorer surface
+- 5a61b6e2e7e876a7a015034c1d1905831d7c7cf1	feat(e5): expose shared read-only Explorer readers
+- 280e4efc5c6c448268d78a64900d3ccec9724b07	test(e5): tighten B1 Explorer RED contract
+- e31652200b6a8f80aa8f65f65adf17b999d2e156	test(e5): define B1 shared-reader RED contract
+- f0c7830dd7eb91ea5d0c3478870b8705656ade18	test(e5): define B1 Explorer CLI RED contract
 
 ### Evidencia que originó esta proyección
 
-- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-E5-B1-READONLY-EXPLORER-G0-COVERAGE-LEDGER.md`
-- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-E5-B1-READONLY-EXPLORER-G0-G1-DESIGN.md`
+- `architecture-change` por `src/malak/app/cli.py`
+- `architecture-change` por `src/malak/app/composition.py`
 <!-- MALAK_VAULT_SYNC:END -->
 
 <!-- MALAK_OPERATIONAL_STATE:START -->
@@ -60,7 +63,7 @@ tags:
 > Estado machine-owned derivado de la fuente oficial.
 > No concede autoridad ni reemplaza decisiones humanas.
 
-- **HEAD oficial:** `913f032e981376860720381c2740274b840e5b0a`
+- **HEAD oficial:** `1b4bc19769344458e1af7943c45c34a2fb8a67e5`
 - **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.11.md`
 - **Titulo declarado:** Sprint 7.11 — Reproducible Validation Pipeline Foundation
 - **Estado declarado:** `completado`
