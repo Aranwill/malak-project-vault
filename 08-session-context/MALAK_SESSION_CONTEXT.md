@@ -27,10 +27,10 @@ retrieval_scope: active
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260919T144306795890Z_14122dd2_63db96ff`
-- **HEAD oficial observado:** `14122dd2d0c94d1c2d5ba1a68b6ae43bcb1c2c9e`
-- **Commit previamente observado:** `f0362ef77d06ce7852851345295f374c57f4ddd3`
-- **Generado:** `2026-09-19T14:43:06.795890+00:00`
+- **Run ID:** `20260919T151547477237Z_5b6660eb_a813d253`
+- **HEAD oficial observado:** `5b6660eba9e5617a59c17d7380dd6822e8c193a4`
+- **Commit previamente observado:** `14122dd2d0c94d1c2d5ba1a68b6ae43bcb1c2c9e`
+- **Generado:** `2026-09-19T15:15:47.477237+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
@@ -43,19 +43,15 @@ retrieval_scope: active
 
 ### Commits oficiales observados
 
-- 14122dd2d0c94d1c2d5ba1a68b6ae43bcb1c2c9e	Merge pull request #152 from Aranwill/test/e4-engineering-propose-red-20260919
-- 3463f1c391f6a11de70a0d6ecfc37c4127da21cb	docs(e4): record GREEN authorization
-- e2978d541840a34dfbfbb72ea70eaf8ee259d190	feat(e4): add grounded engineering propose capability
-- 2cc25d07f23b01b260b3bb961198285de36a6ed2	test(e4): define engineering propose RED contract
-- b5141fa4566cd2173af286cd96e49761c83907b4	docs(e4): define engineering propose design
+- 5b6660eba9e5617a59c17d7380dd6822e8c193a4	Merge pull request #153 from Aranwill/docs/d1-engineering-intelligence-e4-state-reconciliation-20260919
+- 697b78953cb4154f79d656e50c01f318e73a1170	docs(state): reconcile remaining E4 current-state blocks
+- 23b2a3c5a5096d84eea0d7d3ebf1607a1685bd7d	docs(state): correct remaining current E4 authorization state
+- 8d893d095f76a9c6510ef3dce2ba78f1c5ef0e7f	docs(state): reconcile Engineering Intelligence E4 current state
 
 ### Evidencia que originó esta proyección
 
-- `architecture-change` por `src/malak/capabilities/_engineering_analysis.py`
-- `architecture-change` por `src/malak/capabilities/engineering_analyze.py`
-- `architecture-change` por `src/malak/capabilities/engineering_propose.py`
-- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-E4-ENGINEERING-PROPOSE-G0-G1-DESIGN.md`
-- `test-change` por `tests/test_engineering_propose.py`
+- `baseline-source-change` por `docs/project/implementation_roadmap.md`
+- `baseline-source-change` por `docs/project/project_context.md`
 <!-- MALAK_VAULT_SYNC:END -->
 
 <!-- MALAK_OPERATIONAL_STATE:START -->
@@ -64,7 +60,7 @@ retrieval_scope: active
 > Estado machine-owned derivado de la fuente oficial.
 > No concede autoridad ni reemplaza decisiones humanas.
 
-- **HEAD oficial:** `14122dd2d0c94d1c2d5ba1a68b6ae43bcb1c2c9e`
+- **HEAD oficial:** `5b6660eba9e5617a59c17d7380dd6822e8c193a4`
 - **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.11.md`
 - **Titulo declarado:** Sprint 7.11 — Reproducible Validation Pipeline Foundation
 - **Estado declarado:** `completado`
