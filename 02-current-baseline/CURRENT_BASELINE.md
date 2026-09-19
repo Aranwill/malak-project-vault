@@ -1287,6 +1287,82 @@ docs/project/sprints/proposals/MALAK-ASSURANCE-SIGNAL-AUTHORITY-G0-G1-DESIGN.md
 
 ---
 
+### 8.25 Engineering Intelligence — E0–E3 bounded vertical
+
+Estado:
+
+```text
+E0 Repository Read          implementado e integrado
+E1 Governed Knowledge Read  implementado e integrado
+E2 Engineering Inspect      implementado e integrado
+E3 Engineering Analyze      implementado e integrado
+E4 Engineering Propose      deferred / no autorizado
+E5 CLI Integration          deferred / no autorizado
+```
+
+E0 materializa `GitRepositoryReader`, una vista read-only y commit-bound del
+repositorio. Captura HEAD y su tree al inicializarse, lee blobs por identidad Git
+y aplica límites duros de paths, cardinalidad, tamaño, búsqueda y tiempo.
+
+E1 materializa `GovernedKnowledgeReader` sobre el mismo baseline de E0.
+Clasifica un conjunto acotado de fuentes mediante `source_class` y
+`authority_class`; esas clases son roles documentales y no conceden permiso,
+verdad ni autoridad operacional.
+
+E2 y E3 son Capabilities separadas que reutilizan
+`collect_engineering_evidence(...)` como primitive privada compartida:
+
+```text
+Repository evidence + Governed Knowledge
+                 ↓
+       bounded evidence bundle
+          ├──────────────┐
+          ↓              ↓
+   Engineering Inspect  Engineering Analyze
+```
+
+E2 realiza como máximo una inferencia stateless sobre evidencia previamente
+recopilada y exige grounding/citas. E3 compara implementación y conocimiento
+gobernado y limita los findings a:
+
+```text
+ALIGNED | PARTIAL | GAP | CONTRADICTION | UNRESOLVED
+```
+
+Los findings deben estar ligados a evidence refs válidos; las clasificaciones
+relacionales requieren evidencia de repositorio y conocimiento. Evidencia
+insuficiente o contexto materialmente truncado no se convierte en una
+conclusión autorizada.
+
+Separaciones vigentes:
+
+```text
+Evidence != Authority
+Analysis != Decision
+Finding != Authorization
+Integrated Capability != Planner/CLI wiring
+Engineering Intelligence E0–E3 != autonomous self-improvement
+```
+
+No existe wiring productivo de E2/E3 con Planner o CLI, ni E4, E5, writes,
+generic tool runner, agents o ejecución externa dentro de esta vertical.
+
+Fuentes principales:
+
+```text
+src/malak/infrastructure/repository_reader.py
+src/malak/knowledge/knowledge_reader.py
+src/malak/capabilities/_engineering_evidence.py
+src/malak/capabilities/engineering_inspect.py
+src/malak/capabilities/engineering_analyze.py
+tests/test_repository_reader.py
+tests/test_knowledge_reader.py
+tests/test_engineering_inspect.py
+tests/test_engineering_analyze.py
+```
+
+---
+
 ## 9. Principios vigentes
 
 Malāk mantiene como principios centrales:
@@ -1424,7 +1500,10 @@ Todavía no forman parte del baseline operativo:
 * wiring de Protected Finalization con Conversation;
 * productores runtime autorizados de assurance signals;
 * Sprint 7.12;
-* RDD Stage 2.
+* RDD Stage 2;
+* E4 Engineering Propose;
+* E5 Engineering CLI Integration;
+* runtime genérico o autónomo de Engineering Intelligence por encima de E0–E3.
 
 ---
 

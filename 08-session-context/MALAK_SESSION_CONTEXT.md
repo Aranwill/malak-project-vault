@@ -435,7 +435,30 @@ Componentes documentados en el alcance representado:
 * Governed Input Projection Boundary;
 * Governed Projection Consumption Boundary;
 * G2A — Protected Finalization Foundation, integrada y aislada de Conversation;
-* G2 — Assurance Signal Authority & Projection Foundation, integrada y aislada de Conversation.
+* G2 — Assurance Signal Authority & Projection Foundation, integrada y aislada de Conversation;
+* `GitRepositoryReader` — E0 Repository Read, read-only y commit-bound;
+* `GovernedKnowledgeReader` — E1 Governed Knowledge Read;
+* `EngineeringInspectCapability` — E2 Engineering Inspect;
+* `EngineeringAnalyzeCapability` — E3 Engineering Analyze;
+* `collect_engineering_evidence(...)` — primitive privada compartida por E2/E3.
+
+Estado bounded de Engineering Intelligence:
+
+```text
+E0: INTEGRATED
+E1: INTEGRATED
+E2: INTEGRATED
+E3: INTEGRATED
+E4: DEFERRED / NOT AUTHORIZED
+E5: DEFERRED / NOT AUTHORIZED
+Planner/CLI engineering wiring: NOT IMPLEMENTED
+writes/tools/agents: NOT AUTHORIZED
+authority effect: NONE
+```
+
+E0–E3 comparten un baseline Git capturado, preservan evidencia explícita y no
+convierten clasificación documental, inference, finding o análisis en autoridad.
+E2/E3 todavía no están integradas al routing productivo de Planner/CLI.
 
 La integración de estas fronteras no autoriza Memory persistente,
 productores runtime de assurance signals, Conversation G2B, Sprint 7.12 ni
@@ -988,7 +1011,7 @@ Sin sprint aprobado:
 
 * Resource Governance Foundation;
 * Model Governance Foundation;
-* Controlled Engineering Improvement Loop Foundation;
+* Controlled Engineering Improvement Loop Foundation — la foundation integral permanece futura; E0–E3 están integrados como vertical bounded y E4/E5 continúan no autorizados;
 * Development Tooling Foundation;
 * Evidence Acquisition Foundation;
 * Secure Context Manager;

@@ -1176,11 +1176,22 @@ No existe todavía un sprint aprobado para esta fundación.
 
 ### 8.4 Controlled Engineering Improvement Loop Foundation
 
-**Estado conceptual:**
+**Estado de la línea:**
 
 ```text
-aprobada como línea futura
+foundation integral: futura / sin sprint aprobado
+E0 Repository Read: integrado
+E1 Governed Knowledge Read: integrado
+E2 Engineering Inspect: integrado
+E3 Engineering Analyze: integrado
+E4 Engineering Propose: deferred / no autorizado
+E5 CLI Integration: deferred / no autorizado
 ```
+
+Los incrementos E0–E3 materializan únicamente una vertical cognitiva bounded de
+lectura, evidencia, inspección y análisis. No constituyen por sí mismos el
+Controlled Engineering Improvement Loop completo y no habilitan automodificación,
+writes, tools, agents, ejecución de cambios ni autoridad operacional.
 
 Ubicación recomendada:
 
@@ -1195,6 +1206,27 @@ Principios:
 > La capacidad de aprender no implica autoridad para cambiar.
 
 > La evidencia puede originar una propuesta; solamente la gobernanza puede convertirla en una modificación.
+
+Baseline materializado hasta E3:
+
+```text
+GitRepositoryReader
+        +
+GovernedKnowledgeReader
+        ↓
+bounded shared evidence
+        ├───────────────┐
+        ↓               ↓
+Engineering Inspect   Engineering Analyze
+        ↓               ↓
+      findings / grounded analysis
+                ↓
+              Owner
+```
+
+La siguiente unidad E4 no se deduce automáticamente del cierre de E3. Requiere
+una nueva admission review y autorización explícita antes de diseñarse o
+implementarse.
 
 Alcance conceptual:
 

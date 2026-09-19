@@ -169,6 +169,11 @@ Este mapa cubre las siguientes fronteras verificadas:
 - Governed Projection Consumption Boundary;
 - G2A — Protected Finalization Foundation, aislada de la ruta conversacional real.
 - G2 — Assurance Signal Authority & Projection Foundation, aislada de la ruta conversacional real.
+- `GitRepositoryReader` — E0 Repository Read, read-only y commit-bound.
+- `GovernedKnowledgeReader` — E1 Governed Knowledge Read, con clasificación documental explícita.
+- `EngineeringInspectCapability` — E2 Engineering Inspect, inspección grounded y acotada.
+- `EngineeringAnalyzeCapability` — E3 Engineering Analyze, comparación grounded entre evidencia de repositorio y conocimiento gobernado.
+- `collect_engineering_evidence(...)` — primitive privada compartida por E2 y E3 para recopilar evidencia determinista y bounded.
 
 Quedan fuera de alcance:
 
@@ -178,7 +183,11 @@ Quedan fuera de alcance:
 - auditoría de autorización;
 - componentes propuestos en el roadmap;
 - productores runtime de assurance signals todavía no autorizados;
-- wiring de Protected Finalization con Conversation.
+- wiring de Protected Finalization con Conversation;
+- E4 Engineering Propose;
+- E5 integración CLI del vertical de Engineering Intelligence;
+- un runtime genérico/autónomo de Engineering Intelligence;
+- agents, tools, writes o ejecución externa para el vertical de ingeniería.
 
 Su exclusión de este documento no implica que no existan. Solamente evita mezclar subsistemas todavía no verificados dentro de este mapa.
 
@@ -212,6 +221,12 @@ explícitas, binding de request/session/candidate, autorización del producer
 sensible a kind+value, coherencia temporal, cardinalidad y compatibilidad de
 policy antes de proyectar un `ProtectedFinalizationInput`. Permanece puro,
 same-process y aislado de Conversation.
+
+Después de ese baseline se integró una vertical acotada de Engineering
+Intelligence mediante E0–E3. Estas unidades permiten observar un snapshot Git
+exacto, recuperar conocimiento clasificado, inspeccionar evidencia y producir
+análisis grounded. La integración no añadió routing productivo en Planner/CLI,
+writes, tools, agents ni autoridad operacional.
 
 ## 2. Referencia operativa del mapa
 
@@ -695,6 +710,62 @@ docs/project/sprints/proposals/MALAK-ASSURANCE-SIGNAL-BOUNDARY-G2-IMPLEMENTATION
 
 ---
 
+### Engineering Intelligence — E0–E3 bounded vertical
+
+Estado verificado:
+
+```text
+E0 Repository Read          INTEGRATED
+E1 Governed Knowledge Read  INTEGRATED
+E2 Engineering Inspect      INTEGRATED
+E3 Engineering Analyze      INTEGRATED
+E4 Engineering Propose      DEFERRED / NOT AUTHORIZED
+E5 CLI Integration          DEFERRED / NOT AUTHORIZED
+```
+
+Relación implementada:
+
+```text
+GitRepositoryReader
+        +
+GovernedKnowledgeReader
+        ↓
+collect_engineering_evidence(...)
+        ├──────────────────────┐
+        ↓                      ↓
+EngineeringInspectCapability  EngineeringAnalyzeCapability
+        ↓                      ↓
+grounded inspection           grounded findings
+        └──────────┬───────────┘
+                   ↓
+             human consumer
+```
+
+E0 captura un snapshot Git exacto y expone lectura/búsqueda acotadas sobre
+objetos del commit capturado. E1 clasifica únicamente fuentes documentales
+reconocidas y preserva `source_class` / `authority_class` sin convertir esa
+metadata en permiso.
+
+E2 y E3 reutilizan una primitive privada compartida para recopilar evidencia
+bounded. E2 produce inspección read-only y E3 admite exclusivamente
+`ALIGNED | PARTIAL | GAP | CONTRADICTION | UNRESOLVED`, manteniendo referencias
+a evidencia explícitas. Ante evidencia insuficiente o truncada relevante, el
+vertical degrada a resultados no confirmados/fail-closed según el contrato
+correspondiente.
+
+La integración E0–E3 no implica:
+
+```text
+analysis = decision
+finding = authorization
+evidence = authority
+capability = planner/CLI wiring
+integrated primitive = autonomous engineering runtime
+```
+
+No existe E4, E5, escritura de repositorio, generic tool runner, agents ni
+ejecución externa autorizada por esta vertical.
+
 ## 4. Flujo implementado
 
 El Kernel mantiene un flujo genérico Kernel–Planner–Capability. Desde Sprint 7.10
@@ -828,7 +899,11 @@ Este mapa no afirma:
 - que la cadena episódica persista o recupere Memory;
 - que G2A esté conectado a Conversation;
 - que existan productores runtime autorizados de assurance signals;
-- que Signal Boundary G2 o Conversation G2B estén autorizados.
+- que Signal Boundary G2 o Conversation G2B estén autorizados;
+- que E2/E3 estén cableadas al Planner o a la CLI productiva;
+- que exista E4 Engineering Propose o E5 CLI Integration;
+- que Engineering Intelligence pueda escribir, ejecutar tools o crear agents;
+- que un finding o análisis conceda autoridad.
 
 ## 9. Hallazgos arquitectónicos descriptivos
 
@@ -855,7 +930,10 @@ Sin convertirlos en decisiones nuevas, el código observado muestra:
 - separación `Projection READY != Admission ELIGIBLE`;
 - ausencia de persistencia y wiring conversacional en la cadena episódica;
 - G2A determinista aislada de Conversation y sin autoridad para producir sus propios signals;
-- ausencia de integración con operaciones reales y de ampliación automática de autoridad.
+- E0 y E1 preservan un mismo baseline commit-bound para repositorio y conocimiento gobernado;
+- E2 y E3 consumen evidencia compartida bounded sin convertirla en autoridad;
+- E3 exige binding de evidence refs para findings grounded y mantiene incertidumbre explícita;
+- ausencia de Planner/CLI wiring, E4/E5, writes, tools, agents y ampliación automática de autoridad.
 
 ## 10. Fuentes oficiales
 
@@ -866,6 +944,12 @@ Sin convertirlos en decisiones nuevas, el código observado muestra:
 - `src/malak/contracts/capability.py`
 - `src/malak/capabilities/echo.py`
 - `src/malak/capabilities/conversation.py`
+- `src/malak/capabilities/_engineering_evidence.py`
+- `src/malak/capabilities/engineering_inspect.py`
+- `src/malak/capabilities/engineering_analyze.py`
+- `src/malak/infrastructure/repository_reader.py`
+- `src/malak/knowledge/__init__.py`
+- `src/malak/knowledge/knowledge_reader.py`
 - `src/malak/app/composition.py`
 - `src/malak/services/conversation_service.py`
 - `src/malak/services/conversation_context.py`
@@ -894,6 +978,14 @@ Sin convertirlos en decisiones nuevas, el código observado muestra:
 - `tests/test_policy_enforcement_point.py`
 - `tests/test_episodic_memory_admission.py`
 - `tests/test_protected_finalization.py`
+- `tests/test_repository_reader.py`
+- `tests/test_knowledge_reader.py`
+- `tests/test_engineering_inspect.py`
+- `tests/test_engineering_analyze.py`
+- `docs/project/sprints/proposals/MALAK-E0-REPOSITORY-READ-PROOF-G0-G1-DESIGN.md`
+- `docs/project/sprints/proposals/MALAK-E1-GOVERNED-KNOWLEDGE-READ-G0-G1-DESIGN.md`
+- `docs/project/sprints/proposals/MALAK-E2-ENGINEERING-INSPECT-G0-G1-DESIGN.md`
+- `docs/project/sprints/proposals/MALAK-E3-ENGINEERING-ANALYZE-G0-G1-DESIGN.md`
 - `docs/architecture/adr/ADR-002-policy-enforcement-boundary.md`
 - `docs/project/sprints/SPRINT-7.4.md`
 - `docs/project/sprints/SPRINT-7.5.md`

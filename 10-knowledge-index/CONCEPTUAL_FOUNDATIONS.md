@@ -461,6 +461,23 @@ Authority
 Deberá emerger de capacidades existentes y futuras en lugar de convertirse en
 un mega-sistema independiente.
 
+El baseline `Aranwill/jarvis@c48b72b7` ya materializa una primera vertical
+bounded sin crear ese mega-sistema:
+
+```text
+E0 Repository Read          INTEGRATED
+E1 Governed Knowledge Read  INTEGRATED
+E2 Engineering Inspect      INTEGRATED
+E3 Engineering Analyze      INTEGRATED
+E4 Engineering Propose      DEFERRED / NOT AUTHORIZED
+E5 CLI Integration          DEFERRED / NOT AUTHORIZED
+```
+
+E0–E3 permiten observar un snapshot Git exacto, recuperar conocimiento
+clasificado, inspeccionar evidencia y producir análisis grounded. No existe
+wiring productivo de ingeniería en Planner/CLI, ni writes, tools, agents,
+self-modification o authority effect.
+
 Principio:
 
 > **La autoobservación produce conocimiento; el conocimiento produce
@@ -501,7 +518,7 @@ Este concepto no autoriza actualmente:
 - Execution Ledger universal;
 - Cognitive Core;
 - Digital Twin;
-- Engineering Intelligence runtime;
+- un runtime genérico/autónomo de Engineering Intelligence por encima de las primitives bounded E0–E3;
 - recursión ilimitada;
 - deliberación multiagente por defecto;
 - retries infinitos;
