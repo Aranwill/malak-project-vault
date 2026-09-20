@@ -23,10 +23,10 @@ tags:
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260920T013337938118Z_433e075b_980491c8`
-- **HEAD oficial observado:** `433e075bb762cc5fb4bf11e18efe18a1faab7a2f`
-- **Commit previamente observado:** `1b4bc19769344458e1af7943c45c34a2fb8a67e5`
-- **Generado:** `2026-09-20T01:33:37.938118+00:00`
+- **Run ID:** `20260920T204320826196Z_b1093f29_3c5f3943`
+- **HEAD oficial observado:** `b1093f291e4a83af779302454485f46f21644801`
+- **Commit previamente observado:** `5c942d27ea610873182ded77b85d0364bfbe15a0`
+- **Generado:** `2026-09-20T20:43:20.826196+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
@@ -37,18 +37,42 @@ tags:
 - **Estado declarado:** `completado`
 - **`as_of_commit` declarado:** no disponible
 
-### Relación histórica observada
+### Commits oficiales observados
 
-- history_relation: non_fast_forward
-- previous_head: 1b4bc19769344458e1af7943c45c34a2fb8a67e5
-- current_head: 433e075bb762cc5fb4bf11e18efe18a1faab7a2f
-- old_only_commits: 524
-- new_only_commits: 524
-- commit_listing: omitted_to_avoid_history_rewrite_amplification
+- b1093f291e4a83af779302454485f46f21644801	Merge pull request #172 from Aranwill/docs/fix-construction-flow-order-20260920
+- 6b3ed5b676bf2f1f9bfe39e266ee594facd5a53c	docs: reconciliar Evaluation Pack con flujo canónico corregido
+- 4d66c24f11640200a6577c7fd53b22541d31b8e3	docs: apuntar agentes al flujo canónico de construcción
+- ed7fd63b66ab520ade2131af334f032e66526f65	docs: alinear checklist con flujo crítico canónico
+- a828cf7b47ff6c37220a8cb7f82b20229047c3ee	docs: corregir orden canónico del flujo crítico
+- 4796f4b2e5df038509b88ed48e4275ec899a87b2	Merge pull request #171 from Aranwill/docs/e2-structural-evaluation-pack-v0-g0-g1-20260920
+- 99298a779045c3e9a366d3fa9b290fd5c7668840	docs: registrar flujo obligatorio y auditoría futura de conformidad
+- de2c6e805d8c77e363f6d3a5712ccd17047a88be	docs: checklist de flujo crítico y auditoría retrospectiva
+- b408b991589490081f87c0e959ecea283b545fcf	docs: fijar flujo crítico obligatorio y auditoría retrospectiva
+- 254ecce0b5cb67624bbc003fe8023649571d7665	docs: completar obligaciones RDD pre-RED del Evaluation Pack V0
+- b28df244c0f2afc2c6526057cc559c6a1cfcf001	docs: cerrar identidad y semántica RDD del Evaluation Pack V0
+- 7d48e5411d6fff6b37f993423c9f5ab29fb125e6	docs: verificar separación entre resultados de dominio y RDD
+- aa5bc2a0a1c2386c10c912295c94cb8d19e975e8	docs: separar resultados de dominio del resultado terminal RDD
+- 3ff12156e7fabd3c0ba4db5a266c3dfc34c5fa0c	docs: aplicar checkpoints RDD Stage 1 al Evaluation Pack V0
+- 65f9b3a93d6dc76407a1b4f1e9fb08a72cab7ac8	docs: hacer verificables los checkpoints RDD Stage 1
+- 475e0cf2bb1718e30d809c6552876838b98d10da	docs: agregar checkpoints explícitos de conformidad RDD Stage 1
+- dd35cae009ac5a2b7a31aa18c081a6eb43a2357f	docs: separar Design 4R de FULL 4R del candidato
+- 8112579cfa3f248323898d54e2ddaea8265be7d4	docs: cerrar clasificación crítica y separar checkpoints 4R
+- 34c22e1b840da89f54a596989f3db398557f2952	docs: normalizar EOF de development_checklist.md
+- 784402766abe4fedb3b857b7633468408ff615de	docs: normalizar EOF de malak_construction_protocol.md
+- 6caade71007e25fa7feb9d6669175da6fccd6f6f	docs: cerrar provenance y binding del ground truth en Evaluation Pack V0
+- 87b308d10a074c3b5fa495733602ccd43b91fb1e	docs: endurecer contrato del Evaluation Pack V0 antes de RED
+- 6d140809cdecc44b1e1c1b572b78cd4734096e5b	docs: exigir hardening crítico antes de RED
+- 3835874cd121f804c1a5e659abc1f7289c9a6635	docs: endurecer gate de contratos críticos y separar 4R de preguntas de ley
+- b1d2e998a459d33b743bbcfa92f0797ae7600acf	docs: reducir Evaluation Pack V0 a contrato operativo
+- 10e015ea6908ac8da016ffd25c395c5e99696380	docs: compactar Evaluation Pack V0 de evidencia estructural E2
+- 663aa13f4249d78b4266411c49ee07d1dc5ba022	docs: admitir Evaluation Pack V0 de evidencia estructural E2
 
 ### Evidencia que originó esta proyección
 
-- `security-change` por `SECURITY.md`
+- `baseline-source-change` por `AGENTS.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-E2-STRUCTURAL-EVIDENCE-EVALUATION-PACK-V0-G0-G1-DESIGN.md`
+- `operational-tooling-change` por `docs/development/development_checklist.md`
+- `operational-tooling-change` por `docs/development/malak_construction_protocol.md`
 <!-- MALAK_VAULT_SYNC:END -->
 
 <!-- MALAK_OPERATIONAL_STATE:START -->
@@ -57,7 +81,7 @@ tags:
 > Estado machine-owned derivado de la fuente oficial.
 > No concede autoridad ni reemplaza decisiones humanas.
 
-- **HEAD oficial:** `433e075bb762cc5fb4bf11e18efe18a1faab7a2f`
+- **HEAD oficial:** `b1093f291e4a83af779302454485f46f21644801`
 - **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.11.md`
 - **Titulo declarado:** Sprint 7.11 — Reproducible Validation Pipeline Foundation
 - **Estado declarado:** `completado`
