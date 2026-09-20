@@ -28,10 +28,10 @@ retrieval_scope: proposals
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260920T222405920138Z_e6f2b506_63352334`
-- **HEAD oficial observado:** `e6f2b5060131f961f1054e83203cb7da91f5302c`
-- **Commit previamente observado:** `b1093f291e4a83af779302454485f46f21644801`
-- **Generado:** `2026-09-20T22:24:05.920138+00:00`
+- **Run ID:** `20260920T224831217834Z_07a7c554_96eba459`
+- **HEAD oficial observado:** `07a7c554d36e4eb844f706fdb1959c999a925291`
+- **Commit previamente observado:** `e6f2b5060131f961f1054e83203cb7da91f5302c`
+- **Generado:** `2026-09-20T22:48:31.217834+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
@@ -44,39 +44,14 @@ retrieval_scope: proposals
 
 ### Commits oficiales observados
 
-- e6f2b5060131f961f1054e83203cb7da91f5302c	Merge pull request #175 from Aranwill/docs/reconcile-self-review-bootstrap-20260920
-- 4518a1a1f9d784253b3bae15cffbab6dabc5d372	docs: reconciliar roadmap con self-review bootstrap
-- 8e1a2bfd86528d45996dae6682ed1c75409cf4d8	docs: reconciliar contexto tras audit y self-review bootstrap
-- 37af50628fb2d56fa48113a65a53de51049bd8da	Merge pull request #174 from Aranwill/docs/governed-self-review-bootstrap-20260920
-- afb6a6c871a899591b7b9480d3f261def320bafb	docs: corregir frontmatter del bootstrap de autoinspección
-- d20102eed21d6b309751c28fdb7bbb8c38710185	docs: indexar tarea de autoinspección gobernada
-- 1dcc630254fa0b0c05c88160831c0f69101ef14d	docs: registrar bootstrap de autoinspección gobernada
-- 419d71f05233f98eecd849e986ae5af9a5d8a068	Merge pull request #173 from Aranwill/audit/construction-flow-compliance-v1-20260920
-- 9fa542023cb94b6597cf1780065d44e2c5ef86b7	audit: cerrar índice de deliverables en Gate F
-- 94a6f2d8e6ca289b56ca8a7dc141f87e9947df97	audit: reconciliar Gate F y emitir informe final
-- 26ee9af8ed9af6801eba33c616ee63f0f17ea815	audit: actualizar entregables tras Gate E
-- 9844fb53f3db16f5d85116ae8f52085626fa8793	audit: cerrar Gate E de Engineering Intelligence
-- ed3b6f496ec5b472bf67310529a87fbab89c7dde	audit: agregar índice de entregables por gates
-- ebc5e21df78fd26d6d223acb37f641f0208ae760	audit: cerrar Batch D de core runtime y CLI
-- 19dec4e516b118e2e6a91a3a212be3408f5faf0b	audit: cerrar Batch C de Memory y persistencia
-- 04a94c5a15d8c41b366153cd0358f6bbd9f5cf3f	audit: cerrar Batch B de contratos críticos
-- 3a47bbc4888b5a04b899b43c09ba62febd5378ea	audit: cerrar Batch A de conformidad del flujo
-- 6e13512324b0b01f1f3ad2aa35ff842ba9f658c5	audit: admitir Construction Flow Compliance Audit V1
-- 0998e19818bd78ce4bd5e96c8b447f3d6bd737e2	audit: agregar ledger exhaustivo de cobertura de archivos
+- 07a7c554d36e4eb844f706fdb1959c999a925291	Merge pull request #176 from Aranwill/docs/reconcile-memory-state-20260920
+- 5fe2f497ee6ad80bdbb67a0eb2e06edba91ccee9	docs: corregir planificación mutable de Memory
+- e24df25f196aba3c9b96764bd66408949f3cd4f6	docs: reconciliar estado actual de Memory
 
 ### Evidencia que originó esta proyección
 
 - `baseline-source-change` por `docs/project/implementation_roadmap.md`
 - `baseline-source-change` por `docs/project/project_context.md`
-- `baseline-source-change` por `docs/project/status/MALAK-CONSTRUCTION-FLOW-COMPLIANCE-AUDIT-V1-BATCH-A.md`
-- `baseline-source-change` por `docs/project/status/MALAK-CONSTRUCTION-FLOW-COMPLIANCE-AUDIT-V1-BATCH-B.md`
-- `baseline-source-change` por `docs/project/status/MALAK-CONSTRUCTION-FLOW-COMPLIANCE-AUDIT-V1-BATCH-C.md`
-- `baseline-source-change` por `docs/project/status/MALAK-CONSTRUCTION-FLOW-COMPLIANCE-AUDIT-V1-BATCH-D.md`
-- `baseline-source-change` por `docs/project/status/MALAK-CONSTRUCTION-FLOW-COMPLIANCE-AUDIT-V1-BATCH-E.md`
-- `baseline-source-change` por `docs/project/status/MALAK-CONSTRUCTION-FLOW-COMPLIANCE-AUDIT-V1-DELIVERABLES.md`
-- `baseline-source-change` por `docs/project/status/MALAK-CONSTRUCTION-FLOW-COMPLIANCE-AUDIT-V1-FILE-COVERAGE.tsv`
-- `baseline-source-change` por `docs/project/status/MALAK-CONSTRUCTION-FLOW-COMPLIANCE-AUDIT-V1-FINAL.md`
-- `baseline-source-change` por `docs/project/status/MALAK-CONSTRUCTION-FLOW-COMPLIANCE-AUDIT-V1-G0-G1.md`
 <!-- MALAK_VAULT_SYNC:END -->
 
 <!-- MALAK_OPERATIONAL_STATE:START -->
@@ -85,7 +60,7 @@ retrieval_scope: proposals
 > Estado machine-owned derivado de la fuente oficial.
 > No concede autoridad ni reemplaza decisiones humanas.
 
-- **HEAD oficial:** `e6f2b5060131f961f1054e83203cb7da91f5302c`
+- **HEAD oficial:** `07a7c554d36e4eb844f706fdb1959c999a925291`
 - **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.11.md`
 - **Titulo declarado:** Sprint 7.11 — Reproducible Validation Pipeline Foundation
 - **Estado declarado:** `completado`
