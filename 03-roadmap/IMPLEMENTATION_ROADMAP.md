@@ -28,10 +28,10 @@ retrieval_scope: active
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260920T164742842874Z_79319eef_022fe2a8`
-- **HEAD oficial observado:** `79319eef23cdd1490531d01de914712811135d9d`
-- **Commit previamente observado:** `2a00a16618a7f11403edd06f051fd8cbb68849ed`
-- **Generado:** `2026-09-20T16:47:42.842874+00:00`
+- **Run ID:** `20260920T194351775984Z_5c942d27_76dfefa3`
+- **HEAD oficial observado:** `5c942d27ea610873182ded77b85d0364bfbe15a0`
+- **Commit previamente observado:** `79319eef23cdd1490531d01de914712811135d9d`
+- **Generado:** `2026-09-20T19:43:51.775984+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
@@ -44,23 +44,19 @@ retrieval_scope: active
 
 ### Commits oficiales observados
 
-- 79319eef23cdd1490531d01de914712811135d9d	Merge pull request #168 from Aranwill/test/e2-structural-evidence-v0-red-20260920
-- 5e28b9a3171eeb5132f5573f5b230b5c6103a599	test: limpiar EOF de test_engineering_inspect.py
-- cc9f1b42a8d883171e13d91144b8b9f07f596fda	test: limpiar EOF de test_app_composition.py
-- 8a3a9a3cc67aa1f670620ad635ac693b14c2cf68	test: aislar ausencia de substring matching estructural
-- 84bc6bdc293443d721d22bf3f622aac43ba1fcdc	docs: registrar autorización GREEN de E2 structural evidence V0
-- 91a8711493fa1bde97c14a0a20699c8bb78c7896	feat: componer proyección estructural sólo para E2
-- 73cd6b3de3598318e1c2201c13dc4cab534d31cd	feat: integrar evidencia estructural determinista en E2
-- fb7d39220661e5eb5b35c601de6ee422f2066584	test: fijar composición E2-only de evidencia estructural
-- f150a00f7a3a80bef81ba05099d3a580ad2f99a5	test: agregar RED de evidencia estructural en E2
-- 7894b91806b23b085c054542cf3a8ee1acadaf88	docs: registrar autorización RED de E2 structural evidence V0
-- e7ce1bfab8b73690c8e3c5b032c6baf0ee63b2c0	Merge pull request #167 from Aranwill/docs/e2-structural-evidence-v0-g0-g1-20260920
-- 8bfe9dbc897bdd070f01379922e35f642c03ec3a	docs: compactar diseño E2 structural evidence V0
-- 14ea4b7f4ceda1e14a8357320f563fed3d6f029c	docs: admitir integración de evidencia estructural en E2 V0
+- 5c942d27ea610873182ded77b85d0364bfbe15a0	Merge pull request #170 from Aranwill/test/e2-structural-observability-v0-red-20260920
+- ac4438e1094871a974275f3fb6a0f441e7016d5b	docs: registrar autorización GREEN de observabilidad estructural E2 V0
+- 08f6de84e255d536f74c1f3cfc140e4eee3ea9d4	feat: exponer observabilidad determinista de evidencia en E2
+- c609c0540cb5c602521d9457e47432b132bedf0b	test: normalizar EOF de observabilidad estructural E2
+- 22b86a3c417f63ab72254ff24be1fbff97b058c8	test: agregar RED de observabilidad estructural en E2
+- c0b25ab1a6e2494276b359fcfa6e53de232a8cec	docs: registrar autorización RED de observabilidad estructural E2 V0
+- 9512f79f40bd67678bb11f66e8e6e14bbc1e76d6	Merge pull request #169 from Aranwill/docs/e2-structural-observability-v0-g0-g1-20260920
+- e1673a34c345b7396121afc150cc479cbc25b9b9	docs: compactar diseño de observabilidad estructural E2 V0
+- bd41999717f5b0e8f39712a9d168cfc2e7a86672	docs: admitir observabilidad de evidencia estructural en E2 V0
 
 ### Evidencia que originó esta proyección
 
-- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-E2-STRUCTURAL-EVIDENCE-INTEGRATION-V0-G0-G1-DESIGN.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-E2-STRUCTURAL-EVIDENCE-OBSERVABILITY-V0-G0-G1-DESIGN.md`
 <!-- MALAK_VAULT_SYNC:END -->
 
 <!-- MALAK_OPERATIONAL_STATE:START -->
@@ -69,7 +65,7 @@ retrieval_scope: active
 > Estado machine-owned derivado de la fuente oficial.
 > No concede autoridad ni reemplaza decisiones humanas.
 
-- **HEAD oficial:** `79319eef23cdd1490531d01de914712811135d9d`
+- **HEAD oficial:** `5c942d27ea610873182ded77b85d0364bfbe15a0`
 - **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.11.md`
 - **Titulo declarado:** Sprint 7.11 — Reproducible Validation Pipeline Foundation
 - **Estado declarado:** `completado`
