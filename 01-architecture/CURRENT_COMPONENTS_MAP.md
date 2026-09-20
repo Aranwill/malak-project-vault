@@ -28,10 +28,10 @@ tags:
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260920T153029107884Z_a1028f62_ac3942db`
-- **HEAD oficial observado:** `a1028f626cdca2da9979002a21d70645ed848e3e`
-- **Commit previamente observado:** `e14787431f864f74226706ad8655a348ee102d77`
-- **Generado:** `2026-09-20T15:30:29.107884+00:00`
+- **Run ID:** `20260920T160252608688Z_2a00a166_460c2853`
+- **HEAD oficial observado:** `2a00a16618a7f11403edd06f051fd8cbb68849ed`
+- **Commit previamente observado:** `a1028f626cdca2da9979002a21d70645ed848e3e`
+- **Generado:** `2026-09-20T16:02:52.608688+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
@@ -44,22 +44,18 @@ tags:
 
 ### Commits oficiales observados
 
-- a1028f626cdca2da9979002a21d70645ed848e3e	Merge pull request #164 from Aranwill/test/repository-structural-projection-v0-red-20260920
-- 51b9d465674ad8443adf11bee44385bf52e6e8d1	feat: implement Repository Structural Projection V0
-- 42257ef146f5969c899f3deadf81ccde8d5f6917	docs: record structural projection V0 GREEN authorization
-- e286d4cab9be1b9301cf892c08b6d239a69a3f00	test: add RED contract for repository structural projection V0
-- 6732fc1649272a441cf46b96c0d99ad0f4137b26	docs: record structural projection V0 RED authorization
-- 2e5f97aac41804461ceadd81680762b9e2313d13	Merge pull request #163 from Aranwill/docs/repository-structural-projection-v0-g0-g1-20260920
-- 5f471044ea1c6099f16f705f4c3b0ed29ba8d6f2	docs: compact structural projection V0 G0 G1 design
-- 5e5923dda63037b37ab0d464ecf7337fdeab5dd1	docs: compact structural projection V0 G0 ledger
-- bbe535fb57952224fb2352c1169a4563ef90009b	docs: add structural projection V0 G0 G1 design
-- ba766cdad999f9a85d457306491ea7f3928bd4ac	docs: add structural projection V0 G0 coverage ledger
+- 2a00a16618a7f11403edd06f051fd8cbb68849ed	Merge pull request #166 from Aranwill/test/repository-structural-lookup-v0-red-20260920
+- 75172332201abca62b0dab7399029d17cc368206	feat: implementar Repository Structural Lookup V0
+- e7e840c6129cf522b2bbab770ebc8996b4bc3397	docs: registrar autorización GREEN de Structural Lookup V0
+- 563c4740aabd35b7a14a92e9d7a054bb0e3cfa48	test: agregar contrato RED de Structural Lookup V0
+- 7097884440080031a4b8355b8a54b3e70bf79bb4	docs: registrar autorización RED de Structural Lookup V0
+- 4ac80a4d9d0d575096a25ef43dd67ef9900c247a	Merge pull request #165 from Aranwill/docs/repository-structural-lookup-v0-g0-g1-20260920
+- e62e057569b155d0aabebf19f43cfb5c41649672	docs: admit Repository Structural Lookup V0 G0 G1
 
 ### Evidencia que originó esta proyección
 
-- `architecture-change` por `src/malak/infrastructure/repository_structure.py`
-- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-REPOSITORY-STRUCTURAL-PROJECTION-V0-G0-COVERAGE-LEDGER.md`
-- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-REPOSITORY-STRUCTURAL-PROJECTION-V0-G0-G1-DESIGN.md`
+- `architecture-change` por `src/malak/infrastructure/repository_structure_lookup.py`
+- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-REPOSITORY-STRUCTURAL-LOOKUP-V0-G0-G1-DESIGN.md`
 <!-- MALAK_VAULT_SYNC:END -->
 
 <!-- MALAK_OPERATIONAL_STATE:START -->
@@ -68,7 +64,7 @@ tags:
 > Estado machine-owned derivado de la fuente oficial.
 > No concede autoridad ni reemplaza decisiones humanas.
 
-- **HEAD oficial:** `a1028f626cdca2da9979002a21d70645ed848e3e`
+- **HEAD oficial:** `2a00a16618a7f11403edd06f051fd8cbb68849ed`
 - **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.11.md`
 - **Titulo declarado:** Sprint 7.11 — Reproducible Validation Pipeline Foundation
 - **Estado declarado:** `completado`
