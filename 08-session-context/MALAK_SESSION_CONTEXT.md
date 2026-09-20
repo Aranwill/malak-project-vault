@@ -27,10 +27,10 @@ retrieval_scope: active
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260920T144835800042Z_e1478743_f0a3d195`
-- **HEAD oficial observado:** `e14787431f864f74226706ad8655a348ee102d77`
-- **Commit previamente observado:** `433e075bb762cc5fb4bf11e18efe18a1faab7a2f`
-- **Generado:** `2026-09-20T14:48:35.800042+00:00`
+- **Run ID:** `20260920T153029107884Z_a1028f62_ac3942db`
+- **HEAD oficial observado:** `a1028f626cdca2da9979002a21d70645ed848e3e`
+- **Commit previamente observado:** `e14787431f864f74226706ad8655a348ee102d77`
+- **Generado:** `2026-09-20T15:30:29.107884+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
@@ -43,31 +43,23 @@ retrieval_scope: active
 
 ### Commits oficiales observados
 
-- e14787431f864f74226706ad8655a348ee102d77	Merge pull request #162 from Aranwill/docs/reconcile-e5-state-20260920
-- 5ef58af2a33f5a806aa3dad42f9ce1c8dc8df3c6	docs: reconcile roadmap with E5-A and E5-B1
-- 29a4c254ddd3e03246896c1fe941fba21e4e87f5	docs: reconcile current E5 integrated state
-- 996a45359784efc390c3993851e8c16f12163913	Merge pull request #161 from Aranwill/docs/agent-long-horizon-evidence-20260920
-- 1e6a7375e929dad53be6c88f0cad77f89bc697bc	docs: preserve evidence-driven engineering method inputs
-- dad3ba52bdea58a774a115e64532e73b48d750a8	docs: prefer deterministic instruments in engineering intelligence
-- 02f10855765ea31d90a9150cb6be74bdd732a311	docs: clarify evidence-driven self-improvement vision
-- fae5c62064a2d2b404811608b14253b931b28542	docs: keep Jev outside Malak preserved research
-- d61cd3bfccb3090c05009b9856aed19b611e7c80	docs: clean long-horizon section separator
-- b432f76bf1999b8c08cf8bfcbeb8198f07919bfb	docs: add swarm and Jev evidence inputs
-- 1de3ca1764c3334287643aa97365bd9d7a02d677	docs: clarify ephemeral wait and resume lifecycle
-- 0b7b953e701225a9a89ab1349780ab9327435db6	docs: link IDEA-024 to long-horizon coordination
-- 5aa8bbbb8417773d7be7d2cce8b7b05adbda4ee6	docs: preserve dependency-aware swarm coordination
-- 8ef923563d6b4a3da954b65fcac27d9305d71b9c	Merge pull request #160 from Aranwill/docs/closed-world-source-admission-20260919
-- 3f9c0d1e6ad4959341094e2a82873c8158458c5d	docs(governance): scope Malak reviews to official repository
+- a1028f626cdca2da9979002a21d70645ed848e3e	Merge pull request #164 from Aranwill/test/repository-structural-projection-v0-red-20260920
+- 51b9d465674ad8443adf11bee44385bf52e6e8d1	feat: implement Repository Structural Projection V0
+- 42257ef146f5969c899f3deadf81ccde8d5f6917	docs: record structural projection V0 GREEN authorization
+- e286d4cab9be1b9301cf892c08b6d239a69a3f00	test: add RED contract for repository structural projection V0
+- 6732fc1649272a441cf46b96c0d99ad0f4137b26	docs: record structural projection V0 RED authorization
+- 2e5f97aac41804461ceadd81680762b9e2313d13	Merge pull request #163 from Aranwill/docs/repository-structural-projection-v0-g0-g1-20260920
+- 5f471044ea1c6099f16f705f4c3b0ed29ba8d6f2	docs: compact structural projection V0 G0 G1 design
+- 5e5923dda63037b37ab0d464ecf7337fdeab5dd1	docs: compact structural projection V0 G0 ledger
+- bbe535fb57952224fb2352c1169a4563ef90009b	docs: add structural projection V0 G0 G1 design
+- ba766cdad999f9a85d457306491ea7f3928bd4ac	docs: add structural projection V0 G0 coverage ledger
 
 ### Evidencia que originó esta proyección
 
-- `baseline-source-change` por `AGENTS.md`
-- `baseline-source-change` por `docs/project/implementation_roadmap.md`
-- `baseline-source-change` por `docs/project/project_context.md`
-- `baseline-source-change` por `documents/projects/jarvis/ideas.md`
-- `governance-change` por `documents/projects/jarvis/ideas.md`
-- `operational-tooling-change` por `docs/development/development_checklist.md`
-- `operational-tooling-change` por `docs/development/malak_construction_protocol.md`
+- `architecture-change` por `src/malak/infrastructure/repository_structure.py`
+- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-REPOSITORY-STRUCTURAL-PROJECTION-V0-G0-COVERAGE-LEDGER.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-REPOSITORY-STRUCTURAL-PROJECTION-V0-G0-G1-DESIGN.md`
+- `test-change` por `tests/test_repository_structure.py`
 <!-- MALAK_VAULT_SYNC:END -->
 
 <!-- MALAK_OPERATIONAL_STATE:START -->
@@ -76,7 +68,7 @@ retrieval_scope: active
 > Estado machine-owned derivado de la fuente oficial.
 > No concede autoridad ni reemplaza decisiones humanas.
 
-- **HEAD oficial:** `e14787431f864f74226706ad8655a348ee102d77`
+- **HEAD oficial:** `a1028f626cdca2da9979002a21d70645ed848e3e`
 - **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.11.md`
 - **Titulo declarado:** Sprint 7.11 — Reproducible Validation Pipeline Foundation
 - **Estado declarado:** `completado`
