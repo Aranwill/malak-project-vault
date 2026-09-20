@@ -23,10 +23,10 @@ tags:
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260916T230628458498Z_ed1b648c_b113f3c5`
-- **HEAD oficial observado:** `ed1b648c03acb40197d5eb7282a5f9babecd4073`
-- **Commit previamente observado:** `59859241c1052301eec832d7805633e9aba2d5d2`
-- **Generado:** `2026-09-16T23:06:28.458498+00:00`
+- **Run ID:** `20260920T013337938118Z_433e075b_980491c8`
+- **HEAD oficial observado:** `433e075bb762cc5fb4bf11e18efe18a1faab7a2f`
+- **Commit previamente observado:** `1b4bc19769344458e1af7943c45c34a2fb8a67e5`
+- **Generado:** `2026-09-20T01:33:37.938118+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
@@ -37,18 +37,18 @@ tags:
 - **Estado declarado:** `completado`
 - **`as_of_commit` declarado:** no disponible
 
-### Commits oficiales observados
+### Relación histórica observada
 
-- ed1b648c03acb40197d5eb7282a5f9babecd4073	Merge pull request #144 from Aranwill/test/g2p-a-permission-operation-binding-red-20260916
-- fb7625f84f8e518bfcc90be8c0d3ae4c9da9e205	feat(security): enforce operation permission binding
-- 01000c0bb5337e5f93fbe49ee331d0568476fc11	feat(security): record protected operation permission
-- 46c307023780eec7e5f266886cda8a72cc2a8722	test(security): define G2P-A permission enforcement RED contract
-- f2d95002c3de0dadfad1ad9dfba91edaf398efd9	test(security): define G2P-A audit RED contract
+- history_relation: non_fast_forward
+- previous_head: 1b4bc19769344458e1af7943c45c34a2fb8a67e5
+- current_head: 433e075bb762cc5fb4bf11e18efe18a1faab7a2f
+- old_only_commits: 524
+- new_only_commits: 524
+- commit_listing: omitted_to_avoid_history_rewrite_amplification
 
 ### Evidencia que originó esta proyección
 
-- `security-change` por `src/malak/security/audit.py`
-- `security-change` por `src/malak/security/pep.py`
+- `security-change` por `SECURITY.md`
 <!-- MALAK_VAULT_SYNC:END -->
 
 <!-- MALAK_OPERATIONAL_STATE:START -->
@@ -57,7 +57,7 @@ tags:
 > Estado machine-owned derivado de la fuente oficial.
 > No concede autoridad ni reemplaza decisiones humanas.
 
-- **HEAD oficial:** `ed1b648c03acb40197d5eb7282a5f9babecd4073`
+- **HEAD oficial:** `433e075bb762cc5fb4bf11e18efe18a1faab7a2f`
 - **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.11.md`
 - **Titulo declarado:** Sprint 7.11 — Reproducible Validation Pipeline Foundation
 - **Estado declarado:** `completado`
@@ -345,3 +345,5 @@ validación multiplataforma, el recovery operativo y la preservación de
 - [[07-audits/vault-synchronization/2026-09-19_VAULT_SYNC_20260919T170647793670Z_913f032e_50e64b21|Sincronización 20260919T170647793670Z_913f032e_50e64b21]]
 
 - [[07-audits/vault-synchronization/2026-09-19_VAULT_SYNC_20260919T172833335110Z_1b4bc197_1637c276|Sincronización 20260919T172833335110Z_1b4bc197_1637c276]]
+
+- [[07-audits/vault-synchronization/2026-09-20_VAULT_SYNC_20260920T013337938118Z_433e075b_980491c8|Sincronización 20260920T013337938118Z_433e075b_980491c8]]
