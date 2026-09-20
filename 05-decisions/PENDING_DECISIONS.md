@@ -28,10 +28,10 @@ retrieval_scope: proposals
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260919T170647793670Z_913f032e_50e64b21`
-- **HEAD oficial observado:** `913f032e981376860720381c2740274b840e5b0a`
-- **Commit previamente observado:** `a33aba233115830e002c6a6646aa1a701f77aa8d`
-- **Generado:** `2026-09-19T17:06:47.793670+00:00`
+- **Run ID:** `20260920T013337938118Z_433e075b_980491c8`
+- **HEAD oficial observado:** `433e075bb762cc5fb4bf11e18efe18a1faab7a2f`
+- **Commit previamente observado:** `1b4bc19769344458e1af7943c45c34a2fb8a67e5`
+- **Generado:** `2026-09-20T01:33:37.938118+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
@@ -42,16 +42,55 @@ retrieval_scope: proposals
 - **Estado declarado:** `completado`
 - **`as_of_commit` declarado:** no disponible
 
-### Commits oficiales observados
+### Relación histórica observada
 
-- 913f032e981376860720381c2740274b840e5b0a	Merge pull request #156 from Aranwill/docs/e5-b1-readonly-explorer-g0-g1-20260919
-- 2f6a40db754c00299653dc0dc1f08a19b15d3db8	docs(e5): define B1 read-only Explorer G0 G1 design
-- 2060e9a02b8689dd3a34f97841e875d22d33b55a	docs(e5): add B1 Explorer G0 coverage ledger
+- history_relation: non_fast_forward
+- previous_head: 1b4bc19769344458e1af7943c45c34a2fb8a67e5
+- current_head: 433e075bb762cc5fb4bf11e18efe18a1faab7a2f
+- old_only_commits: 524
+- new_only_commits: 524
+- commit_listing: omitted_to_avoid_history_rewrite_amplification
 
 ### Evidencia que originó esta proyección
 
+- `baseline-source-change` por `AGENTS.md`
+- `baseline-source-change` por `docs/project/implementation_roadmap.md`
+- `baseline-source-change` por `docs/project/project_context.md`
+- `baseline-source-change` por `docs/project/sprints/SPRINT-7.10.md`
+- `baseline-source-change` por `docs/project/sprints/SPRINT-7.11.md`
+- `baseline-source-change` por `docs/project/sprints/SPRINT-7.3.md`
+- `baseline-source-change` por `docs/project/sprints/SPRINT-7.4.md`
+- `baseline-source-change` por `docs/project/sprints/SPRINT-7.9.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/CONSTITUTIONAL-ASSURANCE-G0-COVERAGE-LEDGER.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/EPISODIC-ADMISSION-ASSESSMENT-PRODUCER-AUTHORIZATION-G0-G1-DESIGN.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/EPISODIC-ADMISSION-ASSESSMENT-PRODUCER-AUTHORIZATION-G2-IMPLEMENTATION-CANDIDATE-SPEC.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/EPISODIC-ADMISSION-ASSESSMENT-PROVENANCE-G0-G1-DESIGN.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/EPISODIC-ADMISSION-ASSESSMENT-PROVENANCE-G2-IMPLEMENTATION-CANDIDATE-SPEC.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/EPISODIC-ADMISSION-GOVERNED-INPUT-PROJECTION-G0-G1-DESIGN.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/EPISODIC-ADMISSION-GOVERNED-INPUT-PROJECTION-G2-IMPLEMENTATION-CANDIDATE-SPEC.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/EPISODIC-ADMISSION-GOVERNED-PROJECTION-CONSUMPTION-G0-G1-DESIGN.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/EPISODIC-ADMISSION-GOVERNED-PROJECTION-CONSUMPTION-G2-IMPLEMENTATION-CANDIDATE-SPEC.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/EPISODIC-CANDIDATE-CONTENT-IDENTITY-G0-G1-DESIGN.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/EPISODIC-CANDIDATE-CONTENT-IDENTITY-PROPAGATION-G0-G1-DESIGN.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/EPISODIC-CANDIDATE-CONTENT-IDENTITY-PROPAGATION-G2-IMPLEMENTATION-CANDIDATE-SPEC.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-ADR-002-BOUND-AUTHORIZATION-ENFORCEMENT-HARDENING-G2.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-CAL-014-DURABLE-RELIANCE-CONSTITUTIONAL-IMPACT-G0-G1.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-CAL-014-NORMATIVE-PROMOTION-SCOPE-FREEZE.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-COGNITIVE-ASSURANCE-CONSTITUTIONAL-IMPACT-G0-G1.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-COGNITIVE-ASSURANCE-G1-PROGRESSIVE-DESIGN.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-COGNITIVE-ASSURANCE-NORMATIVE-PROMOTION-SCOPE-FREEZE.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-E4-ENGINEERING-PROPOSE-G0-G1-DESIGN.md`
 - `baseline-source-change` por `docs/project/sprints/proposals/MALAK-E5-B1-READONLY-EXPLORER-G0-COVERAGE-LEDGER.md`
 - `baseline-source-change` por `docs/project/sprints/proposals/MALAK-E5-B1-READONLY-EXPLORER-G0-G1-DESIGN.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-E5-ENGINEERING-CLI-G0-G1-DESIGN.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-E5-G0-COVERAGE-LEDGER.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/RDD-M1-CANDIDATE-BOUND-EVIDENCE-FOUNDATION.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/RDD-M1-G0-COVERAGE-LEDGER.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/SPRINT-7.11-G0-COVERAGE-LEDGER.md`
+- `baseline-source-change` por `docs/project/status/MALAK-POST-AUDIT-REBASELINE-20260911.md`
+- `baseline-source-change` por `docs/project/status/MALAK-STATE-RECONCILIATION-20260915.md`
+- `baseline-source-change` por `documents/projects/jarvis/ideas.md`
+- `governance-change` por `documents/projects/jarvis/ideas.md`
 <!-- MALAK_VAULT_SYNC:END -->
 
 <!-- MALAK_OPERATIONAL_STATE:START -->
@@ -60,7 +99,7 @@ retrieval_scope: proposals
 > Estado machine-owned derivado de la fuente oficial.
 > No concede autoridad ni reemplaza decisiones humanas.
 
-- **HEAD oficial:** `913f032e981376860720381c2740274b840e5b0a`
+- **HEAD oficial:** `433e075bb762cc5fb4bf11e18efe18a1faab7a2f`
 - **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.11.md`
 - **Titulo declarado:** Sprint 7.11 — Reproducible Validation Pipeline Foundation
 - **Estado declarado:** `completado`

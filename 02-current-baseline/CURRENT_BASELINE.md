@@ -28,10 +28,10 @@ retrieval_scope: active
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260919T172833335110Z_1b4bc197_1637c276`
-- **HEAD oficial observado:** `1b4bc19769344458e1af7943c45c34a2fb8a67e5`
-- **Commit previamente observado:** `913f032e981376860720381c2740274b840e5b0a`
-- **Generado:** `2026-09-19T17:28:33.335110+00:00`
+- **Run ID:** `20260920T013337938118Z_433e075b_980491c8`
+- **HEAD oficial observado:** `433e075bb762cc5fb4bf11e18efe18a1faab7a2f`
+- **Commit previamente observado:** `1b4bc19769344458e1af7943c45c34a2fb8a67e5`
+- **Generado:** `2026-09-20T01:33:37.938118+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
@@ -42,21 +42,59 @@ retrieval_scope: active
 - **Estado declarado:** `completado`
 - **`as_of_commit` declarado:** no disponible
 
-### Commits oficiales observados
+### Relación histórica observada
 
-- 1b4bc19769344458e1af7943c45c34a2fb8a67e5	Merge pull request #157 from Aranwill/test/e5-b1-readonly-explorer-red-20260919
-- 68bc81fda8659aafac6c028b977df138bdb6c3c1	feat(e5): add deterministic read-only Explorer surface
-- 5a61b6e2e7e876a7a015034c1d1905831d7c7cf1	feat(e5): expose shared read-only Explorer readers
-- 280e4efc5c6c448268d78a64900d3ccec9724b07	test(e5): tighten B1 Explorer RED contract
-- e31652200b6a8f80aa8f65f65adf17b999d2e156	test(e5): define B1 shared-reader RED contract
-- f0c7830dd7eb91ea5d0c3478870b8705656ade18	test(e5): define B1 Explorer CLI RED contract
+- history_relation: non_fast_forward
+- previous_head: 1b4bc19769344458e1af7943c45c34a2fb8a67e5
+- current_head: 433e075bb762cc5fb4bf11e18efe18a1faab7a2f
+- old_only_commits: 524
+- new_only_commits: 524
+- commit_listing: omitted_to_avoid_history_rewrite_amplification
 
 ### Evidencia que originó esta proyección
 
-- `architecture-change` por `src/malak/app/cli.py`
-- `architecture-change` por `src/malak/app/composition.py`
-- `test-change` por `tests/test_app_composition.py`
-- `test-change` por `tests/test_cli.py`
+- `baseline-source-change` por `AGENTS.md`
+- `baseline-source-change` por `docs/project/implementation_roadmap.md`
+- `baseline-source-change` por `docs/project/project_context.md`
+- `baseline-source-change` por `docs/project/sprints/SPRINT-7.10.md`
+- `baseline-source-change` por `docs/project/sprints/SPRINT-7.11.md`
+- `baseline-source-change` por `docs/project/sprints/SPRINT-7.3.md`
+- `baseline-source-change` por `docs/project/sprints/SPRINT-7.4.md`
+- `baseline-source-change` por `docs/project/sprints/SPRINT-7.9.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/CONSTITUTIONAL-ASSURANCE-G0-COVERAGE-LEDGER.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/EPISODIC-ADMISSION-ASSESSMENT-PRODUCER-AUTHORIZATION-G0-G1-DESIGN.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/EPISODIC-ADMISSION-ASSESSMENT-PRODUCER-AUTHORIZATION-G2-IMPLEMENTATION-CANDIDATE-SPEC.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/EPISODIC-ADMISSION-ASSESSMENT-PROVENANCE-G0-G1-DESIGN.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/EPISODIC-ADMISSION-ASSESSMENT-PROVENANCE-G2-IMPLEMENTATION-CANDIDATE-SPEC.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/EPISODIC-ADMISSION-GOVERNED-INPUT-PROJECTION-G0-G1-DESIGN.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/EPISODIC-ADMISSION-GOVERNED-INPUT-PROJECTION-G2-IMPLEMENTATION-CANDIDATE-SPEC.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/EPISODIC-ADMISSION-GOVERNED-PROJECTION-CONSUMPTION-G0-G1-DESIGN.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/EPISODIC-ADMISSION-GOVERNED-PROJECTION-CONSUMPTION-G2-IMPLEMENTATION-CANDIDATE-SPEC.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/EPISODIC-CANDIDATE-CONTENT-IDENTITY-G0-G1-DESIGN.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/EPISODIC-CANDIDATE-CONTENT-IDENTITY-PROPAGATION-G0-G1-DESIGN.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/EPISODIC-CANDIDATE-CONTENT-IDENTITY-PROPAGATION-G2-IMPLEMENTATION-CANDIDATE-SPEC.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-ADR-002-BOUND-AUTHORIZATION-ENFORCEMENT-HARDENING-G2.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-CAL-014-DURABLE-RELIANCE-CONSTITUTIONAL-IMPACT-G0-G1.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-CAL-014-NORMATIVE-PROMOTION-SCOPE-FREEZE.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-COGNITIVE-ASSURANCE-CONSTITUTIONAL-IMPACT-G0-G1.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-COGNITIVE-ASSURANCE-G1-PROGRESSIVE-DESIGN.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-COGNITIVE-ASSURANCE-NORMATIVE-PROMOTION-SCOPE-FREEZE.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-E4-ENGINEERING-PROPOSE-G0-G1-DESIGN.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-E5-B1-READONLY-EXPLORER-G0-COVERAGE-LEDGER.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-E5-B1-READONLY-EXPLORER-G0-G1-DESIGN.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-E5-ENGINEERING-CLI-G0-G1-DESIGN.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-E5-G0-COVERAGE-LEDGER.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/RDD-M1-CANDIDATE-BOUND-EVIDENCE-FOUNDATION.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/RDD-M1-G0-COVERAGE-LEDGER.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/SPRINT-7.11-G0-COVERAGE-LEDGER.md`
+- `baseline-source-change` por `docs/project/status/MALAK-POST-AUDIT-REBASELINE-20260911.md`
+- `baseline-source-change` por `docs/project/status/MALAK-STATE-RECONCILIATION-20260915.md`
+- `baseline-source-change` por `documents/projects/jarvis/ideas.md`
+- `operational-tooling-change` por `.github/PULL_REQUEST_TEMPLATE.md`
+- `operational-tooling-change` por `docs/development/development_checklist.md`
+- `operational-tooling-change` por `docs/development/evidence_manifest.md`
+- `operational-tooling-change` por `docs/development/malak_construction_protocol.md`
+- `security-change` por `SECURITY.md`
 <!-- MALAK_VAULT_SYNC:END -->
 
 <!-- MALAK_OPERATIONAL_STATE:START -->
@@ -65,7 +103,7 @@ retrieval_scope: active
 > Estado machine-owned derivado de la fuente oficial.
 > No concede autoridad ni reemplaza decisiones humanas.
 
-- **HEAD oficial:** `1b4bc19769344458e1af7943c45c34a2fb8a67e5`
+- **HEAD oficial:** `433e075bb762cc5fb4bf11e18efe18a1faab7a2f`
 - **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.11.md`
 - **Titulo declarado:** Sprint 7.11 — Reproducible Validation Pipeline Foundation
 - **Estado declarado:** `completado`
