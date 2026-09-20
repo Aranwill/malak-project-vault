@@ -28,10 +28,10 @@ retrieval_scope: proposals
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260920T160252608688Z_2a00a166_460c2853`
-- **HEAD oficial observado:** `2a00a16618a7f11403edd06f051fd8cbb68849ed`
-- **Commit previamente observado:** `a1028f626cdca2da9979002a21d70645ed848e3e`
-- **Generado:** `2026-09-20T16:02:52.608688+00:00`
+- **Run ID:** `20260920T164742842874Z_79319eef_022fe2a8`
+- **HEAD oficial observado:** `79319eef23cdd1490531d01de914712811135d9d`
+- **Commit previamente observado:** `2a00a16618a7f11403edd06f051fd8cbb68849ed`
+- **Generado:** `2026-09-20T16:47:42.842874+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
@@ -44,17 +44,23 @@ retrieval_scope: proposals
 
 ### Commits oficiales observados
 
-- 2a00a16618a7f11403edd06f051fd8cbb68849ed	Merge pull request #166 from Aranwill/test/repository-structural-lookup-v0-red-20260920
-- 75172332201abca62b0dab7399029d17cc368206	feat: implementar Repository Structural Lookup V0
-- e7e840c6129cf522b2bbab770ebc8996b4bc3397	docs: registrar autorización GREEN de Structural Lookup V0
-- 563c4740aabd35b7a14a92e9d7a054bb0e3cfa48	test: agregar contrato RED de Structural Lookup V0
-- 7097884440080031a4b8355b8a54b3e70bf79bb4	docs: registrar autorización RED de Structural Lookup V0
-- 4ac80a4d9d0d575096a25ef43dd67ef9900c247a	Merge pull request #165 from Aranwill/docs/repository-structural-lookup-v0-g0-g1-20260920
-- e62e057569b155d0aabebf19f43cfb5c41649672	docs: admit Repository Structural Lookup V0 G0 G1
+- 79319eef23cdd1490531d01de914712811135d9d	Merge pull request #168 from Aranwill/test/e2-structural-evidence-v0-red-20260920
+- 5e28b9a3171eeb5132f5573f5b230b5c6103a599	test: limpiar EOF de test_engineering_inspect.py
+- cc9f1b42a8d883171e13d91144b8b9f07f596fda	test: limpiar EOF de test_app_composition.py
+- 8a3a9a3cc67aa1f670620ad635ac693b14c2cf68	test: aislar ausencia de substring matching estructural
+- 84bc6bdc293443d721d22bf3f622aac43ba1fcdc	docs: registrar autorización GREEN de E2 structural evidence V0
+- 91a8711493fa1bde97c14a0a20699c8bb78c7896	feat: componer proyección estructural sólo para E2
+- 73cd6b3de3598318e1c2201c13dc4cab534d31cd	feat: integrar evidencia estructural determinista en E2
+- fb7d39220661e5eb5b35c601de6ee422f2066584	test: fijar composición E2-only de evidencia estructural
+- f150a00f7a3a80bef81ba05099d3a580ad2f99a5	test: agregar RED de evidencia estructural en E2
+- 7894b91806b23b085c054542cf3a8ee1acadaf88	docs: registrar autorización RED de E2 structural evidence V0
+- e7ce1bfab8b73690c8e3c5b032c6baf0ee63b2c0	Merge pull request #167 from Aranwill/docs/e2-structural-evidence-v0-g0-g1-20260920
+- 8bfe9dbc897bdd070f01379922e35f642c03ec3a	docs: compactar diseño E2 structural evidence V0
+- 14ea4b7f4ceda1e14a8357320f563fed3d6f029c	docs: admitir integración de evidencia estructural en E2 V0
 
 ### Evidencia que originó esta proyección
 
-- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-REPOSITORY-STRUCTURAL-LOOKUP-V0-G0-G1-DESIGN.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-E2-STRUCTURAL-EVIDENCE-INTEGRATION-V0-G0-G1-DESIGN.md`
 <!-- MALAK_VAULT_SYNC:END -->
 
 <!-- MALAK_OPERATIONAL_STATE:START -->
@@ -63,7 +69,7 @@ retrieval_scope: proposals
 > Estado machine-owned derivado de la fuente oficial.
 > No concede autoridad ni reemplaza decisiones humanas.
 
-- **HEAD oficial:** `2a00a16618a7f11403edd06f051fd8cbb68849ed`
+- **HEAD oficial:** `79319eef23cdd1490531d01de914712811135d9d`
 - **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.11.md`
 - **Titulo declarado:** Sprint 7.11 — Reproducible Validation Pipeline Foundation
 - **Estado declarado:** `completado`
