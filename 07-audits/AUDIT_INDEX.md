@@ -23,10 +23,10 @@ tags:
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260923T002158346472Z_1442463e_e3b4eff1`
-- **HEAD oficial observado:** `1442463ec397c052e16d21378bfb11c3e0c48662`
-- **Commit previamente observado:** `07a7c554d36e4eb844f706fdb1959c999a925291`
-- **Generado:** `2026-09-23T00:21:58.346472+00:00`
+- **Run ID:** `20260923T235332157952Z_3716a701_a1942670`
+- **HEAD oficial observado:** `3716a7019d475bb41b8d593b8a5725cfc3fb2c8c`
+- **Commit previamente observado:** `1442463ec397c052e16d21378bfb11c3e0c48662`
+- **Generado:** `2026-09-23T23:53:32.157952+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
@@ -39,28 +39,82 @@ tags:
 
 ### Commits oficiales observados
 
-- 1442463ec397c052e16d21378bfb11c3e0c48662	Merge pull request #178 from Aranwill/docs/reconcile-e2-structural-state-20260922
-- b2aecbe7266646ced46a1ad94ed0f15c10371208	docs: reconcile E2 structural evaluation state
-- e29d3dc79445506aa9bb4e59a8383524d627db68	Merge pull request #177 from Aranwill/test/e2-structural-eval-v0-red-20260922
-- 931ec51a3f62bd205c78f1c7754c4f28520a75dd	test: pin fail-closed evaluation terminal result
-- 573e7afbcaa3527013ac56619939094ac135be43	test: cover all review attestation fail-closed states
-- 688e11b529b0f7cb43f354ae0d8254d9220dbdf2	fix: structure review attestation provenance fail closed
-- 2241868b5633b1dc523f9fb06dc06d0c6658208c	test: harden E2 evaluation review and schema boundaries
-- 034bd39b925428f82d36ada2bccd73595ca2582c	fix: require external digest-bound ground truth attestation
-- ee684354dbde1bb44488eaa556d6cec9b30bca07	fix: remove self-attested ground truth review state
-- fc1b5ebcf1fab43a45606fb6d95c017916183c7b	fix: fail closed on E2 evaluation conformance
-- 0dd976558cf1c16f13e37059566ec7c64cbf9c62	feat: implement E2 structural evidence V0 runner
-- c7c1f71671a3a5d2e88a4bf1d261fa9f2f8281bf	feat: add E2 structural evidence V0 case set
-- 3dfa1ccd792b2851944c9438a8e92842c837cbe4	test: establish RED for E2 structural evidence evaluation V0
+- 3716a7019d475bb41b8d593b8a5725cfc3fb2c8c	Merge pull request #184 from Aranwill/test/internal-interaction-test-v0-red-20260923
+- 56023137dbfd2aca1db70d93d35cfe297eb0c917	docs: reconciliar primer slice ejecutable del Self-Review V0
+- 1cd7b47ff612cf020a94eafd3108d989f7fc67c6	test: reconciliar RED con slice U01 ejecutable
+- e60d16edcc2124d23b465b9b45f9f7150fa811f6	fix: acotar primer slice ejecutable del Self-Review V0
+- 7eb1ad43f909d400fcbe03618f13ae3cdcb2cccb	test: agregar E2E gobernado del Self-Review V0
+- 03d05b574e7901cdd7e5e1fb619903807bb0c9af	test: cubrir timeout Git del harness V0
+- ff878f1f3524d562ad8a2c0c8606e98d0e8d73b7	hardening: acotar preflight Git de Self-Review V0
+- 4750e46ab29c1c413cdedb15c75461cd3bcbf31a	fix: mantener summary mínimo gobernado en Self-Review V0
+- b51d4234d16ddecc895ec4c19e57160b4f949f87	feat: integrar CLI Self-Review Test V0
+- 1683d9a15b7d9daf459687b28b14b4824cdfc6a4	feat: agregar harness Internal Interaction Test V0
+- ce04b630690709284eb91ad0d31eaf330b4bf9af	docs: autorizar GREEN de Internal Interaction Test V0
+- 7be4e29777962d6a106520e4549b0568b18a8722	test: agregar RED de CLI Self-Review Test V0
+- 57f0bdd8412218b3915805099268fe40b276243f	test: agregar RED del harness Internal Interaction Test V0
+- 326165fef809546131c92727cfcc65403ea06250	docs: autorizar RED de Internal Interaction Test V0
+- bd308d5f6bc221dd2582021de9abe00be3152191	Merge pull request #183 from Aranwill/docs/internal-interaction-test-v0-g0g1-20260923
+- ed14b72f56701c353f419aa1def5d3d02a408486	docs: definir Internal Interaction Test V0 G0/G1
+- 444b99a3a43c7c4e7863ed827b037c6895baa2e1	docs: mapear G0 de Internal Interaction Test V0
+- 424febae61d6ab6f1f312efdb4bcad03f0cf79fd	Merge pull request #182 from Aranwill/test/live-replay-visual-projection-v0-red-20260923
+- 37eddc41770294c0df3c4b52d03758f634d32827	docs: autorizar GREEN de Live Replay Visual Projection V0
+- aefd0334b641e409cae945f0ea6f87ae2ac4e3ce	feat: integrar superficie CLI trace V0
+- 3a4877c659c94530c6242af8cd3d9ea45f8e8a43	feat: agregar renderer y replay de trace V0
+- 4e4334a43a127870080eadb4875161f31ace4335	feat: agregar proyección de trace V0
+- 7e4f5348f9ebd9e60e0defe85910aeff719c6476	test: agregar RED de superficie CLI trace V0
+- e263e9f1bc9cb3acf6a8f6e491340b5ac2d86e29	test: agregar RED de renderer y replay visual V0
+- c0002af479b725b38f870ba2dff3bcd1e1c326d6	test: agregar RED de proyección visual de trace V0
+- 86ea10422d35f1d0052903b905750123f259c77e	docs: autorizar RED de Live Replay Visual Projection V0
+- 675121c3c3180c8436a6e436997247307b19207b	Merge pull request #181 from Aranwill/docs/live-replay-visual-projection-v0-g0g1-20260923
+- 521a3223f7dbd8a1182fc40e69200d838eef3d3d	docs: define Live Replay Visual Projection V0 G0/G1
+- c1b2bf9a7bfdf3682d1753ae5c6d5f0fa5e3f4e6	docs: map Live Replay Visual Projection V0 G0
+- 0424cfeca7ca16fa59649b9bdfbe45f739030c25	Merge pull request #180 from Aranwill/test/internal-interaction-trace-v0-red-20260923
+- 9ff8c1689e95075f7a04780d5c5a71823538c09d	docs: checkpoint Internal Interaction Trace V0 GREEN candidate
+- ceedec2e078b9c950074e02561249054ce8dcce5	docs: authorize Internal Interaction Trace V0 GREEN
+- c6e5b98b9dbf34ce9ca0e6f95d6b1844a4ef5f71	test: add real EngineeringKernelSet E2E validation
+- 76909dd69740a77d77deb7932e5e62babd96c3c7	fix: bind runtime attestation and preserve operational outputs BC2
+- 8920eda9025ad90f2576bd60bb3a541aa964e9b7	test: preserve consultable operational outputs BC2
+- ec9fe34b6ecdc9a63f52583cf2c90fc293da9472	test: bind attestation metadata to run artifacts BC2
+- 5025a482b96f909fa339aaf6830602b03c05f969	fix: timestamp live trace events with runtime clock BC2
+- f8d45b2d79d1dc35c053a9fea0cfd567fb033e3d	test: require real-time trace timestamps BC2
+- dca47fc01dd367322f48a41cbe32d7c1a9742aee	fix: correct canonical finding regex BC1
+- 86122cddd528e556399a9ff50685303d27734bba	fix: close Internal Interaction V0 BC1 findings
+- 6f62acb8b82b5616b3f3301418164e85ea7ae022	fix: harden trace semantics and replay validation BC1
+- 87aacb1f19c208f78a27e0ced10a996ec9be9b9c	test: add bounded correction hardening cases BC1
+- ca5e125e5c8343a3b0b762d17229e999d93c7de6	test: harden trace replay semantics BC1
+- 6aee76d658a263bb4d6a665440695235518ef2ce	docs: record GREEN authorization for Internal Interaction V0
+- 264e99a91ef56fc3ed3c4872edfa8ac6b3c5611f	feat: implement internal interaction runner V0
+- c257aff32d13ce0cb635a9ccae0dbbc6bd6e21c3	feat: implement self-review evidence packet V0
+- 0124e5f7ad01be58b047e2aed86fbfc8fa5b15c1	feat: implement execution trace V0
+- 4d9a4e873d578b16c6de25e552b6073f30618970	test: add RED internal interaction runner V0
+- 59a674bd79a610878558d141cde5c17ab01d57e4	test: add RED self-review evidence packet V0
+- faed08a8da7d86f6bf02797faabb90a4aafa20b1	test: add RED execution trace contract V0
+- a7ff3d7579e122c175a4680e2a171aa5679fa28c	docs: harden Internal Interaction Trace V0 before RED
+- eb5a48fad12b8888192139e2b8a552bf50ce4870	Merge pull request #179 from Aranwill/docs/internal-interaction-trace-v0-g0g1-20260923
+- c3a10cdbf5c3521e63b5b35582fb358c48db03ed	docs: define Internal Interaction Trace V0 G0/G1
 
 ### Evidencia que originó esta proyección
 
-- `baseline-source-change` por `CHANGELOG.md`
-- `baseline-source-change` por `docs/project/implementation_roadmap.md`
-- `baseline-source-change` por `docs/project/project_context.md`
-- `operational-tooling-change` por `evaluations/e2_structural_evidence_v0/cases.json`
-- `operational-tooling-change` por `scripts/evaluate_e2_structural_evidence.py`
-- `test-change` por `tests/test_e2_structural_evidence_evaluation.py`
+- `architecture-change` por `src/malak/app/cli.py`
+- `architecture-change` por `src/malak/app/internal_interaction.py`
+- `architecture-change` por `src/malak/app/internal_interaction_test_v0.py`
+- `architecture-change` por `src/malak/app/trace_view.py`
+- `architecture-change` por `src/malak/observability/execution_trace.py`
+- `architecture-change` por `src/malak/observability/execution_trace_projection.py`
+- `architecture-change` por `src/malak/services/self_review_evidence.py`
+- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-INTERNAL-INTERACTION-TEST-V0-G0-COVERAGE-LEDGER.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-INTERNAL-INTERACTION-TEST-V0-G0-G1-DESIGN.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-INTERNAL-INTERACTION-TRACE-V0-G0-G1-DESIGN.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-LIVE-REPLAY-VISUAL-PROJECTION-V0-G0-COVERAGE-LEDGER.md`
+- `baseline-source-change` por `docs/project/sprints/proposals/MALAK-LIVE-REPLAY-VISUAL-PROJECTION-V0-G0-G1-DESIGN.md`
+- `test-change` por `tests/test_cli_self_review_v0.py`
+- `test-change` por `tests/test_cli_trace_v0.py`
+- `test-change` por `tests/test_execution_trace_projection_v0.py`
+- `test-change` por `tests/test_execution_trace_v0.py`
+- `test-change` por `tests/test_internal_interaction_test_v0_harness.py`
+- `test-change` por `tests/test_internal_interaction_v0.py`
+- `test-change` por `tests/test_self_review_evidence_packet_v0.py`
+- `test-change` por `tests/test_trace_view_v0.py`
 <!-- MALAK_VAULT_SYNC:END -->
 
 <!-- MALAK_OPERATIONAL_STATE:START -->
@@ -69,7 +123,7 @@ tags:
 > Estado machine-owned derivado de la fuente oficial.
 > No concede autoridad ni reemplaza decisiones humanas.
 
-- **HEAD oficial:** `1442463ec397c052e16d21378bfb11c3e0c48662`
+- **HEAD oficial:** `3716a7019d475bb41b8d593b8a5725cfc3fb2c8c`
 - **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.11.md`
 - **Titulo declarado:** Sprint 7.11 — Reproducible Validation Pipeline Foundation
 - **Estado declarado:** `completado`
@@ -377,3 +431,5 @@ validación multiplataforma, el recovery operativo y la preservación de
 - [[07-audits/vault-synchronization/2026-09-20_VAULT_SYNC_20260920T224831217834Z_07a7c554_96eba459|Sincronización 20260920T224831217834Z_07a7c554_96eba459]]
 
 - [[07-audits/vault-synchronization/2026-09-23_VAULT_SYNC_20260923T002158346472Z_1442463e_e3b4eff1|Sincronización 20260923T002158346472Z_1442463e_e3b4eff1]]
+
+- [[07-audits/vault-synchronization/2026-09-23_VAULT_SYNC_20260923T235332157952Z_3716a701_a1942670|Sincronización 20260923T235332157952Z_3716a701_a1942670]]
