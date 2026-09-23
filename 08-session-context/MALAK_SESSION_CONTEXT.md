@@ -8,7 +8,7 @@ authority_level: technical_documentation
 authority_rank: 6
 version: 1.3
 created: 2026-07-20
-last_reviewed: 2026-09-12
+last_reviewed: 2026-09-23
 source_repository: Aranwill/jarvis
 source_branch: main
 derived: true
@@ -79,6 +79,23 @@ retrieval_scope: active
 - **Estado declarado:** `completado`
 - **`as_of_commit` declarado:** no disponible
 <!-- MALAK_OPERATIONAL_STATE:END -->
+
+## Registro manual de cierre más reciente
+
+> [!info] Contexto histórico derivado
+> Este bloque no reemplaza `MALAK_OPERATIONAL_STATE` ni corrige manualmente
+> bloques machine-owned. Resume el último cierre de sesión verificado mientras
+> la reconciliación determinista del Vault permanece pendiente.
+
+- **Cierre:** [[08-session-context/2026-09-23_INTERNAL_INTERACTION_V0_SESSION_CLOSE|Internal Interaction Test V0 — 2026-09-23]]
+- **Malāk `main` verificado durante el cierre:** `3716a7019d475bb41b8d593b8a5725cfc3fb2c8c`
+- **Estado del primer bootstrap real:** harness operativo; U01 ejecutado; resultado cognitivo `INCONCLUSIVE`.
+- **Hallazgos abiertos:** `OBS-01`, `OBS-02`, `EVID-01`, `EVID-02`, `BOOT-01`.
+- **Próximo gate candidato:** `Governed Engineering Evidence Focus / Bootstrap Multi-Focus`.
+- **U04 / RR-03:** `DEFERRED / NOT_EXECUTED`; no deben declararse cubiertos.
+- **Tercer run U01:** diferido hasta revisar selección/completitud de evidencia.
+- **Sync del Vault:** pendiente; el bloque machine-owned continúa describiendo un HEAD anterior y debe actualizarse mediante el Vault Sync Agent.
+
 
 ## 1. Instrucción de uso
 
