@@ -27,10 +27,10 @@ retrieval_scope: active
 > `Aranwill/jarvis/main`. No aprueba decisiones, no cierra
 > sprints y no reemplaza la revisión humana del documento.
 
-- **Run ID:** `20260920T224831217834Z_07a7c554_96eba459`
-- **HEAD oficial observado:** `07a7c554d36e4eb844f706fdb1959c999a925291`
-- **Commit previamente observado:** `e6f2b5060131f961f1054e83203cb7da91f5302c`
-- **Generado:** `2026-09-20T22:48:31.217834+00:00`
+- **Run ID:** `20260923T002158346472Z_1442463e_e3b4eff1`
+- **HEAD oficial observado:** `1442463ec397c052e16d21378bfb11c3e0c48662`
+- **Commit previamente observado:** `07a7c554d36e4eb844f706fdb1959c999a925291`
+- **Generado:** `2026-09-23T00:21:58.346472+00:00`
 - **Prioridad:** `high`
 - **Disposición:** `review_required`
 
@@ -43,12 +43,23 @@ retrieval_scope: active
 
 ### Commits oficiales observados
 
-- 07a7c554d36e4eb844f706fdb1959c999a925291	Merge pull request #176 from Aranwill/docs/reconcile-memory-state-20260920
-- 5fe2f497ee6ad80bdbb67a0eb2e06edba91ccee9	docs: corregir planificación mutable de Memory
-- e24df25f196aba3c9b96764bd66408949f3cd4f6	docs: reconciliar estado actual de Memory
+- 1442463ec397c052e16d21378bfb11c3e0c48662	Merge pull request #178 from Aranwill/docs/reconcile-e2-structural-state-20260922
+- b2aecbe7266646ced46a1ad94ed0f15c10371208	docs: reconcile E2 structural evaluation state
+- e29d3dc79445506aa9bb4e59a8383524d627db68	Merge pull request #177 from Aranwill/test/e2-structural-eval-v0-red-20260922
+- 931ec51a3f62bd205c78f1c7754c4f28520a75dd	test: pin fail-closed evaluation terminal result
+- 573e7afbcaa3527013ac56619939094ac135be43	test: cover all review attestation fail-closed states
+- 688e11b529b0f7cb43f354ae0d8254d9220dbdf2	fix: structure review attestation provenance fail closed
+- 2241868b5633b1dc523f9fb06dc06d0c6658208c	test: harden E2 evaluation review and schema boundaries
+- 034bd39b925428f82d36ada2bccd73595ca2582c	fix: require external digest-bound ground truth attestation
+- ee684354dbde1bb44488eaa556d6cec9b30bca07	fix: remove self-attested ground truth review state
+- fc1b5ebcf1fab43a45606fb6d95c017916183c7b	fix: fail closed on E2 evaluation conformance
+- 0dd976558cf1c16f13e37059566ec7c64cbf9c62	feat: implement E2 structural evidence V0 runner
+- c7c1f71671a3a5d2e88a4bf1d261fa9f2f8281bf	feat: add E2 structural evidence V0 case set
+- 3dfa1ccd792b2851944c9438a8e92842c837cbe4	test: establish RED for E2 structural evidence evaluation V0
 
 ### Evidencia que originó esta proyección
 
+- `baseline-source-change` por `CHANGELOG.md`
 - `baseline-source-change` por `docs/project/implementation_roadmap.md`
 - `baseline-source-change` por `docs/project/project_context.md`
 <!-- MALAK_VAULT_SYNC:END -->
@@ -59,7 +70,7 @@ retrieval_scope: active
 > Estado machine-owned derivado de la fuente oficial.
 > No concede autoridad ni reemplaza decisiones humanas.
 
-- **HEAD oficial:** `07a7c554d36e4eb844f706fdb1959c999a925291`
+- **HEAD oficial:** `1442463ec397c052e16d21378bfb11c3e0c48662`
 - **Ficha de sprint vigente:** `docs/project/sprints/SPRINT-7.11.md`
 - **Titulo declarado:** Sprint 7.11 — Reproducible Validation Pipeline Foundation
 - **Estado declarado:** `completado`
